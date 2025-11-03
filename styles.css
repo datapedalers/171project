@@ -566,6 +566,68 @@ svg {
     height: 100%;
 }
 
+/* ===== VISUALIZATION 1 CONTROLS & LEGEND ===== */
+.viz1-controls {
+    margin-top: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.timeline-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 1 1 auto;
+}
+
+#year-slider {
+    width: 420px;
+}
+
+.year-label {
+    background: var(--accent-sepia);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+.viz1-legend {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    justify-content: flex-end;
+    min-width: 260px;
+}
+
+.viz1-legend .legend-item {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+
+.viz1-legend .legend-swatch {
+    width: 14px;
+    height: 14px;
+    border-radius: 3px;
+}
+
+/* Tooltip for viz1 */
+#viz1-tooltip {
+    background: rgba(20,20,20,0.9);
+    color: #fff;
+    padding: 8px 10px;
+    border-radius: 6px;
+    font-size: 13px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+    z-index: 2000;
+    pointer-events: none;
+}
+
 /* ===== RESPONSIVE DESIGN ===== */
 @media (max-width: 1200px) {
     #main-content {

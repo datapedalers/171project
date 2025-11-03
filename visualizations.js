@@ -41,13 +41,298 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // ===== VISUALIZATION 1: SUBJECT DISTRIBUTION TIMELINE =====
+
+// New: Initialize visualization 1 with slider and treemap/mosaic that reflects a selected decade
 function initVisualization1() {
-    const container = d3.select('#subject-timeline');
-    const width = 900;
-    const height = 400;
-    
-    // Clear any existing content
-    container.selectAll('*').remove();
+    const svg = d3.select('#subject-timeline');
+    // Reduce width so legend fits; increase height a bit
+    const width = 760;
+    const height = 480; // overall svg height
+
+    svg.attr('width', width).attr('height', height).attr('viewBox', `0 0 ${width} ${height}`);
+    // create a root group once and reuse to allow transitions
+    if (!svg.select('g.viz1-root').node()) {
+        svg.append('g').attr('class', 'viz1-root');
+    }
+
+    // Default year
+    const slider = document.getElementById('year-slider');
+    const yearLabel = document.getElementById('year-label');
+    const percentToggle = document.getElementById('percent-toggle');
+    const cumulativeToggle = document.getElementById('cumulative-toggle');
+
+    const vizHeight = 400; // drawing area height
+
+    if (slider && yearLabel) {
+        slider.min = 1840;
+        slider.max = 1920;
+        slider.step = 1;
+        slider.value = 1870;
+        yearLabel.textContent = slider.value;
+
+        const draw = () => {
+            const year = +slider.value;
+            const asPercent = percentToggle && percentToggle.checked;
+            const cumulative = cumulativeToggle && cumulativeToggle.checked;
+            yearLabel.textContent = year;
+            drawSubjectTreemap(svg, width, vizHeight, year, asPercent, cumulative);
+        };
+
+        // initial draw
+        draw();
+
+        slider.addEventListener('input', draw);
+        if (percentToggle) percentToggle.addEventListener('change', draw);
+        if (cumulativeToggle) cumulativeToggle.addEventListener('change', draw);
+    } else {
+        drawSubjectTreemap(svg, width, vizHeight, 1870, false, false);
+    }
+}
+
+// Helper: aggregate counts for chosen decade into display categories
+function getCategoryCountsForYear(year, cumulative = false) {
+    // Map of display categories to underlying dataset fields
+    const categoryMap = {
+        'Person': ['has_person'],
+        'Animal': ['has_animal'],
+        'Greenery': ['has_tree', 'has_grass', 'has_plant', 'has_field'],
+        'Water': ['has_water', 'has_river', 'has_sea'],
+        'Mountain': ['has_mountain', 'has_rock'],
+        'Road': ['has_road', 'has_sidewalk', 'has_fence', 'has_bridge'],
+        'Building': ['has_building', 'has_house', 'has_hovel'],
+        'Vehicle': ['has_boat'],
+        'Household Objects': ['has_chair', 'has_table', 'has_windowpane', 'has_curtain']
+    };
+
+    // Initialize counts
+    const counts = {};
+    Object.keys(categoryMap).forEach(k => counts[k] = 0);
+
+    // Filter photos for the exact year or all years up to the selected year if cumulative
+    const yearPhotos = photographData.filter(d => {
+        const y = +d.creation_year;
+        if (!y || isNaN(y)) return false;
+        if (cumulative) {
+            return Math.floor(y) <= Math.floor(year);
+        }
+        // compare integer year
+        return Math.floor(y) === Math.floor(year);
+    });
+
+    // Sum occurrences
+    yearPhotos.forEach(p => {
+        Object.entries(categoryMap).forEach(([cat, fields]) => {
+            for (const f of fields) {
+                if (p[f] === '1.0') {
+                    counts[cat] += 1;
+                    break; // count once per photo per category
+                }
+            }
+        });
+    });
+
+    const total = yearPhotos.length;
+    // Return raw counts and the total so caller can normalize as needed
+    return { counts, total };
+}
+
+// Draws a treemap/mosaic for the provided year (will be aggregated by decade)
+function drawSubjectTreemap(svg, width, vizHeight, year, asPercent = false, cumulative = false) {
+    // leave room on the right for legend by increasing right margin
+    const margin = { top: 20, right: 180, bottom: 20, left: 20 };
+    const innerWidth = width - margin.left - margin.right;
+    const innerHeight = vizHeight - margin.top - margin.bottom;
+
+    // reuse a treemap group so updates can transition
+    const rootG = svg.select('g.viz1-root');
+    let g = rootG.select('g.treemap-group');
+    if (!g.node()) {
+        g = rootG.append('g').attr('class', 'treemap-group').attr('transform', `translate(${margin.left},${margin.top})`);
+    } else {
+        g.attr('transform', `translate(${margin.left},${margin.top})`);
+    }
+
+    // get raw counts and year total
+    const dataObj = getCategoryCountsForYear(year, cumulative);
+    const counts = dataObj.counts;
+    const photosInYear = dataObj.total;
+
+    // compute sum of category counts (could be > photosInYear because photos can contain multiple categories)
+    const sumCounts = Object.values(counts).reduce((s, v) => s + v, 0);
+
+    // If no photos in year, show placeholder and clear existing tiles
+    if (photosInYear === 0 || sumCounts === 0) {
+        // remove any existing tiles smoothly
+        g.selectAll('.tile').transition().duration(150).style('opacity', 0).remove();
+        // update caption
+        const cap = rootG.selectAll('g.viz1-caption').data([1]);
+        const capEnter = cap.enter().append('g').attr('class', 'viz1-caption');
+        capEnter.merge(cap).selectAll('text').data([`No photographs in ${year}`]).join('text')
+            .attr('x', 20)
+            .attr('y', 16)
+            .style('font-size', '13px')
+            .style('fill', '#666')
+            .style('font-weight', '600')
+            .text(d => d);
+        return;
+    }
+
+    // Build children with both raw count and value (value is used for treemap sizing)
+    const children = Object.keys(counts).map(k => {
+        const cnt = counts[k] || 0;
+        const val = asPercent ? (sumCounts > 0 ? (cnt / sumCounts) * 100 : 0) : cnt;
+        return { name: k, count: cnt, value: val };
+    });
+
+    const root = d3.hierarchy({ children: children })
+        .sum(d => d.value)
+        .sort((a, b) => b.value - a.value);
+
+    d3.treemap()
+        .size([innerWidth, innerHeight])
+        .paddingInner(6)
+        .paddingTop(6)
+        (root);
+
+    // Color mapping: group categories into broader families
+    const family = {
+        'Person': 'animals',
+        'Animal': 'animals',
+        'Greenery': 'nature',
+        'Water': 'nature',
+        'Mountain': 'nature',
+        'Road': 'infrastructure',
+        'Building': 'infrastructure',
+        'Vehicle': 'infrastructure',
+        'Household Objects': 'object'
+    };
+
+    const familyColor = {
+        'animals': '#3BA3FF',   // light blue
+        'nature': '#9B7BFF',    // purple
+        'infrastructure': '#FF7BB0', // pink
+        'object': '#FF9A3B'     // orange
+    };
+
+    // Data join for tiles (enter/update/exit) keyed by name
+    const leaves = root.leaves();
+    const tiles = g.selectAll('g.tile').data(leaves, d => d.data.name);
+
+    // EXIT
+    tiles.exit().transition().duration(200).style('opacity', 0).remove();
+
+    // ENTER
+    const tilesEnter = tiles.enter()
+        .append('g')
+        .attr('class', 'tile')
+        .attr('transform', d => `translate(${d.x0},${d.y0})`) // initial
+        .style('opacity', 0);
+
+    tilesEnter.append('rect')
+        .attr('class', 'tile-rect')
+        .attr('width', 1)
+        .attr('height', 1)
+        .attr('fill', d => familyColor[family[d.data.name]] || '#ccc')
+        .style('stroke', '#fff')
+        .style('stroke-width', 2);
+
+    tilesEnter.append('text')
+        .attr('class', 'tile-name')
+        .attr('x', 8)
+        .attr('y', 20)
+        .style('font-size', '14px')
+        .style('fill', '#fff')
+        .style('font-weight', '700')
+        .text(d => d.data.name);
+
+    tilesEnter.append('text')
+        .attr('class', 'tile-value')
+        .attr('x', 8)
+        .attr('y', 36)
+        .style('font-size', '12px')
+        .style('fill', '#fff')
+        .text(d => asPercent ? d.data.value.toFixed(1) + '%' : d.data.value + ' photos');
+
+    // MERGE
+    const tilesMerge = tilesEnter.merge(tiles);
+
+    // Transition tiles to new positions/sizes
+    cumulative ? tilesMerge.transition().duration(50).style('opacity', 1).attr('transform', d => `translate(${d.x0},${d.y0})`) :
+                 tilesMerge.transition().duration(250).style('opacity', 1).attr('transform', d => `translate(${d.x0},${d.y0})`); 
+
+    tilesMerge.select('rect.tile-rect').transition().duration(250)
+        .attr('width', d => Math.max(0, d.x1 - d.x0))
+        .attr('height', d => Math.max(0, d.y1 - d.y0))
+        .attr('fill', d => familyColor[family[d.data.name]] || '#ccc');
+
+    // Update texts and hide if too small
+    tilesMerge.select('text.tile-name')
+        .text(d => d.data.name)
+        .style('display', function(d) {
+            const w = d.x1 - d.x0; const h = d.y1 - d.y0;
+            return (w > 70 && h > 26) ? null : 'none';
+        });
+
+    tilesMerge.select('text.tile-value')
+        .text(d => asPercent ? d.data.value.toFixed(1) + '%' : d.data.count + ' photos')
+        .style('display', function(d) {
+            const w = d.x1 - d.x0; const h = d.y1 - d.y0;
+            return (w > 70 && h > 26) ? null : 'none';
+        });
+
+    // Tooltip: create once
+    let tooltip = d3.select('body').select('#viz1-tooltip');
+    if (tooltip.empty()) {
+        tooltip = d3.select('body').append('div').attr('id', 'viz1-tooltip').style('position', 'absolute').style('pointer-events', 'none').style('display', 'none');
+    }
+
+    // interaction handlers
+    tilesMerge
+        .on('mousemove', (event, d) => {
+            const raw = d.data.count;
+            const normalized = sumCounts > 0 ? (d.data.count / sumCounts) * 100 : 0;
+            const html = `<strong>${d.data.name}</strong><br>${raw} photos<br>${normalized.toFixed(1)}% of category appearances`;
+            tooltip.html(html).style('left', (event.pageX + 12) + 'px').style('top', (event.pageY + 12) + 'px').style('display', 'block');
+        })
+        .on('mouseout', () => tooltip.style('display', 'none'));
+
+    // Update caption above mosaic (reuse group)
+    const cap = rootG.selectAll('g.viz1-caption').data([1]);
+    const capEnter = cap.enter().append('g').attr('class', 'viz1-caption');
+    capEnter.merge(cap).selectAll('text').data([`Year: ${year} ${asPercent ? '(percentages)' : ''}`]).join('text')
+        .attr('x', 20)
+        .attr('y', 16)
+        .style('font-size', '13px')
+        .style('fill', '#333')
+        .style('font-weight', '600')
+        .text(d => d);
+
+    // Build a small legend (families)
+    const legendData = [
+        { key: 'animals', label: 'People & Animals', color: familyColor['animals'] },
+        { key: 'nature', label: 'Nature', color: familyColor['nature'] },
+        { key: 'infrastructure', label: 'Infrastructure', color: familyColor['infrastructure'] },
+        { key: 'object', label: 'Objects', color: familyColor['object'] }
+    ];
+
+    // Legend: reuse a group on the right
+    const legendX = innerWidth + 20;
+    let legendG = rootG.select('g.viz1-legend');
+    if (!legendG.node()) {
+        legendG = rootG.append('g').attr('class', 'viz1-legend').attr('transform', `translate(${legendX},60)`);
+    } else {
+        legendG.attr('transform', `translate(${legendX},60)`);
+    }
+
+    const legendItems = legendG.selectAll('g.legend-item').data(legendData, d => d.key);
+    const legendEnter = legendItems.enter().append('g').attr('class', 'legend-item').attr('transform', (d, i) => `translate(0, ${i * 26})`);
+
+    legendEnter.append('rect').attr('width', 16).attr('height', 16).attr('fill', d => d.color).style('stroke', '#eee');
+    legendEnter.append('text').attr('x', 22).attr('y', 12).style('font-size', '12px').style('fill', '#333').text(d => d.label);
+
+    // Update positions for existing items
+    legendItems.merge(legendEnter).attr('transform', (d, i) => `translate(0, ${i * 26})`);
+    legendItems.exit().remove();
 }
 
 function createSubjectTimeline(svg, width, height) {
