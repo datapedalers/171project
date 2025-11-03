@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Through the Lens: A Visual History of Photography</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+    <!-- Navigation Sidebar -->
+    <nav id="sidebar">
+        <div class="nav-content">
+            <div class="nav-item" data-section="intro">
+                <div class="nav-dot"></div>
+                <span class="nav-label">Introduction</span>
+            </div>
+            <div class="nav-item" data-section="insights">
+                <div class="nav-dot"></div>
+                <span class="nav-label">Evolving Perspectives</span>
+            </div>
+            <div class="nav-item" data-section="main">
+                <div class="nav-dot"></div>
+                <span class="nav-label">Visual Timeline</span>
+            </div>
+            <div class="nav-item" data-section="conclusion">
+                <div class="nav-dot"></div>
+                <span class="nav-label">Reflection</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        
+        <!-- Section 1: Introduction / Hook -->
+        <section id="intro" class="section">
+            <div class="section-content">
+                <div class="intro-text fade-in">
+                    <h1>Through the Lens</h1>
+                    <p class="subtitle">How Photography Captured the Evolution of National Identity</p>
+                </div>
+                
+                <!-- Image Morphing Container -->
+                <div id="morphing-images" class="visualization-container">
+                    <p><i>(These images will morph into each other as you scroll, and captions/arrows will highlight what each image depicts/represents)</i></p>
+                    <div class="image-stack">
+                        <div class="photo-frame" id="photo1">
+                            <div class="placeholder-image">
+                                <p>Historical Photo 1</p>
+                                <span class="photo-year">1850s</span>
+                            </div>
+                        </div>
+                        <div class="photo-frame" id="photo2">
+                            <div class="placeholder-image">
+                                <p>Historical Photo 2</p>
+                                <span class="photo-year">1900s</span>
+                            </div>
+                        </div>
+                        <div class="photo-frame" id="photo3">
+                            <div class="placeholder-image">
+                                <p>Historical Photo 3</p>
+                                <span class="photo-year">1950s</span>
+                            </div>
+                        </div>
+                        <div class="photo-frame" id="photo4">
+                            <div class="placeholder-image">
+                                <p>Historical Photo 4</p>
+                                <span class="photo-year">2000s</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="intro-description scroll-reveal">
+                    <p><i>[introduction message, something like the following]</i> From the daguerreotypes of the 1840s to digital photography of today, the subjects we choose to capture reveal our evolving values, identities, and understanding of nationhood.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Rising Insights -->
+        <section id="insights" class="section">
+            <div class="section-content">
+                <h2 class="section-title">Evolving Perspectives</h2>
+                <p class="section-intro">As we journey through time, the subjects of photography tell a story of changing values and national identity.</p>
+                
+                <!-- Visualization 1 -->
+                <div class="insight-block scroll-reveal">
+                    <h3>[interesting question]</h3>
+                    <div id="viz1" class="visualization-container">
+                        <svg id="subject-timeline"></svg>
+                        <div class="viz-placeholder">
+                            <p>📊 [visualization title]</p>
+                            <span class="viz-description">[visualization description]</span>
+                        </div>
+                    </div>
+                    <div class="insight-text">
+                        <p>[interesting insight]</p>
+                    </div>
+                </div>
+
+                <!-- Visualization 2: Geographic and Gender Patterns -->
+                <div class="insight-block scroll-reveal">
+                    <h3>[interesting question]</h3>
+                    <div id="viz2" class="visualization-container">
+                        <svg id="artist-patterns"></svg>
+                        <div class="viz-placeholder">
+                            <p>📊 [visualization title]</p>
+                            <span class="viz-description">[visualization description]</span>
+                        </div>
+                    </div>
+                    <div class="insight-text">
+                        <p>[interesting insight]</p>
+                    </div>
+                </div>
+
+                <!-- Optional Third Visualization Space -->
+                <div class="insight-block scroll-reveal">
+                    <h3>[interesting question]</h3>
+                    <div id="viz3" class="visualization-container">
+                        <svg id="focus-shift"></svg>
+                        <div class="viz-placeholder">
+                            <p>📊 [visualization title]</p>
+                            <span class="viz-description">[visualization description]</span>
+                        </div>
+                    </div>
+                    <div class="insight-text">
+                        <p>[interesting insight]</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Main Message / Innovative Visualization -->
+        <section id="main" class="section">
+            <div class="section-content">
+                <h2 class="section-title">A Visual Timeline of Identity</h2>
+                <p class="section-intro">Explore how photographic subjects evolved decade by decade, revealing the changing face of national personhood.</p>
+                
+                <div id="main-viz" class="visualization-container main-viz">
+                    <!-- Interactive Controls -->
+                    <div class="viz-controls">
+                        <div class="control-group">
+                            <label>View Type:</label>
+                            <div class="toggle-buttons">
+                                <button class="toggle-btn active" data-view="streamgraph">Streamgraph (Count)</button>
+                                <button class="toggle-btn" data-view="line">Line Graph (Count)</button>
+                                <button class="toggle-btn" data-view="percentage-stream">Streamgraph (Percentage)</button>
+                                <button class="toggle-btn" data-view="percentage-line">Line Graph (Percentage)</button>
+                            </div>
+                        </div>
+                        
+                        <div class="control-group">
+                            <label>Select Objects (up to 5):</label>
+                            <div id="object-checkboxes" class="checkbox-group">
+                                <!-- Will be populated by JS -->
+                            </div>
+                        </div>
+                        
+                        <div class="control-group">
+                            <label>Filter by Nationality:</label>
+                            <select id="nationality-filter" class="dropdown-control">
+                                <option value="all">All Nationalities</option>
+                                <option value="american">American</option>
+                                <option value="french">French</option>
+                                <option value="british">British</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <svg id="timeline-viz"></svg>
+                </div>
+                
+                <div class="main-insight scroll-reveal">
+                    <p class="highlight-text">[statement of main insight]</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Conclusion -->
+        <section id="conclusion" class="section">
+            <div class="section-content">
+                <h2 class="section-title">Looking Forward</h2>
+                
+                <div class="conclusion-text scroll-reveal">
+                    <p>[conclusion]</p>
+                                        
+                    <div class="reflection-prompt">
+                        <h3>A Question for Today</h3>
+                        <p>[reflection question]</p>
+                    </div>
+                    
+                    <p>[conclusion]</p>
+                </div>
+
+                <!-- Attribution Section -->
+                <div class="attribution scroll-reveal">
+                    <div class="attribution-block">
+                        <h4>Dataset</h4>
+                        <p>Metropolitan Museum of Art OpenAccess Collection</p>
+                        <p class="small">1,395 photographs from 1839-2020s, enriched with semantic segmentation data identifying 27 object categories</p>
+                    </div>
+                    
+                    <div class="attribution-block">
+                        <h4>Team</h4>
+                        <p>Rahul Prasad • Karly Chan • Paula Zhuang</p>
+                        <p class="small">Harvard University • CS 1710 • Fall 2025</p>
+                    </div>
+                    
+                    <div class="attribution-block">
+                        <h4>Acknowledgments</h4>
+                        <p class="small">
+                            Metropolitan Museum of Art for open access data • 
+                            Wikidata community for artist metadata • 
+                            NVIDIA & Hugging Face for SegFormer model
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Scripts -->
+    <script src="scroll-animations.js"></script>
+    <script src="visualizations.js"></script>
+</body>
+</html>
