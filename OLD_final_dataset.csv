@@ -10,7 +10,9 @@ object_id,has_person,person_percent,has_building,building_percent,has_tree,tree_
 285633,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Adrien Tournachon,French,male,1862,6,Photograph
 286272,1.0,3.48,,,,,,,,,,,,,,,,,,,,,,,1.0,29.1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Adrien Tournachon,French,male,1856,6,Photograph
 286445,,,,,,,,,,,,,,,,,,,,,,,,,1.0,2.02,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Adrien Tournachon,French,male,1862,6,Photograph
+302241,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Adrien Tournachon|Guillaume-Benjamin-Amand Duchenne de Boulogne,French|French,male,1856,1,Photograph
 270326,1.0,6.93,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Aimé Dupont,American,male,1899,1,Photograph
+268344,1.0,16.69,,,,,,,,,1.0,1.1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Albert Sands Southworth|Josiah Johnson Hawes|Southworth and Hawes|Albert Gallatin Hoit,American|American|American|American,male,1852,1,Photograph
 294723,1.0,5.84,1.0,53.3,1.0,4.69,,,1.0,0.95,,,,,,,1.0,0.81,1.0,11.32,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Alexander Gardner,"American, Scottish",male,1865,46,Photograph
 285756,1.0,17.76,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,5.4,1.0,5.18,,,,,,,Alexander Gardner,"American, Scottish",male,1865,46,Photograph
 285806,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,8.72,,,,,,,,,,,,,,,,,,,Alexander Gardner,"American, Scottish",male,1865,46,Photograph
@@ -29,6 +31,26 @@ object_id,has_person,person_percent,has_building,building_percent,has_tree,tree_
 259610,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Alexander Gardner,"American, Scottish",male,1862,46,Photograph
 830966,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Alexander Gardner,"American, Scottish",male,1862,46,Photograph
 263042,1.0,6.5,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Alexander Gardner,"American, Scottish",male,1862,46,Photograph
+286616,1.0,9.93,,,1.0,3.01,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,0.98,,,,,,,Alexander Gardner|Abraham Lincoln|John Alexander McClernand|Allan Pinkerton,"American, Scottish|American|American|American, born Scotland",male,1862,1,Photograph
+286615,1.0,9.74,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Alexander Gardner|Allan Pinkerton|Abraham Lincoln|John Alexander McClernand,"American, Scottish|American, born Scotland|American|American",male,1862,1,Photograph
+268004,,,1.0,40.55,,,,,,,,,1.0,2.38,,,,,1.0,5.99,,,,,,,,,,,,,1.0,0.52,,,,,,,,,,,,,,,,,,,,,Alexander Gardner|Mathew B. Brady,"American, Scottish|American, born Ireland",male,1865,21,Photograph
+268176,,,1.0,0.83,,,,,1.0,3.28,,,,,,,,,,,,,1.0,41.42,,,,,,,,,,,,,,,,,1.0,1.76,,,,,,,,,,,,,Alexander Gardner|Mathew B. Brady,"American, Scottish|American, born Ireland",male,1863,21,Photograph
+268025,,,1.0,53.05,1.0,2.12,,,1.0,3.4,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Alexander Gardner|Mathew B. Brady,"American, Scottish|American, born Ireland",male,1865,21,Photograph
+268005,,,1.0,30.28,1.0,5.66,,,1.0,12.96,,,,,,,1.0,6.1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Alexander Gardner|Mathew B. Brady,"American, Scottish|American, born Ireland",male,1865,21,Photograph
+268016,,,1.0,17.14,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Alexander Gardner|Mathew B. Brady,"American, Scottish|American, born Ireland",male,1865,21,Photograph
+268013,,,1.0,25.92,1.0,2.33,,,,,,,,,,,,,,,1.0,0.55,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,1.27,,,,,Alexander Gardner|Mathew B. Brady,"American, Scottish|American, born Ireland",male,1865,21,Photograph
+268019,,,,,1.0,10.74,,,,,,,1.0,0.94,1.0,0.35,,,,,1.0,0.53,,,,,,,,,,,,,,,,,,,1.0,0.67,,,,,,,,,,,,,Alexander Gardner|Mathew B. Brady,"American, Scottish|American, born Ireland",male,1865,21,Photograph
+268009,,,,,,,,,,,1.0,24.19,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Alexander Gardner|Mathew B. Brady,"American, Scottish|American, born Ireland",male,1865,21,Photograph
+268249,1.0,7.45,1.0,23.18,1.0,38.91,,,1.0,16.23,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Alexander Gardner|Mathew B. Brady,"American, Scottish|American, born Ireland",male,1865,21,Photograph
+268086,1.0,0.87,1.0,6.26,1.0,25.71,,,,,,,,,1.0,22.16,,,1.0,0.5,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Alexander Gardner|Mathew B. Brady,"American, Scottish|American, born Ireland",male,1865,21,Photograph
+268007,,,1.0,9.39,,,,,1.0,20.97,,,,,,,1.0,35.69,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Alexander Gardner|Mathew B. Brady,"American, Scottish|American, born Ireland",male,1865,21,Photograph
+268017,,,1.0,31.42,1.0,6.67,,,,,,,,,,,1.0,4.14,,,1.0,4.65,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Alexander Gardner|Mathew B. Brady,"American, Scottish|American, born Ireland",male,1865,21,Photograph
+268012,1.0,1.58,1.0,7.56,1.0,5.63,1.0,8.93,,,,,,,1.0,0.7,,,,,1.0,2.31,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Alexander Gardner|Mathew B. Brady,"American, Scottish|American, born Ireland",male,1865,21,Photograph
+268020,1.0,1.35,1.0,19.96,,,,,1.0,2.6,,,1.0,40.77,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Alexander Gardner|Mathew B. Brady,"American, Scottish|American, born Ireland",male,1865,21,Photograph
+268015,,,1.0,20.91,1.0,3.89,,,1.0,3.55,,,,,,,,,1.0,1.35,1.0,0.44,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Alexander Gardner|Mathew B. Brady,"American, Scottish|American, born Ireland",male,1865,21,Photograph
+268018,,,1.0,14.53,1.0,3.04,,,1.0,0.33,,,,,,,1.0,29.9,,,1.0,1.15,1.0,0.42,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Alexander Gardner|Mathew B. Brady,"American, Scottish|American, born Ireland",male,1865,21,Photograph
+261925,1.0,20.66,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Alexander Gardner|Rice|Abraham Lincoln,"American, Scottish| |American",male,1863,1,Photograph
+267937,,,1.0,8.94,1.0,15.37,,,1.0,1.89,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,2.93,,,,,,,,,,,,,Alexander Gardner|Timothy H. O'Sullivan|Mathew B. Brady,"American, Scottish|American, born Ireland|American, born Ireland",male,1865,1,Photograph
 265816,,,1.0,27.95,1.0,49.34,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,1.08,,,1.0,0.38,,,,,,,1.0,0.54,,,Alfred Capel Cure,British,male,1860,46,Photograph
 265801,1.0,15.47,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Alfred Capel Cure,British,male,1860,46,Photograph
 265802,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Alfred Capel Cure,British,male,1860,46,Photograph
@@ -47,6 +69,7 @@ object_id,has_person,person_percent,has_building,building_percent,has_tree,tree_
 265788,,,1.0,65.83,,,,,1.0,4.94,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Alfred Capel Cure,British,male,1858,46,Photograph
 290472,,,1.0,47.97,,,,,1.0,2.39,,,,,,,1.0,0.43,1.0,2.4,,,,,,,,,,,,,1.0,13.82,,,,,,,,,,,,,,,,,,,,,Alfred Capel Cure,British,male,1860,46,Photograph
 265790,,,1.0,66.9,1.0,3.21,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Alfred Capel Cure,British,male,1856,46,Photograph
+291457,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Alfred d'Aunay|Alphonse J. Liébert,French|French,male,1871,1,Photograph
 785777,,,1.0,43.66,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Alfred-Nicolas Normand,French,male,1851,1,Photograph
 286114,1.0,4.93,,,,,,,,,,,,,,,,,,,,,,,,,1.0,0.8,,,,,,,,,,,,,,,,,,,,,,,,,,,Alice Gerson Chase (Mrs. William Merritt Chase),American,female,1908,1,Photograph
 282222,,,1.0,42.12,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Alois Auer,Austrian,male,1855,1,Photograph
@@ -75,13 +98,42 @@ object_id,has_person,person_percent,has_building,building_percent,has_tree,tree_
 830962,,,1.0,2.83,,,,,1.0,0.75,,,,,,,,,,,,,,,,,,,1.0,0.9,,,,,,,1.0,1.39,1.0,0.44,,,,,,,,,,,,,,,Andrew Joseph Russell,American,male,1863,16,Photograph
 830963,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Andrew Joseph Russell,American,male,1863,16,Photograph
 830964,1.0,2.52,1.0,0.66,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,1.35,Andrew Joseph Russell,American,male,1864,16,Photograph
+268207,1.0,1.7,1.0,9.41,1.0,20.42,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Andrew Joseph Russell|Alexander Gardner|Mathew B. Brady,"American|American, Scottish|American, born Ireland",male,1862,1,Photograph
+268049,1.0,0.45,,,1.0,2.2,1.0,23.23,,,,,1.0,6.83,,,,,,,,,1.0,37.36,,,,,,,1.0,6.96,,,,,,,,,,,,,,,,,,,,,,,Andrew Joseph Russell|Egbert Guy Fowx|Mathew B. Brady,"American|American|American, born Ireland",male,1865,4,Photograph
+268050,,,,,1.0,52.88,,,1.0,13.16,1.0,8.07,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,3.41,,,,,Andrew Joseph Russell|Egbert Guy Fowx|Mathew B. Brady,"American|American|American, born Ireland",male,1865,4,Photograph
+268153,,,1.0,1.13,1.0,13.25,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Andrew Joseph Russell|Egbert Guy Fowx|Mathew B. Brady,"American|American|American, born Ireland",male,1865,4,Photograph
+268262,1.0,2.88,1.0,0.82,1.0,31.94,,,,,,,,,1.0,2.95,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Andrew Joseph Russell|Egbert Guy Fowx|Mathew B. Brady,"American|American|American, born Ireland",male,1864,4,Photograph
+267917,,,1.0,1.06,1.0,29.41,,,,,1.0,18.64,1.0,3.61,,,,,,,,,,,,,,,,,1.0,1.12,,,,,,,,,,,,,,,,,,,,,,,Andrew Joseph Russell|George N. Barnard|Timothy H. O'Sullivan|Mathew B. Brady,"American|American|American, born Ireland|American, born Ireland",male,1862,1,Photograph
+267895,,,1.0,13.18,1.0,22.78,,,1.0,23.14,,,,,,,,,1.0,1.23,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Andrew Joseph Russell|Mathew B. Brady,"American|American, born Ireland",male,1865,73,Photograph
+268069,1.0,6.95,1.0,1.66,1.0,46.74,,,1.0,7.45,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Andrew Joseph Russell|Mathew B. Brady,"American|American, born Ireland",male,1865,73,Photograph
+267881,,,1.0,3.08,1.0,0.8,,,1.0,0.32,,,1.0,0.31,,,1.0,2.46,,,1.0,18.89,1.0,18.7,,,,,1.0,3.26,,,,,,,,,,,,,,,,,,,,,,,1.0,1.53,Andrew Joseph Russell|Mathew B. Brady,"American|American, born Ireland",male,1865,73,Photograph
+268142,1.0,2.24,,,1.0,11.09,1.0,9.33,,,,,1.0,0.3,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Andrew Joseph Russell|Mathew B. Brady,"American|American, born Ireland",male,1865,73,Photograph
+267963,,,,,1.0,17.53,1.0,0.49,1.0,0.58,,,,,,,,,,,1.0,0.84,,,,,,,,,,,,,,,1.0,3.11,,,,,,,,,,,,,,,,,Andrew Joseph Russell|Mathew B. Brady,"American|American, born Ireland",male,1863,73,Photograph
+268160,1.0,2.56,1.0,3.0,1.0,47.5,,,1.0,6.09,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,3.39,,,,,,,Andrew Joseph Russell|Mathew B. Brady,"American|American, born Ireland",male,1865,73,Photograph
+267972,1.0,1.39,1.0,15.68,1.0,7.65,,,,,,,,,1.0,0.57,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,1.35,,,,,,,Andrew Joseph Russell|Mathew B. Brady,"American|American, born Ireland",male,1865,73,Photograph
+268270,,,1.0,2.6,,,,,,,1.0,3.75,,,,,,,,,,,1.0,33.09,,,,,1.0,2.35,,,,,,,,,,,,,,,,,,,,,,,1.0,3.27,Andrew Joseph Russell|Mathew B. Brady,"American|American, born Ireland",male,1865,73,Photograph
+268147,,,1.0,1.58,1.0,17.39,,,,,,,,,,,,,,,1.0,16.0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Andrew Joseph Russell|Mathew B. Brady,"American|American, born Ireland",male,1864,73,Photograph
+267957,,,1.0,69.49,1.0,3.19,,,,,,,,,,,1.0,0.55,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Andrew Joseph Russell|Mathew B. Brady,"American|American, born Ireland",male,1863,73,Photograph
+268240,1.0,5.55,1.0,20.93,1.0,25.62,,,1.0,9.35,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,7.8,,,,,,,Andrew Joseph Russell|Mathew B. Brady,"American|American, born Ireland",male,1865,73,Photograph
+267897,1.0,1.26,1.0,20.48,,,,,1.0,0.33,,,,,1.0,0.52,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Andrew Joseph Russell|Mathew B. Brady,"American|American, born Ireland",male,1865,73,Photograph
+268079,1.0,0.93,1.0,18.35,,,,,1.0,0.41,,,1.0,2.19,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Andrew Joseph Russell|Mathew B. Brady,"American|American, born Ireland",male,1865,73,Photograph
+268286,,,1.0,11.15,,,,,1.0,28.7,,,,,1.0,13.66,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Andrew Joseph Russell|Mathew B. Brady,"American|American, born Ireland",male,1863,73,Photograph
+268263,,,1.0,13.0,,,,,1.0,9.63,,,1.0,7.63,,,1.0,2.37,,,1.0,1.43,1.0,0.96,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Andrew Joseph Russell|Mathew B. Brady,"American|American, born Ireland",male,1865,73,Photograph
+267890,,,1.0,1.88,1.0,24.28,1.0,9.46,,,1.0,21.16,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Andrew Joseph Russell|Timothy H. O'Sullivan|George N. Barnard|Mathew B. Brady,"American|American, born Ireland|American|American, born Ireland",male,1862,2,Photograph
+267945,1.0,0.42,,,1.0,24.95,,,,,,,,,,,,,,,1.0,4.29,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Andrew Joseph Russell|Timothy H. O'Sullivan|Mathew B. Brady,"American|American, born Ireland|American, born Ireland",male,1864,1,Photograph
 286694,,,,,1.0,34.83,,,,,,,,,1.0,48.78,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,André Giroux,French,male,1855,1,Photograph
 306159,1.0,6.16,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,André-Adolphe-Eugène Disdéri,French,male,1867,170,Photograph
+260988,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Antoine-François-Jean Claudet|Nicolaas Henneman,French|Dutch,male,1850,2,Photograph
+306323,1.0,3.29,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Antoine-François-Jean Claudet|Nicolaas Henneman,French|Dutch,male,1850,2,Photograph
+306337,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Antoine-François-Jean Claudet|William Henry Fox Talbot,French|British,male,1846,1,Photograph
 269086,1.0,16.14,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Antoine-Samuel Adam-Salomon,French,male,1879,1,Photograph
 263104,1.0,0.88,1.0,60.7,,,,,,,,,1.0,1.01,,,,,,,,,,,,,1.0,8.46,,,,,,,,,,,,,,,,,,,,,,,,,,,Antonio Beato,"British, born Greece",male,1879,4,Photograph
 263115,,,1.0,50.63,,,,,,,,,1.0,0.5,,,,,,,,,,,,,1.0,5.25,,,,,,,,,,,,,,,,,,,,,,,,,,,Antonio Beato,"British, born Greece",male,1879,4,Photograph
 263126,,,1.0,33.1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Antonio Beato,"British, born Greece",male,1879,4,Photograph
+682875,1.0,9.49,,,1.0,0.67,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,0.54,,,Aquilin Schad|Pierre-Louis Pierson|Countess Virginia Oldoini Verasis di Castiglione,Austrian|French| ,female,1864,1,Photograph
 286254,,,1.0,68.05,1.0,1.58,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Armand-Hippolyte-Louis Fizeau,French,male,1841,1,Photograph
+268645,,,1.0,31.94,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Armand-Hippolyte-Louis Fizeau|Noël-Marie-Paymal Lerebours,French|French,male,1843,2,Photograph
+269123,,,1.0,20.72,,,,,,,,,1.0,5.93,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Armand-Hippolyte-Louis Fizeau|Noël-Marie-Paymal Lerebours,French|French,male,1849,2,Photograph
 284663,1.0,23.45,1.0,2.65,1.0,13.11,,,,,,,,,1.0,13.29,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,0.45,,,,,,,,,Arthur Rothstein,American,male,1937,11,Photograph
 283761,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Auguste Mestral,French,male,1854,3,Photograph
 284818,1.0,6.32,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Auguste Mestral,French,male,1854,3,Photograph
@@ -171,11 +223,38 @@ object_id,has_person,person_percent,has_building,building_percent,has_tree,tree_
 285893,,,,,1.0,7.08,,,,,1.0,25.11,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Charles Spitz,French,male,1899,1,Photograph
 266672,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Charles Thurston Thompson,British,male,1855,1,Photograph
 286657,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Charles Victor Hugo,French,male,1856,2,Photograph
+286111,1.0,2.44,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Charles Victor Hugo|Auguste Vacquerie,French|French,male,1855,3,Photograph
+286434,1.0,6.87,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Charles Victor Hugo|Auguste Vacquerie,French|French,male,1852,3,Photograph
+286696,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Charles Victor Hugo|Auguste Vacquerie,French|French,male,1855,3,Photograph
 283211,1.0,0.45,,,1.0,6.9,1.0,14.76,1.0,10.87,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Charles William Carter,"American, born England",male,1872,1,Photograph
 263549,1.0,31.95,1.0,1.47,1.0,19.87,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,1.17,,,,,,,,,,,,,,,,,,,,,Christian Barthelmess,American,male,1899,1,Photograph
 283095,1.0,0.88,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,0.94,,,,,,,,,,,Clementina Hawarden,British,female,1864,2,Photograph
 286598,1.0,16.57,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Clementina Hawarden,British,female,1865,2,Photograph
 282079,,,,,1.0,65.88,,,1.0,0.73,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Constant Alexandre Famin,French,male,1872,2,Photograph
+288108,1.0,35.42,,,,,,,,,1.0,1.02,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Countess Virginia Oldoini Verasis di Castiglione|Pierre-Louis Pierson, |French,male,1895,27,Photograph
+288114,1.0,33.0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Countess Virginia Oldoini Verasis di Castiglione|Pierre-Louis Pierson, |French,male,1895,27,Photograph
+288109,1.0,29.5,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,0.87,,,,,,,,,,,Countess Virginia Oldoini Verasis di Castiglione|Pierre-Louis Pierson, |French,male,1895,27,Photograph
+288131,1.0,32.48,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Countess Virginia Oldoini Verasis di Castiglione|Pierre-Louis Pierson, |French,male,1895,27,Photograph
+285700,1.0,1.37,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Countess Virginia Oldoini Verasis di Castiglione|Pierre-Louis Pierson, |French,male,1858,27,Photograph
+288112,1.0,26.7,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,0.92,,,1.0,0.35,,,,,,,,,,,,,,,Countess Virginia Oldoini Verasis di Castiglione|Pierre-Louis Pierson, |French,male,1895,27,Photograph
+288125,1.0,38.14,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Countess Virginia Oldoini Verasis di Castiglione|Pierre-Louis Pierson, |French,male,1895,27,Photograph
+288127,1.0,20.76,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Countess Virginia Oldoini Verasis di Castiglione|Pierre-Louis Pierson, |French,male,1895,27,Photograph
+288113,1.0,26.07,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,4.25,,,,,,,,,,,,,,,,,,,Countess Virginia Oldoini Verasis di Castiglione|Pierre-Louis Pierson, |French,male,1895,27,Photograph
+288219,1.0,9.27,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Countess Virginia Oldoini Verasis di Castiglione|Pierre-Louis Pierson, |French,male,1895,27,Photograph
+285701,1.0,0.72,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Countess Virginia Oldoini Verasis di Castiglione|Pierre-Louis Pierson, |French,male,1867,27,Photograph
+286787,1.0,8.9,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Countess Virginia Oldoini Verasis di Castiglione|Pierre-Louis Pierson, |French,male,1867,27,Photograph
+286837,1.0,30.77,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,1.43,,,,,,,,,,,,,,,Countess Virginia Oldoini Verasis di Castiglione|Pierre-Louis Pierson, |French,male,1867,27,Photograph
+286564,1.0,46.66,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Countess Virginia Oldoini Verasis di Castiglione|Pierre-Louis Pierson, |French,male,1895,27,Photograph
+288124,1.0,32.04,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Countess Virginia Oldoini Verasis di Castiglione|Pierre-Louis Pierson, |French,male,1895,27,Photograph
+288132,1.0,27.31,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Countess Virginia Oldoini Verasis di Castiglione|Pierre-Louis Pierson, |French,male,1895,27,Photograph
+286770,1.0,10.56,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Countess Virginia Oldoini Verasis di Castiglione|Pierre-Louis Pierson, |French,male,1895,27,Photograph
+288220,1.0,11.68,,,,,,,,,,,,,,,,,,,,,,,,,1.0,5.38,,,,,,,,,,,1.0,0.66,,,,,,,,,,,,,,,Countess Virginia Oldoini Verasis di Castiglione|Pierre-Louis Pierson, |French,male,1895,27,Photograph
+263161,1.0,45.51,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,David Octavius Hill|Robert  Adamson|Hill and Adamson|Edward William Lane,"British, Scottish|British, Scottish|British, Scottish|British",male,1843,1,Photograph
+268370,1.0,41.78,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,David Octavius Hill|Robert  Adamson|Hill and Adamson|Lady Elizabeth Rigby Eastlake,"British, Scottish|British, Scottish|British, Scottish| ",female,1847,4,Photograph
+268371,1.0,47.88,,,,,1.0,3.37,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,David Octavius Hill|Robert  Adamson|Hill and Adamson|Lady Elizabeth Rigby Eastlake,"British, Scottish|British, Scottish|British, Scottish| ",female,1847,4,Photograph
+307108,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,David Wilkie Wynfield|William Holman Hunt,"British, born India|British",male,1863,1,Photograph
+260387,,,1.0,0.94,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Dorothea Lange|Library of Congress,American| ,female,1938,7,Photograph
+260388,1.0,21.31,,,1.0,0.94,1.0,0.63,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,0.3,,,1.0,22.5,,,,,,,,,,,,,Dorothea Lange|Library of Congress,American| ,female,1939,7,Photograph
 283172,1.0,16.16,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Désiré Charnay,French,male,1863,10,Photograph
 283173,1.0,34.22,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Désiré Charnay,French,male,1863,10,Photograph
 286146,,,,,1.0,84.33,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Désiré Charnay,French,male,1863,10,Photograph
@@ -184,6 +263,8 @@ object_id,has_person,person_percent,has_building,building_percent,has_tree,tree_
 286467,,,1.0,20.39,1.0,46.73,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Désiré Charnay,French,male,1889,10,Photograph
 286691,,,,,1.0,56.33,,,1.0,1.04,,,,,,,,,,,,,,,,,,,,,,,1.0,0.79,,,,,,,,,,,,,,,,,,,,,Désiré Charnay,French,male,1863,10,Photograph
 680014,,,1.0,6.33,,,1.0,7.89,,,,,1.0,4.69,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Désiré Charnay,French,male,1860,10,Photograph
+830983,1.0,2.76,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,E. J. Ward|William Bell,"American|American, born England",male,1865,1,Photograph
+271123,,,,,1.0,21.41,1.0,25.49,,,1.0,31.77,,,,,,,,,,,,,,,,,,,1.0,3.11,,,,,,,,,,,,,,,,,,,,,,,Eadweard Muybridge|Bradley and Rulofson|Henry W. Bradley,British and American| |American,male,1872,5,Photograph
 263608,1.0,26.74,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,1.86,,,,,,,,,,,,,,,,,,,Edgar Degas,French,male,1895,9,Photograph
 284452,1.0,36.94,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Edgar Degas,French,male,1895,9,Photograph
 284453,1.0,16.99,1.0,51.14,,,,,,,,,,,,,1.0,3.48,1.0,0.75,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Edgar Degas,French,male,1898,9,Photograph
@@ -220,6 +301,7 @@ object_id,has_person,person_percent,has_building,building_percent,has_tree,tree_
 287371,,,1.0,9.94,,,1.0,11.64,1.0,2.28,,,1.0,0.77,,,,,,,,,1.0,1.27,,,,,,,1.0,1.95,,,,,,,,,,,,,,,,,,,,,,,Edouard Baldus,"French, born Prussia",male,1862,146,Photograph
 268839,,,1.0,27.97,1.0,7.55,,,1.0,1.61,,,,,,,1.0,15.7,1.0,1.56,,,,,,,,,,,1.0,7.7,,,,,,,,,,,,,,,,,1.0,2.61,,,,,Edouard Baldus,"French, born Prussia",male,1869,146,Photograph
 268863,,,1.0,21.26,1.0,4.88,,,,,1.0,4.72,,,,,,,,,,,,,,,,,,,1.0,0.32,,,,,,,,,,,,,,,,,1.0,4.52,,,,,Edouard Baldus,"French, born Prussia",male,1869,146,Photograph
+283210,1.0,14.91,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Edric L. Eaton|William Henry Jackson,American|American,male,1869,1,Photograph
 291959,1.0,0.99,1.0,40.48,1.0,6.93,,,,,,,,,,,1.0,1.25,1.0,21.99,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Edward Anthony,American,male,1860,3,Photograph
 291961,,,1.0,37.54,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Edward Anthony,American,male,1860,3,Photograph
 291962,,,1.0,33.67,1.0,2.76,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Edward Anthony,American,male,1860,3,Photograph
@@ -229,6 +311,8 @@ object_id,has_person,person_percent,has_building,building_percent,has_tree,tree_
 286342,1.0,0.99,,,1.0,16.25,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Egbert Guy Fowx,American,male,1866,7,Photograph
 286344,,,1.0,32.32,1.0,4.23,,,,,,,,,,,1.0,3.62,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Egbert Guy Fowx,American,male,1861,7,Photograph
 286631,1.0,0.44,,,1.0,31.97,,,,,1.0,4.91,,,,,,,,,1.0,1.07,,,,,,,,,1.0,0.94,,,,,,,,,,,,,,,,,,,,,,,Egbert Guy Fowx,American,male,1863,7,Photograph
+268028,1.0,2.28,1.0,0.74,1.0,7.81,1.0,23.97,,,1.0,2.13,,,,,1.0,3.16,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Egbert Guy Fowx|Andrew Joseph Russell|Mathew B. Brady,"American|American|American, born Ireland",male,1865,3,Photograph
+268123,,,1.0,5.6,1.0,10.18,1.0,10.09,,,1.0,10.14,,,,,,,,,1.0,0.55,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Egbert Guy Fowx|Andrew Joseph Russell|Mathew B. Brady,"American|American|American, born Ireland",male,1864,3,Photograph
 705430,,,1.0,15.82,,,,,,,,,1.0,3.58,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Emile Béchard,French,male,1879,3,Photograph
 288196,,,1.0,14.12,1.0,19.46,,,,,,,,,,,,,,,,,1.0,10.26,,,,,,,1.0,4.34,,,,,,,,,,,,,,,,,,,,,1.0,0.61,Emile Gsell,French,male,1866,48,Photograph
 288209,,,1.0,41.01,,,,,1.0,4.6,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Emile Gsell,French,male,1866,48,Photograph
@@ -248,6 +332,7 @@ object_id,has_person,person_percent,has_building,building_percent,has_tree,tree_
 288182,,,1.0,1.44,,,,,1.0,0.77,,,,,1.0,3.95,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Emile Gsell,French,male,1866,48,Photograph
 288186,,,,,1.0,3.38,,,,,,,,,1.0,23.7,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Emile Gsell,French,male,1866,48,Photograph
 288214,1.0,10.55,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Emile Gsell,French,male,1866,48,Photograph
+711371,1.0,13.76,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Emile Mangel du Mesnil|Jacob Wothly,French|German,male,1870,1,Photograph
 286039,1.0,49.02,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Emile Zola,French,male,1902,1,Photograph
 285462,1.0,36.41,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Ernest Benecke,French,male,1852,6,Photograph
 286268,1.0,20.01,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Ernest Benecke,French,male,1852,6,Photograph
@@ -258,6 +343,7 @@ object_id,has_person,person_percent,has_building,building_percent,has_tree,tree_
 261621,1.0,42.1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Etienne Carjat,French,male,1870,4,Photograph
 270074,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Etienne Carjat,French,male,1879,4,Photograph
 286544,1.0,0.59,,,,,1.0,12.1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Etienne-Jules Marey,French,male,1886,3,Photograph
+283685,1.0,22.16,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Eugenio Interguglielmi & Company|Eugenio Interguglielmi,Italian|Italian,male,1895,1,Photograph
 288423,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Eugène Constant,"French, active Italy",male,1852,30,Photograph
 288411,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,2.42,,,,,,,,,,,,,,,,,,,,,,,,,,,Eugène Constant,"French, active Italy",male,1852,30,Photograph
 288419,,,1.0,61.76,,,,,,,,,,,,,,,,,,,,,,,1.0,8.13,,,,,,,,,,,,,,,,,,,,,,,,,,,Eugène Constant,"French, active Italy",male,1852,30,Photograph
@@ -296,6 +382,8 @@ object_id,has_person,person_percent,has_building,building_percent,has_tree,tree_
 291982,1.0,8.18,1.0,19.18,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Felice Beato,"British, born Italy",male,1860,8,Photograph
 728348,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Felice Beato,"British, born Italy",male,1860,8,Photograph
 289070,1.0,23.36,1.0,56.23,,,,,,,,,,,,,1.0,9.67,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Felix Thiollier,French,male,1914,2,Photograph
+629811,,,1.0,16.09,1.0,3.29,,,,,,,,,,,1.0,1.17,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Firmin-Eugène Le Dien|Gustave Le Gray,French|French,male,1858,3,Photograph
+629831,,,1.0,64.68,,,1.0,4.58,1.0,7.83,,,,,,,,,1.0,3.04,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Firmin-Eugène Le Dien|Gustave Le Gray,French|French,male,1853,3,Photograph
 260060,1.0,0.61,1.0,8.8,,,1.0,1.08,,,1.0,1.9,,,,,1.0,1.39,,,,,1.0,45.59,,,,,,,1.0,0.43,,,,,,,,,,,,,,,,,,,,,,,Francis Bedford,British,male,1879,26,Photograph
 260068,,,1.0,0.49,1.0,34.9,1.0,14.97,1.0,22.8,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Francis Bedford,British,male,1879,26,Photograph
 259897,,,,,1.0,1.07,1.0,11.82,,,,,1.0,1.27,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Francis Bedford,British,male,1879,26,Photograph
@@ -397,6 +485,24 @@ object_id,has_person,person_percent,has_building,building_percent,has_tree,tree_
 294470,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,George N. Barnard,American,male,1869,70,Photograph
 294498,,,1.0,0.55,,,,,,,,,,,1.0,0.93,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,George N. Barnard,American,male,1869,70,Photograph
 294475,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,George N. Barnard,American,male,1869,70,Photograph
+268080,,,,,,,1.0,1.88,,,,,,,,,,,,,1.0,2.6,1.0,65.26,,,,,,,,,,,,,,,,,1.0,15.53,,,,,,,,,,,,,George N. Barnard|James F. Gibson|Mathew B. Brady,"American|American|American, born Ireland",male,1862,1,Photograph
+268245,,,1.0,58.78,,,,,1.0,2.26,,,,,,,,,1.0,13.1,,,,,,,,,,,,,1.0,0.77,,,,,,,,,,,,,,,,,,,,,George N. Barnard|Mathew B. Brady,"American|American, born Ireland",male,1865,32,Photograph
+268219,,,1.0,2.98,1.0,1.42,,,1.0,0.97,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,George N. Barnard|Mathew B. Brady,"American|American, born Ireland",male,1865,32,Photograph
+268222,1.0,0.46,,,1.0,12.45,,,,,1.0,22.78,,,,,,,,,1.0,0.58,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,George N. Barnard|Mathew B. Brady,"American|American, born Ireland",male,1865,32,Photograph
+268210,,,1.0,6.4,1.0,4.16,,,1.0,5.01,,,,,1.0,0.98,,,,,,,,,,,,,,,,,1.0,1.72,,,,,,,,,,,,,,,,,,,,,George N. Barnard|Mathew B. Brady,"American|American, born Ireland",male,1865,32,Photograph
+268213,,,1.0,5.58,,,1.0,4.71,,,,,,,,,,,,,,,1.0,0.95,,,,,,,,,,,,,,,,,1.0,0.55,,,,,,,,,,,,,George N. Barnard|Mathew B. Brady,"American|American, born Ireland",male,1865,32,Photograph
+268216,,,1.0,30.73,1.0,1.18,1.0,2.6,,,,,,,,,1.0,3.07,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,George N. Barnard|Mathew B. Brady,"American|American, born Ireland",male,1865,32,Photograph
+267887,,,1.0,1.98,1.0,8.95,,,1.0,0.79,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,George N. Barnard|Mathew B. Brady,"American|American, born Ireland",male,1862,32,Photograph
+268095,1.0,2.17,,,1.0,3.07,,,,,,,,,,,,,,,1.0,2.4,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,George N. Barnard|Mathew B. Brady,"American|American, born Ireland",male,1865,32,Photograph
+268221,,,,,1.0,1.77,,,,,1.0,40.69,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,0.49,,,1.0,0.38,George N. Barnard|Mathew B. Brady,"American|American, born Ireland",male,1865,32,Photograph
+268174,,,,,1.0,14.49,1.0,8.21,1.0,1.86,1.0,10.23,,,,,,,,,1.0,0.35,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,George N. Barnard|Mathew B. Brady,"American|American, born Ireland",male,1865,32,Photograph
+268217,,,1.0,15.43,1.0,0.69,,,1.0,22.22,,,,,1.0,0.72,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,George N. Barnard|Mathew B. Brady,"American|American, born Ireland",male,1865,32,Photograph
+268215,,,1.0,17.91,,,,,1.0,44.16,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,George N. Barnard|Mathew B. Brady,"American|American, born Ireland",male,1865,32,Photograph
+268229,1.0,1.38,,,1.0,20.54,1.0,0.61,1.0,28.17,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,George N. Barnard|Mathew B. Brady,"American|American, born Ireland",male,1865,32,Photograph
+267969,1.0,1.92,1.0,0.51,1.0,34.37,,,1.0,12.6,,,,,1.0,2.33,,,,,1.0,2.36,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,George N. Barnard|Mathew B. Brady,"American|American, born Ireland",male,1862,32,Photograph
+267999,1.0,4.79,1.0,7.31,1.0,2.68,,,1.0,1.3,,,,,1.0,8.87,,,,,1.0,0.86,,,,,,,,,,,,,,,,,,,,,,,,,1.0,5.42,,,,,,,George N. Barnard|Mathew B. Brady,"American|American, born Ireland",male,1861,32,Photograph
+267906,,,1.0,2.72,1.0,33.04,,,1.0,1.81,,,,,,,,,,,1.0,1.64,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,George N. Barnard|Timothy H. O'Sullivan|Mathew B. Brady,"American|American, born Ireland|American, born Ireland",male,1865,2,Photograph
+268070,,,,,1.0,29.23,,,1.0,7.16,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,George N. Barnard|Timothy H. O'Sullivan|Mathew B. Brady,"American|American, born Ireland|American, born Ireland",male,1862,2,Photograph
 270851,,,,,1.0,46.7,,,,,,,,,,,,,,,1.0,11.71,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,George Shadbolt,British,male,1857,1,Photograph
 286619,,,1.0,1.32,,,,,,,,,,,1.0,4.67,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,George Smith Cook,American,male,1861,1,Photograph
 269025,,,1.0,59.04,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,George Wilson Bridges,British,male,1859,6,Photograph
@@ -411,6 +517,24 @@ object_id,has_person,person_percent,has_building,building_percent,has_tree,tree_
 286270,1.0,0.47,1.0,3.11,1.0,52.8,,,1.0,3.67,,,,,,,,,,,,,,,1.0,0.78,,,,,,,,,,,,,,,,,,,,,,,,,1.0,0.43,,,Giacomo Caneva,Italian,male,1857,5,Photograph
 286574,,,1.0,3.62,1.0,4.91,1.0,1.5,1.0,9.76,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Giacomo Caneva,Italian,male,1857,5,Photograph
 286136,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,0.87,,,,,,,,,,,,,,,Giovanni Battista Altadonna,Italian,male,1859,1,Photograph
+623051,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Guillaume-Benjamin-Amand Duchenne de Boulogne|Adrien Tournachon,French|French,male,1856,48,Photograph
+623064,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Guillaume-Benjamin-Amand Duchenne de Boulogne|Adrien Tournachon,French|French,male,1856,48,Photograph
+623050,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Guillaume-Benjamin-Amand Duchenne de Boulogne|Adrien Tournachon,French|French,male,1856,48,Photograph
+623067,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Guillaume-Benjamin-Amand Duchenne de Boulogne|Adrien Tournachon,French|French,male,1856,48,Photograph
+623048,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Guillaume-Benjamin-Amand Duchenne de Boulogne|Adrien Tournachon,French|French,male,1856,48,Photograph
+623061,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Guillaume-Benjamin-Amand Duchenne de Boulogne|Adrien Tournachon,French|French,male,1856,48,Photograph
+623036,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Guillaume-Benjamin-Amand Duchenne de Boulogne|Adrien Tournachon,French|French,male,1856,48,Photograph
+623043,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Guillaume-Benjamin-Amand Duchenne de Boulogne|Adrien Tournachon,French|French,male,1856,48,Photograph
+623028,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Guillaume-Benjamin-Amand Duchenne de Boulogne|Adrien Tournachon,French|French,male,1856,48,Photograph
+623049,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Guillaume-Benjamin-Amand Duchenne de Boulogne|Adrien Tournachon,French|French,male,1856,48,Photograph
+623032,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Guillaume-Benjamin-Amand Duchenne de Boulogne|Adrien Tournachon,French|French,male,1856,48,Photograph
+623027,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Guillaume-Benjamin-Amand Duchenne de Boulogne|Adrien Tournachon,French|French,male,1856,48,Photograph
+623030,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Guillaume-Benjamin-Amand Duchenne de Boulogne|Adrien Tournachon,French|French,male,1856,48,Photograph
+623063,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Guillaume-Benjamin-Amand Duchenne de Boulogne|Adrien Tournachon,French|French,male,1856,48,Photograph
+623057,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Guillaume-Benjamin-Amand Duchenne de Boulogne|Adrien Tournachon,French|French,male,1856,48,Photograph
+623037,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Guillaume-Benjamin-Amand Duchenne de Boulogne|Adrien Tournachon,French|French,male,1856,48,Photograph
+623041,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Guillaume-Benjamin-Amand Duchenne de Boulogne|Adrien Tournachon,French|French,male,1856,48,Photograph
+623069,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Guillaume-Benjamin-Amand Duchenne de Boulogne|Adrien Tournachon,French|French,male,1856,48,Photograph
 284986,1.0,2.16,,,,,,,,,,,,,,,,,,,,,,,1.0,0.39,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Gustave Le Gray,French,male,1866,41,Photograph
 265065,,,,,1.0,64.2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Gustave Le Gray,French,male,1858,41,Photograph
 285461,,,1.0,23.93,1.0,28.85,,,,,,,,,,,1.0,2.98,1.0,0.58,,,,,,,,,,,1.0,2.2,,,,,,,,,,,,,,,,,,,,,,,Gustave Le Gray,French,male,1857,41,Photograph
@@ -422,13 +546,18 @@ object_id,has_person,person_percent,has_building,building_percent,has_tree,tree_
 267425,,,,,,,1.0,0.99,,,,,,,,,,,,,,,1.0,36.55,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Gustave Le Gray,French,male,1857,41,Photograph
 286160,1.0,29.52,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Gustave Le Gray,French,male,1855,41,Photograph
 286350,1.0,43.55,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Gustave Le Gray,French,male,1858,41,Photograph
+283107,,,1.0,46.5,1.0,6.44,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Gustave Le Gray|Auguste Mestral,French|French,male,1851,1,Photograph
+282080,,,1.0,41.67,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Gustave Le Gray|Firmin-Eugène Le Dien,French|French,male,1857,1,Photograph
 285985,1.0,8.45,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,2.16,,,1.0,1.34,,,,,,,,,,,Gustave Penabert,French,male,1859,1,Photograph
+679877,,,1.0,36.81,1.0,0.97,,,1.0,3.11,,,1.0,0.38,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,H. Jannin|J. Blondeau et Antonin|Louis de Clercq,French|French|French,male,1860,7,Photograph
+679906,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,1.19,,,,,,,,,,,,,,,,,,,,,,,,,,,H. Jannin|J. Blondeau et Antonin|Louis de Clercq,French|French|French,male,1860,7,Photograph
 267821,1.0,5.5,,,1.0,18.73,,,1.0,2.71,,,,,,,,,,,,,,,1.0,0.56,,,,,,,,,,,,,,,1.0,33.61,,,,,,,,,,,,,Hans Watzek,Austrian,male,1901,2,Photograph
 305835,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Henri Becquerel,French,male,1903,1,Photograph
 283113,,,1.0,6.94,1.0,18.85,,,,,,,1.0,0.31,,,,,,,,,,,,,1.0,1.69,,,,,,,,,,,,,,,,,,,,,,,,,,,Henri Victor Regnault,French,male,1855,1,Photograph
 266284,1.0,3.38,,,,,,,,,,,,,,,,,,,,,,,,,1.0,9.9,,,,,,,,,,,,,,,,,,,,,,,,,,,Henri-Jean-Louis Le Secq,French,male,1852,8,Photograph
 283108,,,1.0,12.37,,,,,,,,,,,1.0,3.54,,,,,,,,,,,,,,,,,,,,,1.0,0.81,,,,,,,,,,,,,,,,,Henri-Jean-Louis Le Secq,French,male,1852,8,Photograph
 285875,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,0.47,,,,,,,,,,,,,,,,,,,,,,,,,,,Henri-Jean-Louis Le Secq,French,male,1853,8,Photograph
+287911,1.0,23.19,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Henry Barraud|Peter Wickens Fry,British|British,male,1856,1,Photograph
 285732,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Henry Fitz Jr.,American,male,1842,1,Photograph
 283336,,,,,1.0,48.12,,,1.0,28.73,,,,,,,,,,,1.0,4.62,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Henry Hamilton Bennett,American,male,1889,1,Photograph
 268692,1.0,32.74,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Henry Herschel Hay Cameron,British,male,1870,1,Photograph
@@ -456,6 +585,8 @@ object_id,has_person,person_percent,has_building,building_percent,has_tree,tree_
 286250,1.0,5.6,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Henry Peach Robinson,British,male,1862,3,Photograph
 270842,,,1.0,22.19,1.0,17.14,,,,,,,1.0,7.2,,,1.0,10.46,1.0,3.13,,,,,,,,,,,,,1.0,0.79,,,,,,,,,,,,,,,,,,,,,Henry Pollock,British,male,1856,1,Photograph
 267262,,,1.0,0.97,1.0,45.5,,,,,1.0,32.44,,,1.0,3.66,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Henry White,"British, Scottish",male,1857,2,Photograph
+285808,1.0,21.95,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Hill and Adamson|David Octavius Hill|Robert  Adamson,"British, Scottish|British, Scottish|British, Scottish",male,1843,2,Photograph
+286572,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Hill and Adamson|David Octavius Hill|Robert  Adamson,"British, Scottish|British, Scottish|British, Scottish",male,1847,2,Photograph
 285907,1.0,1.06,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,5.22,,,,,,,,,,,,,,,,,,,Hippolyte Bayard,French,male,1855,3,Photograph
 285909,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Hippolyte Bayard,French,male,1839,3,Photograph
 270200,,,1.0,36.16,,,,,,,,,,,,,,,1.0,25.77,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Hippolyte-Auguste Collard,French,male,1871,6,Photograph
@@ -480,18 +611,51 @@ object_id,has_person,person_percent,has_building,building_percent,has_tree,tree_
 288066,,,,,1.0,0.6,,,,,,,1.0,3.91,,,,,,,,,,,1.0,4.49,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Horatio Ross,"British, born Scotland",male,1859,39,Photograph
 288056,1.0,24.84,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Horatio Ross,"British, born Scotland",male,1857,39,Photograph
 288079,,,,,1.0,6.66,,,,,,,,,,,,,,,,,,,1.0,18.05,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Horatio Ross,"British, born Scotland",male,1857,39,Photograph
+263303,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Hugh Owen|Nicolaas Henneman,British|Dutch,male,1851,10,Photograph
+263305,1.0,9.9,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Hugh Owen|Nicolaas Henneman,British|Dutch,male,1851,10,Photograph
 270823,1.0,2.56,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Hugh Welch Diamond,British,male,1857,3,Photograph
 283091,1.0,33.13,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Hugh Welch Diamond,British,male,1858,3,Photograph
 285964,1.0,36.28,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Hugh Welch Diamond,British,male,1855,3,Photograph
 267828,,,1.0,25.58,1.0,28.49,,,1.0,0.32,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Hugo Henneberg,Austrian,male,1898,6,Photograph
 267829,,,,,1.0,35.41,,,1.0,22.1,,,,,1.0,3.2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Hugo Henneberg,Austrian,male,1896,6,Photograph
 267830,1.0,1.19,,,1.0,10.98,,,,,,,1.0,16.78,,,,,,,,,,,1.0,0.74,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Hugo Henneberg,Austrian,male,1901,6,Photograph
+286912,,,1.0,17.92,,,,,1.0,18.69,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"Imprimerie photographique de Blanquart-Évrard, à Lille|Auguste Salzmann",French|French,male,1859,52,Photograph
+286934,,,,,,,1.0,28.66,,,,,1.0,2.74,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"Imprimerie photographique de Blanquart-Évrard, à Lille|Auguste Salzmann",French|French,male,1859,52,Photograph
+286940,,,1.0,7.03,1.0,1.26,,,,,,,1.0,1.46,,,,,,,1.0,0.35,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"Imprimerie photographique de Blanquart-Évrard, à Lille|Auguste Salzmann",French|French,male,1859,52,Photograph
+286905,,,1.0,23.59,,,,,1.0,16.31,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"Imprimerie photographique de Blanquart-Évrard, à Lille|Auguste Salzmann",French|French,male,1859,52,Photograph
+286936,1.0,0.51,,,,,1.0,34.24,,,,,1.0,2.74,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"Imprimerie photographique de Blanquart-Évrard, à Lille|Auguste Salzmann",French|French,male,1859,52,Photograph
+286801,,,1.0,55.6,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"Imprimerie photographique de Blanquart-Évrard, à Lille|Auguste Salzmann",French|French,male,1859,52,Photograph
+286910,,,1.0,55.71,,,,,1.0,3.73,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"Imprimerie photographique de Blanquart-Évrard, à Lille|Auguste Salzmann",French|French,male,1859,52,Photograph
+286943,,,,,,,1.0,58.11,,,,,,,1.0,0.35,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"Imprimerie photographique de Blanquart-Évrard, à Lille|Auguste Salzmann",French|French,male,1859,52,Photograph
+286799,,,1.0,50.67,,,,,1.0,0.77,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"Imprimerie photographique de Blanquart-Évrard, à Lille|Auguste Salzmann",French|French,male,1859,52,Photograph
+286925,,,1.0,0.91,,,1.0,2.64,,,,,,,1.0,2.28,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"Imprimerie photographique de Blanquart-Évrard, à Lille|Auguste Salzmann",French|French,male,1859,52,Photograph
+286906,,,1.0,25.82,,,,,1.0,2.06,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"Imprimerie photographique de Blanquart-Évrard, à Lille|Auguste Salzmann",French|French,male,1859,52,Photograph
+286901,,,1.0,48.93,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"Imprimerie photographique de Blanquart-Évrard, à Lille|Auguste Salzmann",French|French,male,1859,52,Photograph
+286919,,,1.0,46.8,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"Imprimerie photographique de Blanquart-Évrard, à Lille|Auguste Salzmann",French|French,male,1859,52,Photograph
+286802,,,1.0,61.64,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"Imprimerie photographique de Blanquart-Évrard, à Lille|Auguste Salzmann",French|French,male,1859,52,Photograph
+286927,,,,,,,1.0,3.83,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,0.59,,,,,,,1.0,27.99,,,,,,,,,"Imprimerie photographique de Blanquart-Évrard, à Lille|Auguste Salzmann",French|French,male,1859,52,Photograph
+286800,,,1.0,60.46,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"Imprimerie photographique de Blanquart-Évrard, à Lille|Auguste Salzmann",French|French,male,1859,52,Photograph
+286930,,,,,1.0,0.42,1.0,70.92,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"Imprimerie photographique de Blanquart-Évrard, à Lille|Auguste Salzmann",French|French,male,1859,52,Photograph
+286917,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"Imprimerie photographique de Blanquart-Évrard, à Lille|Auguste Salzmann",French|French,male,1859,52,Photograph
+267962,1.0,2.6,1.0,13.51,1.0,2.32,,,1.0,7.77,,,,,,,1.0,15.86,,,1.0,4.13,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Isaac G. Tyson|Charles J. Tyson|Mathew B. Brady,"American|American|American, born Ireland",male,1863,1,Photograph
 288840,,,,,1.0,6.9,1.0,55.86,,,,,1.0,19.21,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Isaac H. Bonsall,American,male,1865,2,Photograph
 288841,1.0,0.65,,,1.0,4.52,1.0,46.92,,,1.0,7.64,1.0,31.12,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Isaac H. Bonsall,American,male,1865,2,Photograph
+260317,,,,,1.0,42.99,,,,,,,1.0,16.79,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Isaiah West Taber|Carleton E. Watkins,American|American,male,1866,1,Photograph
+263189,,,1.0,33.27,,,,,,,,,,,,,,,,,,,,,,,1.0,1.2,,,,,,,,,,,,,,,,,,,,,,,,,,,J. Hogarth|Robert Murray, |British,male,1856,3,Photograph
+263191,1.0,3.75,,,1.0,12.01,,,1.0,3.79,,,,,1.0,4.29,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,J. Hogarth|Robert Murray, |British,male,1856,3,Photograph
+705423,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,J. Hogarth|Robert Murray, |British,male,1855,3,Photograph
 260915,1.0,0.88,1.0,48.33,1.0,3.48,,,1.0,2.01,,,,,,,,,1.0,8.96,,,,,,,,,,,,,1.0,5.51,,,,,,,,,,,,,,,,,,,,,J. Pascal Sébah,Turkish,male,1879,14,Photograph
 259827,1.0,5.45,1.0,47.44,,,,,,,,,,,,,1.0,20.99,1.0,1.85,,,,,1.0,7.74,,,,,,,,,,,,,,,,,,,,,,,,,,,,,James Anderson,British,male,1889,3,Photograph
 263539,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,James Anderson,British,male,1869,3,Photograph
 294766,,,,,1.0,4.94,,,,,,,,,,,,,,,1.0,0.88,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,1.95,,,,,James Fitzallen Ryder,American,male,1864,3,Photograph
+267923,,,1.0,6.2,1.0,13.48,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,0.48,,,,,,,,,,,,,,,James Gardner|Timothy H. O'Sullivan|Mathew B. Brady,"American|American, born Ireland|American, born Ireland",male,1864,6,Photograph
+267952,1.0,0.44,1.0,4.95,1.0,10.04,,,1.0,22.0,1.0,1.71,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,4.84,,,,,,,1.0,3.24,,,,,,,James Gardner|Timothy H. O'Sullivan|Mathew B. Brady,"American|American, born Ireland|American, born Ireland",male,1864,6,Photograph
+267992,1.0,1.31,1.0,16.22,,,1.0,2.41,,,,,,,,,,,,,,,,,,,,,,,,,1.0,1.15,,,,,,,1.0,13.05,,,,,,,,,,,,,James Gardner|Timothy H. O'Sullivan|Mathew B. Brady,"American|American, born Ireland|American, born Ireland",male,1863,6,Photograph
+267994,1.0,4.11,1.0,0.56,,,1.0,5.69,1.0,32.17,,,1.0,1.12,,,,,,,,,,,,,,,,,1.0,0.46,,,,,,,1.0,3.6,1.0,1.48,,,,,,,,,,,,,James Gardner|Timothy H. O'Sullivan|Mathew B. Brady,"American|American, born Ireland|American, born Ireland",male,1864,6,Photograph
+268045,,,1.0,2.21,1.0,27.46,,,1.0,7.87,1.0,20.77,,,,,1.0,0.67,1.0,2.03,,,1.0,13.06,,,,,1.0,9.51,,,,,,,,,,,,,,,,,,,,,,,1.0,1.85,James Gardner|Timothy H. O'Sullivan|Mathew B. Brady,"American|American, born Ireland|American, born Ireland",male,1864,6,Photograph
+268051,1.0,0.4,,,1.0,5.58,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,0.66,,,,,,,James Gardner|Timothy H. O'Sullivan|Mathew B. Brady,"American|American, born Ireland|American, born Ireland",male,1864,6,Photograph
+287898,,,1.0,49.86,1.0,8.98,,,,,,,,,,,,,1.0,6.26,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,James Knight|John Dillwyn Llewelyn,"British|British, Welsh",male,1856,2,Photograph
+287963,1.0,0.59,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,1.34,,,,,,,,,,,,,,,,,James Knight|John Dillwyn Llewelyn,"British|British, Welsh",male,1856,2,Photograph
 285888,1.0,42.88,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"James Presley Ball, Sr.",American,male,1865,1,Photograph
 263172,,,,,1.0,1.43,1.0,2.68,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,James Wallace Black,American,male,1854,12,Photograph
 263187,1.0,0.84,1.0,0.33,,,1.0,0.57,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,James Wallace Black,American,male,1869,12,Photograph
@@ -519,6 +683,8 @@ object_id,has_person,person_percent,has_building,building_percent,has_tree,tree_
 287705,1.0,4.17,1.0,14.36,1.0,16.33,,,1.0,0.83,,,,,,,,,,,,,,,1.0,6.71,,,,,,,,,,,1.0,0.32,,,,,,,,,,,,,,,,,Jean Baptiste Oscar Mallitte,French,male,1861,6,Photograph
 283721,1.0,37.02,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Jean-Baptiste Frénet,French,male,1857,1,Photograph
 285472,1.0,12.39,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Jeremiah Gurney,American,male,1863,1,Photograph
+263461,,,,,,,,,,,,,1.0,1.08,,,,,,,,,,,1.0,0.43,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Jeremiah Gurney|Charles B. J. F. de Saint-Mémin,American|French,male,1862,2,Photograph
+263462,1.0,12.24,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Jeremiah Gurney|Charles B. J. F. de Saint-Mémin,American|French,male,1862,2,Photograph
 282046,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,John Adams Whipple,American,male,1853,7,Photograph
 283175,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,John Adams Whipple,American,male,1847,7,Photograph
 286230,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,John Adams Whipple,American,male,1854,7,Photograph
@@ -526,6 +692,10 @@ object_id,has_person,person_percent,has_building,building_percent,has_tree,tree_
 286237,1.0,0.42,,,,,,,,,,,,,,,1.0,1.14,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,John Adams Whipple,American,male,1849,7,Photograph
 290482,1.0,23.07,1.0,22.07,,,,,,,,,,,,,1.0,5.29,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,John Adams Whipple,American,male,1865,7,Photograph
 301973,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,John Adams Whipple,American,male,1850,7,Photograph
+262301,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,John Adams Whipple|James Wallace Black,American|American,male,1860,4,Photograph
+263157,,,1.0,0.39,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,John Adams Whipple|James Wallace Black,American|American,male,1860,4,Photograph
+263167,,,1.0,0.41,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,John Adams Whipple|James Wallace Black,American|American,male,1860,4,Photograph
+263204,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,John Adams Whipple|James Wallace Black,American|American,male,1860,4,Photograph
 266121,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,John Beasley Greene,American,male,1854,16,Photograph
 283148,,,,,1.0,0.92,,,,,,,,,,,,,,,,,1.0,27.98,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,John Beasley Greene,American,male,1854,16,Photograph
 283149,,,1.0,0.31,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,John Beasley Greene,American,male,1854,16,Photograph
@@ -558,8 +728,10 @@ object_id,has_person,person_percent,has_building,building_percent,has_tree,tree_
 285667,,,,,1.0,71.06,,,,,,,,,1.0,2.26,,,,,,,,,,,,,1.0,1.69,,,,,,,,,,,,,,,,,,,,,,,,,John Dillwyn Llewelyn,"British, Welsh",male,1857,54,Photograph
 287942,1.0,3.26,,,1.0,70.01,,,1.0,0.69,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,0.64,,,,,,,,,,,,,,,John Dillwyn Llewelyn,"British, Welsh",male,1856,54,Photograph
 287924,,,,,,,1.0,35.45,,,1.0,0.42,,,,,,,,,,,1.0,21.31,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,John Dillwyn Llewelyn,"British, Welsh",male,1856,54,Photograph
+287894,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,John Dillwyn Llewelyn|Miss Bush,"British, Welsh|British",female,1856,1,Photograph
 270824,1.0,0.82,1.0,58.91,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,1.96,,,,,,,,,,,,,,,,,,,John Gregory Crace,British,male,1855,1,Photograph
 270838,1.0,12.31,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,John Jabez Edwin Mayall,British,male,1857,1,Photograph
+285943,1.0,0.83,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,John Jabez Edwin Mayall|Louis-Jacques-Mandé Daguerre,British|French,male,1862,1,Photograph
 269572,,,1.0,9.46,1.0,30.51,1.0,5.31,,,1.0,22.84,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,John Joscelyn Coghill,Irish,male,1855,5,Photograph
 269573,,,,,1.0,3.77,1.0,61.08,1.0,5.55,,,,,1.0,12.04,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,John Joscelyn Coghill,Irish,male,1859,5,Photograph
 269574,,,1.0,19.02,1.0,24.51,1.0,2.82,1.0,0.62,,,1.0,1.32,1.0,18.63,1.0,4.02,,,,,,,,,,,,,,,1.0,4.69,,,,,,,,,,,,,,,,,,,,,John Joscelyn Coghill,Irish,male,1859,5,Photograph
@@ -594,10 +766,33 @@ object_id,has_person,person_percent,has_building,building_percent,has_tree,tree_
 286086,,,1.0,17.88,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,John Murray,"British, Scottish",male,1859,9,Photograph
 286155,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,John Plumbe Jr.,"American, born Wales",male,1843,2,Photograph
 645493,1.0,8.82,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,John Reekie,American,male,1865,1,Photograph
+267991,,,1.0,8.28,,,,,1.0,0.41,1.0,7.64,1.0,0.33,,,,,,,,,1.0,1.26,,,,,1.0,33.44,,,,,,,,,,,,,,,,,,,,,,,1.0,0.46,John Reekie|Alexander Gardner|Mathew B. Brady,"American|American, Scottish|American, born Ireland",male,1865,1,Photograph
+289273,,,1.0,9.44,1.0,87.11,,,,,,,1.0,1.99,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,John Thomson|Lai Fong,"British, Scottish|Chinese",male,1869,4,Photograph
+289299,,,,,1.0,4.26,1.0,62.99,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,John Thomson|Lai Fong,"British, Scottish|Chinese",male,1869,4,Photograph
+289302,,,,,1.0,81.96,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,John Thomson|Lai Fong,"British, Scottish|Chinese",male,1869,4,Photograph
+289315,,,1.0,8.99,1.0,14.45,1.0,1.8,1.0,0.47,,,1.0,2.35,1.0,3.49,,,,,,,,,,,,,,,,,,,,,,,,,1.0,29.3,,,,,,,,,,,,,John Thomson|Lai Fong,"British, Scottish|Chinese",male,1869,4,Photograph
 269576,,,,,1.0,23.25,,,,,,,,,1.0,35.38,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Joseph Cundall,British,male,1855,5,Photograph
 270861,1.0,27.08,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,2.65,,,,,,,,,,,Joseph Cundall,British,male,1856,5,Photograph
 292071,1.0,10.01,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Joseph Cundall,British,male,1856,5,Photograph
 306208,,,1.0,2.68,1.0,2.49,,,,,,,,,1.0,7.62,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Joseph Cundall,British,male,1855,5,Photograph
+291369,,,1.0,47.46,1.0,22.27,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Joseph Cundall|Philip Henry Delamotte,British|British,male,1859,22,Photograph
+291386,,,1.0,50.13,1.0,9.39,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Joseph Cundall|Philip Henry Delamotte,British|British,male,1859,22,Photograph
+291381,,,1.0,55.19,1.0,6.27,,,,,,,1.0,0.7,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Joseph Cundall|Philip Henry Delamotte,British|British,male,1859,22,Photograph
+291374,1.0,0.38,1.0,53.58,,,,,1.0,8.13,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Joseph Cundall|Philip Henry Delamotte,British|British,male,1859,22,Photograph
+291388,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Joseph Cundall|Philip Henry Delamotte,British|British,male,1859,22,Photograph
+291378,,,1.0,41.95,1.0,12.62,,,1.0,1.0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Joseph Cundall|Philip Henry Delamotte,British|British,male,1859,22,Photograph
+291393,,,1.0,60.51,,,,,,,,,1.0,5.03,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Joseph Cundall|Philip Henry Delamotte,British|British,male,1859,22,Photograph
+291384,,,1.0,47.58,1.0,12.44,1.0,0.31,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,0.81,,,,,,,,,Joseph Cundall|Philip Henry Delamotte,British|British,male,1859,22,Photograph
+291376,,,1.0,22.32,1.0,25.22,,,1.0,6.34,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Joseph Cundall|Philip Henry Delamotte,British|British,male,1859,22,Photograph
+291377,,,1.0,45.5,1.0,11.53,,,1.0,6.83,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Joseph Cundall|Philip Henry Delamotte,British|British,male,1859,22,Photograph
+291390,,,1.0,43.47,1.0,1.24,,,1.0,0.77,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Joseph Cundall|Philip Henry Delamotte,British|British,male,1859,22,Photograph
+291385,,,,,1.0,8.01,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Joseph Cundall|Philip Henry Delamotte,British|British,male,1859,22,Photograph
+291391,,,1.0,10.83,1.0,51.7,,,,,,,,,1.0,2.03,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,1.5,,,,,,,,,Joseph Cundall|Philip Henry Delamotte,British|British,male,1859,22,Photograph
+291389,,,1.0,57.78,1.0,17.22,,,1.0,0.75,,,,,,,,,,,,,,,,,,,,,,,1.0,4.04,,,,,,,,,,,,,,,,,,,,,Joseph Cundall|Philip Henry Delamotte,British|British,male,1859,22,Photograph
+291375,,,1.0,34.73,1.0,5.5,,,1.0,12.26,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Joseph Cundall|Philip Henry Delamotte,British|British,male,1859,22,Photograph
+291382,,,1.0,19.8,1.0,53.53,1.0,15.0,,,,,,,1.0,3.38,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Joseph Cundall|Philip Henry Delamotte,British|British,male,1859,22,Photograph
+291394,,,,,1.0,69.07,,,,,1.0,13.26,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Joseph Cundall|Philip Henry Delamotte,British|British,male,1859,22,Photograph
+291380,,,1.0,49.43,1.0,0.36,,,,,,,1.0,0.73,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Joseph Cundall|Philip Henry Delamotte,British|British,male,1859,22,Photograph
 270830,1.0,23.95,,,,,1.0,1.84,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Joseph James Forrester,British,male,1856,1,Photograph
 267576,1.0,65.95,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Joseph T. Keiley,American,male,1898,27,Photograph
 267581,,,,,,,,,,,1.0,5.04,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Joseph T. Keiley,American,male,1899,27,Photograph
@@ -620,6 +815,8 @@ object_id,has_person,person_percent,has_building,building_percent,has_tree,tree_
 726485,,,1.0,26.55,,,,,,,,,,,1.0,6.32,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Joseph-Philibert Girault de Prangey,French,male,1841,24,Photograph
 726480,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Joseph-Philibert Girault de Prangey,French,male,1844,24,Photograph
 726483,,,1.0,17.62,,,,,,,,,1.0,0.81,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Joseph-Philibert Girault de Prangey,French,male,1844,24,Photograph
+268323,1.0,25.71,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Josiah Johnson Hawes|Southworth and Hawes|Albert Sands Southworth,American|American|American,male,1852,1,Photograph
+282751,,,,,1.0,0.52,,,,,,,,,,,1.0,1.26,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Juan Laurent|José Martinez Sánchez,French|Spanish,male,1867,1,Photograph
 268709,1.0,47.0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Julia Margaret Cameron,"British, born India",female,1866,79,Photograph
 260359,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Julia Margaret Cameron,"British, born India",female,1878,79,Photograph
 268700,1.0,3.72,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Julia Margaret Cameron,"British, born India",female,1868,79,Photograph
@@ -638,6 +835,13 @@ object_id,has_person,person_percent,has_building,building_percent,has_tree,tree_
 271078,1.0,0.93,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Julia Margaret Cameron,"British, born India",female,1867,79,Photograph
 283097,1.0,5.29,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Julia Margaret Cameron,"British, born India",female,1867,79,Photograph
 282064,1.0,12.9,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Julia Margaret Cameron,"British, born India",female,1867,79,Photograph
+267768,1.0,4.07,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Julia Margaret Cameron|The Autotype Company,"British, born India|British",female,1865,7,Photograph
+269428,1.0,55.01,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Julia Margaret Cameron|The Autotype Company,"British, born India|British",female,1869,7,Photograph
+269430,1.0,62.98,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Julia Margaret Cameron|The Autotype Company,"British, born India|British",female,1867,7,Photograph
+269431,1.0,33.17,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Julia Margaret Cameron|The Autotype Company,"British, born India|British",female,1864,7,Photograph
+269432,1.0,71.65,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Julia Margaret Cameron|The Autotype Company,"British, born India|British",female,1872,7,Photograph
+269433,1.0,36.22,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Julia Margaret Cameron|The Autotype Company,"British, born India|British",female,1864,7,Photograph
+269434,1.0,59.26,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Julia Margaret Cameron|The Autotype Company,"British, born India|British",female,1867,7,Photograph
 266980,1.0,21.09,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,14.66,,,,,,,,,,,,,,,,,,,Julien Vallou de Villeneuve,French,male,1855,5,Photograph
 266981,1.0,16.09,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Julien Vallou de Villeneuve,French,male,1855,5,Photograph
 266982,1.0,13.1,,,,,,,,,1.0,38.69,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Julien Vallou de Villeneuve,French,male,1855,5,Photograph
@@ -662,6 +866,13 @@ object_id,has_person,person_percent,has_building,building_percent,has_tree,tree_
 633313,,,,,1.0,62.4,,,1.0,3.41,,,,,,,,,1.0,2.1,,,,,,,,,,,,,1.0,3.35,,,,,,,,,,,,,,,,,1.0,5.02,,,Lala Deen Dayal,Indian,male,1890,4,Photograph
 285872,,,1.0,34.7,,,1.0,23.03,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Leavitt Hunt,American,male,1852,2,Photograph
 286266,1.0,0.4,,,1.0,0.61,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Leavitt Hunt,American,male,1851,2,Photograph
+286007,1.0,7.95,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"Lewis Carroll|Alexandra ""Xie"" Rhoda Kitchin",British|British,female,1870,1,Photograph
+283092,1.0,22.55,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Lewis Carroll|Alice Pleasance Liddell,British|British,female,1858,2,Photograph
+306205,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Lewis Carroll|Alice Pleasance Liddell,British|British,female,1870,2,Photograph
+306207,1.0,7.95,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Lewis Carroll|Edith Mary Liddell,British|British,female,1860,1,Photograph
+283094,1.0,38.39,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Lewis Carroll|Flora Rankin|Irene MacDonald|Mary Josephine MacDonald,British|British|British|British,female,1863,1,Photograph
+700114,,,,,,,1.0,6.34,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Lieutenant George Montague Wheeler|Timothy H. O'Sullivan,"American|American, born Ireland",male,1873,1,Photograph
+700113,,,,,,,,,,,,,1.0,1.04,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Lieutenant George Montague Wheeler|William Bell,"American|American, born England",male,1872,1,Photograph
 265917,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,5.74,,,,,,,,,,,,,,,,,,,,,,,,,,,Linnaeus Tripe,British,male,1858,61,Photograph
 287282,,,1.0,79.94,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Linnaeus Tripe,British,male,1858,61,Photograph
 287264,,,1.0,22.76,1.0,16.88,,,1.0,21.03,,,,,,,,,,,1.0,3.49,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Linnaeus Tripe,British,male,1858,61,Photograph
@@ -683,6 +894,7 @@ object_id,has_person,person_percent,has_building,building_percent,has_tree,tree_
 289718,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,2.76,,,,,,,,,,,,,,,,,Louis Lafon,French,male,1885,7,Photograph
 289719,,,1.0,22.97,1.0,2.28,,,1.0,0.36,,,,,,,,,1.0,37.26,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Louis Lafon,French,male,1885,7,Photograph
 830426,,,1.0,5.95,1.0,27.95,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Louis Vignes,French,male,1860,1,Photograph
+306174,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Louis Vignes|Charles Nègre,French|French,male,1864,4,Photograph
 282186,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Louis-Adolphe Humbert de Molard,French,male,1850,11,Photograph
 285463,1.0,13.66,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Louis-Adolphe Humbert de Molard,French,male,1851,11,Photograph
 286022,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Louis-Adolphe Humbert de Molard,French,male,1847,11,Photograph
@@ -719,6 +931,8 @@ object_id,has_person,person_percent,has_building,building_percent,has_tree,tree_
 271963,,,1.0,11.6,1.0,15.02,,,1.0,1.8,,,,,1.0,11.89,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Louis-Rémy Robert,French,male,1855,9,Photograph
 283112,,,1.0,0.6,1.0,46.7,,,1.0,2.63,,,1.0,6.3,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Louis-Rémy Robert,French,male,1854,9,Photograph
 286246,1.0,0.96,1.0,53.87,,,,,,,,,,,1.0,0.92,,,,,,,,,,,1.0,2.77,,,,,,,,,,,,,,,,,,,,,,,,,,,Louis-Rémy Robert,French,male,1856,9,Photograph
+286695,1.0,22.02,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Louise Deglane|François-Benjamin-Maria Delessert,French|French,female,1862,1,Photograph
+733904,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,0.49,,,1.0,2.13,,,,,,,,,,,,,,,Ludwig Belitski|Baron Alexander von Minutoli,German|German,male,1854,4,Photograph
 652112,,,1.0,60.53,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Luigi Pesce,Italian,male,1869,93,Photograph
 271279,,,1.0,5.15,,,,,,,,,1.0,3.59,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Luigi Pesce,Italian,male,1858,93,Photograph
 652130,,,1.0,36.02,1.0,20.78,,,1.0,4.98,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Luigi Pesce,Italian,male,1869,93,Photograph
@@ -737,6 +951,11 @@ object_id,has_person,person_percent,has_building,building_percent,has_tree,tree_
 262204,,,1.0,40.35,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Luigi Pesce,Italian,male,1859,93,Photograph
 271275,,,1.0,1.52,,,,,,,,,,,,,,,,,,,,,,,1.0,4.54,,,,,,,,,,,,,,,,,,,,,,,,,,,Luigi Pesce,Italian,male,1858,93,Photograph
 652099,,,1.0,14.39,1.0,26.71,,,1.0,3.46,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Luigi Pesce,Italian,male,1869,93,Photograph
+267087,,,1.0,26.35,1.0,23.19,,,,,1.0,17.35,1.0,10.14,1.0,3.89,,,,,,,,,,,,,,,1.0,4.72,1.0,0.54,,,1.0,0.37,,,,,,,,,,,,,,,,,Marie-Charles-Isidore Choiselat|Stanislas Ratel,French|French,male,1844,3,Photograph
+283103,,,1.0,17.01,1.0,7.36,,,1.0,0.79,,,,,,,,,,,,,,,,,,,,,1.0,8.48,,,,,,,,,,,,,,,,,1.0,10.7,,,,,Marie-Charles-Isidore Choiselat|Stanislas Ratel,French|French,male,1849,3,Photograph
+286110,,,1.0,3.16,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Marie-Charles-Isidore Choiselat|Stanislas Ratel,French|French,male,1844,3,Photograph
+265311,1.0,20.95,1.0,41.67,1.0,6.57,,,1.0,0.51,,,,,,,,,,,,,,,,,,,,,,,1.0,0.55,,,1.0,0.71,,,,,,,,,,,,,,,,,Marion Post Wolcott|F.S.A. studio,American| ,female,1939,1,Photograph
+268990,1.0,3.21,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Mary Rejlander|Oscar Gustav Rejlander,"British|British, born Sweden",male,1865,1,Photograph
 286582,1.0,31.4,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Mathew B. Brady,"American, born Ireland",male,1865,35,Photograph
 283185,1.0,17.65,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,4.13,,,,,,,,,,,,,,,,,,,Mathew B. Brady,"American, born Ireland",male,1858,35,Photograph
 286262,,,1.0,0.33,1.0,17.28,,,,,1.0,7.08,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Mathew B. Brady,"American, born Ireland",male,1862,35,Photograph
@@ -750,6 +969,13 @@ object_id,has_person,person_percent,has_building,building_percent,has_tree,tree_
 285835,,,1.0,1.0,1.0,0.95,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,1.41,,,,,,,,,,,,,,,,,,,,,Mathew B. Brady,"American, born Ireland",male,1862,35,Photograph
 286620,1.0,1.33,1.0,85.08,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Mathew B. Brady,"American, born Ireland",male,1861,35,Photograph
 282053,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Mathew B. Brady,"American, born Ireland",male,1859,35,Photograph
+267980,,,1.0,0.8,1.0,3.71,,,1.0,42.69,,,,,,,1.0,3.04,,,1.0,8.6,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Mathew B. Brady|Andrew Joseph Russell,"American, born Ireland|American",male,1865,2,Photograph
+268212,1.0,26.42,1.0,10.92,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Mathew B. Brady|Andrew Joseph Russell,"American, born Ireland|American",male,1865,2,Photograph
+268232,1.0,5.87,1.0,3.95,1.0,1.51,,,,,,,,,,,1.0,8.67,,,,,,,,,,,,,,,1.0,3.51,,,,,,,,,,,,,,,,,,,,,Mathew B. Brady|James F. Gibson,"American, born Ireland|American",male,1865,4,Photograph
+267944,1.0,26.06,,,1.0,0.47,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Mathew B. Brady|Thomas C. Roche,"American, born Ireland|American",male,1864,1,Photograph
+268040,1.0,3.59,1.0,3.84,1.0,3.83,,,1.0,0.47,,,,,1.0,1.28,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Mathew B. Brady|Timothy H. O'Sullivan,"American, born Ireland|American, born Ireland",male,1865,3,Photograph
+268063,1.0,0.45,1.0,7.65,1.0,9.03,,,,,1.0,30.02,,,,,1.0,4.09,,,,,,,,,,,1.0,13.39,,,,,,,,,,,,,,,,,,,,,,,,,Mathew B. Brady|Timothy H. O'Sullivan,"American, born Ireland|American, born Ireland",male,1865,3,Photograph
+268205,,,1.0,15.13,1.0,7.15,,,,,,,,,,,1.0,0.71,,,1.0,0.77,,,,,,,,,,,,,,,,,,,1.0,36.94,,,,,,,,,,,,,Mathew B. Brady|Timothy H. O'Sullivan,"American, born Ireland|American, born Ireland",male,1863,3,Photograph
 287077,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Maxime Du Camp,French,male,1850,204,Photograph
 287071,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Maxime Du Camp,French,male,1849,204,Photograph
 287177,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Maxime Du Camp,French,male,1850,204,Photograph
@@ -805,9 +1031,25 @@ object_id,has_person,person_percent,has_building,building_percent,has_tree,tree_
 294431,1.0,11.67,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Nadar,French,male,1860,15,Photograph
 306329,1.0,12.14,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Nadar,French,male,1858,15,Photograph
 285692,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Napoleon Sarony,"American, born Canada",male,1889,1,Photograph
+283247,1.0,31.74,,,,,1.0,0.64,,,1.0,2.07,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Napoleon Sarony|Oscar Wilde,"American, born Canada|Irish",male,1882,2,Photograph
+285691,1.0,37.74,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Napoleon Sarony|Oscar Wilde,"American, born Canada|Irish",male,1882,2,Photograph
+652117,1.0,22.78,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,1.47,,,,,,,,,,,Naser od-Din Shah|Luigi Pesce,Iranian|Italian,male,1869,1,Photograph
+786301,1.0,5.44,,,,,,,,,,,,,,,,,,,,,,,1.0,0.57,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Neil Armstrong|National Aeronautics and Space Administration (NASA)|Buzz Aldrin,American|American|American,male,1974,1,Photograph
 286549,1.0,0.8,,,,,,,,,,,,,,,,,,,,,,,1.0,7.63,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Nevil Story Maskelyne,British,male,1857,1,Photograph
 527477,1.0,6.61,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,5.15,,,,,,,,,,,,,,,,,,,Nicolaas Henneman,Dutch,male,1853,2,Photograph
 527478,1.0,15.35,,,,,,,,,,,,,,,,,,,,,,,1.0,0.34,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Nicolaas Henneman,Dutch,male,1853,2,Photograph
+283065,1.0,1.56,1.0,76.17,,,,,1.0,1.36,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Nicolaas Henneman|William Henry Fox Talbot,Dutch|British,male,1846,1,Photograph
+287295,,,,,,,,,,,,,,,1.0,4.35,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,0.37,,,,,,,,,,,Noriega|François Aubert, |French,male,1867,11,Photograph
+287296,,,,,,,1.0,6.41,1.0,1.04,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Noriega|François Aubert, |French,male,1867,11,Photograph
+287374,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Noriega|François Aubert, |French,male,1867,11,Photograph
+293994,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Noriega|François Aubert, |French,male,1867,11,Photograph
+293995,,,1.0,28.7,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Noriega|François Aubert, |French,male,1867,11,Photograph
+293996,,,1.0,10.52,1.0,1.9,,,1.0,0.33,,,,,1.0,0.43,,,,,,,,,,,1.0,0.36,,,,,,,,,,,,,,,,,,,,,,,,,,,Noriega|François Aubert, |French,male,1867,11,Photograph
+293997,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Noriega|François Aubert, |French,male,1867,11,Photograph
+293998,,,1.0,7.91,,,,,,,,,,,1.0,0.93,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Noriega|François Aubert, |French,male,1867,11,Photograph
+293999,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,0.45,,,,,,,,,,,,,,,Noriega|François Aubert, |French,male,1867,11,Photograph
+294000,,,1.0,77.34,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Noriega|François Aubert, |French,male,1867,11,Photograph
+294001,,,1.0,90.48,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Noriega|François Aubert, |French,male,1867,11,Photograph
 282767,1.0,17.61,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,1.52,,,,,,,,,,,,,,,Oliver H. Willard,American,male,1858,6,Photograph
 291651,1.0,9.69,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Oliver H. Willard,American,male,1866,6,Photograph
 291652,1.0,13.51,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Oliver H. Willard,American,male,1866,6,Photograph
@@ -820,6 +1062,7 @@ object_id,has_person,person_percent,has_building,building_percent,has_tree,tree_
 286649,1.0,19.85,1.0,2.57,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,23.62,,,,,,,,,,,,,,,,,Olympe Aguado de las Marismas,French,male,1862,8,Photograph
 286650,1.0,17.95,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,5.26,,,,,,,,,,,,,,,Olympe Aguado de las Marismas,French,male,1862,8,Photograph
 286697,1.0,16.55,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Olympe Aguado de las Marismas,French,male,1860,8,Photograph
+894551,1.0,10.78,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Olympe Aguado de las Marismas|Louis-Rémy Robert|Onésipe Aguado de las Marismas,French|French|French,male,1860,1,Photograph
 283121,1.0,24.82,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Onésipe Aguado de las Marismas,French,male,1864,1,Photograph
 269979,1.0,38.22,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Oscar Gustav Rejlander,"British, born Sweden",male,1858,23,Photograph
 268988,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Oscar Gustav Rejlander,"British, born Sweden",male,1867,23,Photograph
@@ -832,6 +1075,9 @@ object_id,has_person,person_percent,has_building,building_percent,has_tree,tree_
 286296,,,,,,,,,,,,,,,,,,,,,,,,,1.0,8.82,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Ottomar Anschütz,German,male,1889,4,Photograph
 286297,,,,,,,,,,,,,,,,,,,,,,,,,1.0,3.67,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Ottomar Anschütz,German,male,1888,4,Photograph
 286298,,,,,,,,,,,,,,,,,,,,,,,,,1.0,5.62,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Ottomar Anschütz,German,male,1886,4,Photograph
+266895,,,,,,,,,,,1.0,5.65,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,7.32,,,,,,,,,,,,,Paul Henry|Prosper Henry,French|French,male,1887,3,Photograph
+267137,,,,,,,,,,,1.0,27.89,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Paul Henry|Prosper Henry,French|French,male,1890,3,Photograph
+283255,,,,,,,,,,,1.0,62.7,,,,,,,,,,,,,,,,,,,,,,,1.0,0.79,,,,,,,,,,,,,,,,,,,Paul Henry|Prosper Henry,French|French,male,1885,3,Photograph
 283227,1.0,16.49,,,1.0,14.87,,,,,1.0,0.86,,,,,,,,,,,,,,,,,,,,,1.0,1.63,,,,,,,1.0,33.16,,,,,,,,,,,,,Peter Henry Emerson,"British, born Cuba",male,1886,7,Photograph
 286418,1.0,1.44,,,1.0,6.98,,,,,1.0,63.16,,,,,,,,,,,,,,,,,1.0,4.22,,,,,,,,,,,,,,,,,,,,,,,,,Peter Henry Emerson,"British, born Cuba",male,1886,7,Photograph
 286469,1.0,2.85,,,1.0,20.52,,,,,1.0,51.74,,,,,,,,,,,,,,,,,1.0,5.24,,,,,,,,,,,,,,,,,,,,,,,,,Peter Henry Emerson,"British, born Cuba",male,1886,7,Photograph
@@ -856,6 +1102,7 @@ object_id,has_person,person_percent,has_building,building_percent,has_tree,tree_
 288433,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Philip Henry Delamotte,British,male,1861,61,Photograph
 269621,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Philip Henry Delamotte,British,male,1854,61,Photograph
 269619,1.0,13.72,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Philip Henry Delamotte,British,male,1852,61,Photograph
+271667,1.0,28.26,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Philip Henry Delamotte|T. R. Williams,British|British,male,1854,1,Photograph
 283109,1.0,8.05,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Pierre Emile Joseph Pécarrère,French,male,1852,5,Photograph
 283110,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Pierre Emile Joseph Pécarrère,French,male,1852,5,Photograph
 285983,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Pierre Emile Joseph Pécarrère,French,male,1852,5,Photograph
@@ -875,6 +1122,37 @@ object_id,has_person,person_percent,has_building,building_percent,has_tree,tree_
 261338,1.0,8.13,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Pierre-Louis Pierson,French,male,1869,249,Photograph
 261533,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Pierre-Louis Pierson,French,male,1869,249,Photograph
 261498,,,,,1.0,0.83,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Pierre-Louis Pierson,French,male,1869,249,Photograph
+285607,1.0,25.49,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Pierre-Louis Pierson|Aquilin Schad|Countess Virginia Oldoini Verasis di Castiglione,French|Austrian| ,female,1866,1,Photograph
+261364,,,,,,,,,,,1.0,0.79,1.0,0.85,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Pierre-Louis Pierson|Countess Virginia Oldoini Verasis di Castiglione,French| ,female,1869,58,Photograph
+261374,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Pierre-Louis Pierson|Countess Virginia Oldoini Verasis di Castiglione,French| ,female,1869,58,Photograph
+286786,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Pierre-Louis Pierson|Countess Virginia Oldoini Verasis di Castiglione,French| ,female,1867,58,Photograph
+261467,1.0,2.05,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Pierre-Louis Pierson|Countess Virginia Oldoini Verasis di Castiglione,French| ,female,1869,58,Photograph
+286844,1.0,23.11,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Pierre-Louis Pierson|Countess Virginia Oldoini Verasis di Castiglione,French| ,female,1893,58,Photograph
+286852,1.0,18.55,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Pierre-Louis Pierson|Countess Virginia Oldoini Verasis di Castiglione,French| ,female,1893,58,Photograph
+286825,1.0,24.19,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Pierre-Louis Pierson|Countess Virginia Oldoini Verasis di Castiglione,French| ,female,1867,58,Photograph
+283245,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Pierre-Louis Pierson|Countess Virginia Oldoini Verasis di Castiglione,French| ,female,1857,58,Photograph
+286846,1.0,26.29,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Pierre-Louis Pierson|Countess Virginia Oldoini Verasis di Castiglione,French| ,female,1893,58,Photograph
+261466,1.0,30.1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Pierre-Louis Pierson|Countess Virginia Oldoini Verasis di Castiglione,French| ,female,1869,58,Photograph
+286848,1.0,25.58,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Pierre-Louis Pierson|Countess Virginia Oldoini Verasis di Castiglione,French| ,female,1893,58,Photograph
+261372,1.0,2.08,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Pierre-Louis Pierson|Countess Virginia Oldoini Verasis di Castiglione,French| ,female,1869,58,Photograph
+286823,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Pierre-Louis Pierson|Countess Virginia Oldoini Verasis di Castiglione,French| ,female,1865,58,Photograph
+285653,1.0,19.2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Pierre-Louis Pierson|Countess Virginia Oldoini Verasis di Castiglione,French| ,female,1895,58,Photograph
+261473,1.0,17.91,1.0,0.36,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Pierre-Louis Pierson|Countess Virginia Oldoini Verasis di Castiglione,French| ,female,1869,58,Photograph
+261373,1.0,2.17,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Pierre-Louis Pierson|Countess Virginia Oldoini Verasis di Castiglione,French| ,female,1869,58,Photograph
+288157,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Pierre-Louis Pierson|Marck|Countess Virginia Oldoini Verasis di Castiglione,French| | ,female,1865,2,Photograph
+288158,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Pierre-Louis Pierson|Marck|Countess Virginia Oldoini Verasis di Castiglione,French| | ,female,1865,2,Photograph
+285479,1.0,1.77,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Pierre-Louis Pierson|Unknown|Countess Virginia Oldoini Verasis di Castiglione,French| | ,female,1863,12,Photograph
+285609,1.0,0.3,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Pierre-Louis Pierson|Unknown|Countess Virginia Oldoini Verasis di Castiglione,French| | ,female,1867,12,Photograph
+285649,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Pierre-Louis Pierson|Unknown|Countess Virginia Oldoini Verasis di Castiglione,French| | ,female,1867,12,Photograph
+286829,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,22.13,,,,,,,,,,,,,,,,,,,Pierre-Louis Pierson|Unknown|Countess Virginia Oldoini Verasis di Castiglione,French| | ,female,1867,12,Photograph
+286830,1.0,5.07,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Pierre-Louis Pierson|Unknown|Countess Virginia Oldoini Verasis di Castiglione,French| | ,female,1867,12,Photograph
+286831,1.0,4.15,,,,,,,,,,,,,,,,,,,,,,,1.0,0.39,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Pierre-Louis Pierson|Unknown|Countess Virginia Oldoini Verasis di Castiglione,French| | ,female,1867,12,Photograph
+286832,1.0,1.06,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Pierre-Louis Pierson|Unknown|Countess Virginia Oldoini Verasis di Castiglione,French| | ,female,1867,12,Photograph
+286833,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Pierre-Louis Pierson|Unknown|Countess Virginia Oldoini Verasis di Castiglione,French| | ,female,1867,12,Photograph
+286834,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Pierre-Louis Pierson|Unknown|Countess Virginia Oldoini Verasis di Castiglione,French| | ,female,1867,12,Photograph
+286838,1.0,1.81,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Pierre-Louis Pierson|Unknown|Countess Virginia Oldoini Verasis di Castiglione,French| | ,female,1867,12,Photograph
+286839,1.0,2.38,,,,,,,,,,,,,,,,,,,,,,,1.0,1.45,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Pierre-Louis Pierson|Unknown|Countess Virginia Oldoini Verasis di Castiglione,French| | ,female,1867,12,Photograph
+286840,1.0,3.05,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Pierre-Louis Pierson|Unknown|Countess Virginia Oldoini Verasis di Castiglione,French| | ,female,1867,12,Photograph
 286126,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Pietro Dovizielli,Italian,male,1860,3,Photograph
 286681,,,1.0,16.91,,,,,1.0,3.16,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Pietro Dovizielli,Italian,male,1859,3,Photograph
 286622,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Platt D. Babbitt,American,male,1852,2,Photograph
@@ -917,6 +1195,8 @@ object_id,has_person,person_percent,has_building,building_percent,has_tree,tree_
 267669,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,René Le Bègue,French,male,1902,6,Photograph
 269345,1.0,27.6,,,1.0,0.42,1.0,1.29,,,1.0,1.41,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,René Le Bègue,French,male,1903,6,Photograph
 266157,,,1.0,46.92,1.0,16.06,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Richard Dykes Alexander,British,male,1859,3,Photograph
+286212,1.0,21.01,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Robert  Adamson|Hill and Adamson|David Octavius Hill,"British, Scottish|British, Scottish|British, Scottish",male,1847,2,Photograph
+286570,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Robert  Adamson|Hill and Adamson|David Octavius Hill,"British, Scottish|British, Scottish|British, Scottish",male,1847,2,Photograph
 270848,,,1.0,85.41,,,,,,,,,,,,,,,1.0,1.02,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Robert Charles Ransome,British,male,1853,1,Photograph
 285978,1.0,5.41,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Robert E. Peary,American,male,1895,5,Photograph
 285979,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Robert E. Peary,American,male,1895,5,Photograph
@@ -948,6 +1228,7 @@ object_id,has_person,person_percent,has_building,building_percent,has_tree,tree_
 283158,1.0,1.08,1.0,0.39,1.0,1.35,1.0,1.43,,,1.0,1.14,,,1.0,8.7,,,,,1.0,2.25,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Roger Fenton,British,male,1855,45,Photograph
 283081,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,3.75,,,,,,,,,,,,,,,,,Roger Fenton,British,male,1858,45,Photograph
 283087,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Roger Fenton,British,male,1860,45,Photograph
+676536,1.0,16.8,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,1.67,,,,,,,,,,,,,,,,,,,"Roger Fenton|Thomas Agnew & Sons, Ltd.|Roger Fenton",British| |British,male,1855,1,Photograph
 285425,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Rufus Anson,American,male,1859,6,Photograph
 286346,,,,,,,,,,,,,,,1.0,2.51,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Samuel Bemis,American,male,1841,1,Photograph
 266893,1.0,3.02,,,1.0,25.02,1.0,31.34,1.0,28.01,,,1.0,0.31,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Samuel Bourne,British,male,1866,6,Photograph
@@ -957,6 +1238,13 @@ object_id,has_person,person_percent,has_building,building_percent,has_tree,tree_
 283174,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Samuel F. B. Morse,American,male,1840,1,Photograph
 286550,,,,,1.0,7.76,1.0,0.84,,,,,1.0,0.5,,,,,,,,,1.0,9.55,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Samuel Masury,American,male,1858,1,Photograph
 282057,1.0,1.61,1.0,0.7,1.0,1.9,1.0,0.63,,,1.0,9.33,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,0.47,,,,,,,,,,,Silas A. Holmes,American,male,1857,2,Photograph
+268306,1.0,54.16,,,,,,,,,1.0,2.33,1.0,0.53,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Southworth and Hawes|Albert Sands Southworth|Josiah Johnson Hawes,American|American|American,male,1855,7,Photograph
+268316,1.0,34.19,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Southworth and Hawes|Albert Sands Southworth|Josiah Johnson Hawes,American|American|American,male,1852,7,Photograph
+268324,1.0,41.21,,,,,,,,,1.0,7.34,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Southworth and Hawes|Albert Sands Southworth|Josiah Johnson Hawes,American|American|American,male,1852,7,Photograph
+268326,1.0,35.28,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Southworth and Hawes|Albert Sands Southworth|Josiah Johnson Hawes,American|American|American,male,1852,7,Photograph
+301969,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Southworth and Hawes|Albert Sands Southworth|Josiah Johnson Hawes,American|American|American,male,1859,7,Photograph
+268318,1.0,32.35,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,2.12,,,Southworth and Hawes|Josiah Johnson Hawes|Albert Sands Southworth,American|American|American,male,1852,1,Photograph
+287891,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Thereza Dillwyn Llewelyn|John Dillwyn Llewelyn," |British, Welsh",male,1856,1,Photograph
 269420,1.0,64.75,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,1.45,,,,,,,,,,,,,,,,,,,Thomas Annan,"British, Scottish",male,1867,2,Photograph
 711645,,,1.0,20.85,1.0,4.07,,,,,1.0,20.16,1.0,5.79,,,,,,,,,1.0,3.26,,,,,,,,,,,,,,,,,,,,,,,,,1.0,0.94,,,,,Thomas C. Roche,American,male,1869,25,Photograph
 711653,,,,,1.0,21.45,,,,,1.0,7.48,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Thomas C. Roche,American,male,1869,25,Photograph
@@ -972,11 +1260,16 @@ object_id,has_person,person_percent,has_building,building_percent,has_tree,tree_
 711641,,,1.0,33.88,,,,,,,,,,,,,1.0,1.09,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Thomas C. Roche,American,male,1869,25,Photograph
 711657,,,1.0,0.76,1.0,25.89,1.0,18.91,1.0,8.52,,,,,,,1.0,0.64,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Thomas C. Roche,American,male,1869,25,Photograph
 711654,,,1.0,8.76,1.0,2.98,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Thomas C. Roche,American,male,1869,25,Photograph
+268021,,,1.0,27.57,,,,,,,,,1.0,23.78,,,1.0,8.8,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Thomas C. Roche|Alexander Gardner|Mathew B. Brady,"American|American, Scottish|American, born Ireland",male,1865,1,Photograph
+267933,1.0,1.74,,,,,,,,,,,1.0,0.97,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Thomas C. Roche|Mathew B. Brady,"American|American, born Ireland",male,1864,3,Photograph
+268139,,,,,,,,,,,,,,,,,,,,,1.0,8.61,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Thomas C. Roche|Mathew B. Brady,"American|American, born Ireland",male,1865,3,Photograph
+268146,1.0,4.08,,,,,1.0,71.74,,,,,1.0,1.67,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Thomas C. Roche|Mathew B. Brady,"American|American, born Ireland",male,1864,3,Photograph
 271852,1.0,5.22,,,1.0,32.94,,,1.0,10.47,,,,,,,,,,,1.0,2.62,,,1.0,10.34,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Thomas Eakins,American,male,1894,101,Photograph
 271835,1.0,4.44,,,1.0,38.35,,,1.0,1.44,1.0,24.55,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,0.73,,,,,,,,,1.0,4.95,,,Thomas Eakins,American,male,1883,101,Photograph
 271804,1.0,1.31,1.0,3.6,,,,,1.0,0.36,,,,,,,,,,,,,,,1.0,1.14,,,,,,,,,1.0,1.86,,,,,,,,,,,,,,,,,,,Thomas Eakins,American,male,1889,101,Photograph
 271898,1.0,52.58,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Thomas Eakins,American,male,1889,101,Photograph
 271892,1.0,19.22,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Thomas Eakins,American,male,1891,101,Photograph
+271897,1.0,7.11,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Thomas Eakins|Susan Macdowell Eakins,American| ,female,1889,1,Photograph
 283077,,,,,1.0,53.03,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Thomas Keith,"British, Scottish",male,1857,1,Photograph
 286606,,,1.0,7.13,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Théodule Deveria,French,male,1859,1,Photograph
 264704,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Timothy H. O'Sullivan,"American, born Ireland",male,1871,56,Photograph
@@ -994,8 +1287,72 @@ object_id,has_person,person_percent,has_building,building_percent,has_tree,tree_
 264716,,,,,,,1.0,1.27,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Timothy H. O'Sullivan,"American, born Ireland",male,1871,56,Photograph
 264705,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Timothy H. O'Sullivan,"American, born Ireland",male,1871,56,Photograph
 264703,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Timothy H. O'Sullivan,"American, born Ireland",male,1871,56,Photograph
+285645,1.0,14.55,,,1.0,25.44,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,0.91,,,,,,,,,,,Timothy H. O'Sullivan|Alexander Gardner,"American, born Ireland|American, Scottish",male,1864,2,Photograph
+286882,1.0,10.87,,,1.0,1.5,,,,,,,1.0,0.42,,,,,,,,,,,,,1.0,0.3,,,,,,,,,,,,,,,,,,,,,,,,,,,Timothy H. O'Sullivan|Alexander Gardner,"American, born Ireland|American, Scottish",male,1863,2,Photograph
+285644,1.0,4.12,,,,,,,,,,,1.0,1.42,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Timothy H. O'Sullivan|Alexander Gardner|Alexander Gardner,"American, born Ireland|American, Scottish|American, Scottish",male,1863,1,Photograph
+267936,,,1.0,8.94,1.0,15.37,,,1.0,1.89,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,2.93,,,,,,,,,,,,,Timothy H. O'Sullivan|Alexander Gardner|Mathew B. Brady,"American, born Ireland|American, Scottish|American, born Ireland",male,1865,3,Photograph
+267938,,,1.0,24.69,1.0,5.51,,,1.0,27.77,,,1.0,0.97,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Timothy H. O'Sullivan|Alexander Gardner|Mathew B. Brady,"American, born Ireland|American, Scottish|American, born Ireland",male,1865,3,Photograph
+267939,,,1.0,24.69,1.0,5.51,,,1.0,27.77,,,1.0,0.97,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Timothy H. O'Sullivan|Alexander Gardner|Mathew B. Brady,"American, born Ireland|American, Scottish|American, born Ireland",male,1865,3,Photograph
+268173,,,,,,,,,,,,,,,,,,,,,1.0,2.23,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Timothy H. O'Sullivan|Andrew Joseph Russell|Mathew B. Brady,"American, born Ireland|American|American, born Ireland",male,1864,2,Photograph
+267888,1.0,15.44,,,1.0,21.18,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Timothy H. O'Sullivan|George N. Barnard|Mathew B. Brady,"American, born Ireland|American|American, born Ireland",male,1863,3,Photograph
+267889,,,,,1.0,9.19,,,,,1.0,24.3,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Timothy H. O'Sullivan|George N. Barnard|Mathew B. Brady,"American, born Ireland|American|American, born Ireland",male,1862,3,Photograph
+267918,,,1.0,3.95,1.0,9.56,,,1.0,8.92,1.0,25.2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Timothy H. O'Sullivan|George N. Barnard|Mathew B. Brady,"American, born Ireland|American|American, born Ireland",male,1862,3,Photograph
+267973,,,1.0,2.08,1.0,40.17,,,,,1.0,0.52,,,,,,,,,,,1.0,7.15,,,,,1.0,0.34,1.0,1.08,,,,,,,,,,,,,,,,,,,,,1.0,1.04,Timothy H. O'Sullivan|James Gardner|Mathew B. Brady,"American, born Ireland|American|American, born Ireland",male,1864,5,Photograph
+267995,1.0,0.3,1.0,1.22,1.0,4.1,,,1.0,3.66,1.0,1.64,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,0.62,,,,,,,1.0,6.42,,,,,,,Timothy H. O'Sullivan|James Gardner|Mathew B. Brady,"American, born Ireland|American|American, born Ireland",male,1864,5,Photograph
+267996,1.0,1.14,1.0,0.43,1.0,5.19,,,,,1.0,18.44,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,0.88,,,,,,,,,,,,,,,Timothy H. O'Sullivan|James Gardner|Mathew B. Brady,"American, born Ireland|American|American, born Ireland",male,1864,5,Photograph
+268053,,,1.0,2.37,,,,,1.0,0.93,,,,,,,,,,,1.0,1.01,,,1.0,0.33,,,,,,,,,,,,,,,1.0,7.93,,,,,,,,,,,,,Timothy H. O'Sullivan|James Gardner|Mathew B. Brady,"American, born Ireland|American|American, born Ireland",male,1864,5,Photograph
+268116,1.0,0.46,,,1.0,30.4,,,1.0,0.58,1.0,4.17,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Timothy H. O'Sullivan|James Gardner|Mathew B. Brady,"American, born Ireland|American|American, born Ireland",male,1864,5,Photograph
+263051,,,1.0,2.35,1.0,39.07,,,,,1.0,10.71,,,,,,,1.0,0.6,,,,,,,,,1.0,4.52,1.0,0.74,1.0,0.53,,,,,,,,,,,,,,,,,,,1.0,1.25,Timothy H. O'Sullivan|Mathew B. Brady,"American, born Ireland|American, born Ireland",male,1864,57,Photograph
+267925,,,,,1.0,25.65,,,,,1.0,5.39,1.0,12.3,,,,,,,,,1.0,0.79,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Timothy H. O'Sullivan|Mathew B. Brady,"American, born Ireland|American, born Ireland",male,1865,57,Photograph
+268094,,,1.0,6.68,1.0,9.09,,,,,1.0,8.42,,,,,1.0,3.29,,,,,,,,,,,1.0,32.07,,,,,,,,,,,,,,,,,,,,,,,1.0,0.56,Timothy H. O'Sullivan|Mathew B. Brady,"American, born Ireland|American, born Ireland",male,1865,57,Photograph
+267943,1.0,2.6,,,1.0,0.72,1.0,2.95,,,,,1.0,0.82,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Timothy H. O'Sullivan|Mathew B. Brady,"American, born Ireland|American, born Ireland",male,1864,57,Photograph
+268133,1.0,1.78,,,1.0,20.4,,,1.0,4.55,1.0,0.61,,,,,,,,,,,1.0,0.96,,,,,,,1.0,7.09,,,,,,,,,,,,,,,,,,,,,,,Timothy H. O'Sullivan|Mathew B. Brady,"American, born Ireland|American, born Ireland",male,1864,57,Photograph
+268071,1.0,1.07,1.0,0.67,1.0,10.48,1.0,6.56,,,1.0,17.31,1.0,3.23,,,,,,,,,,,,,,,,,1.0,0.4,,,,,,,,,,,,,,,,,1.0,0.33,,,,,Timothy H. O'Sullivan|Mathew B. Brady,"American, born Ireland|American, born Ireland",male,1862,57,Photograph
+268100,,,1.0,0.31,1.0,2.17,,,1.0,6.28,,,,,1.0,2.05,,,,,1.0,2.63,,,,,,,,,,,,,,,,,,,1.0,3.07,,,,,,,,,,,,,Timothy H. O'Sullivan|Mathew B. Brady,"American, born Ireland|American, born Ireland",male,1865,57,Photograph
+267942,1.0,3.96,,,1.0,2.28,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Timothy H. O'Sullivan|Mathew B. Brady,"American, born Ireland|American, born Ireland",male,1864,57,Photograph
+268248,1.0,8.23,1.0,2.05,1.0,0.47,,,1.0,0.38,1.0,6.78,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,0.63,,,,,Timothy H. O'Sullivan|Mathew B. Brady,"American, born Ireland|American, born Ireland",male,1865,57,Photograph
+267893,,,1.0,6.28,1.0,31.1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Timothy H. O'Sullivan|Mathew B. Brady,"American, born Ireland|American, born Ireland",male,1864,57,Photograph
+268162,1.0,2.19,,,1.0,4.02,,,1.0,1.72,,,,,,,,,,,1.0,0.32,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Timothy H. O'Sullivan|Mathew B. Brady,"American, born Ireland|American, born Ireland",male,1864,57,Photograph
+268058,,,1.0,1.04,1.0,3.76,,,1.0,2.1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Timothy H. O'Sullivan|Mathew B. Brady,"American, born Ireland|American, born Ireland",male,1864,57,Photograph
+267931,,,,,,,,,,,,,,,,,,,,,1.0,1.42,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Timothy H. O'Sullivan|Mathew B. Brady,"American, born Ireland|American, born Ireland",male,1864,57,Photograph
+267956,1.0,1.14,,,1.0,41.92,,,1.0,0.49,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Timothy H. O'Sullivan|Mathew B. Brady,"American, born Ireland|American, born Ireland",male,1865,57,Photograph
+267929,1.0,3.57,,,,,,,1.0,4.34,,,1.0,0.67,,,1.0,2.49,1.0,0.34,1.0,0.37,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Timothy H. O'Sullivan|Mathew B. Brady,"American, born Ireland|American, born Ireland",male,1864,57,Photograph
+267914,1.0,1.89,1.0,16.39,1.0,3.29,,,,,1.0,2.81,,,,,1.0,5.31,,,,,,,,,,,1.0,14.29,1.0,6.07,,,,,,,,,,,,,,,,,,,,,,,Timothy H. O'Sullivan|Mathew B. Brady,"American, born Ireland|American, born Ireland",male,1865,57,Photograph
 264743,1.0,6.3,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Uchida Kuichi,Japanese,male,1873,1,Photograph
+286184,,,,,,,1.0,11.73,,,,,1.0,7.77,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Unknown|John Moran," |American, born England",male,1870,1,Photograph
+268043,,,1.0,11.28,1.0,20.12,,,,,,,,,,,,,,,1.0,2.73,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Unknown|Mathew B. Brady," |American, born Ireland",male,1865,28,Photograph
+268238,,,,,1.0,24.79,,,,,1.0,14.89,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Unknown|Mathew B. Brady," |American, born Ireland",male,1865,28,Photograph
+268041,1.0,9.89,1.0,1.32,1.0,2.46,,,1.0,0.78,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Unknown|Mathew B. Brady," |American, born Ireland",male,1865,28,Photograph
+268188,1.0,2.82,,,,,,,1.0,20.87,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,5.33,1.0,1.37,1.0,13.1,,,,,,,,,,,,,Unknown|Mathew B. Brady," |American, born Ireland",male,1865,28,Photograph
+267959,1.0,0.66,,,1.0,20.14,,,1.0,18.19,1.0,8.39,1.0,3.52,,,1.0,1.96,1.0,2.51,,,,,,,,,1.0,7.59,,,1.0,1.09,,,,,,,,,,,,,,,,,,,,,Unknown|Mathew B. Brady," |American, born Ireland",male,1864,28,Photograph
+268103,,,1.0,2.17,1.0,35.28,,,1.0,1.27,1.0,3.07,,,1.0,4.78,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Unknown|Mathew B. Brady," |American, born Ireland",male,1865,28,Photograph
+268163,1.0,1.25,1.0,2.45,1.0,1.65,,,1.0,0.39,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Unknown|Mathew B. Brady," |American, born Ireland",male,1865,28,Photograph
+268200,1.0,0.89,1.0,12.29,1.0,2.1,,,,,,,1.0,0.31,1.0,6.87,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Unknown|Mathew B. Brady," |American, born Ireland",male,1865,28,Photograph
+268067,,,1.0,5.0,,,1.0,0.59,1.0,15.22,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,0.46,,,,,1.0,1.69,,,,,,,Unknown|Mathew B. Brady," |American, born Ireland",male,1865,28,Photograph
+268107,,,1.0,6.01,1.0,1.78,,,1.0,22.87,,,,,,,1.0,20.63,,,1.0,4.18,,,,,,,,,,,,,,,,,,,1.0,1.7,,,,,,,,,,,,,Unknown|Mathew B. Brady," |American, born Ireland",male,1865,28,Photograph
+268118,1.0,0.79,,,1.0,7.98,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,3.6,,,,,,,Unknown|Mathew B. Brady," |American, born Ireland",male,1865,28,Photograph
+267961,1.0,8.07,1.0,4.13,,,,,1.0,0.3,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Unknown|Mathew B. Brady," |American, born Ireland",male,1865,28,Photograph
+267987,,,1.0,0.93,1.0,0.83,,,1.0,0.9,,,,,,,1.0,8.4,,,,,,,,,,,,,,,,,,,,,,,1.0,35.88,,,,,,,,,,,,,Unknown|Mathew B. Brady," |American, born Ireland",male,1865,28,Photograph
+268023,1.0,26.35,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Unknown|Mathew B. Brady," |American, born Ireland",male,1865,28,Photograph
+267967,1.0,2.18,1.0,1.07,1.0,1.19,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,11.94,,,,,,,,,,,,,Unknown|Mathew B. Brady," |American, born Ireland",male,1863,28,Photograph
+268158,1.0,17.64,,,1.0,19.2,,,1.0,1.18,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,28.07,,,,,,,Unknown|Mathew B. Brady," |American, born Ireland",male,1865,28,Photograph
+268206,1.0,0.44,1.0,2.92,1.0,13.01,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,59.49,,,,,,,,,,,,,Unknown|Mathew B. Brady," |American, born Ireland",male,1863,28,Photograph
+267984,1.0,9.8,1.0,2.1,1.0,4.97,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Unknown|Mathew B. Brady," |American, born Ireland",male,1865,28,Photograph
+301989,1.0,10.03,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Unknown|Sojourner Truth, |American,female,1864,1,Photograph
+259815,1.0,2.11,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Unknown|baron Antoine Jean Gros, |French,male,1859,1,Photograph
 268659,,,,,1.0,31.1,1.0,3.43,,,,,1.0,0.49,1.0,1.22,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Victor Prevost,French,male,1859,3,Photograph
+285721,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,W. & F. Langenheim|Frederick Langenheim,"American|American, born Germany",male,1853,1,Photograph
+285769,1.0,11.98,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,W. & F. Langenheim|William Langenheim,"American|American, born Germany",male,1849,22,Photograph
+286274,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,W. & F. Langenheim|William Langenheim,"American|American, born Germany",male,1853,22,Photograph
+285739,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,W. & F. Langenheim|William Langenheim,"American|American, born Germany",male,1852,22,Photograph
+286329,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,W. & F. Langenheim|William Langenheim,"American|American, born Germany",male,1858,22,Photograph
+285832,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,W. & F. Langenheim|William Langenheim,"American|American, born Germany",male,1848,22,Photograph
+285719,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,W. & F. Langenheim|William Langenheim,"American|American, born Germany",male,1844,22,Photograph
+286326,1.0,18.51,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,W. & F. Langenheim|William Langenheim,"American|American, born Germany",male,1853,22,Photograph
+286330,1.0,10.59,,,,,,,,,1.0,2.24,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,W. & F. Langenheim|William Langenheim,"American|American, born Germany",male,1857,22,Photograph
+283179,1.0,9.02,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,W. & F. Langenheim|William Langenheim|Frederick Langenheim,"American|American, born Germany|American, born Germany",male,1852,3,Photograph
+283180,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,W. & F. Langenheim|William Langenheim|Frederick Langenheim,"American|American, born Germany|American, born Germany",male,1854,3,Photograph
+286315,1.0,2.46,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,W. & F. Langenheim|William Langenheim|Frederick Langenheim,"American|American, born Germany|American, born Germany",male,1851,3,Photograph
 262679,,,,,,,1.0,83.3,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,William Bell,"American, born England",male,1872,7,Photograph
 262680,,,,,,,1.0,42.35,,,,,1.0,1.39,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,William Bell,"American, born England",male,1872,7,Photograph
 265002,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,William Bell,"American, born England",male,1867,7,Photograph
@@ -1003,6 +1360,13 @@ object_id,has_person,person_percent,has_building,building_percent,has_tree,tree_
 286098,1.0,3.44,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,William Bell,"American, born England",male,1867,7,Photograph
 287291,,,,,,,1.0,55.02,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,William Bell,"American, born England",male,1872,7,Photograph
 830984,1.0,13.21,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,William Bell,"American, born England",male,1869,7,Photograph
+267883,,,1.0,2.16,1.0,34.16,,,,,1.0,23.0,,,,,,,,,1.0,3.28,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,William Frank Browne|Mathew B. Brady,"American|American, born Ireland",male,1865,13,Photograph
+267885,,,1.0,0.39,1.0,9.29,,,,,,,,,,,1.0,1.47,,,1.0,0.41,,,,,,,1.0,4.02,,,,,,,,,,,,,,,,,,,,,,,,,William Frank Browne|Mathew B. Brady,"American|American, born Ireland",male,1864,13,Photograph
+267892,,,,,1.0,44.7,1.0,3.19,,,1.0,4.21,,,,,,,,,,,,,,,,,,,1.0,18.2,,,,,,,,,,,,,,,,,,,,,,,William Frank Browne|Mathew B. Brady,"American|American, born Ireland",male,1864,13,Photograph
+267922,1.0,1.52,1.0,0.61,1.0,2.41,,,1.0,1.11,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,William Frank Browne|Mathew B. Brady,"American|American, born Ireland",male,1867,13,Photograph
+268011,,,1.0,3.36,1.0,1.38,1.0,1.93,1.0,2.01,,,1.0,1.98,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,0.47,,,,,,,,,,,,,William Frank Browne|Mathew B. Brady,"American|American, born Ireland",male,1865,13,Photograph
+268060,,,1.0,0.58,1.0,11.21,,,1.0,4.99,1.0,0.41,,,,,,,,,1.0,0.41,,,,,,,1.0,5.58,,,,,,,,,,,,,,,,,,,,,,,,,William Frank Browne|Mathew B. Brady,"American|American, born Ireland",male,1865,13,Photograph
+283897,,,1.0,2.69,1.0,3.48,,,1.0,10.91,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,William Frank Browne|Mathew B. Brady,"American|American, born Ireland",male,1865,13,Photograph
 270847,,,1.0,1.07,1.0,24.81,,,,,,,,,1.0,35.94,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,William Harcourt Ranking,British,male,1857,1,Photograph
 282005,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,William Henry Fox Talbot,British,male,1840,74,Photograph
 306334,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,William Henry Fox Talbot,British,male,1842,74,Photograph
@@ -1022,375 +1386,16 @@ object_id,has_person,person_percent,has_building,building_percent,has_tree,tree_
 286101,,,1.0,37.38,1.0,4.55,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,William Henry Fox Talbot,British,male,1844,74,Photograph
 289229,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,William Henry Fox Talbot,British,male,1840,74,Photograph
 289222,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,William Henry Fox Talbot,British,male,1840,74,Photograph
+283067,1.0,16.05,1.0,24.33,1.0,41.97,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,William Henry Fox Talbot|Calvert Richard Jones,"British|British, Welsh",male,1847,1,Photograph
+263163,,,1.0,7.22,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,William Henry Fox Talbot|Robert Hunt,British|British,male,1846,1,Photograph
 283229,1.0,0.79,,,1.0,2.84,1.0,5.38,,,1.0,52.38,,,,,,,,,,,1.0,1.77,,,,,,,1.0,0.86,,,,,,,,,,,,,,,,,,,,,1.0,7.85,William James Mullins,American,male,1901,2,Photograph
 285776,,,1.0,0.53,,,,,,,,,1.0,0.4,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,William James Stillman,American,male,1885,4,Photograph
 285941,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,William James Stillman,American,male,1885,4,Photograph
 285942,,,,,,,,,,,,,1.0,2.43,,,,,,,,,,,,,1.0,0.32,,,,,,,1.0,1.52,,,,,,,,,,,,,,,,,,,William James Stillman,American,male,1887,4,Photograph
+283191,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,William Marsh|Abraham Lincoln,American|American,male,1860,1,Photograph
 285708,1.0,17.02,1.0,2.06,1.0,54.3,,,1.0,13.79,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,William Morris Smith, ,male,1865,1,Photograph
 286175,,,,,1.0,2.73,1.0,8.02,1.0,0.64,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,William Notman,"Canadian, born Scotland",male,1889,1,Photograph
 286312,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,William Stinson Soule,American,male,1874,1,Photograph
 263193,1.0,14.4,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,William Thomas Saunders,British,male,1867,7,Photograph
 263194,1.0,8.53,1.0,22.58,1.0,21.84,,,1.0,0.42,,,,,1.0,5.99,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,William Thomas Saunders,British,male,1867,7,Photograph
 285443,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Yokoyama Matsusaburō,Japanese,male,1869,1,Photograph
-283191,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Abraham Lincoln,American,male,1860,2,Photograph
-302241,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Adrien Tournachon|Guillaume-Benjamin-Amand Duchenne de Boulogne,French|French,male|male,1856,1,Photograph
-282190,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Adrien Tournachon|Nadar,French|French,male|male,1855,2,Photograph
-283118,1.0,27.84,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Adrien Tournachon|Nadar,French|French,male|male,1855,2,Photograph
-268361,1.0,34.37,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Albert Sands Southworth,American,male,1852,2,Photograph
-283178,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Albert Sands Southworth,American,male,1850,2,Photograph
-268306,1.0,54.16,,,,,,,,,1.0,2.33,1.0,0.53,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Albert Sands Southworth|Josiah Johnson Hawes,American|American,male|male,1855,57,Photograph
-268311,1.0,37.32,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,2.63,,,,,,,,,,,,,,,,,Albert Sands Southworth|Josiah Johnson Hawes,American|American,male|male,1852,57,Photograph
-268339,1.0,19.18,,,,,1.0,18.64,,,,,1.0,0.44,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Albert Sands Southworth|Josiah Johnson Hawes,American|American,male|male,1852,57,Photograph
-268320,1.0,22.28,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,2.25,,,,,,,,,,,,,,,Albert Sands Southworth|Josiah Johnson Hawes,American|American,male|male,1852,57,Photograph
-268336,1.0,35.46,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Albert Sands Southworth|Josiah Johnson Hawes,American|American,male|male,1852,57,Photograph
-268340,1.0,4.78,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Albert Sands Southworth|Josiah Johnson Hawes,American|American,male|male,1850,57,Photograph
-268356,1.0,33.66,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Albert Sands Southworth|Josiah Johnson Hawes,American|American,male|male,1852,57,Photograph
-268358,1.0,50.56,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Albert Sands Southworth|Josiah Johnson Hawes,American|American,male|male,1852,57,Photograph
-268309,1.0,28.92,,,,,,,,,1.0,4.42,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Albert Sands Southworth|Josiah Johnson Hawes,American|American,male|male,1852,57,Photograph
-268344,1.0,16.69,,,,,,,,,1.0,1.1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Albert Sands Southworth|Josiah Johnson Hawes|Albert Gallatin Hoit,American|American|American,male|male|male,1852,1,Photograph
-286664,,,1.0,0.85,1.0,24.15,,,1.0,16.3,,,,,1.0,10.79,,,,,1.0,1.57,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Alexander Gardner,"American, Scottish",male,1865,2,Photograph
-261925,1.0,20.66,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Alexander Gardner|Abraham Lincoln,"American, Scottish|American",male|male,1863,1,Photograph
-286616,1.0,9.93,,,1.0,3.01,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,0.98,,,,,,,Alexander Gardner|Abraham Lincoln|John Alexander McClernand|Allan Pinkerton,"American, Scottish|American|American|American, born Scotland",male|male|male|male,1862,1,Photograph
-286615,1.0,9.74,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Alexander Gardner|Allan Pinkerton|Abraham Lincoln|John Alexander McClernand,"American, Scottish|American, born Scotland|American|American",male|male|male|male,1862,1,Photograph
-268004,,,1.0,40.55,,,,,,,,,1.0,2.38,,,,,1.0,5.99,,,,,,,,,,,,,1.0,0.52,,,,,,,,,,,,,,,,,,,,,Alexander Gardner|Mathew B. Brady,"American, Scottish|American, born Ireland",male|male,1865,21,Photograph
-268176,,,1.0,0.83,,,,,1.0,3.28,,,,,,,,,,,,,1.0,41.42,,,,,,,,,,,,,,,,,1.0,1.76,,,,,,,,,,,,,Alexander Gardner|Mathew B. Brady,"American, Scottish|American, born Ireland",male|male,1863,21,Photograph
-268025,,,1.0,53.05,1.0,2.12,,,1.0,3.4,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Alexander Gardner|Mathew B. Brady,"American, Scottish|American, born Ireland",male|male,1865,21,Photograph
-268005,,,1.0,30.28,1.0,5.66,,,1.0,12.96,,,,,,,1.0,6.1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Alexander Gardner|Mathew B. Brady,"American, Scottish|American, born Ireland",male|male,1865,21,Photograph
-268016,,,1.0,17.14,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Alexander Gardner|Mathew B. Brady,"American, Scottish|American, born Ireland",male|male,1865,21,Photograph
-268013,,,1.0,25.92,1.0,2.33,,,,,,,,,,,,,,,1.0,0.55,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,1.27,,,,,Alexander Gardner|Mathew B. Brady,"American, Scottish|American, born Ireland",male|male,1865,21,Photograph
-268019,,,,,1.0,10.74,,,,,,,1.0,0.94,1.0,0.35,,,,,1.0,0.53,,,,,,,,,,,,,,,,,,,1.0,0.67,,,,,,,,,,,,,Alexander Gardner|Mathew B. Brady,"American, Scottish|American, born Ireland",male|male,1865,21,Photograph
-268009,,,,,,,,,,,1.0,24.19,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Alexander Gardner|Mathew B. Brady,"American, Scottish|American, born Ireland",male|male,1865,21,Photograph
-268249,1.0,7.45,1.0,23.18,1.0,38.91,,,1.0,16.23,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Alexander Gardner|Mathew B. Brady,"American, Scottish|American, born Ireland",male|male,1865,21,Photograph
-268086,1.0,0.87,1.0,6.26,1.0,25.71,,,,,,,,,1.0,22.16,,,1.0,0.5,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Alexander Gardner|Mathew B. Brady,"American, Scottish|American, born Ireland",male|male,1865,21,Photograph
-268007,,,1.0,9.39,,,,,1.0,20.97,,,,,,,1.0,35.69,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Alexander Gardner|Mathew B. Brady,"American, Scottish|American, born Ireland",male|male,1865,21,Photograph
-267937,,,1.0,8.94,1.0,15.37,,,1.0,1.89,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,2.93,,,,,,,,,,,,,Alexander Gardner|Timothy H. O'Sullivan|Mathew B. Brady,"American, Scottish|American, born Ireland|American, born Ireland",male|male|male,1865,1,Photograph
-291457,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Alphonse J. Liébert,French,male,1871,4,Photograph
-291458,,,1.0,15.25,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Alphonse J. Liébert,French,male,1871,4,Photograph
-291459,,,1.0,6.3,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Alphonse J. Liébert,French,male,1871,4,Photograph
-291460,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Alphonse J. Liébert,French,male,1871,4,Photograph
-268207,1.0,1.7,1.0,9.41,1.0,20.42,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Andrew Joseph Russell|Alexander Gardner|Mathew B. Brady,"American|American, Scottish|American, born Ireland",male|male|male,1862,1,Photograph
-268049,1.0,0.45,,,1.0,2.2,1.0,23.23,,,,,1.0,6.83,,,,,,,,,1.0,37.36,,,,,,,1.0,6.96,,,,,,,,,,,,,,,,,,,,,,,Andrew Joseph Russell|Egbert Guy Fowx|Mathew B. Brady,"American|American|American, born Ireland",male|male|male,1865,4,Photograph
-268050,,,,,1.0,52.88,,,1.0,13.16,1.0,8.07,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,3.41,,,,,Andrew Joseph Russell|Egbert Guy Fowx|Mathew B. Brady,"American|American|American, born Ireland",male|male|male,1865,4,Photograph
-268153,,,1.0,1.13,1.0,13.25,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Andrew Joseph Russell|Egbert Guy Fowx|Mathew B. Brady,"American|American|American, born Ireland",male|male|male,1865,4,Photograph
-268262,1.0,2.88,1.0,0.82,1.0,31.94,,,,,,,,,1.0,2.95,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Andrew Joseph Russell|Egbert Guy Fowx|Mathew B. Brady,"American|American|American, born Ireland",male|male|male,1864,4,Photograph
-267917,,,1.0,1.06,1.0,29.41,,,,,1.0,18.64,1.0,3.61,,,,,,,,,,,,,,,,,1.0,1.12,,,,,,,,,,,,,,,,,,,,,,,Andrew Joseph Russell|George N. Barnard|Timothy H. O'Sullivan|Mathew B. Brady,"American|American|American, born Ireland|American, born Ireland",male|male|male|male,1862,1,Photograph
-267895,,,1.0,13.18,1.0,22.78,,,1.0,23.14,,,,,,,,,1.0,1.23,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Andrew Joseph Russell|Mathew B. Brady,"American|American, born Ireland",male|male,1865,73,Photograph
-268069,1.0,6.95,1.0,1.66,1.0,46.74,,,1.0,7.45,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Andrew Joseph Russell|Mathew B. Brady,"American|American, born Ireland",male|male,1865,73,Photograph
-267881,,,1.0,3.08,1.0,0.8,,,1.0,0.32,,,1.0,0.31,,,1.0,2.46,,,1.0,18.89,1.0,18.7,,,,,1.0,3.26,,,,,,,,,,,,,,,,,,,,,,,1.0,1.53,Andrew Joseph Russell|Mathew B. Brady,"American|American, born Ireland",male|male,1865,73,Photograph
-268142,1.0,2.24,,,1.0,11.09,1.0,9.33,,,,,1.0,0.3,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Andrew Joseph Russell|Mathew B. Brady,"American|American, born Ireland",male|male,1865,73,Photograph
-267963,,,,,1.0,17.53,1.0,0.49,1.0,0.58,,,,,,,,,,,1.0,0.84,,,,,,,,,,,,,,,1.0,3.11,,,,,,,,,,,,,,,,,Andrew Joseph Russell|Mathew B. Brady,"American|American, born Ireland",male|male,1863,73,Photograph
-268160,1.0,2.56,1.0,3.0,1.0,47.5,,,1.0,6.09,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,3.39,,,,,,,Andrew Joseph Russell|Mathew B. Brady,"American|American, born Ireland",male|male,1865,73,Photograph
-267972,1.0,1.39,1.0,15.68,1.0,7.65,,,,,,,,,1.0,0.57,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,1.35,,,,,,,Andrew Joseph Russell|Mathew B. Brady,"American|American, born Ireland",male|male,1865,73,Photograph
-268270,,,1.0,2.6,,,,,,,1.0,3.75,,,,,,,,,,,1.0,33.09,,,,,1.0,2.35,,,,,,,,,,,,,,,,,,,,,,,1.0,3.27,Andrew Joseph Russell|Mathew B. Brady,"American|American, born Ireland",male|male,1865,73,Photograph
-268147,,,1.0,1.58,1.0,17.39,,,,,,,,,,,,,,,1.0,16.0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Andrew Joseph Russell|Mathew B. Brady,"American|American, born Ireland",male|male,1864,73,Photograph
-267890,,,1.0,1.88,1.0,24.28,1.0,9.46,,,1.0,21.16,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Andrew Joseph Russell|Timothy H. O'Sullivan|George N. Barnard|Mathew B. Brady,"American|American, born Ireland|American|American, born Ireland",male|male|male|male,1862,2,Photograph
-267945,1.0,0.42,,,1.0,24.95,,,,,,,,,,,,,,,1.0,4.29,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Andrew Joseph Russell|Timothy H. O'Sullivan|Mathew B. Brady,"American|American, born Ireland|American, born Ireland",male|male|male,1864,1,Photograph
-285876,1.0,38.23,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Anthony Berger,American,male,1864,1,Photograph
-260988,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Antoine-François-Jean Claudet|Nicolaas Henneman,French|Dutch,male|male,1850,2,Photograph
-306323,1.0,3.29,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Antoine-François-Jean Claudet|Nicolaas Henneman,French|Dutch,male|male,1850,2,Photograph
-306337,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Antoine-François-Jean Claudet|William Henry Fox Talbot,French|British,male|male,1846,1,Photograph
-268645,,,1.0,31.94,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Armand-Hippolyte-Louis Fizeau|Noël-Marie-Paymal Lerebours,French|French,male|male,1843,2,Photograph
-269123,,,1.0,20.72,,,,,,,,,1.0,5.93,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Armand-Hippolyte-Louis Fizeau|Noël-Marie-Paymal Lerebours,French|French,male|male,1849,2,Photograph
-287047,,,1.0,84.61,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Auguste Salzmann,French,male,1859,174,Photograph
-287036,,,1.0,1.07,1.0,20.95,,,1.0,3.7,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Auguste Salzmann,French,male,1859,174,Photograph
-286993,,,1.0,34.93,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Auguste Salzmann,French,male,1859,174,Photograph
-287019,,,1.0,34.18,1.0,1.26,1.0,0.33,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,6.12,,,,,,,,,,,,,Auguste Salzmann,French,male,1859,174,Photograph
-287032,,,1.0,25.74,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Auguste Salzmann,French,male,1859,174,Photograph
-287030,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Auguste Salzmann,French,male,1859,174,Photograph
-286934,,,,,,,1.0,28.66,,,,,1.0,2.74,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Auguste Salzmann,French,male,1859,174,Photograph
-286907,,,1.0,76.75,,,,,1.0,0.43,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Auguste Salzmann,French,male,1859,174,Photograph
-287018,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Auguste Salzmann,French,male,1859,174,Photograph
-286957,,,1.0,4.64,1.0,2.89,1.0,2.96,,,,,1.0,0.39,1.0,3.01,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Auguste Salzmann,French,male,1859,174,Photograph
-287004,,,1.0,48.37,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Auguste Salzmann,French,male,1859,174,Photograph
-286952,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Auguste Salzmann,French,male,1859,174,Photograph
-283137,1.0,0.51,,,,,1.0,86.33,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Auguste-Rosalie Bisson,French,male,1861,2,Photograph
-786294,1.0,0.44,1.0,13.66,,,1.0,2.21,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,21.97,,,,,,,,,,,,,,,,,,,Buzz Aldrin,American,male,1974,6,Photograph
-786297,1.0,6.88,,,,,,,,,,,,,,,,,,,,,,,1.0,0.49,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Buzz Aldrin,American,male,1974,6,Photograph
-786299,1.0,14.69,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Buzz Aldrin,American,male,1974,6,Photograph
-786300,1.0,6.36,,,,,,,,,,,,,,,,,,,,,,,,,1.0,0.33,,,,,,,,,,,1.0,0.61,,,,,,,,,,,,,,,Buzz Aldrin,American,male,1974,6,Photograph
-786301,1.0,5.44,,,,,,,,,,,,,,,,,,,,,,,1.0,0.57,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Buzz Aldrin,American,male,1974,6,Photograph
-286661,1.0,16.0,1.0,4.26,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Charles Clifford,British,male,1866,1,Photograph
-269065,,,,,1.0,36.04,,,,,1.0,1.73,1.0,16.32,,,,,,,1.0,0.77,1.0,10.82,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Charles Marville,French,male,1853,6,Photograph
-269072,1.0,5.18,,,1.0,17.4,1.0,7.68,,,1.0,25.2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Charles Marville,French,male,1853,6,Photograph
-269074,,,,,1.0,63.76,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Charles Marville,French,male,1853,6,Photograph
-294768,1.0,65.03,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Charles Marville,French,male,1853,6,Photograph
-286111,1.0,2.44,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Charles Victor Hugo|Auguste Vacquerie,French|French,male|male,1855,3,Photograph
-286434,1.0,6.87,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Charles Victor Hugo|Auguste Vacquerie,French|French,male|male,1852,3,Photograph
-286696,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Charles Victor Hugo|Auguste Vacquerie,French|French,male|male,1855,3,Photograph
-416911,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,D. Maitland Armstrong,American,male,1871,2,Photograph
-416912,1.0,13.47,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,D. Maitland Armstrong,American,male,1851,2,Photograph
-268806,1.0,17.38,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,David Octavius Hill|Robert  Adamson,"British, Scottish|British, Scottish",male|male,1847,384,Photograph
-268606,1.0,28.35,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,David Octavius Hill|Robert  Adamson,"British, Scottish|British, Scottish",male|male,1847,384,Photograph
-282017,1.0,51.99,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,David Octavius Hill|Robert  Adamson,"British, Scottish|British, Scottish",male|male,1845,384,Photograph
-268405,1.0,1.11,1.0,34.04,,,,,1.0,1.81,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,David Octavius Hill|Robert  Adamson,"British, Scottish|British, Scottish",male|male,1847,384,Photograph
-268382,1.0,25.86,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,David Octavius Hill|Robert  Adamson,"British, Scottish|British, Scottish",male|male,1847,384,Photograph
-268465,1.0,26.94,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,David Octavius Hill|Robert  Adamson,"British, Scottish|British, Scottish",male|male,1847,384,Photograph
-268594,1.0,58.25,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,David Octavius Hill|Robert  Adamson,"British, Scottish|British, Scottish",male|male,1847,384,Photograph
-268601,1.0,40.89,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,David Octavius Hill|Robert  Adamson,"British, Scottish|British, Scottish",male|male,1847,384,Photograph
-268470,,,1.0,5.78,1.0,1.6,,,,,,,,,,,,,,,,,,,1.0,2.19,,,,,,,,,,,,,,,,,,,,,,,,,,,,,David Octavius Hill|Robert  Adamson,"British, Scottish|British, Scottish",male|male,1847,384,Photograph
-263161,1.0,45.51,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,David Octavius Hill|Robert  Adamson|Edward William Lane,"British, Scottish|British, Scottish|British",male|male|male,1843,1,Photograph
-282012,1.0,47.05,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,David Octavius Hill|Robert  Adamson|Sir David Brewster,"British, Scottish|British, Scottish|British, Scottish",male|male|male,1846,1,Photograph
-307108,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,David Wilkie Wynfield|William Holman Hunt,"British, born India|British",male|male,1863,1,Photograph
-260387,,,1.0,0.94,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Dorothea Lange,American,female,1938,8,Photograph
-260388,1.0,21.31,,,1.0,0.94,1.0,0.63,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,0.3,,,1.0,22.5,,,,,,,,,,,,,Dorothea Lange,American,female,1939,8,Photograph
-271123,,,,,1.0,21.41,1.0,25.49,,,1.0,31.77,,,,,,,,,,,,,,,,,,,1.0,3.11,,,,,,,,,,,,,,,,,,,,,,,Eadweard Muybridge|Henry W. Bradley,British and American|American,male|male,1872,5,Photograph
-265967,,,,,,,1.0,55.33,,,,,1.0,0.56,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Edouard Baldus,"French, born Prussia",male,1854,2,Photograph
-290464,,,1.0,9.06,1.0,2.88,,,,,,,1.0,3.82,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,2.19,,,,,,,,,Edouard Baldus,"French, born Prussia",male,1854,2,Photograph
-268028,1.0,2.28,1.0,0.74,1.0,7.81,1.0,23.97,,,1.0,2.13,,,,,1.0,3.16,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Egbert Guy Fowx|Andrew Joseph Russell|Mathew B. Brady,"American|American|American, born Ireland",male|male|male,1865,3,Photograph
-268123,,,1.0,5.6,1.0,10.18,1.0,10.09,,,1.0,10.14,,,,,,,,,1.0,0.55,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Egbert Guy Fowx|Andrew Joseph Russell|Mathew B. Brady,"American|American|American, born Ireland",male|male|male,1864,3,Photograph
-711371,1.0,13.76,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Emile Mangel du Mesnil|Jacob Wothly,French|German,male|male,1870,1,Photograph
-269073,1.0,0.82,,,1.0,63.38,,,,,1.0,1.83,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Ernest Benecke,French,male,1853,1,Photograph
-283685,1.0,22.16,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Eugenio Interguglielmi,Italian,male,1895,1,Photograph
-631032,,,1.0,23.54,1.0,4.94,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Felice Beato,"British, born Italy",male,1857,1,Photograph
-629811,,,1.0,16.09,1.0,3.29,,,,,,,,,,,1.0,1.17,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Firmin-Eugène Le Dien|Gustave Le Gray,French|French,male|male,1858,3,Photograph
-629831,,,1.0,64.68,,,1.0,4.58,1.0,7.83,,,,,,,,,1.0,3.04,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Firmin-Eugène Le Dien|Gustave Le Gray,French|French,male|male,1853,3,Photograph
-260971,,,1.0,9.67,1.0,1.8,1.0,19.83,,,1.0,16.31,1.0,0.58,,,,,,,,,1.0,0.69,,,,,1.0,5.85,1.0,3.82,,,,,,,,,,,,,,,,,,,,,,,Francis Frith,British,male,1859,4,Photograph
-260973,,,,,,,1.0,33.57,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Francis Frith,British,male,1859,4,Photograph
-260975,,,,,,,1.0,55.31,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Francis Frith,British,male,1859,4,Photograph
-287295,,,,,,,,,,,,,,,1.0,4.35,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,0.37,,,,,,,,,,,François Aubert,French,male,1867,11,Photograph
-287296,,,,,,,1.0,6.41,1.0,1.04,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,François Aubert,French,male,1867,11,Photograph
-287374,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,François Aubert,French,male,1867,11,Photograph
-293994,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,François Aubert,French,male,1867,11,Photograph
-293995,,,1.0,28.7,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,François Aubert,French,male,1867,11,Photograph
-293996,,,1.0,10.52,1.0,1.9,,,1.0,0.33,,,,,1.0,0.43,,,,,,,,,,,1.0,0.36,,,,,,,,,,,,,,,,,,,,,,,,,,,François Aubert,French,male,1867,11,Photograph
-293997,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,François Aubert,French,male,1867,11,Photograph
-293998,,,1.0,7.91,,,,,,,,,,,1.0,0.93,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,François Aubert,French,male,1867,11,Photograph
-293999,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,0.45,,,,,,,,,,,,,,,François Aubert,French,male,1867,11,Photograph
-294000,,,1.0,77.34,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,François Aubert,French,male,1867,11,Photograph
-294001,,,1.0,90.48,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,François Aubert,French,male,1867,11,Photograph
-285721,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Frederick Langenheim,"American, born Germany",male,1853,1,Photograph
-261829,,,1.0,8.48,,,,,,,,,1.0,1.35,,,,,,,,,,,,,1.0,0.8,,,,,,,,,,,,,,,,,,,,,,,,,,,Félix Teynard,French,male,1852,105,Photograph
-261864,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Félix Teynard,French,male,1852,105,Photograph
-261863,,,1.0,32.77,,,,,,,,,1.0,21.99,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Félix Teynard,French,male,1852,105,Photograph
-261852,,,1.0,53.14,,,,,,,,,1.0,15.84,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Félix Teynard,French,male,1852,105,Photograph
-261844,,,1.0,18.75,1.0,2.12,,,,,,,1.0,0.81,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,1.44,,,,,,,,,Félix Teynard,French,male,1852,105,Photograph
-261893,,,,,,,,,,,,,,,1.0,31.26,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Félix Teynard,French,male,1852,105,Photograph
-261903,,,,,,,,,,,,,1.0,46.3,1.0,3.19,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Félix Teynard,French,male,1852,105,Photograph
-261846,,,1.0,6.69,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Félix Teynard,French,male,1852,105,Photograph
-261809,,,1.0,17.76,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,0.92,,,,,,,,,,,,,,,,,Félix Teynard,French,male,1852,105,Photograph
-261799,,,1.0,50.04,1.0,7.23,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Félix Teynard,French,male,1852,105,Photograph
-261817,,,1.0,14.91,1.0,1.46,,,,,,,1.0,1.89,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Félix Teynard,French,male,1852,105,Photograph
-261830,,,1.0,53.51,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Félix Teynard,French,male,1852,105,Photograph
-286099,1.0,1.98,,,,,,,,,,,,,,,,,,,1.0,0.39,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,George N. Barnard|James F. Gibson,American|American,male|male,1862,1,Photograph
-268080,,,,,,,1.0,1.88,,,,,,,,,,,,,1.0,2.6,1.0,65.26,,,,,,,,,,,,,,,,,1.0,15.53,,,,,,,,,,,,,George N. Barnard|James F. Gibson|Mathew B. Brady,"American|American|American, born Ireland",male|male|male,1862,1,Photograph
-268245,,,1.0,58.78,,,,,1.0,2.26,,,,,,,,,1.0,13.1,,,,,,,,,,,,,1.0,0.77,,,,,,,,,,,,,,,,,,,,,George N. Barnard|Mathew B. Brady,"American|American, born Ireland",male|male,1865,32,Photograph
-268219,,,1.0,2.98,1.0,1.42,,,1.0,0.97,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,George N. Barnard|Mathew B. Brady,"American|American, born Ireland",male|male,1865,32,Photograph
-268222,1.0,0.46,,,1.0,12.45,,,,,1.0,22.78,,,,,,,,,1.0,0.58,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,George N. Barnard|Mathew B. Brady,"American|American, born Ireland",male|male,1865,32,Photograph
-268210,,,1.0,6.4,1.0,4.16,,,1.0,5.01,,,,,1.0,0.98,,,,,,,,,,,,,,,,,1.0,1.72,,,,,,,,,,,,,,,,,,,,,George N. Barnard|Mathew B. Brady,"American|American, born Ireland",male|male,1865,32,Photograph
-268213,,,1.0,5.58,,,1.0,4.71,,,,,,,,,,,,,,,1.0,0.95,,,,,,,,,,,,,,,,,1.0,0.55,,,,,,,,,,,,,George N. Barnard|Mathew B. Brady,"American|American, born Ireland",male|male,1865,32,Photograph
-268216,,,1.0,30.73,1.0,1.18,1.0,2.6,,,,,,,,,1.0,3.07,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,George N. Barnard|Mathew B. Brady,"American|American, born Ireland",male|male,1865,32,Photograph
-267887,,,1.0,1.98,1.0,8.95,,,1.0,0.79,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,George N. Barnard|Mathew B. Brady,"American|American, born Ireland",male|male,1862,32,Photograph
-268095,1.0,2.17,,,1.0,3.07,,,,,,,,,,,,,,,1.0,2.4,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,George N. Barnard|Mathew B. Brady,"American|American, born Ireland",male|male,1865,32,Photograph
-268221,,,,,1.0,1.77,,,,,1.0,40.69,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,0.49,,,1.0,0.38,George N. Barnard|Mathew B. Brady,"American|American, born Ireland",male|male,1865,32,Photograph
-267906,,,1.0,2.72,1.0,33.04,,,1.0,1.81,,,,,,,,,,,1.0,1.64,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,George N. Barnard|Timothy H. O'Sullivan|Mathew B. Brady,"American|American, born Ireland|American, born Ireland",male|male|male,1865,2,Photograph
-268070,,,,,1.0,29.23,,,1.0,7.16,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,George N. Barnard|Timothy H. O'Sullivan|Mathew B. Brady,"American|American, born Ireland|American, born Ireland",male|male|male,1862,2,Photograph
-623051,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Guillaume-Benjamin-Amand Duchenne de Boulogne|Adrien Tournachon,French|French,male|male,1856,48,Photograph
-623064,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Guillaume-Benjamin-Amand Duchenne de Boulogne|Adrien Tournachon,French|French,male|male,1856,48,Photograph
-623050,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Guillaume-Benjamin-Amand Duchenne de Boulogne|Adrien Tournachon,French|French,male|male,1856,48,Photograph
-623067,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Guillaume-Benjamin-Amand Duchenne de Boulogne|Adrien Tournachon,French|French,male|male,1856,48,Photograph
-623048,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Guillaume-Benjamin-Amand Duchenne de Boulogne|Adrien Tournachon,French|French,male|male,1856,48,Photograph
-623061,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Guillaume-Benjamin-Amand Duchenne de Boulogne|Adrien Tournachon,French|French,male|male,1856,48,Photograph
-623036,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Guillaume-Benjamin-Amand Duchenne de Boulogne|Adrien Tournachon,French|French,male|male,1856,48,Photograph
-623043,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Guillaume-Benjamin-Amand Duchenne de Boulogne|Adrien Tournachon,French|French,male|male,1856,48,Photograph
-623028,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Guillaume-Benjamin-Amand Duchenne de Boulogne|Adrien Tournachon,French|French,male|male,1856,48,Photograph
-623049,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Guillaume-Benjamin-Amand Duchenne de Boulogne|Adrien Tournachon,French|French,male|male,1856,48,Photograph
-623032,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Guillaume-Benjamin-Amand Duchenne de Boulogne|Adrien Tournachon,French|French,male|male,1856,48,Photograph
-623027,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Guillaume-Benjamin-Amand Duchenne de Boulogne|Adrien Tournachon,French|French,male|male,1856,48,Photograph
-283107,,,1.0,46.5,1.0,6.44,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Gustave Le Gray|Auguste Mestral,French|French,male|male,1851,1,Photograph
-282080,,,1.0,41.67,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Gustave Le Gray|Firmin-Eugène Le Dien,French|French,male|male,1857,1,Photograph
-269062,1.0,1.04,,,1.0,8.65,,,,,,,,,,,,,,,,,,,1.0,2.04,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Henri Victor Regnault,French,male,1853,1,Photograph
-287911,1.0,23.19,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Henry Barraud|Peter Wickens Fry,British|British,male|male,1856,1,Photograph
-263303,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Hugh Owen|Nicolaas Henneman,British|Dutch,male|male,1851,10,Photograph
-263305,1.0,9.9,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Hugh Owen|Nicolaas Henneman,British|Dutch,male|male,1851,10,Photograph
-267962,1.0,2.6,1.0,13.51,1.0,2.32,,,1.0,7.77,,,,,,,1.0,15.86,,,1.0,4.13,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Isaac G. Tyson|Charles J. Tyson|Mathew B. Brady,"American|American|American, born Ireland",male|male|male,1863,1,Photograph
-260317,,,,,1.0,42.99,,,,,,,1.0,16.79,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Isaiah West Taber|Carleton E. Watkins,American|American,male|male,1866,1,Photograph
-267923,,,1.0,6.2,1.0,13.48,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,0.48,,,,,,,,,,,,,,,James Gardner|Timothy H. O'Sullivan|Mathew B. Brady,"American|American, born Ireland|American, born Ireland",male|male|male,1864,6,Photograph
-267952,1.0,0.44,1.0,4.95,1.0,10.04,,,1.0,22.0,1.0,1.71,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,4.84,,,,,,,1.0,3.24,,,,,,,James Gardner|Timothy H. O'Sullivan|Mathew B. Brady,"American|American, born Ireland|American, born Ireland",male|male|male,1864,6,Photograph
-267992,1.0,1.31,1.0,16.22,,,1.0,2.41,,,,,,,,,,,,,,,,,,,,,,,,,1.0,1.15,,,,,,,1.0,13.05,,,,,,,,,,,,,James Gardner|Timothy H. O'Sullivan|Mathew B. Brady,"American|American, born Ireland|American, born Ireland",male|male|male,1863,6,Photograph
-267994,1.0,4.11,1.0,0.56,,,1.0,5.69,1.0,32.17,,,1.0,1.12,,,,,,,,,,,,,,,,,1.0,0.46,,,,,,,1.0,3.6,1.0,1.48,,,,,,,,,,,,,James Gardner|Timothy H. O'Sullivan|Mathew B. Brady,"American|American, born Ireland|American, born Ireland",male|male|male,1864,6,Photograph
-268045,,,1.0,2.21,1.0,27.46,,,1.0,7.87,1.0,20.77,,,,,1.0,0.67,1.0,2.03,,,1.0,13.06,,,,,1.0,9.51,,,,,,,,,,,,,,,,,,,,,,,1.0,1.85,James Gardner|Timothy H. O'Sullivan|Mathew B. Brady,"American|American, born Ireland|American, born Ireland",male|male|male,1864,6,Photograph
-268051,1.0,0.4,,,1.0,5.58,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,0.66,,,,,,,James Gardner|Timothy H. O'Sullivan|Mathew B. Brady,"American|American, born Ireland|American, born Ireland",male|male|male,1864,6,Photograph
-263461,,,,,,,,,,,,,1.0,1.08,,,,,,,,,,,1.0,0.43,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Jeremiah Gurney|Charles B. J. F. de Saint-Mémin,American|French,male|male,1862,2,Photograph
-263462,1.0,12.24,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Jeremiah Gurney|Charles B. J. F. de Saint-Mémin,American|French,male|male,1862,2,Photograph
-262301,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,John Adams Whipple|James Wallace Black,American|American,male|male,1860,4,Photograph
-263157,,,1.0,0.39,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,John Adams Whipple|James Wallace Black,American|American,male|male,1860,4,Photograph
-263167,,,1.0,0.41,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,John Adams Whipple|James Wallace Black,American|American,male|male,1860,4,Photograph
-263204,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,John Adams Whipple|James Wallace Black,American|American,male|male,1860,4,Photograph
-287891,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,John Dillwyn Llewelyn,"British, Welsh",male,1856,4,Photograph
-287898,,,1.0,49.86,1.0,8.98,,,,,,,,,,,,,1.0,6.26,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,John Dillwyn Llewelyn,"British, Welsh",male,1856,4,Photograph
-287905,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,John Dillwyn Llewelyn,"British, Welsh",male,1856,4,Photograph
-287963,1.0,0.59,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,1.34,,,,,,,,,,,,,,,,,John Dillwyn Llewelyn,"British, Welsh",male,1856,4,Photograph
-287894,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,John Dillwyn Llewelyn|Miss Bush,"British, Welsh|British",male|female,1856,1,Photograph
-285943,1.0,0.83,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,John Jabez Edwin Mayall|Louis-Jacques-Mandé Daguerre,British|French,male|male,1862,1,Photograph
-286184,,,,,,,1.0,11.73,,,,,1.0,7.77,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,John Moran,"American, born England",male,1870,1,Photograph
-267991,,,1.0,8.28,,,,,1.0,0.41,1.0,7.64,1.0,0.33,,,,,,,,,1.0,1.26,,,,,1.0,33.44,,,,,,,,,,,,,,,,,,,,,,,1.0,0.46,John Reekie|Alexander Gardner|Mathew B. Brady,"American|American, Scottish|American, born Ireland",male|male|male,1865,1,Photograph
-291369,,,1.0,47.46,1.0,22.27,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Joseph Cundall|Philip Henry Delamotte,British|British,male|male,1859,22,Photograph
-291386,,,1.0,50.13,1.0,9.39,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Joseph Cundall|Philip Henry Delamotte,British|British,male|male,1859,22,Photograph
-291381,,,1.0,55.19,1.0,6.27,,,,,,,1.0,0.7,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Joseph Cundall|Philip Henry Delamotte,British|British,male|male,1859,22,Photograph
-291374,1.0,0.38,1.0,53.58,,,,,1.0,8.13,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Joseph Cundall|Philip Henry Delamotte,British|British,male|male,1859,22,Photograph
-291388,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Joseph Cundall|Philip Henry Delamotte,British|British,male|male,1859,22,Photograph
-291378,,,1.0,41.95,1.0,12.62,,,1.0,1.0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Joseph Cundall|Philip Henry Delamotte,British|British,male|male,1859,22,Photograph
-291393,,,1.0,60.51,,,,,,,,,1.0,5.03,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Joseph Cundall|Philip Henry Delamotte,British|British,male|male,1859,22,Photograph
-291384,,,1.0,47.58,1.0,12.44,1.0,0.31,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,0.81,,,,,,,,,Joseph Cundall|Philip Henry Delamotte,British|British,male|male,1859,22,Photograph
-291376,,,1.0,22.32,1.0,25.22,,,1.0,6.34,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Joseph Cundall|Philip Henry Delamotte,British|British,male|male,1859,22,Photograph
-291377,,,1.0,45.5,1.0,11.53,,,1.0,6.83,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Joseph Cundall|Philip Henry Delamotte,British|British,male|male,1859,22,Photograph
-291390,,,1.0,43.47,1.0,1.24,,,1.0,0.77,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Joseph Cundall|Philip Henry Delamotte,British|British,male|male,1859,22,Photograph
-291385,,,,,1.0,8.01,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Joseph Cundall|Philip Henry Delamotte,British|British,male|male,1859,22,Photograph
-268318,1.0,32.35,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,2.12,,,Josiah Johnson Hawes|Albert Sands Southworth,American|American,male|male,1852,3,Photograph
-268323,1.0,25.71,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Josiah Johnson Hawes|Albert Sands Southworth,American|American,male|male,1852,3,Photograph
-268333,1.0,8.24,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Josiah Johnson Hawes|Albert Sands Southworth,American|American,male|male,1852,3,Photograph
-282751,,,,,1.0,0.52,,,,,,,,,,,1.0,1.26,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Juan Laurent|José Martinez Sánchez,French|Spanish,male|male,1867,1,Photograph
-267768,1.0,4.07,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Julia Margaret Cameron,"British, born India",female,1865,7,Photograph
-269428,1.0,55.01,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Julia Margaret Cameron,"British, born India",female,1869,7,Photograph
-269430,1.0,62.98,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Julia Margaret Cameron,"British, born India",female,1867,7,Photograph
-269431,1.0,33.17,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Julia Margaret Cameron,"British, born India",female,1864,7,Photograph
-269432,1.0,71.65,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Julia Margaret Cameron,"British, born India",female,1872,7,Photograph
-269433,1.0,36.22,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Julia Margaret Cameron,"British, born India",female,1864,7,Photograph
-269434,1.0,59.26,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Julia Margaret Cameron,"British, born India",female,1867,7,Photograph
-289273,,,1.0,9.44,1.0,87.11,,,,,,,1.0,1.99,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Lai Fong,Chinese,male,1869,4,Photograph
-289299,,,,,1.0,4.26,1.0,62.99,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Lai Fong,Chinese,male,1869,4,Photograph
-289302,,,,,1.0,81.96,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Lai Fong,Chinese,male,1869,4,Photograph
-289315,,,1.0,8.99,1.0,14.45,1.0,1.8,1.0,0.47,,,1.0,2.35,1.0,3.49,,,,,,,,,,,,,,,,,,,,,,,,,1.0,29.3,,,,,,,,,,,,,Lai Fong,Chinese,male,1869,4,Photograph
-286007,1.0,7.95,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"Lewis Carroll|Alexandra ""Xie"" Rhoda Kitchin",British|British,male|female,1870,1,Photograph
-283092,1.0,22.55,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Lewis Carroll|Alice Pleasance Liddell,British|British,male|female,1858,2,Photograph
-306205,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Lewis Carroll|Alice Pleasance Liddell,British|British,male|female,1870,2,Photograph
-306206,1.0,3.33,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Lewis Carroll|Alice Pleasance Liddell|Edith Mary Liddell,British|British|British,male|female|female,1858,1,Photograph
-306207,1.0,7.95,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Lewis Carroll|Edith Mary Liddell,British|British,male|female,1860,1,Photograph
-283094,1.0,38.39,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Lewis Carroll|Flora Rankin|Irene MacDonald|Mary Josephine MacDonald,British|British|British|British,male|female|female|female,1863,1,Photograph
-700114,,,,,,,1.0,6.34,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Lieutenant George Montague Wheeler|Timothy H. O'Sullivan,"American|American, born Ireland",male|male,1873,1,Photograph
-700113,,,,,,,,,,,,,1.0,1.04,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Lieutenant George Montague Wheeler|William Bell,"American|American, born England",male|male,1872,1,Photograph
-285685,1.0,0.72,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Louis Rousseau,French,male,1863,1,Photograph
-306174,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Louis Vignes|Charles Nègre,French|French,male|male,1864,4,Photograph
-679889,,,,,1.0,0.97,1.0,1.17,,,,,,,1.0,9.55,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,6.98,,,,,,,,,Louis de Clercq,French,male,1860,221,Photograph
-269270,,,1.0,53.03,1.0,7.9,,,1.0,0.51,,,,,,,,,1.0,3.87,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Louis-Auguste Bisson|Auguste-Rosalie Bisson,French|French,male|male,1859,8,Photograph
-283134,1.0,2.97,1.0,88.02,,,,,,,,,,,,,1.0,2.29,1.0,6.38,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Louis-Auguste Bisson|Auguste-Rosalie Bisson,French|French,male|male,1857,8,Photograph
-269078,1.0,22.66,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Louis-Désiré Blanquart-Évrard,French,male,1853,1,Photograph
-283101,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Louis-Jacques-Mandé Daguerre,French,male,1846,1,Photograph
-286695,1.0,22.02,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Louise Deglane|François-Benjamin-Maria Delessert,French|French,female|male,1862,1,Photograph
-733904,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,0.49,,,1.0,2.13,,,,,,,,,,,,,,,Ludwig Belitski|Baron Alexander von Minutoli,German|German,male|male,1854,4,Photograph
-285456,1.0,18.41,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Luigi Pesce,Italian,male,1858,2,Photograph
-652117,1.0,22.78,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,1.47,,,,,,,,,,,Luigi Pesce,Italian,male,1869,2,Photograph
-267087,,,1.0,26.35,1.0,23.19,,,,,1.0,17.35,1.0,10.14,1.0,3.89,,,,,,,,,,,,,,,1.0,4.72,1.0,0.54,,,1.0,0.37,,,,,,,,,,,,,,,,,Marie-Charles-Isidore Choiselat|Stanislas Ratel,French|French,male|male,1844,3,Photograph
-283103,,,1.0,17.01,1.0,7.36,,,1.0,0.79,,,,,,,,,,,,,,,,,,,,,1.0,8.48,,,,,,,,,,,,,,,,,1.0,10.7,,,,,Marie-Charles-Isidore Choiselat|Stanislas Ratel,French|French,male|male,1849,3,Photograph
-286110,,,1.0,3.16,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Marie-Charles-Isidore Choiselat|Stanislas Ratel,French|French,male|male,1844,3,Photograph
-265311,1.0,20.95,1.0,41.67,1.0,6.57,,,1.0,0.51,,,,,,,,,,,,,,,,,,,,,,,1.0,0.55,,,1.0,0.71,,,,,,,,,,,,,,,,,Marion Post Wolcott,American,female,1939,1,Photograph
-268223,1.0,2.86,1.0,0.99,1.0,27.59,,,,,,,,,,,1.0,1.27,,,1.0,3.63,,,,,,,1.0,1.56,,,,,,,,,,,,,,,,,,,,,,,,,Mathew B. Brady,"American, born Ireland",male,1865,163,Photograph
-268201,,,1.0,0.39,,,,,,,,,,,1.0,33.28,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Mathew B. Brady,"American, born Ireland",male,1863,163,Photograph
-268039,1.0,14.43,1.0,5.47,1.0,6.99,,,1.0,0.5,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Mathew B. Brady,"American, born Ireland",male,1865,163,Photograph
-268128,1.0,20.2,,,1.0,1.62,,,1.0,0.83,1.0,0.44,,,,,1.0,1.33,,,,,1.0,0.53,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Mathew B. Brady,"American, born Ireland",male,1865,163,Photograph
-267981,,,,,1.0,7.56,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Mathew B. Brady,"American, born Ireland",male,1864,163,Photograph
-268034,1.0,1.98,1.0,1.15,1.0,12.49,,,1.0,3.98,,,1.0,0.32,,,,,,,1.0,1.75,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Mathew B. Brady,"American, born Ireland",male,1865,163,Photograph
-268150,1.0,9.21,1.0,3.28,1.0,2.22,,,,,,,,,,,1.0,8.41,1.0,37.53,1.0,0.78,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Mathew B. Brady,"American, born Ireland",male,1865,163,Photograph
-268279,1.0,15.54,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Mathew B. Brady,"American, born Ireland",male,1865,163,Photograph
-267959,1.0,0.66,,,1.0,20.14,,,1.0,18.19,1.0,8.39,1.0,3.52,,,1.0,1.96,1.0,2.51,,,,,,,,,1.0,7.59,,,1.0,1.09,,,,,,,,,,,,,,,,,,,,,Mathew B. Brady,"American, born Ireland",male,1864,163,Photograph
-268114,1.0,1.17,,,1.0,32.41,,,1.0,13.08,,,,,,,,,,,,,,,,,,,,,1.0,9.77,,,,,,,,,,,,,,,,,,,,,,,Mathew B. Brady,"American, born Ireland",male,1865,163,Photograph
-267980,,,1.0,0.8,1.0,3.71,,,1.0,42.69,,,,,,,1.0,3.04,,,1.0,8.6,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Mathew B. Brady|Andrew Joseph Russell,"American, born Ireland|American",male|male,1865,2,Photograph
-268212,1.0,26.42,1.0,10.92,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Mathew B. Brady|Andrew Joseph Russell,"American, born Ireland|American",male|male,1865,2,Photograph
-268232,1.0,5.87,1.0,3.95,1.0,1.51,,,,,,,,,,,1.0,8.67,,,,,,,,,,,,,,,1.0,3.51,,,,,,,,,,,,,,,,,,,,,Mathew B. Brady|James F. Gibson,"American, born Ireland|American",male|male,1865,4,Photograph
-267944,1.0,26.06,,,1.0,0.47,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Mathew B. Brady|Thomas C. Roche,"American, born Ireland|American",male|male,1864,1,Photograph
-268040,1.0,3.59,1.0,3.84,1.0,3.83,,,1.0,0.47,,,,,1.0,1.28,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Mathew B. Brady|Timothy H. O'Sullivan,"American, born Ireland|American, born Ireland",male|male,1865,3,Photograph
-268063,1.0,0.45,1.0,7.65,1.0,9.03,,,,,1.0,30.02,,,,,1.0,4.09,,,,,,,,,,,1.0,13.39,,,,,,,,,,,,,,,,,,,,,,,,,Mathew B. Brady|Timothy H. O'Sullivan,"American, born Ireland|American, born Ireland",male|male,1865,3,Photograph
-268205,,,1.0,15.13,1.0,7.15,,,,,,,,,,,1.0,0.71,,,1.0,0.77,,,,,,,,,,,,,,,,,,,1.0,36.94,,,,,,,,,,,,,Mathew B. Brady|Timothy H. O'Sullivan,"American, born Ireland|American, born Ireland",male|male,1863,3,Photograph
-263222,1.0,0.6,,,,,,,,,,,,,,,,,,,,,,,1.0,0.34,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Maxime Du Camp,French,male,1850,37,Photograph
-263218,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Maxime Du Camp,French,male,1850,37,Photograph
-263234,1.0,0.5,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Maxime Du Camp,French,male,1850,37,Photograph
-700110,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Maxime Du Camp,French,male,1850,37,Photograph
-263230,,,,,,,1.0,41.92,1.0,2.37,,,,,,,,,,,1.0,0.37,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Maxime Du Camp,French,male,1850,37,Photograph
-263231,,,1.0,21.04,,,,,1.0,8.0,,,1.0,12.28,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Maxime Du Camp,French,male,1850,37,Photograph
-263229,,,,,1.0,0.3,1.0,9.12,1.0,0.35,1.0,2.98,1.0,7.99,,,1.0,1.33,1.0,0.47,,,1.0,7.11,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Maxime Du Camp,French,male,1850,37,Photograph
-263221,,,1.0,29.26,,,,,,,,,1.0,18.86,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Maxime Du Camp,French,male,1850,37,Photograph
-263220,,,1.0,4.95,,,,,1.0,26.48,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Maxime Du Camp,French,male,1850,37,Photograph
-283247,1.0,31.74,,,,,1.0,0.64,,,1.0,2.07,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Napoleon Sarony|Oscar Wilde,"American, born Canada|Irish",male|male,1882,2,Photograph
-285691,1.0,37.74,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Napoleon Sarony|Oscar Wilde,"American, born Canada|Irish",male|male,1882,2,Photograph
-283065,1.0,1.56,1.0,76.17,,,,,1.0,1.36,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Nicolaas Henneman|William Henry Fox Talbot,Dutch|British,male|male,1846,1,Photograph
-894551,1.0,10.78,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Olympe Aguado de las Marismas|Louis-Rémy Robert|Onésipe Aguado de las Marismas,French|French|French,male|male|male,1860,1,Photograph
-265972,1.0,1.57,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Oscar Gustav Rejlander,"British, born Sweden",male,1859,12,Photograph
-268990,1.0,3.21,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Oscar Gustav Rejlander,"British, born Sweden",male,1865,12,Photograph
-285655,1.0,1.22,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Oscar Gustav Rejlander,"British, born Sweden",male,1902,12,Photograph
-266895,,,,,,,,,,,1.0,5.65,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,7.32,,,,,,,,,,,,,Paul Henry|Prosper Henry,French|French,male|male,1887,3,Photograph
-267137,,,,,,,,,,,1.0,27.89,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Paul Henry|Prosper Henry,French|French,male|male,1890,3,Photograph
-283255,,,,,,,,,,,1.0,62.7,,,,,,,,,,,,,,,,,,,,,,,1.0,0.79,,,,,,,,,,,,,,,,,,,Paul Henry|Prosper Henry,French|French,male|male,1885,3,Photograph
-271667,1.0,28.26,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Philip Henry Delamotte|T. R. Williams,British|British,male|male,1854,1,Photograph
-285610,1.0,47.48,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Pierre-Louis Pierson,French,male,1893,104,Photograph
-286846,1.0,26.29,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Pierre-Louis Pierson,French,male,1893,104,Photograph
-286845,1.0,23.91,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Pierre-Louis Pierson,French,male,1893,104,Photograph
-286834,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Pierre-Louis Pierson,French,male,1867,104,Photograph
-286823,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Pierre-Louis Pierson,French,male,1865,104,Photograph
-288133,1.0,2.6,,,,,1.0,2.1,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,1.15,,,,,,,,,,,,,,,,,,,Pierre-Louis Pierson,French,male,1895,104,Photograph
-288131,1.0,32.48,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Pierre-Louis Pierson,French,male,1895,104,Photograph
-286826,1.0,1.17,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Pierre-Louis Pierson,French,male,1859,104,Photograph
-261364,,,,,,,,,,,1.0,0.79,1.0,0.85,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Pierre-Louis Pierson,French,male,1869,104,Photograph
-261474,,,1.0,3.54,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Pierre-Louis Pierson,French,male,1869,104,Photograph
-285614,1.0,23.05,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Pierre-Louis Pierson,French,male,1857,104,Photograph
-268360,,,,,1.0,0.82,1.0,10.39,,,1.0,11.93,,,,,,,,,,,,,,,,,,,,,1.0,1.36,,,,,,,,,,,,,,,,,,,,,Platt D. Babbitt,American,male,1855,1,Photograph
-286212,1.0,21.01,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Robert  Adamson|David Octavius Hill,"British, Scottish|British, Scottish",male|male,1847,19,Photograph
-306214,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Robert  Adamson|David Octavius Hill,"British, Scottish|British, Scottish",male|male,1847,19,Photograph
-306221,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Robert  Adamson|David Octavius Hill,"British, Scottish|British, Scottish",male|male,1847,19,Photograph
-286570,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Robert  Adamson|David Octavius Hill,"British, Scottish|British, Scottish",male|male,1847,19,Photograph
-306217,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Robert  Adamson|David Octavius Hill,"British, Scottish|British, Scottish",male|male,1847,19,Photograph
-306227,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Robert  Adamson|David Octavius Hill,"British, Scottish|British, Scottish",male|male,1847,19,Photograph
-306212,1.0,27.95,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Robert  Adamson|David Octavius Hill,"British, Scottish|British, Scottish",male|male,1847,19,Photograph
-306224,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Robert  Adamson|David Octavius Hill,"British, Scottish|British, Scottish",male|male,1845,19,Photograph
-306226,1.0,31.15,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Robert  Adamson|David Octavius Hill,"British, Scottish|British, Scottish",male|male,1845,19,Photograph
-306229,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Robert  Adamson|David Octavius Hill,"British, Scottish|British, Scottish",male|male,1846,19,Photograph
-306211,1.0,2.56,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Robert  Adamson|David Octavius Hill,"British, Scottish|British, Scottish",male|male,1846,19,Photograph
-306219,1.0,12.25,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Robert  Adamson|David Octavius Hill,"British, Scottish|British, Scottish",male|male,1844,19,Photograph
-263189,,,1.0,33.27,,,,,,,,,,,,,,,,,,,,,,,1.0,1.2,,,,,,,,,,,,,,,,,,,,,,,,,,,Robert Murray,British,male,1856,3,Photograph
-263191,1.0,3.75,,,1.0,12.01,,,1.0,3.79,,,,,1.0,4.29,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Robert Murray,British,male,1856,3,Photograph
-705423,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Robert Murray,British,male,1855,3,Photograph
-631028,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Roger Fenton,British,male,1855,1,Photograph
-676536,1.0,16.8,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,1.67,,,,,,,,,,,,,,,,,,,Roger Fenton|Roger Fenton,British|British,male|male,1855,1,Photograph
-287593,1.0,22.44,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,0.72,,,,,,,,,,,Samuel Bourne,British,male,1861,1,Photograph
-301989,1.0,10.03,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Sojourner Truth,American,female,1864,1,Photograph
-268021,,,1.0,27.57,,,,,,,,,1.0,23.78,,,1.0,8.8,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Thomas C. Roche|Alexander Gardner|Mathew B. Brady,"American|American, Scottish|American, born Ireland",male|male|male,1865,1,Photograph
-267933,1.0,1.74,,,,,,,,,,,1.0,0.97,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Thomas C. Roche|Mathew B. Brady,"American|American, born Ireland",male|male,1864,3,Photograph
-268139,,,,,,,,,,,,,,,,,,,,,1.0,8.61,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Thomas C. Roche|Mathew B. Brady,"American|American, born Ireland",male|male,1865,3,Photograph
-268146,1.0,4.08,,,,,1.0,71.74,,,,,1.0,1.67,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Thomas C. Roche|Mathew B. Brady,"American|American, born Ireland",male|male,1864,3,Photograph
-271897,1.0,7.11,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Thomas Eakins,American,male,1889,1,Photograph
-285645,1.0,14.55,,,1.0,25.44,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,0.91,,,,,,,,,,,Timothy H. O'Sullivan|Alexander Gardner,"American, born Ireland|American, Scottish",male|male,1864,2,Photograph
-286882,1.0,10.87,,,1.0,1.5,,,,,,,1.0,0.42,,,,,,,,,,,,,1.0,0.3,,,,,,,,,,,,,,,,,,,,,,,,,,,Timothy H. O'Sullivan|Alexander Gardner,"American, born Ireland|American, Scottish",male|male,1863,2,Photograph
-285644,1.0,4.12,,,,,,,,,,,1.0,1.42,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Timothy H. O'Sullivan|Alexander Gardner|Alexander Gardner,"American, born Ireland|American, Scottish|American, Scottish",male|male|male,1863,1,Photograph
-267936,,,1.0,8.94,1.0,15.37,,,1.0,1.89,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,2.93,,,,,,,,,,,,,Timothy H. O'Sullivan|Alexander Gardner|Mathew B. Brady,"American, born Ireland|American, Scottish|American, born Ireland",male|male|male,1865,3,Photograph
-267938,,,1.0,24.69,1.0,5.51,,,1.0,27.77,,,1.0,0.97,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Timothy H. O'Sullivan|Alexander Gardner|Mathew B. Brady,"American, born Ireland|American, Scottish|American, born Ireland",male|male|male,1865,3,Photograph
-267939,,,1.0,24.69,1.0,5.51,,,1.0,27.77,,,1.0,0.97,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Timothy H. O'Sullivan|Alexander Gardner|Mathew B. Brady,"American, born Ireland|American, Scottish|American, born Ireland",male|male|male,1865,3,Photograph
-268173,,,,,,,,,,,,,,,,,,,,,1.0,2.23,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Timothy H. O'Sullivan|Andrew Joseph Russell|Mathew B. Brady,"American, born Ireland|American|American, born Ireland",male|male|male,1864,2,Photograph
-267888,1.0,15.44,,,1.0,21.18,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Timothy H. O'Sullivan|George N. Barnard|Mathew B. Brady,"American, born Ireland|American|American, born Ireland",male|male|male,1863,3,Photograph
-267889,,,,,1.0,9.19,,,,,1.0,24.3,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Timothy H. O'Sullivan|George N. Barnard|Mathew B. Brady,"American, born Ireland|American|American, born Ireland",male|male|male,1862,3,Photograph
-267918,,,1.0,3.95,1.0,9.56,,,1.0,8.92,1.0,25.2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Timothy H. O'Sullivan|George N. Barnard|Mathew B. Brady,"American, born Ireland|American|American, born Ireland",male|male|male,1862,3,Photograph
-267973,,,1.0,2.08,1.0,40.17,,,,,1.0,0.52,,,,,,,,,,,1.0,7.15,,,,,1.0,0.34,1.0,1.08,,,,,,,,,,,,,,,,,,,,,1.0,1.04,Timothy H. O'Sullivan|James Gardner|Mathew B. Brady,"American, born Ireland|American|American, born Ireland",male|male|male,1864,5,Photograph
-267995,1.0,0.3,1.0,1.22,1.0,4.1,,,1.0,3.66,1.0,1.64,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,0.62,,,,,,,1.0,6.42,,,,,,,Timothy H. O'Sullivan|James Gardner|Mathew B. Brady,"American, born Ireland|American|American, born Ireland",male|male|male,1864,5,Photograph
-267996,1.0,1.14,1.0,0.43,1.0,5.19,,,,,1.0,18.44,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,0.88,,,,,,,,,,,,,,,Timothy H. O'Sullivan|James Gardner|Mathew B. Brady,"American, born Ireland|American|American, born Ireland",male|male|male,1864,5,Photograph
-268053,,,1.0,2.37,,,,,1.0,0.93,,,,,,,,,,,1.0,1.01,,,1.0,0.33,,,,,,,,,,,,,,,1.0,7.93,,,,,,,,,,,,,Timothy H. O'Sullivan|James Gardner|Mathew B. Brady,"American, born Ireland|American|American, born Ireland",male|male|male,1864,5,Photograph
-268116,1.0,0.46,,,1.0,30.4,,,1.0,0.58,1.0,4.17,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Timothy H. O'Sullivan|James Gardner|Mathew B. Brady,"American, born Ireland|American|American, born Ireland",male|male|male,1864,5,Photograph
-263051,,,1.0,2.35,1.0,39.07,,,,,1.0,10.71,,,,,,,1.0,0.6,,,,,,,,,1.0,4.52,1.0,0.74,1.0,0.53,,,,,,,,,,,,,,,,,,,1.0,1.25,Timothy H. O'Sullivan|Mathew B. Brady,"American, born Ireland|American, born Ireland",male|male,1864,57,Photograph
-267925,,,,,1.0,25.65,,,,,1.0,5.39,1.0,12.3,,,,,,,,,1.0,0.79,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Timothy H. O'Sullivan|Mathew B. Brady,"American, born Ireland|American, born Ireland",male|male,1865,57,Photograph
-268094,,,1.0,6.68,1.0,9.09,,,,,1.0,8.42,,,,,1.0,3.29,,,,,,,,,,,1.0,32.07,,,,,,,,,,,,,,,,,,,,,,,1.0,0.56,Timothy H. O'Sullivan|Mathew B. Brady,"American, born Ireland|American, born Ireland",male|male,1865,57,Photograph
-267943,1.0,2.6,,,1.0,0.72,1.0,2.95,,,,,1.0,0.82,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Timothy H. O'Sullivan|Mathew B. Brady,"American, born Ireland|American, born Ireland",male|male,1864,57,Photograph
-268133,1.0,1.78,,,1.0,20.4,,,1.0,4.55,1.0,0.61,,,,,,,,,,,1.0,0.96,,,,,,,1.0,7.09,,,,,,,,,,,,,,,,,,,,,,,Timothy H. O'Sullivan|Mathew B. Brady,"American, born Ireland|American, born Ireland",male|male,1864,57,Photograph
-268071,1.0,1.07,1.0,0.67,1.0,10.48,1.0,6.56,,,1.0,17.31,1.0,3.23,,,,,,,,,,,,,,,,,1.0,0.4,,,,,,,,,,,,,,,,,1.0,0.33,,,,,Timothy H. O'Sullivan|Mathew B. Brady,"American, born Ireland|American, born Ireland",male|male,1862,57,Photograph
-268100,,,1.0,0.31,1.0,2.17,,,1.0,6.28,,,,,1.0,2.05,,,,,1.0,2.63,,,,,,,,,,,,,,,,,,,1.0,3.07,,,,,,,,,,,,,Timothy H. O'Sullivan|Mathew B. Brady,"American, born Ireland|American, born Ireland",male|male,1865,57,Photograph
-267942,1.0,3.96,,,1.0,2.28,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Timothy H. O'Sullivan|Mathew B. Brady,"American, born Ireland|American, born Ireland",male|male,1864,57,Photograph
-268248,1.0,8.23,1.0,2.05,1.0,0.47,,,1.0,0.38,1.0,6.78,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,0.63,,,,,Timothy H. O'Sullivan|Mathew B. Brady,"American, born Ireland|American, born Ireland",male|male,1865,57,Photograph
-267893,,,1.0,6.28,1.0,31.1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Timothy H. O'Sullivan|Mathew B. Brady,"American, born Ireland|American, born Ireland",male|male,1864,57,Photograph
-830983,1.0,2.76,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,William Bell,"American, born England",male,1865,1,Photograph
-294320,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,William Ewart Gladstone,British,male,1889,3,Photograph
-267883,,,1.0,2.16,1.0,34.16,,,,,1.0,23.0,,,,,,,,,1.0,3.28,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,William Frank Browne|Mathew B. Brady,"American|American, born Ireland",male|male,1865,13,Photograph
-268011,,,1.0,3.36,1.0,1.38,1.0,1.93,1.0,2.01,,,1.0,1.98,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,0.47,,,,,,,,,,,,,William Frank Browne|Mathew B. Brady,"American|American, born Ireland",male|male,1865,13,Photograph
-267892,,,,,1.0,44.7,1.0,3.19,,,1.0,4.21,,,,,,,,,,,,,,,,,,,1.0,18.2,,,,,,,,,,,,,,,,,,,,,,,William Frank Browne|Mathew B. Brady,"American|American, born Ireland",male|male,1864,13,Photograph
-267885,,,1.0,0.39,1.0,9.29,,,,,,,,,,,1.0,1.47,,,1.0,0.41,,,,,,,1.0,4.02,,,,,,,,,,,,,,,,,,,,,,,,,William Frank Browne|Mathew B. Brady,"American|American, born Ireland",male|male,1864,13,Photograph
-283897,,,1.0,2.69,1.0,3.48,,,1.0,10.91,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,William Frank Browne|Mathew B. Brady,"American|American, born Ireland",male|male,1865,13,Photograph
-267922,1.0,1.52,1.0,0.61,1.0,2.41,,,1.0,1.11,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,William Frank Browne|Mathew B. Brady,"American|American, born Ireland",male|male,1867,13,Photograph
-271528,1.0,7.79,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1.0,8.32,,,1.0,1.22,,,1.0,11.24,,,,,,,,,,,William Frederick Lake Price,British,male,1857,1,Photograph
-283067,1.0,16.05,1.0,24.33,1.0,41.97,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,William Henry Fox Talbot|Calvert Richard Jones,"British|British, Welsh",male|male,1847,1,Photograph
-263163,,,1.0,7.22,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,William Henry Fox Talbot|Robert Hunt,British|British,male|male,1846,1,Photograph
-283210,1.0,14.91,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,William Henry Jackson,American,male,1869,1,Photograph
-285769,1.0,11.98,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,William Langenheim,"American, born Germany",male,1849,22,Photograph
-286274,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,William Langenheim,"American, born Germany",male,1853,22,Photograph
-285739,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,William Langenheim,"American, born Germany",male,1852,22,Photograph
-286329,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,William Langenheim,"American, born Germany",male,1858,22,Photograph
-285832,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,William Langenheim,"American, born Germany",male,1848,22,Photograph
-285719,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,William Langenheim,"American, born Germany",male,1844,22,Photograph
-283179,1.0,9.02,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,William Langenheim|Frederick Langenheim,"American, born Germany|American, born Germany",male|male,1852,3,Photograph
-283180,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,William Langenheim|Frederick Langenheim,"American, born Germany|American, born Germany",male|male,1854,3,Photograph
-286315,1.0,2.46,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,William Langenheim|Frederick Langenheim,"American, born Germany|American, born Germany",male|male,1851,3,Photograph
-259815,1.0,2.11,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,baron Antoine Jean Gros,French,male,1859,1,Photograph

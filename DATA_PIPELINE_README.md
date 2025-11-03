@@ -204,28 +204,15 @@ object_id,has_person,person_percent,has_building,building_percent,...,artist_nam
 260967,1.0,15.3,1.0,42.8,...,Adolphe Braun,French,male,1872,27,Photograph
 ```
 
----
+## Collaborative Works Pipeline
 
-## Data Quality Metrics
+This section explains how collaborative works were processed. In the Met's collection, collaborative works are denoted by pipe-separated artist names (e.g., "Artist A|Artist B|Artist C").
 
-### Coverage Statistics
-- **Total Photographs:** 1,401
-- **Unique Artists:** ~800
-- **Date Range:** 1839-2020s
-- **Gender Distribution:** 
-  - Male artists: ~85%
-  - Female artists: ~15%
-- **Geographic Coverage:** 40+ nationalities
-
-### Object Detection Statistics
-- **Average objects per photo:** ~3-4 categories detected
-- **Most common objects:** person (40%), building (35%), tree (30%)
-- **Least common objects:** hovel (<1%), tent (<1%), pier (~2%)
-
-### Data Completeness
-- **Artist metadata:** 100% complete (all records have name, nationality, gender, year)
-- **Image availability:** 100% (all records have corresponding image files)
-- **Object detection:** 100% (all images processed through SegFormer)
+### Key Differences from Main Pipeline
+Collaborative works were processed separately from solo works. However, the pipeline was mostly the same, with a few key differences:
+1. **Per-Artist Gender/Nationality Validation** - Each artist in a collaborative work must have both gender AND nationality. If an artist is missing either gender OR nationality, they're removed from the work.
+2. **Work Removal** - If ALL artists are removed, the entire work is discarded.
+3. **Proper Pipe Handling** - Gender and nationality are stored as pipe-separated values (e.g., `male|female|male`)
 
 ---
 
