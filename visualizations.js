@@ -10,6 +10,7 @@ let currentFilter = 'all';
 let currentViewType = 'streamgraph';
 let selectedObjects = ['person', 'building', 'tree', 'water', 'mountain'];
 const MAX_OBJECTS = 5;
+let showAllObjects = true; // Toggle between all objects and top 10
 
 // ===== DATA LOADING =====
 document.addEventListener('DOMContentLoaded', function() {
@@ -476,6 +477,23 @@ function initVisualization2() {
         .attr('viewBox', `0 0 ${width} ${height}`)
         .style('background', 'white');
     
+    // Setup toggle button
+    const toggleBtn = document.getElementById('toggle-detail');
+    const toggleText = document.getElementById('toggle-text');
+    
+    if (toggleBtn && toggleText) {
+        toggleBtn.onclick = function() {
+            showAllObjects = !showAllObjects;
+            toggleText.textContent = showAllObjects ? 'Show Top 10 Only' : 'Show All Objects';
+            
+            // Redraw the visualization
+            container.selectAll('*').remove();
+            if (photographData.length > 0) {
+                createCooccurrenceNetwork(container, width, height);
+            }
+        };
+    }
+    
     if (photographData.length > 0) {
         createCooccurrenceNetwork(container, width, height);
     }
@@ -518,8 +536,8 @@ function createCooccurrenceNetwork(svg, width, height) {
         });
     });
     
-    // Create nodes (only include objects with frequency > 0)
-    const nodes = objects
+    // Create all nodes (only include objects with frequency > 0)
+    let allNodes = objects
         .filter(obj => frequencies[obj] > 0)
         .map(obj => ({
             id: obj,
@@ -527,7 +545,18 @@ function createCooccurrenceNetwork(svg, width, height) {
             label: obj.charAt(0).toUpperCase() + obj.slice(1)
         }));
     
-    // Create links (only include pairs with co-occurrence > threshold)
+    // Filter to top 10 if needed
+    let nodes = allNodes;
+    if (!showAllObjects) {
+        nodes = allNodes
+            .sort((a, b) => b.frequency - a.frequency)
+            .slice(0, 10);
+    }
+    
+    // Create set of node IDs for quick lookup
+    const nodeIds = new Set(nodes.map(n => n.id));
+    
+    // Create links (only include pairs with co-occurrence > threshold and both nodes present)
     const links = [];
     const minCooccurrence = 5; // Minimum co-occurrence to show a link
     
@@ -564,10 +593,10 @@ function createCooccurrenceNetwork(svg, width, height) {
         .domain([0, d3.max(nodes, d => d.frequency)])
         .range([15, 50]);
     
-    // Line width scale based on co-occurrence
+    // Line width scale based on co-occurrence (wider range for better distinction)
     const lineWidthScale = d3.scaleLinear()
         .domain([0, d3.max(links, d => d.value)])
-        .range([1, 8]);
+        .range([0.5, 15]);
     
     // Create force simulation
     const simulation = d3.forceSimulation(nodes)
@@ -577,20 +606,24 @@ function createCooccurrenceNetwork(svg, width, height) {
         .force('collision', d3.forceCollide().radius(d => radiusScale(d.frequency) + 5));
     
     // Create gradients for links (one for each link)
+    // Store the source/target IDs before D3 converts them to object references
     const defs = svg.append('defs');
     
     links.forEach((link, i) => {
+        const sourceId = typeof link.source === 'string' ? link.source : link.source.id;
+        const targetId = typeof link.target === 'string' ? link.target : link.target.id;
+        
         const gradient = defs.append('linearGradient')
             .attr('id', `gradient-${i}`)
             .attr('gradientUnits', 'userSpaceOnUse');
         
         gradient.append('stop')
             .attr('offset', '0%')
-            .attr('stop-color', colorScale(link.source));
+            .attr('stop-color', colorScale(sourceId));
         
         gradient.append('stop')
             .attr('offset', '100%')
-            .attr('stop-color', colorScale(link.target));
+            .attr('stop-color', colorScale(targetId));
     });
     
     // Create links with gradients
@@ -732,22 +765,22 @@ function createCooccurrenceNetwork(svg, width, height) {
         d.fy = null;
     }
     
-    // Add legend
+    // Add legend at bottom right
     const legend = g.append('g')
-        .attr('transform', `translate(10, 10)`);
+        .attr('transform', `translate(${innerWidth - 180}, ${innerHeight - 45})`);
     
     legend.append('text')
         .attr('x', 0)
         .attr('y', 0)
-        .style('font-size', '12px')
+        .style('font-size', '13px')
         .style('font-weight', '600')
         .style('fill', '#666')
         .text('Circle size = Frequency');
     
     legend.append('text')
         .attr('x', 0)
-        .attr('y', 18)
-        .style('font-size', '12px')
+        .attr('y', 20)
+        .style('font-size', '13px')
         .style('font-weight', '600')
         .style('fill', '#666')
         .text('Line thickness = Co-occurrence');
