@@ -10,6 +10,7 @@ let currentFilter = 'all';
 let currentViewType = 'streamgraph';
 let selectedObjects = ['person', 'building', 'tree', 'water', 'mountain'];
 const MAX_OBJECTS = 5;
+let showAllObjects = true; // Toggle between all objects and top 10
 
 // ===== DATA LOADING =====
 document.addEventListener('DOMContentLoaded', function() {
@@ -460,120 +461,329 @@ function createSubjectTimeline(svg, width, height) {
         .text('Percentage of Photos');
 }
 
-// ===== VISUALIZATION 2: ARTIST DEMOGRAPHICS & SUBJECT PREFERENCES =====
+// ===== VISUALIZATION 2: CO-OCCURRENCE NETWORK =====
 function initVisualization2() {
-    const container = d3.select('#artist-patterns');
+    const container = d3.select('#cooccurrence-network');
     const width = 900;
-    const height = 400;
+    const height = 500;
     
     // Clear any existing content
     container.selectAll('*').remove();
+    
+    // Set up SVG
+    container
+        .attr('width', width)
+        .attr('height', height)
+        .attr('viewBox', `0 0 ${width} ${height}`)
+        .style('background', 'white');
+    
+    // Setup toggle button
+    const toggleBtn = document.getElementById('toggle-detail');
+    const toggleText = document.getElementById('toggle-text');
+    
+    if (toggleBtn && toggleText) {
+        toggleBtn.onclick = function() {
+            showAllObjects = !showAllObjects;
+            toggleText.textContent = showAllObjects ? 'Show Top 10 Only' : 'Show All Objects';
+            
+            // Redraw the visualization
+            container.selectAll('*').remove();
+            if (photographData.length > 0) {
+                createCooccurrenceNetwork(container, width, height);
+            }
+        };
+    }
+    
+    if (photographData.length > 0) {
+        createCooccurrenceNetwork(container, width, height);
+    }
 }
 
-function createArtistPatterns(svg, width, height) {
-    const margin = { top: 60, right: 60, bottom: 80, left: 100 };
+function createCooccurrenceNetwork(svg, width, height) {
+    const margin = { top: 40, right: 40, bottom: 40, left: 40 };
     const innerWidth = width - margin.left - margin.right;
     const innerHeight = height - margin.top - margin.bottom;
     
     const g = svg.append('g')
         .attr('transform', `translate(${margin.left},${margin.top})`);
     
-    // Process data: group by gender and calculate subject preferences
-    const genderGroups = d3.groups(photographData, d => d.gender);
-    const subjects = ['person', 'building', 'tree', 'water'];
+    // Define ALL object categories from the dataset
+    const objects = ['person', 'building', 'tree', 'water', 'mountain', 'grass', 'animal', 'house', 
+                     'road', 'boat', 'rock', 'sidewalk', 'fence', 'sea', 'column', 'river', 'plant',
+                     'curtain', 'windowpane', 'chair', 'field', 'table', 'hovel', 'tent', 'bridge', 'bench', 'pier'];
     
-    const chartData = genderGroups.map(([gender, photos]) => {
-        const result = { gender: gender };
-        subjects.forEach(subject => {
-            const hasField = `has_${subject}`;
-            result[subject] = photos.filter(p => p[hasField] === '1.0').length / photos.length * 100;
-        });
-        return result;
+    // Calculate frequency for each object
+    const frequencies = {};
+    objects.forEach(obj => {
+        const hasField = `has_${obj}`;
+        frequencies[obj] = photographData.filter(p => p[hasField] === '1.0').length;
     });
     
-    // Scales
-    const x0 = d3.scaleBand()
-        .domain(chartData.map(d => d.gender))
-        .range([0, innerWidth])
-        .padding(0.2);
+    // Calculate co-occurrence matrix
+    const cooccurrence = {};
+    objects.forEach(obj1 => {
+        cooccurrence[obj1] = {};
+        objects.forEach(obj2 => {
+            if (obj1 !== obj2) {
+                const hasField1 = `has_${obj1}`;
+                const hasField2 = `has_${obj2}`;
+                // Count photos that have both objects
+                const count = photographData.filter(p => 
+                    p[hasField1] === '1.0' && p[hasField2] === '1.0'
+                ).length;
+                cooccurrence[obj1][obj2] = count;
+            }
+        });
+    });
     
-    const x1 = d3.scaleBand()
-        .domain(subjects)
-        .range([0, x0.bandwidth()])
-        .padding(0.05);
+    // Create all nodes (only include objects with frequency > 0)
+    let allNodes = objects
+        .filter(obj => frequencies[obj] > 0)
+        .map(obj => ({
+            id: obj,
+            frequency: frequencies[obj],
+            label: obj.charAt(0).toUpperCase() + obj.slice(1)
+        }));
     
-    const y = d3.scaleLinear()
-        .domain([0, 100])
-        .range([innerHeight, 0]);
+    // Filter to top 10 if needed
+    let nodes = allNodes;
+    if (!showAllObjects) {
+        nodes = allNodes
+            .sort((a, b) => b.frequency - a.frequency)
+            .slice(0, 10);
+    }
     
-    const color = d3.scaleOrdinal()
-        .domain(subjects)
-        .range(['#a89078', '#c4a882', '#8a857f', '#6b6560']);
+    // Create set of node IDs for quick lookup
+    const nodeIds = new Set(nodes.map(n => n.id));
     
-    // Axes
-    g.append('g')
-        .attr('transform', `translate(0,${innerHeight})`)
-        .call(d3.axisBottom(x0))
-        .style('font-size', '14px');
+    // Create links (only include pairs with co-occurrence > threshold and both nodes present)
+    const links = [];
+    const minCooccurrence = 5; // Minimum co-occurrence to show a link
     
-    g.append('g')
-        .call(d3.axisLeft(y).ticks(5).tickFormat(d => d + '%'))
-        .style('font-size', '12px');
+    nodes.forEach(node1 => {
+        nodes.forEach(node2 => {
+            if (node1.id < node2.id) { // Avoid duplicates
+                const cooccurCount = cooccurrence[node1.id][node2.id];
+                if (cooccurCount >= minCooccurrence) {
+                    links.push({
+                        source: node1.id,
+                        target: node2.id,
+                        value: cooccurCount
+                    });
+                }
+            }
+        });
+    });
     
-    // Bars
-    const genderGroup = g.selectAll('.gender-group')
-        .data(chartData)
+    // Paul Tol's Bright color scheme (extended for more colors)
+    const paulTolBright = [
+        '#4477AA', '#EE6677', '#228833', '#CCBB44', '#66CCEE', '#AA3377', '#BBBBBB',
+        '#77AADD', '#EE8866', '#EEDD88', '#FFAABB', '#99DDFF', '#44BB99', '#AAAA00',
+        '#88CCAA', '#DDCC77', '#CC6677', '#AA4499', '#882255', '#6699CC', '#997700',
+        '#EECC66', '#994455', '#004488', '#117733', '#999933', '#661100'
+    ];
+    
+    // Color scale using Paul Tol's Bright scheme
+    const colorScale = d3.scaleOrdinal()
+        .domain(objects)
+        .range(paulTolBright);
+    
+    // Radius scale based on frequency
+    const radiusScale = d3.scaleSqrt()
+        .domain([0, d3.max(nodes, d => d.frequency)])
+        .range([15, 50]);
+    
+    // Line width scale based on co-occurrence (wider range for better distinction)
+    const lineWidthScale = d3.scaleLinear()
+        .domain([0, d3.max(links, d => d.value)])
+        .range([0.5, 15]);
+    
+    // Create force simulation
+    const simulation = d3.forceSimulation(nodes)
+        .force('link', d3.forceLink(links).id(d => d.id).distance(120))
+        .force('charge', d3.forceManyBody().strength(-500))
+        .force('center', d3.forceCenter(innerWidth / 2, innerHeight / 2))
+        .force('collision', d3.forceCollide().radius(d => radiusScale(d.frequency) + 5));
+    
+    // Create gradients for links (one for each link)
+    // Store the source/target IDs before D3 converts them to object references
+    const defs = svg.append('defs');
+    
+    links.forEach((link, i) => {
+        const sourceId = typeof link.source === 'string' ? link.source : link.source.id;
+        const targetId = typeof link.target === 'string' ? link.target : link.target.id;
+        
+        const gradient = defs.append('linearGradient')
+            .attr('id', `gradient-${i}`)
+            .attr('gradientUnits', 'userSpaceOnUse');
+        
+        gradient.append('stop')
+            .attr('offset', '0%')
+            .attr('stop-color', colorScale(sourceId));
+        
+        gradient.append('stop')
+            .attr('offset', '100%')
+            .attr('stop-color', colorScale(targetId));
+    });
+    
+    // Create links with gradients
+    const linkGroup = g.append('g').attr('class', 'links');
+    
+    const link = linkGroup.selectAll('line')
+        .data(links)
+        .enter()
+        .append('line')
+        .attr('stroke', (d, i) => `url(#gradient-${i})`)
+        .attr('stroke-opacity', 0.6)
+        .attr('stroke-width', d => lineWidthScale(d.value))
+        .style('cursor', 'pointer')
+        .on('mouseover', function(event, d) {
+            // Highlight the link
+            d3.select(this)
+                .attr('stroke-opacity', 1)
+                .attr('stroke-width', lineWidthScale(d.value) * 1.5);
+            
+            // Show tooltip
+            showLinkTooltip(event, d);
+        })
+        .on('mouseout', function(event, d) {
+            // Reset link
+            d3.select(this)
+                .attr('stroke-opacity', 0.6)
+                .attr('stroke-width', lineWidthScale(d.value));
+            
+            // Hide tooltip
+            hideLinkTooltip();
+        })
+        .on('click', function(event, d) {
+            // Show detailed info on click
+            alert(`Co-occurrence: ${d.source.id} + ${d.target.id}\nAppear together in ${d.value} photographs`);
+        });
+    
+    // Create nodes
+    const node = g.append('g')
+        .selectAll('g')
+        .data(nodes)
         .enter()
         .append('g')
-        .attr('class', 'gender-group')
-        .attr('transform', d => `translate(${x0(d.gender)},0)`);
+        .call(d3.drag()
+            .on('start', dragstarted)
+            .on('drag', dragged)
+            .on('end', dragended));
     
-    genderGroup.selectAll('rect')
-        .data(d => subjects.map(subject => ({ subject: subject, value: d[subject], gender: d.gender })))
-        .enter()
-        .append('rect')
-        .attr('x', d => x1(d.subject))
-        .attr('y', d => y(d.value))
-        .attr('width', x1.bandwidth())
-        .attr('height', d => innerHeight - y(d.value))
-        .attr('fill', d => color(d.subject))
-        .style('opacity', 0.8);
+    // Add circles
+    node.append('circle')
+        .attr('r', d => radiusScale(d.frequency))
+        .attr('fill', d => colorScale(d.id))
+        .attr('stroke', '#fff')
+        .attr('stroke-width', 2.5)
+        .style('cursor', 'pointer');
     
-    // Legend
-    const legend = g.append('g')
-        .attr('transform', `translate(0, ${innerHeight + 50})`);
+    // Add labels
+    node.append('text')
+        .text(d => d.label)
+        .attr('text-anchor', 'middle')
+        .attr('dy', '.35em')
+        .style('font-size', d => Math.min(radiusScale(d.frequency) / 3, 14) + 'px')
+        .style('font-weight', '600')
+        .style('fill', '#fff')
+        .style('pointer-events', 'none')
+        .style('text-shadow', '0px 1px 3px rgba(0,0,0,0.3)');
     
-    subjects.forEach((subject, i) => {
-        const legendItem = legend.append('g')
-            .attr('transform', `translate(${i * 150}, 0)`);
+    // Add tooltips for nodes
+    node.append('title')
+        .text(d => `${d.label}\nAppears in ${d.frequency} photos`);
+    
+    // Create custom tooltip for links
+    let linkTooltip = d3.select('body').select('#link-tooltip');
+    if (linkTooltip.empty()) {
+        linkTooltip = d3.select('body')
+            .append('div')
+            .attr('id', 'link-tooltip')
+            .style('position', 'absolute')
+            .style('background', 'rgba(0, 0, 0, 0.85)')
+            .style('color', '#fff')
+            .style('padding', '10px 14px')
+            .style('border-radius', '6px')
+            .style('font-size', '13px')
+            .style('font-weight', '600')
+            .style('pointer-events', 'none')
+            .style('display', 'none')
+            .style('z-index', '10000')
+            .style('box-shadow', '0 4px 12px rgba(0,0,0,0.3)');
+    }
+    
+    function showLinkTooltip(event, d) {
+        const sourceLabel = d.source.id.charAt(0).toUpperCase() + d.source.id.slice(1);
+        const targetLabel = d.target.id.charAt(0).toUpperCase() + d.target.id.slice(1);
+        linkTooltip
+            .html(`<strong>${sourceLabel} + ${targetLabel}</strong><br/>Co-occur in ${d.value} photographs`)
+            .style('left', (event.pageX + 15) + 'px')
+            .style('top', (event.pageY + 15) + 'px')
+            .style('display', 'block');
+    }
+    
+    function hideLinkTooltip() {
+        linkTooltip.style('display', 'none');
+    }
+    
+    // Update positions on simulation tick (also update gradient positions)
+    simulation.on('tick', () => {
+        link
+            .attr('x1', d => d.source.x)
+            .attr('y1', d => d.source.y)
+            .attr('x2', d => d.target.x)
+            .attr('y2', d => d.target.y);
         
-        legendItem.append('rect')
-            .attr('width', 15)
-            .attr('height', 15)
-            .attr('fill', color(subject));
+        // Update gradient positions to match link positions
+        links.forEach((linkData, i) => {
+            defs.select(`#gradient-${i}`)
+                .attr('x1', linkData.source.x)
+                .attr('y1', linkData.source.y)
+                .attr('x2', linkData.target.x)
+                .attr('y2', linkData.target.y);
+        });
         
-        legendItem.append('text')
-            .attr('x', 20)
-            .attr('y', 12)
-            .style('font-size', '12px')
-            .text(subject.charAt(0).toUpperCase() + subject.slice(1));
+        node.attr('transform', d => `translate(${d.x},${d.y})`);
     });
     
-    // Axis labels
-    g.append('text')
-        .attr('x', innerWidth / 2)
-        .attr('y', innerHeight + 40)
-        .attr('text-anchor', 'middle')
-        .style('font-size', '14px')
-        .text('Artist Gender');
+    // Drag functions
+    function dragstarted(event, d) {
+        if (!event.active) simulation.alphaTarget(0.3).restart();
+        d.fx = d.x;
+        d.fy = d.y;
+    }
     
-    g.append('text')
-        .attr('transform', 'rotate(-90)')
-        .attr('x', -innerHeight / 2)
-        .attr('y', -70)
-        .attr('text-anchor', 'middle')
-        .style('font-size', '14px')
-        .text('Percentage of Photos with Subject');
+    function dragged(event, d) {
+        d.fx = event.x;
+        d.fy = event.y;
+    }
+    
+    function dragended(event, d) {
+        if (!event.active) simulation.alphaTarget(0);
+        d.fx = null;
+        d.fy = null;
+    }
+    
+    // Add legend at bottom right
+    const legend = g.append('g')
+        .attr('transform', `translate(${innerWidth - 180}, ${innerHeight - 45})`);
+    
+    legend.append('text')
+        .attr('x', 0)
+        .attr('y', 0)
+        .style('font-size', '13px')
+        .style('font-weight', '600')
+        .style('fill', '#666')
+        .text('Circle size = Frequency');
+    
+    legend.append('text')
+        .attr('x', 0)
+        .attr('y', 20)
+        .style('font-size', '13px')
+        .style('font-weight', '600')
+        .style('fill', '#666')
+        .text('Line thickness = Co-occurrence');
 }
 
 // ===== CONTROL LISTENERS =====
