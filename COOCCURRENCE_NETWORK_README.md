@@ -67,3 +67,4 @@ If you want to extend this visualization, you could:
 - Show percentage-based co-occurrence (normalized by frequency)
 - Add clustering algorithms to identify distinct photographic "themes"
 
+

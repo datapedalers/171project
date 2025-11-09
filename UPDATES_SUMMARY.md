@@ -74,3 +74,4 @@ const paulTolBright = [
 - `171project-main/visualizations.js` - Main implementation
 - No changes needed to HTML or CSS for these features
 
+

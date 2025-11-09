@@ -12,14 +12,52 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // ===== SCROLL REVEAL ANIMATIONS =====
 function initScrollAnimations() {
-    const revealElements = document.querySelectorAll('.scroll-reveal');
+    const revealElements = document.querySelectorAll('.scroll-reveal, .scroll-fade-up, .scroll-fade-in');
+    const sectionTitles = document.querySelectorAll('.section-title');
+    const sectionIntros = document.querySelectorAll('.section-intro');
+    const insightHeaders = document.querySelectorAll('.insight-block h3');
+    const insightTexts = document.querySelectorAll('.insight-text');
+    const visualizationContainers = document.querySelectorAll('.visualization-container');
+    const vizControls = document.querySelectorAll('.viz-controls');
+    const mainInsight = document.querySelector('.main-insight');
+    const conclusionText = document.querySelector('.conclusion-text');
+    const attribution = document.querySelector('.attribution');
+    const reflectionPrompt = document.querySelector('.reflection-prompt');
+    const introDescription = document.querySelector('.intro-description');
+    
+    // Combine all elements to animate
+    const allAnimatedElements = [
+        ...revealElements,
+        ...sectionTitles,
+        ...sectionIntros,
+        ...insightHeaders,
+        ...insightTexts,
+        ...visualizationContainers,
+        ...vizControls
+    ];
+    
+    if (introDescription) {
+        allAnimatedElements.push(introDescription);
+    }
+    if (mainInsight) {
+        allAnimatedElements.push(mainInsight);
+    }
+    if (conclusionText) {
+        allAnimatedElements.push(conclusionText);
+    }
+    if (attribution) {
+        allAnimatedElements.push(attribution);
+    }
+    if (reflectionPrompt) {
+        allAnimatedElements.push(reflectionPrompt);
+    }
     
     const revealOnScroll = () => {
         const windowHeight = window.innerHeight;
         
-        revealElements.forEach(element => {
+        allAnimatedElements.forEach(element => {
             const elementTop = element.getBoundingClientRect().top;
-            const revealPoint = windowHeight * 0.85;
+            const revealPoint = windowHeight * 0.80;
             
             if (elementTop < revealPoint) {
                 element.classList.add('visible');
