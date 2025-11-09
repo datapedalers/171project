@@ -1,0 +1,10 @@
+gender,count,percentage
+male,1133,81.22
+male|male,168,12.04
+female,44,3.15
+male|male|male,38,2.72
+male|female,5,0.36
+male|male|male|male,4,0.29
+male|female|female,1,0.07
+male|female|female|female,1,0.07
+female|male,1,0.07
