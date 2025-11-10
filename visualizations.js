@@ -11,13 +11,22 @@ let currentViewType = 'streamgraph';
 let selectedObjects = ['person', 'building', 'tree', 'water', 'mountain'];
 const MAX_OBJECTS = 5;
 let showAllObjects = true; // Toggle between all objects and top 10
+let selectedNationality1 = 'all'; // Nationality filter for graph 1
+let selectedNationality2 = 'all'; // Nationality filter for graph 2
+let availableNationalities = []; // List of all valid nationalities
 
 // ===== DATA LOADING =====
 document.addEventListener('DOMContentLoaded', function() {
+    // Setup control listeners first (before data loads)
+    setupControlListeners();
+    
     // Load the dataset
     d3.csv('final_dataset.csv').then(data => {
         photographData = data;
         console.log('Loaded', photographData.length, 'photographs');
+        
+        // Populate nationality dropdown after data is loaded
+        populateNationalityDropdown();
         
         initIntro();
         initVisualization1();
@@ -30,9 +39,6 @@ document.addEventListener('DOMContentLoaded', function() {
         currentFilter = e.detail.filter;
         updateMainVisualization();
     });
-    
-    // Setup control listeners
-    setupControlListeners();
 });
 
 
@@ -835,11 +841,150 @@ function populateObjectCheckboxes() {
     });
 }
 
+// Parse nationality string to extract base nationalities
+function parseNationality(nationalityStr) {
+    if (!nationalityStr || nationalityStr === '') return [];
+    
+    const allNationalities = [];
+    
+    // First split by pipe (|) to handle multiple artists
+    const artistNationalities = nationalityStr.split('|');
+    
+    artistNationalities.forEach(artistNat => {
+        // Remove ", born {country}", ", active {country}", and any trailing " ?"
+        let cleaned = artistNat
+            .replace(/,\s*born\s+[^,]+/gi, '')
+            .replace(/,\s*active\s+[^,]+/gi, '')
+            .replace(/\s+\?$/g, '')
+            .trim();
+        
+        // Replace "English" with "British"
+        cleaned = cleaned.replace(/\bEnglish\b/gi, 'British');
+        
+        // Skip if empty after cleaning
+        if (!cleaned) return;
+        
+        // Split by common delimiters: " and ", "-", ", "
+        // First split by " and "
+        const andParts = cleaned.split(/\s+and\s+/i);
+        
+        andParts.forEach(part => {
+            // Then split by "-" or ", "
+            const subParts = part.split(/[-,]\s*/);
+            subParts.forEach(nat => {
+                const trimmed = nat.trim();
+                if (trimmed && trimmed !== '') {
+                    allNationalities.push(trimmed);
+                }
+            });
+        });
+    });
+    
+    return allNationalities;
+}
+
+// Populate nationality dropdowns with nationalities that have 10+ data points
+function populateNationalityDropdown() {
+    const dropdown1 = document.getElementById('nationality-filter-1');
+    const dropdown2 = document.getElementById('nationality-filter-2');
+    
+    if (!dropdown1 || !dropdown2 || photographData.length === 0) {
+        console.log('Exiting early - dropdowns or data missing');
+        return;
+    }
+    
+    // Count occurrences of each nationality
+    const nationalityCounts = {};
+    
+    photographData.forEach(photo => {
+        const nationalities = parseNationality(photo.origin);
+        nationalities.forEach(nat => {
+            nationalityCounts[nat] = (nationalityCounts[nat] || 0) + 1;
+        });
+    });
+        
+    // Filter nationalities with 10+ occurrences and sort by count
+    availableNationalities = Object.entries(nationalityCounts)
+        .filter(([nat, count]) => count >= 10)
+        .sort((a, b) => b[1] - a[1])
+        .map(([nat, count]) => ({ name: nat, count: nationalityCounts[nat] }));
+    
+    
+    // Populate both dropdowns
+    populateDropdown(dropdown1, 1);
+    populateDropdown(dropdown2, 2);
+    
+    // Add change listeners
+    dropdown1.addEventListener('change', function() {
+        selectedNationality1 = this.value;
+        populateDropdown(dropdown2, 2); // Update dropdown2 to gray out selected
+        updateMainVisualization();
+    });
+    
+    dropdown2.addEventListener('change', function() {
+        selectedNationality2 = this.value;
+        populateDropdown(dropdown1, 1); // Update dropdown1 to gray out selected
+        updateMainVisualization();
+    });
+}
+
+// Helper function to populate a single dropdown
+function populateDropdown(dropdown, graphNumber) {
+    const otherSelected = graphNumber === 1 ? selectedNationality2 : selectedNationality1;
+    const currentSelected = graphNumber === 1 ? selectedNationality1 : selectedNationality2;
+    
+    // Clear existing options
+    dropdown.innerHTML = '';
+    
+    // Add "All Nationalities" option
+    const allOption = document.createElement('option');
+    allOption.value = 'all';
+    allOption.textContent = 'All Nationalities';
+    allOption.selected = currentSelected === 'all';
+    dropdown.appendChild(allOption);
+    
+    // Add nationality options
+    availableNationalities.forEach(({ name, count }) => {
+        const option = document.createElement('option');
+        option.value = name;
+        option.textContent = `${name} (${count})`;
+        option.selected = currentSelected === name;
+        
+        // Disable if selected in other dropdown
+        if (otherSelected === name) {
+            option.disabled = true;
+            option.style.color = '#ccc';
+        }
+        
+        dropdown.appendChild(option);
+    });
+}
+
+// Filter data by selected nationality
+function getFilteredData(graphNumber) {
+    const selectedNationality = graphNumber === 1 ? selectedNationality1 : selectedNationality2;
+    
+    if (selectedNationality === 'all') {
+        return photographData;
+    }
+    
+    return photographData.filter(photo => {
+        const nationalities = parseNationality(photo.origin);
+        return nationalities.includes(selectedNationality);
+    });
+}
+
 // ===== MAIN VISUALIZATION: INTERACTIVE TIMELINE =====
 function initMainVisualization() {
-    const container = d3.select('#timeline-viz');
+    // Create both graphs
+    createGraph(1);
+    createGraph(2);
+}
+
+function createGraph(graphNumber) {
+    const container = d3.select(`#timeline-viz-${graphNumber}`);
     const width = 1100;
-    const height = 600;
+    const height = 500;
     
     // Clear any existing content
     container.selectAll('*').remove();
@@ -851,16 +996,16 @@ function initMainVisualization() {
         .attr('viewBox', `0 0 ${width} ${height}`)
         .style('background', 'white');
     
-    // If we have data, create the main visualization
+    // If we have data, create the visualization
     if (photographData.length > 0) {
         if (currentViewType === 'streamgraph') {
-            createStreamgraph(svg, width, height);
+            createStreamgraph(svg, width, height, graphNumber);
         } else if (currentViewType === 'line') {
-            createLineGraph(svg, width, height);
+            createLineGraph(svg, width, height, graphNumber);
         } else if (currentViewType === 'percentage-stream') {
-            createStreamgraphPercentage(svg, width, height);
+            createStreamgraphPercentage(svg, width, height, graphNumber);
         } else if (currentViewType === 'percentage-line') {
-            createLineGraphPercentage(svg, width, height);
+            createLineGraphPercentage(svg, width, height, graphNumber);
         }
     } else {
         // Placeholder
@@ -868,16 +1013,19 @@ function initMainVisualization() {
     }
 }
 
-function createStreamgraph(svg, width, height) {
-    const margin = { top: 40, right: 150, bottom: 80, left: 80 };
+function createStreamgraph(svg, width, height, graphNumber) {
+    const margin = { top: 40, right: 150, bottom: 60, left: 80 };
     const innerWidth = width - margin.left - margin.right;
     const innerHeight = height - margin.top - margin.bottom;
     
     const g = svg.append('g')
         .attr('transform', `translate(${margin.left},${margin.top})`);
     
+    // Get filtered data
+    const filteredData = getFilteredData(graphNumber);
+    
     // Process data by decade
-    const decades = d3.groups(photographData, d => Math.floor(+d.creation_year / 10) * 10)
+    const decades = d3.groups(filteredData, d => Math.floor(+d.creation_year / 10) * 10)
         .filter(([decade]) => decade >= 1840 && decade <= 2020)
         .sort((a, b) => a[0] - b[0]);
     
@@ -920,6 +1068,22 @@ function createStreamgraph(svg, width, height) {
         .y1(d => yScale(d[1]))
         .curve(d3.curveBasis);
     
+    // Create tooltip
+    const tooltip = d3.select('body').selectAll(`.tooltip-graph-${graphNumber}`).data([null]);
+    const tooltipEnter = tooltip.enter().append('div')
+        .attr('class', `tooltip-graph-${graphNumber} viz-tooltip`)
+        .style('position', 'absolute')
+        .style('background', 'rgba(0, 0, 0, 0.85)')
+        .style('color', '#fff')
+        .style('padding', '10px 12px')
+        .style('border-radius', '6px')
+        .style('font-size', '13px')
+        .style('pointer-events', 'none')
+        .style('display', 'none')
+        .style('z-index', '10000')
+        .style('box-shadow', '0 4px 12px rgba(0,0,0,0.3)');
+    const tooltipDiv = tooltipEnter.merge(tooltip);
+    
     // Draw streams
     g.selectAll('.stream')
         .data(series)
@@ -929,23 +1093,28 @@ function createStreamgraph(svg, width, height) {
         .attr('d', area)
         .attr('fill', d => colorScale(d.key))
         .style('opacity', 0.8)
-        .on('mouseover', function(event, d) {
+        .on('mousemove', function(event, d) {
             d3.select(this).style('opacity', 1).style('stroke', '#333').style('stroke-width', 2);
             
-            // Show tooltip
-            const tooltip = g.append('text')
-                .attr('class', 'stream-tooltip')
-                .attr('x', innerWidth / 2)
-                .attr('y', -10)
-                .attr('text-anchor', 'middle')
-                .style('font-size', '14px')
-                .style('font-weight', 'bold')
-                .style('fill', '#333')
-                .text(d.key.charAt(0).toUpperCase() + d.key.slice(1));
+            // Find closest decade to mouse position
+            const [mouseX] = d3.pointer(event, g.node());
+            const decade = Math.round(xScale.invert(mouseX) / 10) * 10;
+            const dataPoint = timelineData.find(dp => dp.decade === decade);
+            
+            if (dataPoint) {
+                const count = dataPoint[d.key] || 0;
+                const objectName = d.key.charAt(0).toUpperCase() + d.key.slice(1);
+                
+                tooltipDiv
+                    .html(`<strong>${objectName}</strong><br/>Year: ${decade}<br/>Count: ${count}`)
+                    .style('left', (event.pageX + 15) + 'px')
+                    .style('top', (event.pageY + 15) + 'px')
+                    .style('display', 'block');
+            }
         })
         .on('mouseout', function() {
             d3.select(this).style('opacity', 0.8).style('stroke', 'none');
-            g.selectAll('.stream-tooltip').remove();
+            tooltipDiv.style('display', 'none');
         });
     
     // Axes
@@ -978,32 +1147,26 @@ function createStreamgraph(svg, width, height) {
     // Axis labels
     g.append('text')
         .attr('x', innerWidth / 2)
-        .attr('y', innerHeight + 50)
+        .attr('y', innerHeight + 45)
         .attr('text-anchor', 'middle')
-        .style('font-size', '14px')
+        .style('font-size', '13px')
         .style('font-weight', 'bold')
         .text('Year');
-    
-    g.append('text')
-        .attr('x', innerWidth / 2)
-        .attr('y', -15)
-        .attr('text-anchor', 'middle')
-        .style('font-size', '16px')
-        .style('font-weight', 'bold')
-        .style('fill', '#6b6560')
-        .text('Depicted Objects Over Time');
 }
 
-function createLineGraph(svg, width, height) {
-    const margin = { top: 40, right: 150, bottom: 80, left: 80 };
+function createLineGraph(svg, width, height, graphNumber) {
+    const margin = { top: 40, right: 150, bottom: 60, left: 80 };
     const innerWidth = width - margin.left - margin.right;
     const innerHeight = height - margin.top - margin.bottom;
     
     const g = svg.append('g')
         .attr('transform', `translate(${margin.left},${margin.top})`);
     
+    // Get filtered data
+    const filteredData = getFilteredData(graphNumber);
+    
     // Process data by decade
-    const decades = d3.groups(photographData, d => Math.floor(+d.creation_year / 10) * 10)
+    const decades = d3.groups(filteredData, d => Math.floor(+d.creation_year / 10) * 10)
         .filter(([decade]) => decade >= 1840 && decade <= 2020)
         .sort((a, b) => a[0] - b[0]);
     
@@ -1031,6 +1194,22 @@ function createLineGraph(svg, width, height) {
     const colorScale = d3.scaleOrdinal()
         .domain(selectedObjects)
         .range(d3.schemeCategory10);
+    
+    // Create tooltip
+    const tooltip = d3.select('body').selectAll(`.tooltip-line-graph-${graphNumber}`).data([null]);
+    const tooltipEnter = tooltip.enter().append('div')
+        .attr('class', `tooltip-line-graph-${graphNumber} viz-tooltip`)
+        .style('position', 'absolute')
+        .style('background', 'rgba(0, 0, 0, 0.85)')
+        .style('color', '#fff')
+        .style('padding', '10px 12px')
+        .style('border-radius', '6px')
+        .style('font-size', '13px')
+        .style('pointer-events', 'none')
+        .style('display', 'none')
+        .style('z-index', '10000')
+        .style('box-shadow', '0 4px 12px rgba(0,0,0,0.3)');
+    const tooltipDiv = tooltipEnter.merge(tooltip);
     
     // Line generator
     const line = d3.line()
@@ -1067,20 +1246,18 @@ function createLineGraph(svg, width, height) {
             .on('mouseover', function(event, d) {
                 d3.select(this).attr('r', 7);
                 
-                // Show tooltip
-                const tooltip = g.append('text')
-                    .attr('class', 'line-tooltip')
-                    .attr('x', xScale(d.decade))
-                    .attr('y', yScale(d[subject]) - 15)
-                    .attr('text-anchor', 'middle')
-                    .style('font-size', '12px')
-                    .style('font-weight', 'bold')
-                    .style('fill', '#333')
-                    .text(`${d[subject]} works`);
+                const count = d[subject] || 0;
+                const objectName = subject.charAt(0).toUpperCase() + subject.slice(1);
+                
+                tooltipDiv
+                    .html(`<strong>${objectName}</strong><br/>Year: ${d.decade}<br/>Count: ${count}`)
+                    .style('left', (event.pageX + 15) + 'px')
+                    .style('top', (event.pageY + 15) + 'px')
+                    .style('display', 'block');
             })
             .on('mouseout', function() {
                 d3.select(this).attr('r', 5);
-                g.selectAll('.line-tooltip').remove();
+                tooltipDiv.style('display', 'none');
             });
     });
     
@@ -1120,9 +1297,9 @@ function createLineGraph(svg, width, height) {
     // Axis labels
     g.append('text')
         .attr('x', innerWidth / 2)
-        .attr('y', innerHeight + 50)
+        .attr('y', innerHeight + 45)
         .attr('text-anchor', 'middle')
-        .style('font-size', '14px')
+        .style('font-size', '13px')
         .style('font-weight', 'bold')
         .text('Year');
     
@@ -1131,30 +1308,24 @@ function createLineGraph(svg, width, height) {
         .attr('x', -innerHeight / 2)
         .attr('y', -50)
         .attr('text-anchor', 'middle')
-        .style('font-size', '14px')
+        .style('font-size', '13px')
         .style('font-weight', 'bold')
         .text('# of Works');
-    
-    g.append('text')
-        .attr('x', innerWidth / 2)
-        .attr('y', -15)
-        .attr('text-anchor', 'middle')
-        .style('font-size', '16px')
-        .style('font-weight', 'bold')
-        .style('fill', '#6b6560')
-        .text('Depicted Objects Over Time');
 }
 
-function createStreamgraphPercentage(svg, width, height) {
-    const margin = { top: 40, right: 150, bottom: 80, left: 80 };
+function createStreamgraphPercentage(svg, width, height, graphNumber) {
+    const margin = { top: 40, right: 150, bottom: 60, left: 80 };
     const innerWidth = width - margin.left - margin.right;
     const innerHeight = height - margin.top - margin.bottom;
     
     const g = svg.append('g')
         .attr('transform', `translate(${margin.left},${margin.top})`);
     
+    // Get filtered data
+    const filteredData = getFilteredData(graphNumber);
+    
     // Process data by decade
-    const decades = d3.groups(photographData, d => Math.floor(+d.creation_year / 10) * 10)
+    const decades = d3.groups(filteredData, d => Math.floor(+d.creation_year / 10) * 10)
         .filter(([decade]) => decade >= 1840 && decade <= 2020)
         .sort((a, b) => a[0] - b[0]);
     
@@ -1192,6 +1363,22 @@ function createStreamgraphPercentage(svg, width, height) {
         .domain(selectedObjects)
         .range(d3.schemeCategory10);
     
+    // Create tooltip
+    const tooltip = d3.select('body').selectAll(`.tooltip-pct-stream-${graphNumber}`).data([null]);
+    const tooltipEnter = tooltip.enter().append('div')
+        .attr('class', `tooltip-pct-stream-${graphNumber} viz-tooltip`)
+        .style('position', 'absolute')
+        .style('background', 'rgba(0, 0, 0, 0.85)')
+        .style('color', '#fff')
+        .style('padding', '10px 12px')
+        .style('border-radius', '6px')
+        .style('font-size', '13px')
+        .style('pointer-events', 'none')
+        .style('display', 'none')
+        .style('z-index', '10000')
+        .style('box-shadow', '0 4px 12px rgba(0,0,0,0.3)');
+    const tooltipDiv = tooltipEnter.merge(tooltip);
+    
     // Area generator
     const area = d3.area()
         .x(d => xScale(d.data.decade))
@@ -1208,23 +1395,28 @@ function createStreamgraphPercentage(svg, width, height) {
         .attr('d', area)
         .attr('fill', d => colorScale(d.key))
         .style('opacity', 0.8)
-        .on('mouseover', function(event, d) {
+        .on('mousemove', function(event, d) {
             d3.select(this).style('opacity', 1).style('stroke', '#333').style('stroke-width', 2);
             
-            // Show tooltip
-            const tooltip = g.append('text')
-                .attr('class', 'stream-tooltip')
-                .attr('x', innerWidth / 2)
-                .attr('y', -10)
-                .attr('text-anchor', 'middle')
-                .style('font-size', '14px')
-                .style('font-weight', 'bold')
-                .style('fill', '#333')
-                .text(d.key.charAt(0).toUpperCase() + d.key.slice(1));
+            // Find closest decade to mouse position
+            const [mouseX] = d3.pointer(event, g.node());
+            const decade = Math.round(xScale.invert(mouseX) / 10) * 10;
+            const dataPoint = timelineData.find(dp => dp.decade === decade);
+            
+            if (dataPoint) {
+                const percentage = dataPoint[d.key] || 0;
+                const objectName = d.key.charAt(0).toUpperCase() + d.key.slice(1);
+                
+                tooltipDiv
+                    .html(`<strong>${objectName}</strong><br/>Year: ${decade}<br/>Percentage: ${percentage.toFixed(1)}%`)
+                    .style('left', (event.pageX + 15) + 'px')
+                    .style('top', (event.pageY + 15) + 'px')
+                    .style('display', 'block');
+            }
         })
         .on('mouseout', function() {
             d3.select(this).style('opacity', 0.8).style('stroke', 'none');
-            g.selectAll('.stream-tooltip').remove();
+            tooltipDiv.style('display', 'none');
         });
     
     // Axes (only x-axis for streamgraph)
@@ -1257,32 +1449,26 @@ function createStreamgraphPercentage(svg, width, height) {
     // Axis labels
     g.append('text')
         .attr('x', innerWidth / 2)
-        .attr('y', innerHeight + 50)
+        .attr('y', innerHeight + 45)
         .attr('text-anchor', 'middle')
-        .style('font-size', '14px')
+        .style('font-size', '13px')
         .style('font-weight', 'bold')
         .text('Year');
-    
-    g.append('text')
-        .attr('x', innerWidth / 2)
-        .attr('y', -15)
-        .attr('text-anchor', 'middle')
-        .style('font-size', '16px')
-        .style('font-weight', 'bold')
-        .style('fill', '#6b6560')
-        .text('Depicted Objects Over Time (Percentage Streamgraph)');
 }
 
-function createLineGraphPercentage(svg, width, height) {
-    const margin = { top: 40, right: 150, bottom: 80, left: 80 };
+function createLineGraphPercentage(svg, width, height, graphNumber) {
+    const margin = { top: 40, right: 150, bottom: 60, left: 80 };
     const innerWidth = width - margin.left - margin.right;
     const innerHeight = height - margin.top - margin.bottom;
     
     const g = svg.append('g')
         .attr('transform', `translate(${margin.left},${margin.top})`);
     
+    // Get filtered data
+    const filteredData = getFilteredData(graphNumber);
+    
     // Process data by decade
-    const decades = d3.groups(photographData, d => Math.floor(+d.creation_year / 10) * 10)
+    const decades = d3.groups(filteredData, d => Math.floor(+d.creation_year / 10) * 10)
         .filter(([decade]) => decade >= 1840 && decade <= 2020)
         .sort((a, b) => a[0] - b[0]);
     
@@ -1311,6 +1497,22 @@ function createLineGraphPercentage(svg, width, height) {
     const colorScale = d3.scaleOrdinal()
         .domain(selectedObjects)
         .range(d3.schemeCategory10);
+    
+    // Create tooltip
+    const tooltip = d3.select('body').selectAll(`.tooltip-pct-line-${graphNumber}`).data([null]);
+    const tooltipEnter = tooltip.enter().append('div')
+        .attr('class', `tooltip-pct-line-${graphNumber} viz-tooltip`)
+        .style('position', 'absolute')
+        .style('background', 'rgba(0, 0, 0, 0.85)')
+        .style('color', '#fff')
+        .style('padding', '10px 12px')
+        .style('border-radius', '6px')
+        .style('font-size', '13px')
+        .style('pointer-events', 'none')
+        .style('display', 'none')
+        .style('z-index', '10000')
+        .style('box-shadow', '0 4px 12px rgba(0,0,0,0.3)');
+    const tooltipDiv = tooltipEnter.merge(tooltip);
     
     // Line generator
     const line = d3.line()
@@ -1347,20 +1549,18 @@ function createLineGraphPercentage(svg, width, height) {
             .on('mouseover', function(event, d) {
                 d3.select(this).attr('r', 7);
                 
-                // Show tooltip
-                const tooltip = g.append('text')
-                    .attr('class', 'line-tooltip')
-                    .attr('x', xScale(d.decade))
-                    .attr('y', yScale(d[subject]) - 15)
-                    .attr('text-anchor', 'middle')
-                    .style('font-size', '12px')
-                    .style('font-weight', 'bold')
-                    .style('fill', '#333')
-                    .text(`${d[subject].toFixed(1)}%`);
+                const percentage = d[subject] || 0;
+                const objectName = subject.charAt(0).toUpperCase() + subject.slice(1);
+                
+                tooltipDiv
+                    .html(`<strong>${objectName}</strong><br/>Year: ${d.decade}<br/>Percentage: ${percentage.toFixed(1)}%`)
+                    .style('left', (event.pageX + 15) + 'px')
+                    .style('top', (event.pageY + 15) + 'px')
+                    .style('display', 'block');
             })
             .on('mouseout', function() {
                 d3.select(this).attr('r', 5);
-                g.selectAll('.line-tooltip').remove();
+                tooltipDiv.style('display', 'none');
             });
     });
     
@@ -1400,9 +1600,9 @@ function createLineGraphPercentage(svg, width, height) {
     // Axis labels
     g.append('text')
         .attr('x', innerWidth / 2)
-        .attr('y', innerHeight + 50)
+        .attr('y', innerHeight + 45)
         .attr('text-anchor', 'middle')
-        .style('font-size', '14px')
+        .style('font-size', '13px')
         .style('font-weight', 'bold')
         .text('Year');
     
@@ -1411,18 +1611,9 @@ function createLineGraphPercentage(svg, width, height) {
         .attr('x', -innerHeight / 2)
         .attr('y', -50)
         .attr('text-anchor', 'middle')
-        .style('font-size', '14px')
+        .style('font-size', '13px')
         .style('font-weight', 'bold')
         .text('Percentage of Works');
-    
-    g.append('text')
-        .attr('x', innerWidth / 2)
-        .attr('y', -15)
-        .attr('text-anchor', 'middle')
-        .style('font-size', '16px')
-        .style('font-weight', 'bold')
-        .style('fill', '#6b6560')
-        .text('Depicted Objects Over Time (Percentage)');
 }
 
 function createPlaceholderMainViz(svg, width, height) {

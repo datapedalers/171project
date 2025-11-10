@@ -188,7 +188,6 @@ def main():
     write_df(summary_df, out_dir, 'summary.csv')
     write_df(missing_df, out_dir, 'missing_data_percentages.csv')
 
-    write_df(analyze_gender(df), out_dir, 'gender_distribution.csv')
     write_df(analyze_nationality(df), out_dir, 'nationality_counts.csv')
     write_df(analyze_artists(df), out_dir, 'artist_counts.csv')
     write_df(analyze_temporal(df), out_dir, 'decade_counts.csv')
