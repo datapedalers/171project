@@ -11,13 +11,20 @@ let currentViewType = 'streamgraph';
 let selectedObjects = ['person', 'building', 'tree', 'water', 'mountain'];
 const MAX_OBJECTS = 5;
 let showAllObjects = true; // Toggle between all objects and top 10
+let selectedNationality = 'all'; // Current nationality filter
 
 // ===== DATA LOADING =====
 document.addEventListener('DOMContentLoaded', function() {
+    // Setup control listeners first (before data loads)
+    setupControlListeners();
+    
     // Load the dataset
     d3.csv('final_dataset.csv').then(data => {
         photographData = data;
         console.log('Loaded', photographData.length, 'photographs');
+        
+        // Populate nationality dropdown after data is loaded
+        populateNationalityDropdown();
         
         // Initialize visualizations
         initVisualization1();
@@ -36,9 +43,6 @@ document.addEventListener('DOMContentLoaded', function() {
         currentFilter = e.detail.filter;
         updateMainVisualization();
     });
-    
-    // Setup control listeners
-    setupControlListeners();
 });
 
 // ===== VISUALIZATION 1: SUBJECT DISTRIBUTION TIMELINE =====
@@ -840,6 +844,117 @@ function populateObjectCheckboxes() {
     });
 }
 
+// Parse nationality string to extract base nationalities
+function parseNationality(nationalityStr) {
+    if (!nationalityStr || nationalityStr === '') return [];
+    
+    const allNationalities = [];
+    
+    // First split by pipe (|) to handle multiple artists
+    const artistNationalities = nationalityStr.split('|');
+    
+    artistNationalities.forEach(artistNat => {
+        // Remove ", born {country}", ", active {country}", and any trailing " ?"
+        let cleaned = artistNat
+            .replace(/,\s*born\s+[^,]+/gi, '')
+            .replace(/,\s*active\s+[^,]+/gi, '')
+            .replace(/\s+\?$/g, '')
+            .trim();
+        
+        // Replace "English" with "British"
+        cleaned = cleaned.replace(/\bEnglish\b/gi, 'British');
+        
+        // Skip if empty after cleaning
+        if (!cleaned) return;
+        
+        // Split by common delimiters: " and ", "-", ", "
+        // First split by " and "
+        const andParts = cleaned.split(/\s+and\s+/i);
+        
+        andParts.forEach(part => {
+            // Then split by "-" or ", "
+            const subParts = part.split(/[-,]\s*/);
+            subParts.forEach(nat => {
+                const trimmed = nat.trim();
+                if (trimmed && trimmed !== '') {
+                    allNationalities.push(trimmed);
+                }
+            });
+        });
+    });
+    
+    return allNationalities;
+}
+
+// Populate nationality dropdown with nationalities that have 10+ data points
+function populateNationalityDropdown() {
+    const dropdown = document.getElementById('nationality-filter');
+    console.log('Dropdown element:', dropdown);
+    console.log('Photo data length:', photographData.length);
+    
+    if (!dropdown || photographData.length === 0) {
+        console.log('Exiting early - dropdown or data missing');
+        return;
+    }
+    
+    // Count occurrences of each nationality
+    const nationalityCounts = {};
+    
+    photographData.forEach(photo => {
+        const nationalities = parseNationality(photo.origin);
+        nationalities.forEach(nat => {
+            nationalityCounts[nat] = (nationalityCounts[nat] || 0) + 1;
+        });
+    });
+    
+    console.log('Nationality counts:', nationalityCounts);
+    
+    // Filter nationalities with 10+ occurrences and sort by count
+    const validNationalities = Object.entries(nationalityCounts)
+        .filter(([nat, count]) => count >= 10)
+        .sort((a, b) => b[1] - a[1])
+        .map(([nat, count]) => nat);
+    
+    console.log('Valid nationalities (10+):', validNationalities);
+    
+    // Clear existing options
+    dropdown.innerHTML = '';
+    
+    // Add "All Nationalities" option
+    const allOption = document.createElement('option');
+    allOption.value = 'all';
+    allOption.textContent = 'All Nationalities';
+    dropdown.appendChild(allOption);
+    
+    // Add nationality options
+    validNationalities.forEach(nat => {
+        const option = document.createElement('option');
+        option.value = nat;
+        option.textContent = `${nat} (${nationalityCounts[nat]})`;
+        dropdown.appendChild(option);
+    });
+    
+    console.log('Added', validNationalities.length, 'nationality options');
+    
+    // Add change listener
+    dropdown.addEventListener('change', function() {
+        selectedNationality = this.value;
+        updateMainVisualization();
+    });
+}
+
+// Filter data by selected nationality
+function getFilteredData() {
+    if (selectedNationality === 'all') {
+        return photographData;
+    }
+    
+    return photographData.filter(photo => {
+        const nationalities = parseNationality(photo.origin);
+        return nationalities.includes(selectedNationality);
+    });
+}
+
 // ===== MAIN VISUALIZATION: INTERACTIVE TIMELINE =====
 function initMainVisualization() {
     const container = d3.select('#timeline-viz');
@@ -881,8 +996,11 @@ function createStreamgraph(svg, width, height) {
     const g = svg.append('g')
         .attr('transform', `translate(${margin.left},${margin.top})`);
     
+    // Get filtered data
+    const filteredData = getFilteredData();
+    
     // Process data by decade
-    const decades = d3.groups(photographData, d => Math.floor(+d.creation_year / 10) * 10)
+    const decades = d3.groups(filteredData, d => Math.floor(+d.creation_year / 10) * 10)
         .filter(([decade]) => decade >= 1840 && decade <= 2020)
         .sort((a, b) => a[0] - b[0]);
     
@@ -1007,8 +1125,11 @@ function createLineGraph(svg, width, height) {
     const g = svg.append('g')
         .attr('transform', `translate(${margin.left},${margin.top})`);
     
+    // Get filtered data
+    const filteredData = getFilteredData();
+    
     // Process data by decade
-    const decades = d3.groups(photographData, d => Math.floor(+d.creation_year / 10) * 10)
+    const decades = d3.groups(filteredData, d => Math.floor(+d.creation_year / 10) * 10)
         .filter(([decade]) => decade >= 1840 && decade <= 2020)
         .sort((a, b) => a[0] - b[0]);
     
@@ -1158,8 +1279,11 @@ function createStreamgraphPercentage(svg, width, height) {
     const g = svg.append('g')
         .attr('transform', `translate(${margin.left},${margin.top})`);
     
+    // Get filtered data
+    const filteredData = getFilteredData();
+    
     // Process data by decade
-    const decades = d3.groups(photographData, d => Math.floor(+d.creation_year / 10) * 10)
+    const decades = d3.groups(filteredData, d => Math.floor(+d.creation_year / 10) * 10)
         .filter(([decade]) => decade >= 1840 && decade <= 2020)
         .sort((a, b) => a[0] - b[0]);
     
@@ -1286,8 +1410,11 @@ function createLineGraphPercentage(svg, width, height) {
     const g = svg.append('g')
         .attr('transform', `translate(${margin.left},${margin.top})`);
     
+    // Get filtered data
+    const filteredData = getFilteredData();
+    
     // Process data by decade
-    const decades = d3.groups(photographData, d => Math.floor(+d.creation_year / 10) * 10)
+    const decades = d3.groups(filteredData, d => Math.floor(+d.creation_year / 10) * 10)
         .filter(([decade]) => decade >= 1840 && decade <= 2020)
         .sort((a, b) => a[0] - b[0]);
     
