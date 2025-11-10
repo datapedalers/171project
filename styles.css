@@ -155,10 +155,22 @@ p {
     padding: 0 40px;
 }
 
-/* ===== SECTION 1: INTRODUCTION ===== */
 #intro {
     background: var(--bg-primary);
-    padding-top: 120px;
+    padding: 0;
+    align-items: flex-start;
+}
+
+.intro-visual {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#intro-image {
+    margin: 0;
+    padding: 0;
+    display: block;
 }
 
 .intro-text {

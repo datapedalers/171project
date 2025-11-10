@@ -9,7 +9,7 @@
 </head>
 <body>
     <!-- Navigation Sidebar -->
-    <nav id="sidebar">
+    <!-- <nav id="sidebar">
         <div class="nav-content">
             <div class="nav-item" data-section="intro">
                 <div class="nav-dot"></div>
@@ -28,21 +28,27 @@
                 <span class="nav-label">Reflection</span>
             </div>
         </div>
-    </nav>
+    </nav> -->
 
     <!-- Main Content -->
     <main id="main-content">
         
         <!-- Section 1: Introduction / Hook -->
         <section id="intro" class="section">
-            <div class="section-content">
+            <!-- <div class="section-content">
                 <div class="intro-text fade-in">
                     <h1><span class="typing-text">Through the Lens</span></h1>
                     <p class="subtitle">How Photography Captured the Evolution of National Identity</p>
+                </div> -->
+
+                <div class="intro-visual" style="width:100%; position: relative;">
+                    <div id="intro-image" style="width:100%; height:100vh; background-size:cover; background-position:center;"></div>
+                    <div id="overlay" style="width:100%; height:100vh; background: rgba(30, 30, 30, 100); opacity: 0; position: absolute; top: 0; left: 0;"></div>
+                    <div id="intro-text" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; font-size: 3rem; font-weight: 600; opacity: 0; text-align: center; z-index: 10;">The Metropolitan Museum of Art contains more than 2000 photographs.</div>
                 </div>
                 
                 <!-- Image Morphing Container -->
-                <div id="morphing-images" class="visualization-container">
+                <!-- <div id="morphing-images" class="visualization-container">
                     <p><i>(These images will morph into each other as you scroll, and captions/arrows will highlight what each image depicts/represents)</i></p>
                     <div class="image-stack">
                         <div class="photo-frame" id="photo1">
@@ -70,11 +76,11 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 
-                <div class="intro-description scroll-reveal">
+                <!-- <div class="intro-description scroll-reveal">
                     <p><i>[introduction message, something like the following]</i> From the daguerreotypes of the 1840s to digital photography of today, the subjects we choose to capture reveal our evolving values, identities, and understanding of nationhood.</p>
-                </div>
+                </div> -->
             </div>
         </section>
 
@@ -241,7 +247,9 @@
     </main>
 
     <!-- Scripts -->
+    <script src="images_list.js"></script>
     <script src="scroll-animations.js"></script>
     <script src="visualizations.js"></script>
+    <script src="intro.js"></script>
 </body>
 </html>

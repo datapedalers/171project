@@ -19,13 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
         photographData = data;
         console.log('Loaded', photographData.length, 'photographs');
         
-        // Initialize visualizations
-        initVisualization1();
-        initVisualization2();
-        initMainVisualization();
-    }).catch(error => {
-        console.error('Error loading data:', error);
-        // Continue with placeholder visualizations even if data fails to load
+        initIntro();
         initVisualization1();
         initVisualization2();
         initMainVisualization();
@@ -40,6 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Setup control listeners
     setupControlListeners();
 });
+
 
 // ===== VISUALIZATION 1: SUBJECT DISTRIBUTION TIMELINE =====
 
