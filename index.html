@@ -163,7 +163,7 @@
                 <p class="section-intro scroll-fade-up">Explore how photographic subjects evolved decade by decade, revealing the changing face of national personhood.</p>
                 
                 <div id="main-viz" class="visualization-container main-viz scroll-reveal">
-                    <!-- Interactive Controls -->
+                    <!-- Interactive Controls (Shared) -->
                     <div class="viz-controls scroll-fade-up">
                         <div class="control-group">
                             <label>View Type:</label>
@@ -181,19 +181,29 @@
                                 <!-- Will be populated by JS -->
                             </div>
                         </div>
-                        
-                        <div class="control-group">
-                            <label>Filter by Nationality:</label>
-                            <select id="nationality-filter" class="dropdown-control">
-                                <option value="all">All Nationalities</option>
-                                <option value="american">American</option>
-                                <option value="french">French</option>
-                                <option value="british">British</option>
-                            </select>
-                        </div>
                     </div>
                     
-                    <svg id="timeline-viz"></svg>
+                    <!-- Graph 1 -->
+                    <div class="dual-graph-container">
+                        <div class="graph-header">
+                            <label>Nationality 1:</label>
+                            <select id="nationality-filter-1" class="dropdown-control">
+                                <option value="all">All Nationalities</option>
+                            </select>
+                        </div>
+                        <svg id="timeline-viz-1"></svg>
+                    </div>
+                    
+                    <!-- Graph 2 -->
+                    <div class="dual-graph-container">
+                        <div class="graph-header">
+                            <label>Nationality 2:</label>
+                            <select id="nationality-filter-2" class="dropdown-control">
+                                <option value="all">All Nationalities</option>
+                            </select>
+                        </div>
+                        <svg id="timeline-viz-2"></svg>
+                    </div>
                 </div>
                 
                 <div class="main-insight scroll-reveal">
