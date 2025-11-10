@@ -39,7 +39,7 @@ function initIntro() {
             rotating = false;
             introText.style('transition', 'opacity 2s').style('opacity', '1').style('cursor', 'pointer');
             introText.on('click', () => {
-                textIndex = (textIndex + 1) % texts.length;
+                textIndex = Math.min((textIndex + 1), texts.length - 1);
                 introText.text(texts[textIndex]);
             });
         }
