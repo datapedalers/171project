@@ -179,6 +179,19 @@ function getImagesForCategory(categoryName, year, cumulative = false) {
     return matchingPhotos;
 }
 
+// Helper: Get image IDs for photos that have both objects (co-occurrence)
+function getCooccurrenceImages(object1, object2) {
+    const hasField1 = `has_${object1}`;
+    const hasField2 = `has_${object2}`;
+    
+    // Get all photos that have both objects
+    const matchingPhotos = photographData
+        .filter(p => p[hasField1] === '1.0' && p[hasField2] === '1.0')
+        .map(p => p.object_id);
+    
+    return matchingPhotos;
+}
+
 // Draws a treemap/mosaic for the provided year with image collages
 function drawSubjectTreemap(svg, width, vizHeight, year, asPercent = false, cumulative = false) {
     // leave room on the right for legend by increasing right margin
@@ -566,47 +579,58 @@ function showCategoryModal(categoryName, imageIds, year, clickX, clickY) {
         .style('opacity', '0')
         .style('pointer-events', 'auto');
     
-    // Direct click handler on modal background
+    // Direct click handler on modal background - FIXED to actually work
     const modalElement = modal.node();
-    modalElement.onclick = function(event) {
-        // Only close if clicking directly on the modal background (not its children)
-        if (event.target === modalElement) {
+    modalElement.addEventListener('click', function(event) {
+        // Check if the click was directly on the modal background (not bubbled from child)
+        // by checking if we clicked on something with the modal-content-area class or an image
+        const clickedElement = event.target;
+        const isImage = clickedElement.tagName === 'IMG';
+        const isImageCard = clickedElement.closest('.image-card');
+        const isHeader = clickedElement.closest('.modal-header');
+        
+        // If we didn't click on an image, image card, or header, close the modal
+        if (!isImage && !isImageCard && !isHeader) {
             closeCategoryModal();
         }
-    };
+    }, true);
     
-    // Zoom the main content focused on the clicked spot with acceleration
+    // Zoom the main content focused on the clicked spot with much more zoom
+    // Use fixed positioning for proper transform origin
+    const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+    const scrollX = window.pageXOffset || document.documentElement.scrollLeft;
+    const absoluteY = viewportY + scrollY;
+    const absoluteX = viewportX + scrollX;
+    
     mainContent
-        .style('transform-origin', `${originX}% ${originY}%`)
+        .style('transform-origin', `${absoluteX}px ${absoluteY}px`)
         .style('position', 'relative')
+        .style('will-change', 'transform')
         .transition()
-        .duration(1400)
-        .ease(d3.easeExpIn) // Exponential easing: starts slow, accelerates dramatically
-        .style('transform', 'scale(3.5)')
+        .duration(1500)
+        .ease(d3.easeExpIn) // Exponential easing: starts slow, accelerates dramatically  
+        .style('transform', 'scale(10)') // Much larger scale for dramatic zoom
         .style('opacity', '0');
     
-    // Fade in modal background
+    // Fade in modal background  
     modal.transition()
-        .delay(700)
-        .duration(700)
+        .delay(1000)
+        .duration(500)
         .ease(d3.easeQuadOut)
         .style('opacity', '1')
         .style('background', 'rgba(0, 0, 0, 0.95)');
     
     // Create modal header
     const header = modal.append('div')
+        .attr('class', 'modal-header')
         .style('padding', '20px 40px')
         .style('background', 'rgba(0, 0, 0, 0.8)')
         .style('color', 'white')
         .style('display', 'flex')
         .style('justify-content', 'space-between')
         .style('align-items', 'center')
-        .style('border-bottom', '2px solid rgba(255,255,255,0.1)');
-    
-    // Prevent clicks on header from closing modal
-    header.node().onclick = function(event) {
-        event.stopPropagation();
-    };
+        .style('border-bottom', '2px solid rgba(255,255,255,0.1)')
+        .style('z-index', '100001');
     
     header.append('h2')
         .style('margin', '0')
@@ -614,35 +638,41 @@ function showCategoryModal(categoryName, imageIds, year, clickX, clickY) {
         .style('font-weight', '600')
         .text(`${categoryName} — ${year} (${imageIds.length} photos)`);
     
-    // Create scrollable content area
+    // Create scrollable content area - always centered vertically
     const content = modal.append('div')
+        .attr('class', 'modal-content-area')
         .style('flex', '1')
         .style('overflow-y', 'auto')
         .style('padding', '40px 20px')
         .style('display', 'flex')
-        .style('justify-content', 'center');
-    
-    // Prevent clicks on content from closing modal
-    content.node().onclick = function(event) {
-        event.stopPropagation();
-    };
+        .style('justify-content', 'center')
+        .style('align-items', 'center') // Always center vertically
+        .style('z-index', '100001');
     
     // Create centered container
     const gridContainer = content.append('div')
-        .style('max-width', '1800px')
-        .style('width', '100%');
+        .style('max-width', '90%')
+        .style('width', '100%')
+        .style('display', 'flex')
+        .style('justify-content', 'center')
+        .style('align-items', 'center');
     
-    // Create grid of images - centered with full images
+    // Create flexible grid that minimizes blank space with better vertical alignment
     const grid = gridContainer.append('div')
-        .style('display', 'grid')
-        .style('grid-template-columns', 'repeat(auto-fit, minmax(280px, 1fr))')
+        .style('display', 'flex')
+        .style('flex-wrap', 'wrap')
         .style('gap', '25px')
-        .style('justify-items', 'center')
-        .style('align-items', 'start');
+        .style('justify-content', 'center')
+        .style('align-items', 'flex-start') // Changed from center to flex-start for better layout
+        .style('align-content', 'center') // Center the wrapped lines
+        .style('max-width', '100%');
     
-    // Add each image with staggered animation
+    // Add each image with staggered animation and flexible sizing
     imageIds.forEach((imageId, index) => {
+        const isSingleImage = imageIds.length === 1;
+        
         const imageCard = grid.append('div')
+            .attr('class', 'image-card') // Add class for click detection
             .style('background', 'rgba(255,255,255,0.05)')
             .style('border-radius', '8px')
             .style('overflow', 'hidden')
@@ -650,22 +680,25 @@ function showCategoryModal(categoryName, imageIds, year, clickX, clickY) {
             .style('transition', 'transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s')
             .style('opacity', '0')
             .style('transform', 'translateY(20px)')
-            .style('width', '100%')
+            .style('flex', isSingleImage ? '0 0 auto' : '0 0 auto')
+            .style('min-width', isSingleImage ? 'auto' : '280px')
+            .style('max-width', isSingleImage ? '80vw' : imageIds.length <= 3 ? '32%' : '28%')
             .style('display', 'flex')
             .style('flex-direction', 'column')
             .style('align-items', 'center')
+            .style('justify-content', 'flex-start')
             .on('click', function(event) {
                 event.stopPropagation();
                 showPhotoDetail(imageId);
             })
             .on('mouseover', function() {
                 d3.select(this)
-                    .style('transform', 'scale(1.05) translateY(0)')
+                    .style('transform', 'scale(1.05)')
                     .style('box-shadow', '0 8px 24px rgba(255,255,255,0.2)');
             })
             .on('mouseout', function() {
                 d3.select(this)
-                    .style('transform', 'scale(1) translateY(0)')
+                    .style('transform', 'scale(1)')
                     .style('box-shadow', 'none');
             });
         
@@ -678,7 +711,7 @@ function showCategoryModal(categoryName, imageIds, year, clickX, clickY) {
             .style('opacity', '1')
             .style('transform', 'translateY(0)');
         
-        // Full image with original aspect ratio - not cropped, with lazy loading
+        // Full image with original aspect ratio - flexible sizing that minimizes blank space
         imageCard.append('img')
             .attr('src', `images_met_resized/${imageId}.jpg`)
             .attr('loading', 'lazy') // Lazy load for better performance
@@ -686,7 +719,7 @@ function showCategoryModal(categoryName, imageIds, year, clickX, clickY) {
             .style('height', 'auto')
             .style('object-fit', 'contain')
             .style('display', 'block')
-            .style('max-height', '450px');
+            .style('max-height', isSingleImage ? '75vh' : (imageIds.length <= 3 ? '60vh' : '50vh'));
     });
 }
 
@@ -705,11 +738,13 @@ function closeCategoryModal() {
     
     // Zoom main content back in with deceleration
     mainContent
+        .style('will-change', 'auto')
         .transition()
         .duration(900)
         .ease(d3.easeExpOut)
         .style('transform', 'scale(1)')
-        .style('opacity', '1');
+        .style('opacity', '1')
+        .style('transform-origin', 'center center');
 }
 
 function showPhotoDetail(imageId) {
@@ -1119,18 +1154,42 @@ function createCooccurrenceNetwork(svg, width, height) {
         });
     });
     
-    // Paul Tol's Bright color scheme (extended for more colors)
-    const paulTolBright = [
-        '#4477AA', '#EE6677', '#228833', '#CCBB44', '#66CCEE', '#AA3377', '#BBBBBB',
-        '#77AADD', '#EE8866', '#EEDD88', '#FFAABB', '#99DDFF', '#44BB99', '#AAAA00',
-        '#88CCAA', '#DDCC77', '#CC6677', '#AA4499', '#882255', '#6699CC', '#997700',
-        '#EECC66', '#994455', '#004488', '#117733', '#999933', '#661100'
+    // Color-blind safe palette based on research (Okabe & Ito + Tol)
+    // These colors are maximally distinct and safe for deuteranopia, protanopia, and tritanopia
+    const colorBlindSafePalette = [
+        '#E69F00',  // orange
+        '#56B4E9',  // sky blue
+        '#009E73',  // bluish green
+        '#F0E442',  // yellow
+        '#0072B2',  // blue
+        '#D55E00',  // vermillion
+        '#CC79A7',  // reddish purple
+        '#000000',  // black
+        '#882255',  // wine
+        '#44AA99',  // teal
+        '#117733',  // green
+        '#999933',  // olive
+        '#DDCC77',  // sand
+        '#CC6677',  // rose
+        '#AA4499',  // purple
+        '#88CCEE',  // cyan
+        '#661100',  // brown
+        '#332288',  // indigo
+        '#AA4466',  // mauve
+        '#6699CC',  // light blue
+        '#997700',  // dark yellow
+        '#EE8866',  // peach
+        '#EEDD88',  // pale yellow
+        '#FFAABB',  // pink
+        '#99DDFF',  // pale cyan
+        '#44BB99',  // aqua
+        '#EECC66'   // gold
     ];
     
-    // Color scale using Paul Tol's Bright scheme
+    // Color scale using color-blind safe palette
     const colorScale = d3.scaleOrdinal()
         .domain(objects)
-        .range(paulTolBright);
+        .range(colorBlindSafePalette);
     
     // Radius scale based on frequency
     const radiusScale = d3.scaleSqrt()
@@ -1173,17 +1232,30 @@ function createCooccurrenceNetwork(svg, width, height) {
     // Create links with gradients
     const linkGroup = g.append('g').attr('class', 'links');
     
-    const link = linkGroup.selectAll('line')
+    // Create visible thin lines
+    const link = linkGroup.selectAll('line.visible-link')
         .data(links)
         .enter()
         .append('line')
+        .attr('class', 'visible-link')
         .attr('stroke', (d, i) => `url(#gradient-${i})`)
         .attr('stroke-opacity', 0.6)
         .attr('stroke-width', d => lineWidthScale(d.value))
+        .style('pointer-events', 'none'); // No pointer events on visible line
+    
+    // Create invisible wider hit areas for easier clicking
+    const hitArea = linkGroup.selectAll('line.hit-area')
+        .data(links)
+        .enter()
+        .append('line')
+        .attr('class', 'hit-area')
+        .attr('stroke', 'transparent')
+        .attr('stroke-width', d => Math.max(lineWidthScale(d.value) * 3, 15)) // At least 15px hit area
         .style('cursor', 'pointer')
         .on('mouseover', function(event, d) {
-            // Highlight the link
-            d3.select(this)
+            // Find corresponding visible link and highlight it
+            const index = links.indexOf(d);
+            d3.select(linkGroup.selectAll('line.visible-link').nodes()[index])
                 .attr('stroke-opacity', 1)
                 .attr('stroke-width', lineWidthScale(d.value) * 1.5);
             
@@ -1191,8 +1263,9 @@ function createCooccurrenceNetwork(svg, width, height) {
             showLinkTooltip(event, d);
         })
         .on('mouseout', function(event, d) {
-            // Reset link
-            d3.select(this)
+            // Reset visible link
+            const index = links.indexOf(d);
+            d3.select(linkGroup.selectAll('line.visible-link').nodes()[index])
                 .attr('stroke-opacity', 0.6)
                 .attr('stroke-width', lineWidthScale(d.value));
             
@@ -1200,8 +1273,23 @@ function createCooccurrenceNetwork(svg, width, height) {
             hideLinkTooltip();
         })
         .on('click', function(event, d) {
-            // Show detailed info on click
-            alert(`Co-occurrence: ${d.source.id} + ${d.target.id}\nAppear together in ${d.value} photographs`);
+            event.stopPropagation();
+            // Get photos with both objects
+            const sourceId = d.source.id;
+            const targetId = d.target.id;
+            const imageIds = getCooccurrenceImages(sourceId, targetId);
+            
+            if (imageIds.length > 0) {
+                // Get click position for zoom effect
+                const rect = this.getBoundingClientRect();
+                const clickX = rect.left + (rect.right - rect.left) / 2;
+                const clickY = rect.top + (rect.bottom - rect.top) / 2;
+                
+                // Show gallery with zoom effect
+                const label1 = sourceId.charAt(0).toUpperCase() + sourceId.slice(1);
+                const label2 = targetId.charAt(0).toUpperCase() + targetId.slice(1);
+                showCategoryModal(`${label1} + ${label2}`, imageIds, 'All Years', clickX, clickY);
+            }
         });
     
     // Create nodes
@@ -1261,7 +1349,7 @@ function createCooccurrenceNetwork(svg, width, height) {
         const sourceLabel = d.source.id.charAt(0).toUpperCase() + d.source.id.slice(1);
         const targetLabel = d.target.id.charAt(0).toUpperCase() + d.target.id.slice(1);
         linkTooltip
-            .html(`<strong>${sourceLabel} + ${targetLabel}</strong><br/>Co-occur in ${d.value} photographs`)
+            .html(`<strong>${sourceLabel} + ${targetLabel}</strong><br/>Co-occur in ${d.value} photographs<br/><em style="font-size:11px; opacity:0.9; margin-top:4px; display:block;">Click to view photos</em>`)
             .style('left', (event.pageX + 15) + 'px')
             .style('top', (event.pageY + 15) + 'px')
             .style('display', 'block');
@@ -1273,7 +1361,15 @@ function createCooccurrenceNetwork(svg, width, height) {
     
     // Update positions on simulation tick (also update gradient positions)
     simulation.on('tick', () => {
+        // Update visible links
         link
+            .attr('x1', d => d.source.x)
+            .attr('y1', d => d.source.y)
+            .attr('x2', d => d.target.x)
+            .attr('y2', d => d.target.y);
+        
+        // Update hit areas
+        hitArea
             .attr('x1', d => d.source.x)
             .attr('y1', d => d.source.y)
             .attr('x2', d => d.target.x)
