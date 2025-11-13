@@ -195,7 +195,7 @@ function getCooccurrenceImages(object1, object2) {
 // Draws a treemap/mosaic for the provided year with image collages
 function drawSubjectTreemap(svg, width, vizHeight, year, asPercent = false, cumulative = false) {
     // leave room on the right for legend by increasing right margin
-    const margin = { top: 20, right: 180, bottom: 20, left: 20 };
+    const margin = { top: 60, right: 20, bottom: 20, left: 20 };
     const innerWidth = width - margin.left - margin.right;
     const innerHeight = vizHeight - margin.top - margin.bottom;
 
@@ -532,13 +532,14 @@ function drawSubjectTreemap(svg, width, vizHeight, year, asPercent = false, cumu
             showCategoryModal(d.data.name, d.data.imageIds, year, clickX, clickY);
         });
 
-    // Update caption above mosaic (reuse group)
+    // Update caption above mosaic (reuse group) - centered and larger
     const cap = rootG.selectAll('g.viz1-caption').data([1]);
     const capEnter = cap.enter().append('g').attr('class', 'viz1-caption');
     capEnter.merge(cap).selectAll('text').data([`Year: ${year} ${asPercent ? '(percentages)' : ''}`]).join('text')
-        .attr('x', 20)
-        .attr('y', 16)
-        .style('font-size', '13px')
+        .attr('x', width / 2)
+        .attr('y', 30)
+        .attr('text-anchor', 'middle')
+        .style('font-size', '24px')
         .style('fill', '#333')
         .style('font-weight', '600')
         .text(d => d);
@@ -2331,3 +2332,5 @@ window.visualizations = {
     initMainVisualization,
     updateMainVisualization
 };
+// cache bust 
+// cache bust 2 

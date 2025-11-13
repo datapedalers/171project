@@ -152,6 +152,7 @@ p {
 .section-content {
     max-width: var(--content-max-width);
     width: 100%;
+    margin: 0 auto;
     padding: 0 40px;
 }
 
@@ -778,8 +779,6 @@ svg {
 #subject-timeline {
     display: block;
     margin: 0 auto;
-    max-width: 1200px;
-    width: 100%;
 }
 
 .viz1-controls {
@@ -815,11 +814,7 @@ svg {
 }
 
 .viz1-legend {
-    display: flex;
-    gap: 12px;
-    align-items: center;
-    justify-content: flex-end;
-    min-width: 260px;
+    display: none; /* Hidden since legend was removed */
 }
 
 .viz1-legend .legend-item {
@@ -1043,4 +1038,5 @@ input[type="range"]::-moz-range-track {
     border-radius: 4px;
     height: 8px;
     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
-}
+}/* cache bust */ 
+/* cache bust 3 */ 
