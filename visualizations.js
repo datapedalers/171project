@@ -304,23 +304,19 @@ function drawSubjectTreemap(svg, width, vizHeight, year, asPercent = false, cumu
 
     tilesEnter.append('text')
         .attr('class', 'tile-name')
-        .attr('x', 8)
-        .attr('y', 20)
-        .style('font-size', '14px')
         .style('fill', '#fff')
         .style('font-weight', '700')
         .style('text-shadow', '2px 2px 4px rgba(0,0,0,0.8)')
         .style('pointer-events', 'none')
+        .style('text-anchor', 'middle')
         .text(d => d.data.name);
 
     tilesEnter.append('text')
         .attr('class', 'tile-value')
-        .attr('x', 8)
-        .attr('y', 36)
-        .style('font-size', '12px')
         .style('fill', '#fff')
         .style('text-shadow', '2px 2px 4px rgba(0,0,0,0.8)')
         .style('pointer-events', 'none')
+        .style('text-anchor', 'middle')
         .text(d => asPercent ? d.data.value.toFixed(1) + '%' : d.data.value + ' photos');
 
     // MERGE
@@ -452,19 +448,39 @@ function drawSubjectTreemap(svg, width, vizHeight, year, asPercent = false, cumu
             .style('opacity', 0.9);
     });
 
-    // Update texts and hide if too small
+    // Update texts with responsive sizing and centering
     tilesMerge.select('text.tile-name')
         .text(d => d.data.name)
+        .attr('x', d => (d.x1 - d.x0) / 2)
+        .attr('y', d => (d.y1 - d.y0) / 2 - 8)
+        .style('font-size', function(d) {
+            const w = d.x1 - d.x0;
+            const h = d.y1 - d.y0;
+            const area = w * h;
+            // Scale font size based on area
+            const fontSize = Math.min(Math.sqrt(area) / 8, 20);
+            return Math.max(fontSize, 10) + 'px';
+        })
         .style('display', function(d) {
             const w = d.x1 - d.x0; const h = d.y1 - d.y0;
-            return (w > 70 && h > 26) ? null : 'none';
+            return (w > 50 && h > 30) ? null : 'none';
         });
 
     tilesMerge.select('text.tile-value')
         .text(d => asPercent ? d.data.value.toFixed(1) + '%' : d.data.count + ' photos')
+        .attr('x', d => (d.x1 - d.x0) / 2)
+        .attr('y', d => (d.y1 - d.y0) / 2 + 10)
+        .style('font-size', function(d) {
+            const w = d.x1 - d.x0;
+            const h = d.y1 - d.y0;
+            const area = w * h;
+            // Slightly smaller than the name
+            const fontSize = Math.min(Math.sqrt(area) / 10, 16);
+            return Math.max(fontSize, 9) + 'px';
+        })
         .style('display', function(d) {
             const w = d.x1 - d.x0; const h = d.y1 - d.y0;
-            return (w > 70 && h > 26) ? null : 'none';
+            return (w > 50 && h > 30) ? null : 'none';
         });
 
     // Tooltip: create once
@@ -509,32 +525,7 @@ function drawSubjectTreemap(svg, width, vizHeight, year, asPercent = false, cumu
         .style('font-weight', '600')
         .text(d => d);
 
-    // Build a small legend (families)
-    const legendData = [
-        { key: 'animals', label: 'People & Animals', color: familyColor['animals'] },
-        { key: 'nature', label: 'Nature', color: familyColor['nature'] },
-        { key: 'infrastructure', label: 'Infrastructure', color: familyColor['infrastructure'] },
-        { key: 'object', label: 'Objects', color: familyColor['object'] }
-    ];
-
-    // Legend: reuse a group on the right
-    const legendX = innerWidth + 20;
-    let legendG = rootG.select('g.viz1-legend');
-    if (!legendG.node()) {
-        legendG = rootG.append('g').attr('class', 'viz1-legend').attr('transform', `translate(${legendX},60)`);
-    } else {
-        legendG.attr('transform', `translate(${legendX},60)`);
-    }
-
-    const legendItems = legendG.selectAll('g.legend-item').data(legendData, d => d.key);
-    const legendEnter = legendItems.enter().append('g').attr('class', 'legend-item').attr('transform', (d, i) => `translate(0, ${i * 26})`);
-
-    legendEnter.append('rect').attr('width', 16).attr('height', 16).attr('fill', d => d.color).style('stroke', '#eee');
-    legendEnter.append('text').attr('x', 22).attr('y', 12).style('font-size', '12px').style('fill', '#333').text(d => d.label);
-
-    // Update positions for existing items
-    legendItems.merge(legendEnter).attr('transform', (d, i) => `translate(0, ${i * 26})`);
-    legendItems.exit().remove();
+    // Legend removed as requested - colors are now just for visual appeal
 }
 
 // ===== MODAL FOR CATEGORY PHOTOS =====
@@ -542,7 +533,10 @@ function showCategoryModal(categoryName, imageIds, year) {
     // Remove existing modal if any
     d3.select('#category-modal').remove();
     
-    // Create modal overlay with initial scale
+    // Get main content element to zoom
+    const mainContent = d3.select('#main-content');
+    
+    // Create modal overlay - starts invisible
     const modal = d3.select('body')
         .append('div')
         .attr('id', 'category-modal')
@@ -557,19 +551,28 @@ function showCategoryModal(categoryName, imageIds, year) {
         .style('flex-direction', 'column')
         .style('overflow', 'hidden')
         .style('opacity', '0')
-        .style('transform', 'scale(0.8)')
         .on('click', function(event) {
-            if (event.target === this) {
+            // Click anywhere on background to close
+            if (event.target === this || d3.select(event.target).node() === modal.node()) {
                 closeCategoryModal();
             }
         });
     
-    // Animate modal entrance
+    // Zoom the main content
+    mainContent
+        .style('transform-origin', 'center center')
+        .transition()
+        .duration(1200)
+        .ease(d3.easeCubicInOut)
+        .style('transform', 'scale(2.5)')
+        .style('opacity', '0');
+    
+    // Fade in modal background
     modal.transition()
-        .duration(400)
-        .ease(d3.easeCubicOut)
+        .delay(600)
+        .duration(600)
+        .ease(d3.easeQuadOut)
         .style('opacity', '1')
-        .style('transform', 'scale(1)')
         .style('background', 'rgba(0, 0, 0, 0.95)');
     
     // Create modal header
@@ -587,23 +590,6 @@ function showCategoryModal(categoryName, imageIds, year) {
         .style('font-size', '24px')
         .style('font-weight', '600')
         .text(`${categoryName} — ${year} (${imageIds.length} photos)`);
-    
-    const closeBtn = header.append('button')
-        .style('background', 'transparent')
-        .style('border', '2px solid white')
-        .style('color', 'white')
-        .style('font-size', '24px')
-        .style('cursor', 'pointer')
-        .style('padding', '5px 15px')
-        .style('border-radius', '4px')
-        .text('✕')
-        .on('click', closeCategoryModal)
-        .on('mouseover', function() {
-            d3.select(this).style('background', 'white').style('color', 'black');
-        })
-        .on('mouseout', function() {
-            d3.select(this).style('background', 'transparent').style('color', 'white');
-        });
     
     // Create scrollable content area
     const content = modal.append('div')
@@ -661,14 +647,24 @@ function showCategoryModal(categoryName, imageIds, year) {
 
 function closeCategoryModal() {
     const modal = d3.select('#category-modal');
+    const mainContent = d3.select('#main-content');
+    
+    // Fade out modal
     modal.transition()
-        .duration(300)
+        .duration(400)
         .ease(d3.easeCubicIn)
         .style('opacity', '0')
-        .style('transform', 'scale(0.9)')
         .on('end', function() {
             modal.remove();
         });
+    
+    // Zoom main content back in
+    mainContent
+        .transition()
+        .duration(800)
+        .ease(d3.easeCubicOut)
+        .style('transform', 'scale(1)')
+        .style('opacity', '1');
 }
 
 function showPhotoDetail(imageId) {
@@ -696,10 +692,14 @@ function showPhotoDetail(imageId) {
         .style('padding', '40px')
         .style('opacity', '0')
         .on('click', function(event) {
-            if (event.target === this) {
+            // Click anywhere on background to close
+            if (event.target === this || d3.select(event.target).classed('photo-detail-background')) {
                 closePhotoDetail();
             }
         });
+    
+    // Mark as background for click detection
+    detailModal.classed('photo-detail-background', true);
     
     // Animate modal entrance
     detailModal.transition()
@@ -720,7 +720,10 @@ function showPhotoDetail(imageId) {
         .style('max-height', '90vh')
         .style('overflow-y', 'auto')
         .style('transform', 'scale(0.7)')
-        .style('opacity', '0');
+        .style('opacity', '0')
+        .on('click', function(event) {
+            event.stopPropagation();
+        });
     
     // Animate container zoom-in
     container.transition()
@@ -760,26 +763,7 @@ function showPhotoDetail(imageId) {
         .style('flex', '0 0 350px')
         .style('color', 'white');
     
-    // Close button
-    infoContainer.append('button')
-        .style('position', 'absolute')
-        .style('top', '20px')
-        .style('right', '20px')
-        .style('background', 'transparent')
-        .style('border', '2px solid white')
-        .style('color', 'white')
-        .style('font-size', '20px')
-        .style('cursor', 'pointer')
-        .style('padding', '5px 12px')
-        .style('border-radius', '4px')
-        .text('✕')
-        .on('click', closePhotoDetail)
-        .on('mouseover', function() {
-            d3.select(this).style('background', 'white').style('color', 'black');
-        })
-        .on('mouseout', function() {
-            d3.select(this).style('background', 'transparent').style('color', 'white');
-        });
+    // X button removed - click on background to close
     
     infoContainer.append('h3')
         .style('margin', '0 0 20px 0')
