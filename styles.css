@@ -768,17 +768,32 @@ svg {
 }
 
 /* ===== VISUALIZATION 1 CONTROLS & LEGEND ===== */
+#viz1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+#subject-timeline {
+    display: block;
+    margin: 0 auto;
+}
+
 .viz1-controls {
     margin-top: 16px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     gap: 20px;
+    width: 100%;
+    max-width: 1100px;
 }
 
 .timeline-row {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 12px;
     flex: 1 1 auto;
 }

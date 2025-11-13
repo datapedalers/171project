@@ -47,9 +47,9 @@ document.addEventListener('DOMContentLoaded', function() {
 // New: Initialize visualization 1 with slider and treemap/mosaic that reflects a selected decade
 function initVisualization1() {
     const svg = d3.select('#subject-timeline');
-    // Reduce width so legend fits; increase height a bit
-    const width = 760;
-    const height = 480; // overall svg height
+    // Larger size for better visibility and less white space
+    const width = 1100;
+    const height = 650; // overall svg height
 
     svg.attr('width', width).attr('height', height).attr('viewBox', `0 0 ${width} ${height}`);
     // create a root group once and reuse to allow transitions
@@ -63,11 +63,11 @@ function initVisualization1() {
     const percentToggle = document.getElementById('percent-toggle');
     const cumulativeToggle = document.getElementById('cumulative-toggle');
 
-    const vizHeight = 400; // drawing area height
+    const vizHeight = 580; // drawing area height
 
     if (slider && yearLabel) {
         slider.min = 1840;
-        slider.max = 1920;
+        slider.max = 1917; // Last year with photos
         slider.step = 1;
         slider.value = 1870;
         yearLabel.textContent = slider.value;
@@ -512,7 +512,7 @@ function drawSubjectTreemap(svg, width, vizHeight, year, asPercent = false, cumu
         .on('click', function(event, d) {
             event.stopPropagation();
             tooltip.style('display', 'none');
-            // Get the clicked element's position and center point
+            // Get the clicked element's position and center point in viewport coordinates
             const rect = this.getBoundingClientRect();
             const clickX = rect.left + rect.width / 2;
             const clickY = rect.top + rect.height / 2;
@@ -541,9 +541,13 @@ function showCategoryModal(categoryName, imageIds, year, clickX, clickY) {
     // Get main content element to zoom
     const mainContent = d3.select('#main-content');
     
-    // Calculate transform origin based on click position
-    const originX = (clickX / window.innerWidth) * 100;
-    const originY = (clickY / window.innerHeight) * 100;
+    // Calculate transform origin in viewport coordinates (accounts for scroll)
+    const viewportX = clickX;
+    const viewportY = clickY;
+    
+    // Calculate percentages for transform-origin
+    const originX = (viewportX / window.innerWidth) * 100;
+    const originY = (viewportY / window.innerHeight) * 100;
     
     // Create modal overlay - starts invisible
     const modal = d3.select('body')
@@ -559,19 +563,22 @@ function showCategoryModal(categoryName, imageIds, year, clickX, clickY) {
         .style('display', 'flex')
         .style('flex-direction', 'column')
         .style('overflow', 'hidden')
-        .style('opacity', '0');
+        .style('opacity', '0')
+        .style('pointer-events', 'auto');
     
-    // Click handler on the modal itself
-    modal.node().addEventListener('click', function(event) {
-        // Only close if clicking directly on the modal background
-        if (event.target === this) {
+    // Direct click handler on modal background
+    const modalElement = modal.node();
+    modalElement.onclick = function(event) {
+        // Only close if clicking directly on the modal background (not its children)
+        if (event.target === modalElement) {
             closeCategoryModal();
         }
-    });
+    };
     
     // Zoom the main content focused on the clicked spot with acceleration
     mainContent
         .style('transform-origin', `${originX}% ${originY}%`)
+        .style('position', 'relative')
         .transition()
         .duration(1400)
         .ease(d3.easeExpIn) // Exponential easing: starts slow, accelerates dramatically
@@ -597,9 +604,9 @@ function showCategoryModal(categoryName, imageIds, year, clickX, clickY) {
         .style('border-bottom', '2px solid rgba(255,255,255,0.1)');
     
     // Prevent clicks on header from closing modal
-    header.node().addEventListener('click', function(event) {
+    header.node().onclick = function(event) {
         event.stopPropagation();
-    });
+    };
     
     header.append('h2')
         .style('margin', '0')
@@ -616,9 +623,9 @@ function showCategoryModal(categoryName, imageIds, year, clickX, clickY) {
         .style('justify-content', 'center');
     
     // Prevent clicks on content from closing modal
-    content.node().addEventListener('click', function(event) {
+    content.node().onclick = function(event) {
         event.stopPropagation();
-    });
+    };
     
     // Create centered container
     const gridContainer = content.append('div')
@@ -662,18 +669,19 @@ function showCategoryModal(categoryName, imageIds, year, clickX, clickY) {
                     .style('box-shadow', 'none');
             });
         
-        // Animate card entrance with stagger
+        // Animate card entrance with stagger - faster loading
         d3.select(imageCard.node())
             .transition()
-            .delay(1000 + index * 20)
-            .duration(400)
+            .delay(800 + index * 8) // Reduced delay for faster loading
+            .duration(300)
             .ease(d3.easeCubicOut)
             .style('opacity', '1')
             .style('transform', 'translateY(0)');
         
-        // Full image with original aspect ratio - not cropped
+        // Full image with original aspect ratio - not cropped, with lazy loading
         imageCard.append('img')
             .attr('src', `images_met_resized/${imageId}.jpg`)
+            .attr('loading', 'lazy') // Lazy load for better performance
             .style('width', '100%')
             .style('height', 'auto')
             .style('object-fit', 'contain')
@@ -729,13 +737,14 @@ function showPhotoDetail(imageId) {
         .style('padding', '40px')
         .style('opacity', '0');
     
-    // Click handler on the modal itself
-    detailModal.node().addEventListener('click', function(event) {
+    // Direct click handler on modal background
+    const detailModalElement = detailModal.node();
+    detailModalElement.onclick = function(event) {
         // Only close if clicking directly on the modal background
-        if (event.target === this) {
+        if (event.target === detailModalElement) {
             closePhotoDetail();
         }
-    });
+    };
     
     // Animate modal entrance
     detailModal.transition()
@@ -759,9 +768,9 @@ function showPhotoDetail(imageId) {
         .style('opacity', '0');
     
     // Prevent clicks on container from closing modal
-    container.node().addEventListener('click', function(event) {
+    container.node().onclick = function(event) {
         event.stopPropagation();
-    });
+    };
     
     // Animate container zoom-in
     container.transition()
