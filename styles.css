@@ -20,7 +20,7 @@
     
     /* Spacing */
     --section-padding: 100px;
-    --content-max-width: 1200px;
+    --content-max-width: 1360px;
 }
 
 body {
@@ -778,7 +778,8 @@ svg {
 #subject-timeline {
     display: block;
     margin: 0 auto;
-    max-width: 1100px;
+    max-width: 1200px;
+    width: 100%;
 }
 
 .viz1-controls {
@@ -788,7 +789,7 @@ svg {
     align-items: center;
     gap: 20px;
     width: 100%;
-    max-width: 1100px;
+    max-width: 1200px;
 }
 
 .timeline-row {
@@ -801,15 +802,16 @@ svg {
 
 #year-slider {
     width: 420px;
-    margin-right: 30px; /* Shift controls more to the right for better centering */
 }
 
 .year-label {
     background: var(--accent-sepia);
     color: white;
-    padding: 8px 12px;
+    padding: 10px 18px;
     border-radius: 8px;
     font-weight: 600;
+    font-size: 1.5rem;
+    text-align: center;
 }
 
 .viz1-legend {

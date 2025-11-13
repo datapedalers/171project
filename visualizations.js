@@ -48,8 +48,8 @@ document.addEventListener('DOMContentLoaded', function() {
 function initVisualization1() {
     const svg = d3.select('#subject-timeline');
     // Larger size for better visibility and less white space
-    const width = 1100;
-    const height = 650; // overall svg height
+    const width = 1200;
+    const height = 700; // overall svg height
 
     svg.attr('width', width).attr('height', height).attr('viewBox', `0 0 ${width} ${height}`);
     // create a root group once and reuse to allow transitions
@@ -63,7 +63,7 @@ function initVisualization1() {
     const percentToggle = document.getElementById('percent-toggle');
     const cumulativeToggle = document.getElementById('cumulative-toggle');
 
-    const vizHeight = 580; // drawing area height
+    const vizHeight = 630; // drawing area height
 
     if (slider && yearLabel) {
         slider.min = 1840;
@@ -643,19 +643,21 @@ function showCategoryModal(categoryName, imageIds, year, clickX, clickY) {
         .attr('class', 'modal-content-area')
         .style('flex', '1')
         .style('overflow-y', 'auto')
+        .style('overflow-x', 'hidden') // Prevent horizontal scrollbar
         .style('padding', '40px 20px')
         .style('display', 'flex')
         .style('justify-content', 'center')
-        .style('align-items', 'center') // Always center vertically
+        .style('align-items', 'flex-start') // Align to top to prevent centering issues
         .style('z-index', '100001');
     
-    // Create centered container
+    // Create centered container with proper constraints
     const gridContainer = content.append('div')
         .style('max-width', '90%')
         .style('width', '100%')
         .style('display', 'flex')
         .style('justify-content', 'center')
-        .style('align-items', 'center');
+        .style('align-items', 'flex-start')
+        .style('min-height', '100%'); // Ensure it fills the content area
     
     // Create flexible grid that minimizes blank space with better vertical alignment
     const grid = gridContainer.append('div')
@@ -664,8 +666,9 @@ function showCategoryModal(categoryName, imageIds, year, clickX, clickY) {
         .style('gap', '25px')
         .style('justify-content', 'center')
         .style('align-items', 'flex-start') // Changed from center to flex-start for better layout
-        .style('align-content', 'center') // Center the wrapped lines
-        .style('max-width', '100%');
+        .style('align-content', 'flex-start') // Align wrapped lines to top
+        .style('width', '100%')
+        .style('padding', '20px 0'); // Add vertical padding for breathing room
     
     // Add each image with staggered animation and flexible sizing
     imageIds.forEach((imageId, index) => {
@@ -675,14 +678,14 @@ function showCategoryModal(categoryName, imageIds, year, clickX, clickY) {
             .attr('class', 'image-card') // Add class for click detection
             .style('background', 'rgba(255,255,255,0.05)')
             .style('border-radius', '8px')
-            .style('overflow', 'hidden')
+            .style('overflow', 'visible') // Changed to visible to prevent image cutoff
             .style('cursor', 'pointer')
             .style('transition', 'transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s')
             .style('opacity', '0')
             .style('transform', 'translateY(20px)')
             .style('flex', isSingleImage ? '0 0 auto' : '0 0 auto')
-            .style('min-width', isSingleImage ? 'auto' : '280px')
-            .style('max-width', isSingleImage ? '80vw' : imageIds.length <= 3 ? '32%' : '28%')
+            .style('min-width', isSingleImage ? 'auto' : '250px')
+            .style('max-width', isSingleImage ? '80vw' : imageIds.length <= 3 ? '450px' : '350px')
             .style('display', 'flex')
             .style('flex-direction', 'column')
             .style('align-items', 'center')
@@ -719,7 +722,8 @@ function showCategoryModal(categoryName, imageIds, year, clickX, clickY) {
             .style('height', 'auto')
             .style('object-fit', 'contain')
             .style('display', 'block')
-            .style('max-height', isSingleImage ? '75vh' : (imageIds.length <= 3 ? '60vh' : '50vh'));
+            .style('border-radius', '8px')
+            .style('max-height', isSingleImage ? '70vh' : (imageIds.length <= 3 ? '55vh' : '45vh'));
     });
 }
 
