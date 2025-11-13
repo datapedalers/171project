@@ -343,7 +343,7 @@ function drawSubjectTreemap(svg, width, vizHeight, year, asPercent = false, cumu
         .attr('width', d => Math.max(0, d.x1 - d.x0))
         .attr('height', d => Math.max(0, d.y1 - d.y0));
 
-    // Update collages with images - fill all available space
+    // Update collages with images - fill all available space with better packing
     tilesMerge.each(function(d) {
         const tileWidth = d.x1 - d.x0;
         const tileHeight = d.y1 - d.y0;
@@ -371,45 +371,62 @@ function drawSubjectTreemap(svg, width, vizHeight, year, asPercent = false, cumu
         const imgWidth = tileWidth / cols;
         const imgHeight = tileHeight / rows;
         
-        // Calculate total cells and which ones to use
+        // Create display array with better distribution across rows
+        const displayData = [];
         const totalCells = cols * rows;
         const emptyCells = totalCells - numImages;
         
-        // Create display array - fill grid and expand images into empty cells
-        const displayData = [];
-        let imageIndex = 0;
-        
-        for (let row = 0; row < rows; row++) {
-            for (let col = 0; col < cols; col++) {
-                const cellIndex = row * cols + col;
-                
-                // On the last row, expand images to fill empty cells
-                if (row === rows - 1 && emptyCells > 0 && imageIndex < numImages) {
-                    // Calculate how many cells this image should span
-                    const imagesInLastRow = numImages - (rows - 1) * cols;
-                    const cellsInLastRow = cols;
-                    const spanWidth = cellsInLastRow / imagesInLastRow;
-                    
+        if (emptyCells > 0 && emptyCells < cols) {
+            // Distribute empty cells by expanding images in the last row
+            const imagesInLastRow = numImages - (rows - 1) * cols;
+            const extraWidthPerImage = (cols * imgWidth) / imagesInLastRow;
+            
+            let imageIndex = 0;
+            
+            // Add all rows except last
+            for (let row = 0; row < rows - 1; row++) {
+                for (let col = 0; col < cols; col++) {
+                    if (imageIndex < numImages) {
+                        displayData.push({
+                            id: imageIds[imageIndex],
+                            x: col * imgWidth,
+                            y: row * imgHeight,
+                            width: imgWidth,
+                            height: imgHeight
+                        });
+                        imageIndex++;
+                    }
+                }
+            }
+            
+            // Last row with expanded images
+            for (let i = 0; i < imagesInLastRow; i++) {
+                if (imageIndex < numImages) {
                     displayData.push({
                         id: imageIds[imageIndex],
-                        x: col * imgWidth,
-                        y: row * imgHeight,
-                        width: spanWidth * imgWidth,
-                        height: imgHeight
-                    });
-                    
-                    // Skip columns that are spanned
-                    col += Math.floor(spanWidth) - 1;
-                    imageIndex++;
-                } else if (imageIndex < numImages) {
-                    displayData.push({
-                        id: imageIds[imageIndex],
-                        x: col * imgWidth,
-                        y: row * imgHeight,
-                        width: imgWidth,
+                        x: i * extraWidthPerImage,
+                        y: (rows - 1) * imgHeight,
+                        width: extraWidthPerImage,
                         height: imgHeight
                     });
                     imageIndex++;
+                }
+            }
+        } else {
+            // Regular grid - no expansion needed
+            let imageIndex = 0;
+            for (let row = 0; row < rows; row++) {
+                for (let col = 0; col < cols; col++) {
+                    if (imageIndex < numImages) {
+                        displayData.push({
+                            id: imageIds[imageIndex],
+                            x: col * imgWidth,
+                            y: row * imgHeight,
+                            width: imgWidth,
+                            height: imgHeight
+                        });
+                        imageIndex++;
+                    }
                 }
             }
         }
@@ -525,7 +542,7 @@ function showCategoryModal(categoryName, imageIds, year) {
     // Remove existing modal if any
     d3.select('#category-modal').remove();
     
-    // Create modal overlay
+    // Create modal overlay with initial scale
     const modal = d3.select('body')
         .append('div')
         .attr('id', 'category-modal')
@@ -534,16 +551,26 @@ function showCategoryModal(categoryName, imageIds, year) {
         .style('left', '0')
         .style('width', '100%')
         .style('height', '100%')
-        .style('background', 'rgba(0, 0, 0, 0.95)')
+        .style('background', 'rgba(0, 0, 0, 0)')
         .style('z-index', '100000')
         .style('display', 'flex')
         .style('flex-direction', 'column')
         .style('overflow', 'hidden')
+        .style('opacity', '0')
+        .style('transform', 'scale(0.8)')
         .on('click', function(event) {
             if (event.target === this) {
                 closeCategoryModal();
             }
         });
+    
+    // Animate modal entrance
+    modal.transition()
+        .duration(400)
+        .ease(d3.easeCubicOut)
+        .style('opacity', '1')
+        .style('transform', 'scale(1)')
+        .style('background', 'rgba(0, 0, 0, 0.95)');
     
     // Create modal header
     const header = modal.append('div')
@@ -592,25 +619,36 @@ function showCategoryModal(categoryName, imageIds, year) {
         .style('max-width', '1400px')
         .style('margin', '0 auto');
     
-    // Add each image
-    imageIds.forEach(imageId => {
+    // Add each image with staggered animation
+    imageIds.forEach((imageId, index) => {
         const imageCard = grid.append('div')
             .style('background', 'rgba(255,255,255,0.05)')
             .style('border-radius', '8px')
             .style('overflow', 'hidden')
             .style('cursor', 'pointer')
-            .style('transition', 'transform 0.2s, box-shadow 0.2s')
+            .style('transition', 'transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s')
+            .style('opacity', '0')
+            .style('transform', 'translateY(20px)')
             .on('click', () => showPhotoDetail(imageId))
             .on('mouseover', function() {
                 d3.select(this)
-                    .style('transform', 'scale(1.05)')
+                    .style('transform', 'scale(1.05) translateY(0)')
                     .style('box-shadow', '0 8px 24px rgba(255,255,255,0.2)');
             })
             .on('mouseout', function() {
                 d3.select(this)
-                    .style('transform', 'scale(1)')
+                    .style('transform', 'scale(1) translateY(0)')
                     .style('box-shadow', 'none');
             });
+        
+        // Animate card entrance with stagger
+        d3.select(imageCard.node())
+            .transition()
+            .delay(50 + index * 20)
+            .duration(400)
+            .ease(d3.easeCubicOut)
+            .style('opacity', '1')
+            .style('transform', 'translateY(0)');
         
         imageCard.append('img')
             .attr('src', `images_met_resized/${imageId}.jpg`)
@@ -618,18 +656,19 @@ function showCategoryModal(categoryName, imageIds, year) {
             .style('height', '200px')
             .style('object-fit', 'cover')
             .style('display', 'block');
-        
-        imageCard.append('div')
-            .style('padding', '10px')
-            .style('color', 'white')
-            .style('font-size', '12px')
-            .style('text-align', 'center')
-            .text(`ID: ${imageId}`);
     });
 }
 
 function closeCategoryModal() {
-    d3.select('#category-modal').remove();
+    const modal = d3.select('#category-modal');
+    modal.transition()
+        .duration(300)
+        .ease(d3.easeCubicIn)
+        .style('opacity', '0')
+        .style('transform', 'scale(0.9)')
+        .on('end', function() {
+            modal.remove();
+        });
 }
 
 function showPhotoDetail(imageId) {
@@ -640,7 +679,7 @@ function showPhotoDetail(imageId) {
     // Remove existing detail modal
     d3.select('#photo-detail-modal').remove();
     
-    // Create detail modal
+    // Create detail modal with zoom animation
     const detailModal = d3.select('body')
         .append('div')
         .attr('id', 'photo-detail-modal')
@@ -649,19 +688,27 @@ function showPhotoDetail(imageId) {
         .style('left', '0')
         .style('width', '100%')
         .style('height', '100%')
-        .style('background', 'rgba(0, 0, 0, 0.98)')
+        .style('background', 'rgba(0, 0, 0, 0)')
         .style('z-index', '100001')
         .style('display', 'flex')
         .style('align-items', 'center')
         .style('justify-content', 'center')
         .style('padding', '40px')
+        .style('opacity', '0')
         .on('click', function(event) {
             if (event.target === this) {
                 closePhotoDetail();
             }
         });
     
-    // Create content container
+    // Animate modal entrance
+    detailModal.transition()
+        .duration(400)
+        .ease(d3.easeCubicOut)
+        .style('opacity', '1')
+        .style('background', 'rgba(0, 0, 0, 0.98)');
+    
+    // Create content container with zoom animation
     const container = detailModal.append('div')
         .style('max-width', '1200px')
         .style('width', '100%')
@@ -671,7 +718,16 @@ function showPhotoDetail(imageId) {
         .style('border-radius', '12px')
         .style('padding', '40px')
         .style('max-height', '90vh')
-        .style('overflow-y', 'auto');
+        .style('overflow-y', 'auto')
+        .style('transform', 'scale(0.7)')
+        .style('opacity', '0');
+    
+    // Animate container zoom-in
+    container.transition()
+        .duration(500)
+        .ease(d3.easeCubicOut)
+        .style('transform', 'scale(1)')
+        .style('opacity', '1');
     
     // Image side
     const imageContainer = container.append('div')
@@ -680,13 +736,24 @@ function showPhotoDetail(imageId) {
         .style('flex-direction', 'column')
         .style('align-items', 'center');
     
-    imageContainer.append('img')
+    // Add image with zoom animation
+    const detailImage = imageContainer.append('img')
         .attr('src', `images_met_resized/${imageId}.jpg`)
         .style('max-width', '100%')
         .style('max-height', '600px')
         .style('object-fit', 'contain')
         .style('border-radius', '8px')
-        .style('box-shadow', '0 8px 32px rgba(0,0,0,0.5)');
+        .style('box-shadow', '0 8px 32px rgba(0,0,0,0.5)')
+        .style('transform', 'scale(0.8)')
+        .style('opacity', '0');
+    
+    // Animate image zoom
+    detailImage.transition()
+        .delay(200)
+        .duration(500)
+        .ease(d3.easeCubicOut)
+        .style('transform', 'scale(1)')
+        .style('opacity', '1');
     
     // Info side
     const infoContainer = container.append('div')
@@ -735,7 +802,6 @@ function showPhotoDetail(imageId) {
             .text(value || 'Unknown');
     };
     
-    infoItem('Object ID', photo.object_id);
     infoItem('Artist', photo.artist_name);
     infoItem('Nationality', photo.origin);
     infoItem('Creation Year', photo.creation_year);
@@ -773,7 +839,14 @@ function showPhotoDetail(imageId) {
 }
 
 function closePhotoDetail() {
-    d3.select('#photo-detail-modal').remove();
+    const modal = d3.select('#photo-detail-modal');
+    modal.transition()
+        .duration(300)
+        .ease(d3.easeCubicIn)
+        .style('opacity', '0')
+        .on('end', function() {
+            modal.remove();
+        });
 }
 
 function createSubjectTimeline(svg, width, height) {
