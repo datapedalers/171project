@@ -220,14 +220,15 @@ function drawSubjectTreemap(svg, width, vizHeight, year, asPercent = false, cumu
     if (photosInYear === 0 || sumCounts === 0) {
         // remove any existing tiles smoothly
         g.selectAll('.tile').transition().duration(150).style('opacity', 0).remove();
-        // update caption
+        // update caption - centered and larger
         const cap = rootG.selectAll('g.viz1-caption').data([1]);
         const capEnter = cap.enter().append('g').attr('class', 'viz1-caption');
         capEnter.merge(cap).selectAll('text').data([`No photographs in ${year}`]).join('text')
-            .attr('x', 20)
-            .attr('y', 16)
-            .style('font-size', '13px')
-            .style('fill', '#666')
+            .attr('x', width / 2)
+            .attr('y', vizHeight / 2)
+            .attr('text-anchor', 'middle')
+            .style('font-size', '24px')
+            .style('fill', '#999')
             .style('font-weight', '600')
             .text(d => d);
         return;
@@ -461,22 +462,27 @@ function drawSubjectTreemap(svg, width, vizHeight, year, asPercent = false, cumu
             .style('opacity', 0.9);
     });
 
-    // Update texts with responsive sizing and centering
+    // Update texts with responsive sizing, centering, and width constraints
     tilesMerge.select('text.tile-name')
-        .text(d => d.data.name)
-        .attr('x', d => (d.x1 - d.x0) / 2)
-        .attr('y', d => (d.y1 - d.y0) / 2 - 8)
-        .style('font-size', function(d) {
+        .each(function(d) {
             const w = d.x1 - d.x0;
             const h = d.y1 - d.y0;
             const area = w * h;
-            // Scale font size based on area
-            const fontSize = Math.min(Math.sqrt(area) / 8, 20);
-            return Math.max(fontSize, 10) + 'px';
-        })
-        .style('display', function(d) {
-            const w = d.x1 - d.x0; const h = d.y1 - d.y0;
-            return (w > 50 && h > 30) ? null : 'none';
+            const fontSize = Math.max(Math.min(Math.sqrt(area) / 8, 20), 10);
+            
+            // Truncate text if it would overflow the tile width
+            const maxChars = Math.floor(w / (fontSize * 0.6)); // Rough estimate
+            let displayText = d.data.name;
+            if (displayText.length > maxChars && maxChars > 3) {
+                displayText = displayText.substring(0, maxChars - 1) + '…';
+            }
+            
+            d3.select(this)
+                .text(displayText)
+                .attr('x', (d.x1 - d.x0) / 2)
+                .attr('y', (d.y1 - d.y0) / 2 - 8)
+                .style('font-size', fontSize + 'px')
+                .style('display', (w > 50 && h > 30) ? null : 'none');
         });
 
     tilesMerge.select('text.tile-value')
@@ -648,7 +654,7 @@ function showCategoryModal(categoryName, imageIds, year, clickX, clickY) {
         .style('padding', '40px 20px')
         .style('display', 'flex')
         .style('justify-content', 'center')
-        .style('align-items', 'flex-start') // Align to top to prevent centering issues
+        .style('align-items', 'center') // Center vertically
         .style('z-index', '100001');
     
     // Create centered container with proper constraints
@@ -657,8 +663,8 @@ function showCategoryModal(categoryName, imageIds, year, clickX, clickY) {
         .style('width', '100%')
         .style('display', 'flex')
         .style('justify-content', 'center')
-        .style('align-items', 'flex-start')
-        .style('min-height', '100%'); // Ensure it fills the content area
+        .style('align-items', 'center')
+        .style('min-height', 'auto'); // Auto height for proper centering
     
     // Create flexible grid that minimizes blank space with better vertical alignment
     const grid = gridContainer.append('div')
@@ -666,8 +672,8 @@ function showCategoryModal(categoryName, imageIds, year, clickX, clickY) {
         .style('flex-wrap', 'wrap')
         .style('gap', '25px')
         .style('justify-content', 'center')
-        .style('align-items', 'flex-start') // Changed from center to flex-start for better layout
-        .style('align-content', 'flex-start') // Align wrapped lines to top
+        .style('align-items', 'center') // Center items
+        .style('align-content', 'center') // Center wrapped lines vertically
         .style('width', '100%')
         .style('padding', '20px 0'); // Add vertical padding for breathing room
     
@@ -2334,3 +2340,6 @@ window.visualizations = {
 };
 // cache bust 
 // cache bust 2 
+// cache bust 3 
+// cache bust 4 
+// cache bust 5 
