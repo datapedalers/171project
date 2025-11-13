@@ -138,7 +138,48 @@ function getCategoryCountsForYear(year, cumulative = false) {
     return { counts, total };
 }
 
-// Draws a treemap/mosaic for the provided year (will be aggregated by decade)
+// Helper: Get image IDs for a category and year
+function getImagesForCategory(categoryName, year, cumulative = false) {
+    // Map of display categories to underlying dataset fields
+    const categoryMap = {
+        'Person': ['has_person'],
+        'Animal': ['has_animal'],
+        'Greenery': ['has_tree', 'has_grass', 'has_plant', 'has_field'],
+        'Water': ['has_water', 'has_river', 'has_sea'],
+        'Mountain': ['has_mountain', 'has_rock'],
+        'Road': ['has_road', 'has_sidewalk', 'has_fence', 'has_bridge'],
+        'Building': ['has_building', 'has_house', 'has_hovel'],
+        'Vehicle': ['has_boat'],
+        'Household Objects': ['has_chair', 'has_table', 'has_windowpane', 'has_curtain']
+    };
+
+    const fields = categoryMap[categoryName] || [];
+    
+    // Filter photos for the year
+    const yearPhotos = photographData.filter(d => {
+        const y = +d.creation_year;
+        if (!y || isNaN(y)) return false;
+        if (cumulative) {
+            return Math.floor(y) <= Math.floor(year);
+        }
+        return Math.floor(y) === Math.floor(year);
+    });
+
+    // Get photos that match the category
+    const matchingPhotos = [];
+    yearPhotos.forEach(p => {
+        for (const f of fields) {
+            if (p[f] === '1.0') {
+                matchingPhotos.push(p.object_id);
+                break; // only add once per photo
+            }
+        }
+    });
+
+    return matchingPhotos;
+}
+
+// Draws a treemap/mosaic for the provided year with image collages
 function drawSubjectTreemap(svg, width, vizHeight, year, asPercent = false, cumulative = false) {
     // leave room on the right for legend by increasing right margin
     const margin = { top: 20, right: 180, bottom: 20, left: 20 };
@@ -183,7 +224,8 @@ function drawSubjectTreemap(svg, width, vizHeight, year, asPercent = false, cumu
     const children = Object.keys(counts).map(k => {
         const cnt = counts[k] || 0;
         const val = asPercent ? (sumCounts > 0 ? (cnt / sumCounts) * 100 : 0) : cnt;
-        return { name: k, count: cnt, value: val };
+        const imageIds = getImagesForCategory(k, year, cumulative);
+        return { name: k, count: cnt, value: val, imageIds: imageIds };
     });
 
     const root = d3.hierarchy({ children: children })
@@ -196,7 +238,7 @@ function drawSubjectTreemap(svg, width, vizHeight, year, asPercent = false, cumu
         .paddingTop(6)
         (root);
 
-    // Color mapping: group categories into broader families
+    // Color mapping: group categories into broader families (fallback colors)
     const family = {
         'Person': 'animals',
         'Animal': 'animals',
@@ -230,13 +272,35 @@ function drawSubjectTreemap(svg, width, vizHeight, year, asPercent = false, cumu
         .attr('transform', d => `translate(${d.x0},${d.y0})`) // initial
         .style('opacity', 0);
 
+    // Add a clipPath for each tile to contain images
+    tilesEnter.append('clipPath')
+        .attr('id', d => `clip-${d.data.name.replace(/\s+/g, '-')}`)
+        .append('rect')
+        .attr('class', 'tile-clip')
+        .attr('width', 1)
+        .attr('height', 1);
+
+    // Add a group for the collage
+    tilesEnter.append('g')
+        .attr('class', 'tile-collage')
+        .attr('clip-path', d => `url(#clip-${d.data.name.replace(/\s+/g, '-')})`);
+
+    // Add border rectangle
     tilesEnter.append('rect')
-        .attr('class', 'tile-rect')
+        .attr('class', 'tile-border')
         .attr('width', 1)
         .attr('height', 1)
-        .attr('fill', d => familyColor[family[d.data.name]] || '#ccc')
+        .attr('fill', 'none')
         .style('stroke', '#fff')
-        .style('stroke-width', 2);
+        .style('stroke-width', 3);
+
+    // Add semi-transparent overlay for text readability
+    tilesEnter.append('rect')
+        .attr('class', 'tile-overlay')
+        .attr('width', 1)
+        .attr('height', 1)
+        .attr('fill', 'rgba(0, 0, 0, 0.4)')
+        .style('pointer-events', 'none');
 
     tilesEnter.append('text')
         .attr('class', 'tile-name')
@@ -245,6 +309,8 @@ function drawSubjectTreemap(svg, width, vizHeight, year, asPercent = false, cumu
         .style('font-size', '14px')
         .style('fill', '#fff')
         .style('font-weight', '700')
+        .style('text-shadow', '2px 2px 4px rgba(0,0,0,0.8)')
+        .style('pointer-events', 'none')
         .text(d => d.data.name);
 
     tilesEnter.append('text')
@@ -253,6 +319,8 @@ function drawSubjectTreemap(svg, width, vizHeight, year, asPercent = false, cumu
         .attr('y', 36)
         .style('font-size', '12px')
         .style('fill', '#fff')
+        .style('text-shadow', '2px 2px 4px rgba(0,0,0,0.8)')
+        .style('pointer-events', 'none')
         .text(d => asPercent ? d.data.value.toFixed(1) + '%' : d.data.value + ' photos');
 
     // MERGE
@@ -262,10 +330,110 @@ function drawSubjectTreemap(svg, width, vizHeight, year, asPercent = false, cumu
     cumulative ? tilesMerge.transition().duration(50).style('opacity', 1).attr('transform', d => `translate(${d.x0},${d.y0})`) :
                  tilesMerge.transition().duration(250).style('opacity', 1).attr('transform', d => `translate(${d.x0},${d.y0})`); 
 
-    tilesMerge.select('rect.tile-rect').transition().duration(250)
+    // Update clip paths
+    tilesMerge.select('.tile-clip').transition().duration(250)
         .attr('width', d => Math.max(0, d.x1 - d.x0))
-        .attr('height', d => Math.max(0, d.y1 - d.y0))
-        .attr('fill', d => familyColor[family[d.data.name]] || '#ccc');
+        .attr('height', d => Math.max(0, d.y1 - d.y0));
+
+    tilesMerge.select('rect.tile-border').transition().duration(250)
+        .attr('width', d => Math.max(0, d.x1 - d.x0))
+        .attr('height', d => Math.max(0, d.y1 - d.y0));
+
+    tilesMerge.select('rect.tile-overlay').transition().duration(250)
+        .attr('width', d => Math.max(0, d.x1 - d.x0))
+        .attr('height', d => Math.max(0, d.y1 - d.y0));
+
+    // Update collages with images - fill all available space
+    tilesMerge.each(function(d) {
+        const tileWidth = d.x1 - d.x0;
+        const tileHeight = d.y1 - d.y0;
+        const imageIds = d.data.imageIds;
+        
+        if (imageIds.length === 0) return;
+        
+        // Calculate optimal grid that fills the space with ALL images
+        const numImages = imageIds.length;
+        const aspectRatio = tileWidth / tileHeight;
+        
+        // Start with a square-ish grid and adjust
+        let cols = Math.ceil(Math.sqrt(numImages * aspectRatio));
+        let rows = Math.ceil(numImages / cols);
+        
+        // Adjust to ensure we can fit all images
+        while (cols * rows < numImages) {
+            if (cols / rows < aspectRatio) {
+                cols++;
+            } else {
+                rows++;
+            }
+        }
+        
+        const imgWidth = tileWidth / cols;
+        const imgHeight = tileHeight / rows;
+        
+        // Calculate total cells and which ones to use
+        const totalCells = cols * rows;
+        const emptyCells = totalCells - numImages;
+        
+        // Create display array - fill grid and expand images into empty cells
+        const displayData = [];
+        let imageIndex = 0;
+        
+        for (let row = 0; row < rows; row++) {
+            for (let col = 0; col < cols; col++) {
+                const cellIndex = row * cols + col;
+                
+                // On the last row, expand images to fill empty cells
+                if (row === rows - 1 && emptyCells > 0 && imageIndex < numImages) {
+                    // Calculate how many cells this image should span
+                    const imagesInLastRow = numImages - (rows - 1) * cols;
+                    const cellsInLastRow = cols;
+                    const spanWidth = cellsInLastRow / imagesInLastRow;
+                    
+                    displayData.push({
+                        id: imageIds[imageIndex],
+                        x: col * imgWidth,
+                        y: row * imgHeight,
+                        width: spanWidth * imgWidth,
+                        height: imgHeight
+                    });
+                    
+                    // Skip columns that are spanned
+                    col += Math.floor(spanWidth) - 1;
+                    imageIndex++;
+                } else if (imageIndex < numImages) {
+                    displayData.push({
+                        id: imageIds[imageIndex],
+                        x: col * imgWidth,
+                        y: row * imgHeight,
+                        width: imgWidth,
+                        height: imgHeight
+                    });
+                    imageIndex++;
+                }
+            }
+        }
+
+        // Select collage group and bind image data
+        const collageGroup = d3.select(this).select('.tile-collage');
+        const images = collageGroup.selectAll('image')
+            .data(displayData, d => d.id);
+
+        // Remove old images
+        images.exit().remove();
+
+        // Add new images
+        images.enter()
+            .append('image')
+            .attr('href', d => `images_met_resized/${d.id}.jpg`)
+            .attr('preserveAspectRatio', 'xMidYMid slice')
+            .merge(images)
+            .attr('x', d => d.x)
+            .attr('y', d => d.y)
+            .attr('width', d => d.width)
+            .attr('height', d => d.height)
+            .style('opacity', 0.9);
+    });
 
     // Update texts and hide if too small
     tilesMerge.select('text.tile-name')
@@ -285,18 +453,33 @@ function drawSubjectTreemap(svg, width, vizHeight, year, asPercent = false, cumu
     // Tooltip: create once
     let tooltip = d3.select('body').select('#viz1-tooltip');
     if (tooltip.empty()) {
-        tooltip = d3.select('body').append('div').attr('id', 'viz1-tooltip').style('position', 'absolute').style('pointer-events', 'none').style('display', 'none');
+        tooltip = d3.select('body').append('div')
+            .attr('id', 'viz1-tooltip')
+            .style('position', 'absolute')
+            .style('pointer-events', 'none')
+            .style('display', 'none')
+            .style('background', 'rgba(0, 0, 0, 0.9)')
+            .style('color', '#fff')
+            .style('padding', '8px 12px')
+            .style('border-radius', '4px')
+            .style('font-size', '13px')
+            .style('z-index', '10000');
     }
 
     // interaction handlers
     tilesMerge
+        .style('cursor', 'pointer')
         .on('mousemove', (event, d) => {
             const raw = d.data.count;
             const normalized = sumCounts > 0 ? (d.data.count / sumCounts) * 100 : 0;
-            const html = `<strong>${d.data.name}</strong><br>${raw} photos<br>${normalized.toFixed(1)}% of category appearances`;
+            const html = `<strong>${d.data.name}</strong><br>${raw} photos<br>${normalized.toFixed(1)}% of category appearances<br><em style="font-size:11px; opacity:0.8;">Click to view all photos</em>`;
             tooltip.html(html).style('left', (event.pageX + 12) + 'px').style('top', (event.pageY + 12) + 'px').style('display', 'block');
         })
-        .on('mouseout', () => tooltip.style('display', 'none'));
+        .on('mouseout', () => tooltip.style('display', 'none'))
+        .on('click', (event, d) => {
+            event.stopPropagation();
+            showCategoryModal(d.data.name, d.data.imageIds, year);
+        });
 
     // Update caption above mosaic (reuse group)
     const cap = rootG.selectAll('g.viz1-caption').data([1]);
@@ -335,6 +518,262 @@ function drawSubjectTreemap(svg, width, vizHeight, year, asPercent = false, cumu
     // Update positions for existing items
     legendItems.merge(legendEnter).attr('transform', (d, i) => `translate(0, ${i * 26})`);
     legendItems.exit().remove();
+}
+
+// ===== MODAL FOR CATEGORY PHOTOS =====
+function showCategoryModal(categoryName, imageIds, year) {
+    // Remove existing modal if any
+    d3.select('#category-modal').remove();
+    
+    // Create modal overlay
+    const modal = d3.select('body')
+        .append('div')
+        .attr('id', 'category-modal')
+        .style('position', 'fixed')
+        .style('top', '0')
+        .style('left', '0')
+        .style('width', '100%')
+        .style('height', '100%')
+        .style('background', 'rgba(0, 0, 0, 0.95)')
+        .style('z-index', '100000')
+        .style('display', 'flex')
+        .style('flex-direction', 'column')
+        .style('overflow', 'hidden')
+        .on('click', function(event) {
+            if (event.target === this) {
+                closeCategoryModal();
+            }
+        });
+    
+    // Create modal header
+    const header = modal.append('div')
+        .style('padding', '20px 40px')
+        .style('background', 'rgba(0, 0, 0, 0.8)')
+        .style('color', 'white')
+        .style('display', 'flex')
+        .style('justify-content', 'space-between')
+        .style('align-items', 'center')
+        .style('border-bottom', '2px solid rgba(255,255,255,0.1)');
+    
+    header.append('h2')
+        .style('margin', '0')
+        .style('font-size', '24px')
+        .style('font-weight', '600')
+        .text(`${categoryName} — ${year} (${imageIds.length} photos)`);
+    
+    const closeBtn = header.append('button')
+        .style('background', 'transparent')
+        .style('border', '2px solid white')
+        .style('color', 'white')
+        .style('font-size', '24px')
+        .style('cursor', 'pointer')
+        .style('padding', '5px 15px')
+        .style('border-radius', '4px')
+        .text('✕')
+        .on('click', closeCategoryModal)
+        .on('mouseover', function() {
+            d3.select(this).style('background', 'white').style('color', 'black');
+        })
+        .on('mouseout', function() {
+            d3.select(this).style('background', 'transparent').style('color', 'white');
+        });
+    
+    // Create scrollable content area
+    const content = modal.append('div')
+        .style('flex', '1')
+        .style('overflow-y', 'auto')
+        .style('padding', '40px');
+    
+    // Create grid of images
+    const grid = content.append('div')
+        .style('display', 'grid')
+        .style('grid-template-columns', 'repeat(auto-fill, minmax(200px, 1fr))')
+        .style('gap', '20px')
+        .style('max-width', '1400px')
+        .style('margin', '0 auto');
+    
+    // Add each image
+    imageIds.forEach(imageId => {
+        const imageCard = grid.append('div')
+            .style('background', 'rgba(255,255,255,0.05)')
+            .style('border-radius', '8px')
+            .style('overflow', 'hidden')
+            .style('cursor', 'pointer')
+            .style('transition', 'transform 0.2s, box-shadow 0.2s')
+            .on('click', () => showPhotoDetail(imageId))
+            .on('mouseover', function() {
+                d3.select(this)
+                    .style('transform', 'scale(1.05)')
+                    .style('box-shadow', '0 8px 24px rgba(255,255,255,0.2)');
+            })
+            .on('mouseout', function() {
+                d3.select(this)
+                    .style('transform', 'scale(1)')
+                    .style('box-shadow', 'none');
+            });
+        
+        imageCard.append('img')
+            .attr('src', `images_met_resized/${imageId}.jpg`)
+            .style('width', '100%')
+            .style('height', '200px')
+            .style('object-fit', 'cover')
+            .style('display', 'block');
+        
+        imageCard.append('div')
+            .style('padding', '10px')
+            .style('color', 'white')
+            .style('font-size', '12px')
+            .style('text-align', 'center')
+            .text(`ID: ${imageId}`);
+    });
+}
+
+function closeCategoryModal() {
+    d3.select('#category-modal').remove();
+}
+
+function showPhotoDetail(imageId) {
+    // Find photo data
+    const photo = photographData.find(p => p.object_id === imageId);
+    if (!photo) return;
+    
+    // Remove existing detail modal
+    d3.select('#photo-detail-modal').remove();
+    
+    // Create detail modal
+    const detailModal = d3.select('body')
+        .append('div')
+        .attr('id', 'photo-detail-modal')
+        .style('position', 'fixed')
+        .style('top', '0')
+        .style('left', '0')
+        .style('width', '100%')
+        .style('height', '100%')
+        .style('background', 'rgba(0, 0, 0, 0.98)')
+        .style('z-index', '100001')
+        .style('display', 'flex')
+        .style('align-items', 'center')
+        .style('justify-content', 'center')
+        .style('padding', '40px')
+        .on('click', function(event) {
+            if (event.target === this) {
+                closePhotoDetail();
+            }
+        });
+    
+    // Create content container
+    const container = detailModal.append('div')
+        .style('max-width', '1200px')
+        .style('width', '100%')
+        .style('display', 'flex')
+        .style('gap', '40px')
+        .style('background', 'rgba(20, 20, 20, 0.95)')
+        .style('border-radius', '12px')
+        .style('padding', '40px')
+        .style('max-height', '90vh')
+        .style('overflow-y', 'auto');
+    
+    // Image side
+    const imageContainer = container.append('div')
+        .style('flex', '1')
+        .style('display', 'flex')
+        .style('flex-direction', 'column')
+        .style('align-items', 'center');
+    
+    imageContainer.append('img')
+        .attr('src', `images_met_resized/${imageId}.jpg`)
+        .style('max-width', '100%')
+        .style('max-height', '600px')
+        .style('object-fit', 'contain')
+        .style('border-radius', '8px')
+        .style('box-shadow', '0 8px 32px rgba(0,0,0,0.5)');
+    
+    // Info side
+    const infoContainer = container.append('div')
+        .style('flex', '0 0 350px')
+        .style('color', 'white');
+    
+    // Close button
+    infoContainer.append('button')
+        .style('position', 'absolute')
+        .style('top', '20px')
+        .style('right', '20px')
+        .style('background', 'transparent')
+        .style('border', '2px solid white')
+        .style('color', 'white')
+        .style('font-size', '20px')
+        .style('cursor', 'pointer')
+        .style('padding', '5px 12px')
+        .style('border-radius', '4px')
+        .text('✕')
+        .on('click', closePhotoDetail)
+        .on('mouseover', function() {
+            d3.select(this).style('background', 'white').style('color', 'black');
+        })
+        .on('mouseout', function() {
+            d3.select(this).style('background', 'transparent').style('color', 'white');
+        });
+    
+    infoContainer.append('h3')
+        .style('margin', '0 0 20px 0')
+        .style('font-size', '20px')
+        .style('border-bottom', '2px solid rgba(255,255,255,0.2)')
+        .style('padding-bottom', '10px')
+        .text('Photograph Details');
+    
+    const infoItem = (label, value) => {
+        const item = infoContainer.append('div')
+            .style('margin-bottom', '15px');
+        item.append('div')
+            .style('font-size', '12px')
+            .style('color', 'rgba(255,255,255,0.6)')
+            .style('margin-bottom', '4px')
+            .text(label);
+        item.append('div')
+            .style('font-size', '16px')
+            .style('font-weight', '500')
+            .text(value || 'Unknown');
+    };
+    
+    infoItem('Object ID', photo.object_id);
+    infoItem('Artist', photo.artist_name);
+    infoItem('Nationality', photo.origin);
+    infoItem('Creation Year', photo.creation_year);
+    infoItem('Work Type', photo.work_type);
+    infoItem('Works in Museum', photo.works_in_museum);
+    
+    // Detected objects section
+    infoContainer.append('h4')
+        .style('margin', '30px 0 10px 0')
+        .style('font-size', '16px')
+        .style('color', 'rgba(255,255,255,0.8)')
+        .text('Detected Objects');
+    
+    const objectsList = infoContainer.append('div')
+        .style('display', 'flex')
+        .style('flex-wrap', 'wrap')
+        .style('gap', '8px');
+    
+    const allObjects = ['person', 'building', 'tree', 'water', 'mountain', 'grass', 'animal', 
+                        'house', 'road', 'boat', 'rock', 'sidewalk', 'fence', 'sea', 'river', 
+                        'plant', 'curtain', 'windowpane', 'chair', 'field', 'table', 'hovel', 
+                        'tent', 'bridge', 'bench', 'pier', 'column'];
+    
+    allObjects.forEach(obj => {
+        const hasField = `has_${obj}`;
+        if (photo[hasField] === '1.0') {
+            objectsList.append('span')
+                .style('background', 'rgba(255,255,255,0.15)')
+                .style('padding', '6px 12px')
+                .style('border-radius', '4px')
+                .style('font-size', '13px')
+                .text(obj.charAt(0).toUpperCase() + obj.slice(1));
+        }
+    });
+}
+
+function closePhotoDetail() {
+    d3.select('#photo-detail-modal').remove();
 }
 
 function createSubjectTimeline(svg, width, height) {
