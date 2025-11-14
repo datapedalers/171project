@@ -645,39 +645,64 @@ function showCategoryModal(categoryName, imageIds, year, clickX, clickY) {
         .style('font-weight', '600')
         .text(`${categoryName} — ${year} (${imageIds.length} photos)`);
     
-    // Create scrollable content area - always centered vertically
+    // Create scrollable content area with safe centering that doesn't cut off top content
     const content = modal.append('div')
         .attr('class', 'modal-content-area')
         .style('flex', '1')
         .style('overflow-y', 'auto')
         .style('overflow-x', 'hidden') // Prevent horizontal scrollbar
-        .style('padding', '40px 20px')
+        .style('padding', '0')
         .style('display', 'flex')
         .style('justify-content', 'center')
-        .style('align-items', 'center') // Center vertically
+        .style('align-items', 'flex-start') // Must be flex-start to prevent top cutoff
         .style('z-index', '100001');
     
-    // Create centered container with proper constraints
+    // Create centered container with proper constraints and safe vertical centering
     const gridContainer = content.append('div')
-        .style('max-width', '90%')
+        .style('max-width', '95%')
         .style('width', '100%')
+        .style('min-height', '100%') // Take full height when content is short
         .style('display', 'flex')
         .style('justify-content', 'center')
-        .style('align-items', 'center')
-        .style('min-height', 'auto'); // Auto height for proper centering
+        .style('align-items', 'center') // Center the grid within this container
+        .style('padding', '40px 0'); // Add padding top and bottom for spacing
     
-    // Create flexible grid that minimizes blank space with better vertical alignment
+    // Create flexible grid for large images that fill most of the screen
     const grid = gridContainer.append('div')
         .style('display', 'flex')
         .style('flex-wrap', 'wrap')
-        .style('gap', '25px')
+        .style('gap', '30px')
         .style('justify-content', 'center')
-        .style('align-items', 'center') // Center items
-        .style('align-content', 'center') // Center wrapped lines vertically
-        .style('width', '100%')
-        .style('padding', '20px 0'); // Add vertical padding for breathing room
+        .style('align-items', 'center')
+        .style('align-content', 'center')
+        .style('max-width', '100%')
+        .style('width', '100%');
     
-    // Add each image with staggered animation and flexible sizing
+    // Calculate optimal image sizing - much larger to take up most of screen
+    const imageCount = imageIds.length;
+    let maxWidth, flexBasis;
+    
+    if (imageCount === 1) {
+        maxWidth = '85vw';
+        flexBasis = 'auto';
+    } else if (imageCount === 2) {
+        maxWidth = '45vw'; // Two large columns
+        flexBasis = 'calc(50% - 15px)';
+    } else if (imageCount === 3) {
+        maxWidth = '45vw'; // Two columns, third wraps
+        flexBasis = 'calc(50% - 15px)';
+    } else if (imageCount <= 6) {
+        maxWidth = '42vw'; // Two columns for better visibility
+        flexBasis = 'calc(50% - 15px)';
+    } else if (imageCount <= 12) {
+        maxWidth = '28vw'; // Three columns
+        flexBasis = 'calc(33.333% - 20px)';
+    } else {
+        maxWidth = '28vw'; // Three columns for many images
+        flexBasis = 'calc(33.333% - 20px)';
+    }
+    
+    // Add each image with staggered animation and large sizing
     imageIds.forEach((imageId, index) => {
         const isSingleImage = imageIds.length === 1;
         
@@ -685,18 +710,17 @@ function showCategoryModal(categoryName, imageIds, year, clickX, clickY) {
             .attr('class', 'image-card') // Add class for click detection
             .style('background', 'rgba(255,255,255,0.05)')
             .style('border-radius', '8px')
-            .style('overflow', 'visible') // Changed to visible to prevent image cutoff
+            .style('overflow', 'visible')
             .style('cursor', 'pointer')
             .style('transition', 'transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s')
             .style('opacity', '0')
             .style('transform', 'translateY(20px)')
-            .style('flex', isSingleImage ? '0 0 auto' : '0 0 auto')
-            .style('min-width', isSingleImage ? 'auto' : '250px')
-            .style('max-width', isSingleImage ? '80vw' : imageIds.length <= 3 ? '450px' : '350px')
+            .style('flex', `0 0 ${flexBasis}`)
+            .style('max-width', maxWidth)
             .style('display', 'flex')
             .style('flex-direction', 'column')
             .style('align-items', 'center')
-            .style('justify-content', 'flex-start')
+            .style('justify-content', 'center')
             .on('click', function(event) {
                 event.stopPropagation();
                 showPhotoDetail(imageId);
@@ -721,7 +745,7 @@ function showCategoryModal(categoryName, imageIds, year, clickX, clickY) {
             .style('opacity', '1')
             .style('transform', 'translateY(0)');
         
-        // Full image with original aspect ratio - flexible sizing that minimizes blank space
+        // Full image with original aspect ratio - large sizing to fill most of screen
         imageCard.append('img')
             .attr('src', `images_met_resized/${imageId}.jpg`)
             .attr('loading', 'lazy') // Lazy load for better performance
@@ -730,7 +754,7 @@ function showCategoryModal(categoryName, imageIds, year, clickX, clickY) {
             .style('object-fit', 'contain')
             .style('display', 'block')
             .style('border-radius', '8px')
-            .style('max-height', isSingleImage ? '70vh' : (imageIds.length <= 3 ? '55vh' : '45vh'));
+            .style('max-height', isSingleImage ? '80vh' : (imageIds.length <= 3 ? '75vh' : (imageIds.length <= 6 ? '70vh' : '60vh')));
     });
 }
 
@@ -2343,3 +2367,8 @@ window.visualizations = {
 // cache bust 3 
 // cache bust 4 
 // cache bust 5 
+// cache bust 6 
+// cache bust 7 
+// cache bust 8 
+// cache bust 9 
+// cache bust 10 
