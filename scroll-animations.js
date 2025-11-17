@@ -16,7 +16,6 @@ function initScrollAnimations() {
     const sectionTitles = document.querySelectorAll('.section-title');
     const sectionIntros = document.querySelectorAll('.section-intro');
     const insightHeaders = document.querySelectorAll('.insight-block h3');
-    const insightTexts = document.querySelectorAll('.insight-text');
     const visualizationContainers = document.querySelectorAll('.visualization-container');
     const vizControls = document.querySelectorAll('.viz-controls');
     const mainInsight = document.querySelector('.main-insight');
@@ -31,7 +30,6 @@ function initScrollAnimations() {
         ...sectionTitles,
         ...sectionIntros,
         ...insightHeaders,
-        ...insightTexts,
         ...visualizationContainers,
         ...vizControls
     ];

@@ -417,24 +417,6 @@ p {
     line-height: 1.6;
 }
 
-.insight-text {
-    max-width: 800px;
-    margin: 0 auto;
-    opacity: 0;
-    transform: translateY(25px);
-    transition: all 0.9s ease;
-}
-
-.insight-text.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.insight-text p {
-    font-size: 1.15rem;
-    line-height: 1.8;
-}
-
 /* ===== SECTION 3: MAIN VISUALIZATION ===== */
 #main {
     background: #1C1A19;
