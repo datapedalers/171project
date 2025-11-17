@@ -20,7 +20,7 @@
                             <!-- <div class="intro-visual" style="width:100%; position: relative;"></div> -->
                             <div id="intro-image" style="width:30%; aspect-ratio:1; background-size:cover; background-position:center;"></div>
                             <div id="overlay" style="width:100%; height:100vh; background: var(--bg-primary); opacity: 0; position: absolute; top: 0; left: 0;"></div> 
-                            <div id="intro-text" style="width: 80%; color: white; font-size: 0.02rem; opacity: 0; text-align: center; z-index: 5; position: absolute;">The Metropolitan Museum of Art contains more than 2000 photographs.</div>
+                            <div id="intro-text" style="width: 80%; color: white; font-size: 0.02rem; opacity: 0; text-align: center; z-index: 5; position: absolute;">The Metropolitan Museum of Art contains thousands of photographs.</div>
                         </div>
                     </div>
                 </div>
@@ -35,7 +35,7 @@
         <section id="insights" class="section">
             <div class="section-content">
                 <h2 class="section-title scroll-fade-up">Evolving Perspectives</h2>
-                <p class="section-intro scroll-fade-up">As we journey through time, the subjects of photography tell a story of changing values and national identity.</p>
+                <p class="section-intro scroll-fade-up">As we journey through time, the subjects of photography tell a story of changing values, culture, and identity. Get a feel for how subjects changed over the decades.</p>
                 
                 <!-- Visualization 1 -->
                 <div class="insight-block">
@@ -46,7 +46,7 @@
                         <!-- Controls for visualization 1: timeline slider + year label -->
                         <div id="viz1-controls" class="viz1-controls">
                             <div class="timeline-row">
-                                <label for="year-slider" class="sr-only">Select year</label>
+                                <label for="year-slider">Select year</label>
                                 <input id="year-slider" type="range" min="1840" max="1917" step="1" value="1870">
                                 <div id="year-label" class="year-label">1870</div>
                                 <label class="checkbox-label" style="margin-left:12px;">
@@ -62,34 +62,31 @@
                                 <!-- Legend will be populated by JS -->
                             </div>
                         </div>
-
                     </div>
                     <div class="insight-text scroll-reveal">
                         <p>[interesting insight]</p>
                     </div>
                 </div>
 
-                <!-- Visualization 2 -->
+                <!-- Visualization 2: Co-occurrence Network -->
                 <div class="insight-block">
                     <h3 class="scroll-fade-up">What Objects Appear Together?</h3>
                     <div id="viz2" class="visualization-container scroll-reveal">
-                        <!-- Toggle for detail level -->
+                        <!-- Controls for visualization 2 -->
                         <div class="cooccurrence-controls">
-                            <button id="toggle-detail" class="detail-toggle-btn">
-                                <span id="toggle-text">Show Top 10 Only</span>
-                            </button>
+                            <div class="control-group">
+                                <label>Select Objects (up to 7):</label>
+                                <div id="cooccurrence-multiselect" class="multiselect-dropdown">
+                                    <div class="multiselect-tags" id="cooccurrence-tags"></div>
+                                    <input type="text" class="multiselect-search" id="cooccurrence-search" placeholder="Search objects...">
+                                    <div class="multiselect-options" id="cooccurrence-options"></div>
+                                </div>
+                            </div>
                         </div>
                         <svg id="cooccurrence-network"></svg>
                     </div>
                     <div class="insight-text scroll-reveal">
                         <p>This network reveals the visual grammar of photography: certain subjects naturally appear together. Buildings and people dominate urban scenes, while trees, water, and mountains cluster in landscape photography, showing how photographers compose their frames around complementary elements.</p>
-                    </div>
-                </div>
-                <!-- Optional Third Visualization Space -->
-                <div class="insight-block">
-                    <h3 class="scroll-fade-up">[What objects are most common in photographs?</h3>
-roll-reveal">
-                        <p>[interesting insight]</p>
                     </div>
                 </div>
             </div>
@@ -108,12 +105,6 @@ roll-reveal">
                             <label>View Type:</label>
                             <div class="toggle-buttons">
                                 <button class="toggle-btn active" data-view="streamgraph">Streamgraph (Count)</button>
-                                <button class="toggle                    <!-- Interactive Controls (Shared) -->
-                    <div class="viz-controls scroll-fade-up">
-                        <div class="control-group">
-                            <label>View Type:</label>
-                            <div class="toggle-buttons">
-                                <button class="toggle-btn active" data-view="streamgraph">Streamgraph (Count)</button>
                                 <button class="toggle-btn" data-view="line">Line Graph (Count)</button>
                                 <button class="toggle-btn" data-view="percentage-stream">Streamgraph (Percentage)</button>
                                 <button class="toggle-btn" data-view="percentage-line">Line Graph (Percentage)</button>
@@ -122,8 +113,10 @@ roll-reveal">
                         
                         <div class="control-group">
                             <label>Select Objects (up to 5):</label>
-                            <div id="object-checkboxes" class="checkbox-group">
-                                <!-- Will be populated by JS -->
+                            <div id="object-multiselect" class="multiselect-dropdown">
+                                <div class="multiselect-tags" id="object-tags"></div>
+                                <input type="text" class="multiselect-search" id="object-search" placeholder="Search objects...">
+                                <div class="multiselect-options" id="object-options"></div>
                             </div>
                         </div>
                     </div>

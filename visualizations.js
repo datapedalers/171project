@@ -9,11 +9,16 @@ let photographData = [];
 let currentFilter = 'all';
 let currentViewType = 'streamgraph';
 let selectedObjects = ['person', 'building', 'tree', 'water', 'mountain'];
-const MAX_OBJECTS = 5;
-let showAllObjects = true; // Toggle between all objects and top 10
+let selectedCooccurrenceObjects = ['person', 'building', 'tree', 'water', 'mountain']; // For viz2
+const MAX_OBJECTS_MAIN = 5;
+const MAX_OBJECTS_COOC = 7;
 let selectedNationality1 = 'all'; // Nationality filter for graph 1
 let selectedNationality2 = 'all'; // Nationality filter for graph 2
 let availableNationalities = []; // List of all valid nationalities
+const allObjects = ['person', 'building', 'tree', 'water', 'mountain', 'grass', 'animal', 
+    'house', 'road', 'boat', 'rock', 'sidewalk', 'fence', 'sea', 'river', 
+    'plant', 'curtain', 'windowpane', 'chair', 'field', 'table', 'hovel', 
+    'tent', 'bridge', 'bench', 'pier', 'column'];
 
 // ===== DATA LOADING =====
 document.addEventListener('DOMContentLoaded', function() {
@@ -922,11 +927,6 @@ function showPhotoDetail(imageId) {
         .style('flex-wrap', 'wrap')
         .style('gap', '8px');
     
-    const allObjects = ['person', 'building', 'tree', 'water', 'mountain', 'grass', 'animal', 
-                        'house', 'road', 'boat', 'rock', 'sidewalk', 'fence', 'sea', 'river', 
-                        'plant', 'curtain', 'windowpane', 'chair', 'field', 'table', 'hovel', 
-                        'tent', 'bridge', 'bench', 'pier', 'column'];
-    
     allObjects.forEach(obj => {
         const hasField = `has_${obj}`;
         if (photo[hasField] === '1.0') {
@@ -1092,22 +1092,8 @@ function initVisualization2() {
         .attr('viewBox', `0 0 ${width} ${height}`)
         .style('background', 'white');
     
-    // Setup toggle button
-    const toggleBtn = document.getElementById('toggle-detail');
-    const toggleText = document.getElementById('toggle-text');
-    
-    if (toggleBtn && toggleText) {
-        toggleBtn.onclick = function() {
-            showAllObjects = !showAllObjects;
-            toggleText.textContent = showAllObjects ? 'Show Top 10 Only' : 'Show All Objects';
-            
-            // Redraw the visualization
-            container.selectAll('*').remove();
-            if (photographData.length > 0) {
-                createCooccurrenceNetwork(container, width, height);
-            }
-        };
-    }
+    // Populate checkboxes
+    populateCooccurrenceCheckboxes();
     
     if (photographData.length > 0) {
         createCooccurrenceNetwork(container, width, height);
@@ -1122,10 +1108,8 @@ function createCooccurrenceNetwork(svg, width, height) {
     const g = svg.append('g')
         .attr('transform', `translate(${margin.left},${margin.top})`);
     
-    // Define ALL object categories from the dataset
-    const objects = ['person', 'building', 'tree', 'water', 'mountain', 'grass', 'animal', 'house', 
-                     'road', 'boat', 'rock', 'sidewalk', 'fence', 'sea', 'column', 'river', 'plant',
-                     'curtain', 'windowpane', 'chair', 'field', 'table', 'hovel', 'tent', 'bridge', 'bench', 'pier'];
+    // Use selected objects instead of all objects
+    const objects = selectedCooccurrenceObjects;
     
     // Calculate frequency for each object
     const frequencies = {};
@@ -1162,14 +1146,6 @@ function createCooccurrenceNetwork(svg, width, height) {
     
     // Filter to top 10 if needed
     let nodes = allNodes;
-    if (!showAllObjects) {
-        nodes = allNodes
-            .sort((a, b) => b.frequency - a.frequency)
-            .slice(0, 10);
-    }
-    
-    // Create set of node IDs for quick lookup
-    const nodeIds = new Set(nodes.map(n => n.id));
     
     // Create links (only include pairs with co-occurrence > threshold and both nodes present)
     const links = [];
@@ -1478,41 +1454,137 @@ function setupControlListeners() {
     populateObjectCheckboxes();
 }
 
-function populateObjectCheckboxes() {
-    const container = document.getElementById('object-checkboxes');
-    if (!container) return;
+// Multi-select dropdown functionality
+function createMultiSelect(config) {
+    const {
+        searchInputId,
+        optionsId,
+        tagsId,
+        selectedItems,
+        maxItems,
+        onUpdate
+    } = config;
     
-    const allObjects = ['person', 'building', 'tree', 'water', 'mountain', 'grass', 'house', 'road', 'animal', 'sea', 'river', 'plant', 'rock', 'fence', 'boat'];
+    const searchInput = document.getElementById(searchInputId);
+    const optionsContainer = document.getElementById(optionsId);
+    const tagsContainer = document.getElementById(tagsId);
     
-    container.innerHTML = '';
+    if (!searchInput || !optionsContainer || !tagsContainer) return;
     
-    allObjects.forEach(obj => {
-        const label = document.createElement('label');
-        label.className = 'checkbox-label';
-        
-        const checkbox = document.createElement('input');
-        checkbox.type = 'checkbox';
-        checkbox.value = obj;
-        checkbox.checked = selectedObjects.includes(obj);
-        
-        checkbox.addEventListener('change', function() {
-            if (this.checked) {
-                if (selectedObjects.length < MAX_OBJECTS) {
-                    selectedObjects.push(obj);
-                } else {
-                    this.checked = false;
-                    alert(`You can only select up to ${MAX_OBJECTS} objects`);
-                    return;
-                }
-            } else {
-                selectedObjects = selectedObjects.filter(o => o !== obj);
-            }
-            updateMainVisualization();
+    function renderTags() {
+        tagsContainer.innerHTML = '';
+        selectedItems.forEach(obj => {
+            const chip = document.createElement('div');
+            chip.className = 'tag-chip';
+            chip.innerHTML = `
+                <span>${obj.charAt(0).toUpperCase() + obj.slice(1)}</span>
+                <span class="tag-chip-remove" data-value="${obj}">×</span>
+            `;
+            tagsContainer.appendChild(chip);
         });
         
-        label.appendChild(checkbox);
-        label.appendChild(document.createTextNode(' ' + obj.charAt(0).toUpperCase() + obj.slice(1)));
-        container.appendChild(label);
+        // Add event listeners to remove buttons
+        tagsContainer.querySelectorAll('.tag-chip-remove').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const value = this.dataset.value;
+                const index = selectedItems.indexOf(value);
+                if (index > -1) {
+                    selectedItems.splice(index, 1);
+                    renderTags();
+                    renderOptions('');
+                    onUpdate();
+                }
+            });
+        });
+    }
+    
+    function renderOptions(filter = '') {
+        optionsContainer.innerHTML = '';
+        const filtered = allObjects.filter(obj => 
+            obj.toLowerCase().includes(filter.toLowerCase())
+        );
+        
+        filtered.forEach(obj => {
+            const option = document.createElement('div');
+            option.className = 'multiselect-option';
+            const isSelected = selectedItems.includes(obj);
+            const isDisabled = !isSelected && selectedItems.length >= maxItems;
+            
+            if (isSelected) option.classList.add('selected');
+            if (isDisabled) option.classList.add('disabled');
+            
+            option.textContent = obj.charAt(0).toUpperCase() + obj.slice(1);
+            option.dataset.value = obj;
+            
+            if (!isDisabled) {
+                option.addEventListener('click', function() {
+                    if (isSelected) {
+                        const index = selectedItems.indexOf(obj);
+                        selectedItems.splice(index, 1);
+                    } else {
+                        if (selectedItems.length < maxItems) {
+                            selectedItems.push(obj);
+                        }
+                    }
+                    renderTags();
+                    renderOptions(searchInput.value);
+                    onUpdate();
+                });
+            }
+            
+            optionsContainer.appendChild(option);
+        });
+    }
+    
+    // Show dropdown on focus
+    searchInput.addEventListener('focus', function() {
+        optionsContainer.classList.add('active');
+        renderOptions(this.value);
+    });
+    
+    // Filter options on input
+    searchInput.addEventListener('input', function() {
+        renderOptions(this.value);
+    });
+    
+    // Hide dropdown when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest(`#${searchInputId}`) && !e.target.closest(`#${optionsId}`)) {
+            optionsContainer.classList.remove('active');
+        }
+    });
+    
+    // Initial render
+    renderTags();
+    renderOptions('');
+}
+
+function populateObjectCheckboxes() {
+    createMultiSelect({
+        searchInputId: 'object-search',
+        optionsId: 'object-options',
+        tagsId: 'object-tags',
+        selectedItems: selectedObjects,
+        maxItems: MAX_OBJECTS_MAIN,
+        onUpdate: updateMainVisualization
+    });
+}
+
+function populateCooccurrenceCheckboxes() {
+    createMultiSelect({
+        searchInputId: 'cooccurrence-search',
+        optionsId: 'cooccurrence-options',
+        tagsId: 'cooccurrence-tags',
+        selectedItems: selectedCooccurrenceObjects,
+        maxItems: MAX_OBJECTS_COOC,
+        onUpdate: function() {
+            // Redraw the visualization
+            const container = d3.select('#cooccurrence-network');
+            container.selectAll('*').remove();
+            if (photographData.length > 0) {
+                createCooccurrenceNetwork(container, 900, 500);
+            }
+        }
     });
 }
 

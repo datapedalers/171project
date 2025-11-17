@@ -20,7 +20,7 @@ function initIntro() {
     let rotating = true;
 
     const texts = [
-        'The Metropolitan Museum of Art contains more than 2000 photographs.',
+        'The Metropolitan Museum of Art contains thousands of photographs.',
         'These photographs span from 1839 to the 2020s.',
         'Each photograph tells a story about our evolving identity.',
         'What do these images reveal about how we see ourselves?'
@@ -59,11 +59,7 @@ function initIntro() {
         
         setTimeout(function () {
             rotating = false;
-            introText.style('transition', 'opacity 2s').style('opacity', '1').style('cursor', 'pointer');
-            introText.on('click', () => {
-                textIndex = Math.min((textIndex + 1), texts.length - 1);
-                introText.text(texts[textIndex]);
-            });
+            introText.style('transition', 'opacity 2s').style('opacity', '1');
         }, 2000);
     };
 
@@ -76,7 +72,16 @@ function initIntro() {
         if (scrollPosition > 12000) {
             scrollThreshold = true;
             setTimeout(setGradient, 1000);
-            // scrollPosition = 12000;
+            
+            // Calculate text index based on scroll position
+            // Each text shows for about 2000px of scrolling after threshold
+            const scrollAfterThreshold = scrollPosition - 12000;
+            const newTextIndex = Math.min(Math.floor(scrollAfterThreshold / 2000), texts.length - 1);
+            
+            if (newTextIndex !== textIndex && !rotating) {
+                textIndex = newTextIndex;
+                introText.text(texts[textIndex]);
+            }
         }
 
         introcamDesc.style.opacity = Math.max(1 - scrollPosition / 300, 0);
