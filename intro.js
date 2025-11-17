@@ -55,7 +55,8 @@ function initIntro() {
 
     const setGradient = () => {
         // Trigger overlay fade-in animation by adding CSS class
-        overlay.classed('fade-in-overlay', true);
+        overlay.classed('fade-out', false);
+        overlay.classed('fade-in', true);
         
         setTimeout(function () {
             rotating = false;
@@ -82,6 +83,10 @@ function initIntro() {
                 textIndex = newTextIndex;
                 introText.text(texts[textIndex]);
             }
+        } else {
+            overlay.classed('fade-in', false);
+        
+            overlay.classed('fade-out', true);
         }
 
         introcamDesc.style.opacity = Math.max(1 - scrollPosition / 300, 0);
