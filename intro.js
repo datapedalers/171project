@@ -1,3 +1,13 @@
+const camera = document.querySelector('.camera');
+const lensOuter = document.getElementById('lens-outer');
+const lensInner = document.getElementById('lens-inner');
+const introcamDesc = document.getElementById('introcam-desc');
+let scrollThreshold = false;
+
+function initIntroCam() {
+  camera.style.animation = "fadeIn 2s ease-out";
+}
+
 function initIntro() {
     const introImage = d3.select('#intro-image');
     const overlay = d3.select('#overlay');
@@ -26,6 +36,12 @@ function initIntro() {
                      .style('background-position', 'center');
         }
         img.src = randomImage;
+
+        if (scrollThreshold) {
+            delay = Math.max(delay * 0.9, 75);
+            setTimeout(setRandomImage, delay);
+        }
+        
     };
 
     let lastRun = 0;
@@ -38,26 +54,41 @@ function initIntro() {
     };
 
     const setGradient = () => {
-        opStep = Math.min(opStep * 1.02, 1);
-        overlay.style('opacity', opStep);
-        if (opStep < 1) {
-            setTimeout(setGradient, 50);
-        } else {
+        // Trigger overlay fade-in animation by adding CSS class
+        overlay.classed('fade-in-overlay', true);
+        
+        setTimeout(function () {
             rotating = false;
             introText.style('transition', 'opacity 2s').style('opacity', '1').style('cursor', 'pointer');
             introText.on('click', () => {
                 textIndex = Math.min((textIndex + 1), texts.length - 1);
                 introText.text(texts[textIndex]);
             });
-        }
+        }, 2000);
     };
 
+    
     document.addEventListener('scroll', () => {
-        throttledSetRandomImage();
-    });
 
-    setRandomImage();
-    setTimeout(setGradient, 500000);
+        throttledSetRandomImage();
+
+        const scrollPosition = window.scrollY;
+        if (scrollPosition > 12000) {
+            scrollThreshold = true;
+            setTimeout(setGradient, 1000);
+            // scrollPosition = 12000;
+        }
+
+        introcamDesc.style.opacity = Math.max(1 - scrollPosition / 300, 0);
+
+        let scale = 1 + (scrollPosition / 400); 
+
+        if (scale > 9) scale = 9;
+
+        camera.style.transform = `scale(${scale})`;
+        lensOuter.style.transform = `scale(${1 + scrollPosition / 1200})`;
+        lensInner.style.transform = `scale(${(1-(Math.atan(0.0005*scrollPosition)/4))})`;
+    });
 }
 
 

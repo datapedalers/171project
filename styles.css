@@ -33,6 +33,16 @@
     justify-content:center; 
     align-items:center
 }
+
+/* Overlay starts invisible, fades in when class is added */
+#overlay {
+    opacity: 0;
+}
+
+.fade-in-overlay {
+    animation: fadeIn 2s ease-out forwards;
+}
+
 .camera {
     width:5%; 
     aspect-ratio:1;

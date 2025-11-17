@@ -12,13 +12,15 @@
         
         <!-- Section 1: Introduction / Hook -->
         <section id="intro" class="section" style="display: flex; flex-direction: column; ">
+        
             <div class="begin-screen">
                 <div class="camera" style="border-radius:12px;">
                     <div id="lens-outer" class="lens" style="width:50%; border: 1.5px solid rgb(30, 19, 13);">
                         <div id="lens-inner" class="lens" style="width:80%; background:url(cameralens.jpeg); background-size: cover; border: 0.5px solid rgb(30, 19, 13);">
                             <!-- <div class="intro-visual" style="width:100%; position: relative;"></div> -->
                             <div id="intro-image" style="width:30%; aspect-ratio:1; background-size:cover; background-position:center;"></div>
-                            <!-- <div id="overlay" style="width:100%; height:100vh; background: rgba(30, 30, 30, 100); opacity: 0; position: absolute; top: 0; left: 0;"></div>  -->
+                            <div id="overlay" style="width:100%; height:100vh; background: var(--bg-primary); opacity: 0; position: absolute; top: 0; left: 0;"></div> 
+                            <div id="intro-text" style="width: 80%; color: white; font-size: 0.02rem; opacity: 0; text-align: center; z-index: 5; position: absolute;">The Metropolitan Museum of Art contains more than 2000 photographs.</div>
                         </div>
                     </div>
                 </div>
@@ -28,17 +30,16 @@
             </div>
         </section>
         <section>
-            <div style="height:100000vh"></div>
-        </section>>
+            <div style="height:3000vh"></div>
+        </section>
+        <section id="insights" class="section">
+            <div class="section-content">
+                <h2 class="section-title scroll-fade-up">Evolving Perspectives</h2>
+                <p class="section-intro scroll-fade-up">As we journey through time, the subjects of photography tell a story of changing values and national identity.</p>
+                
+                <!-- Visualization 1 -->
                 <div class="insight-block">
-                    <h3 class="scroll-fade-up">[interesting question]</h3>
-                    <div id="viz1" class="visualization-container scroll-reveal">
-                        <svg id="subject-timeline"></svg>
-
-                        <!-- Controls for visualization 1: timeline slider + year label -->
-                        <div id="viz1-controls" class="viz1-controls">
-                            <div class="timeline-row">
-                                 <h3 class="scroll-fade-up">What objects are most commonly depicted in photographs?</h3>
+                    <h3 class="scroll-fade-up">What objects are most commonly depicted in photographs?</h3>
                     <div id="viz1" class="visualization-container scroll-reveal">
                         <svg id="subject-timeline"></svg>
 
@@ -84,7 +85,6 @@
                         <p>This network reveals the visual grammar of photography: certain subjects naturally appear together. Buildings and people dominate urban scenes, while trees, water, and mountains cluster in landscape photography, showing how photographers compose their frames around complementary elements.</p>
                     </div>
                 </div>
-
                 <!-- Optional Third Visualization Space -->
                 <div class="insight-block">
                     <h3 class="scroll-fade-up">[What objects are most common in photographs?</h3>
