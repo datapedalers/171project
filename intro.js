@@ -28,6 +28,15 @@ function initIntro() {
         img.src = randomImage;
     };
 
+    let lastRun = 0;
+    const throttledSetRandomImage = () => {
+        const now = Date.now();
+        if (now - lastRun >= 120) {
+            lastRun = now;
+            setRandomImage();
+        }
+    };
+
     const setGradient = () => {
         opStep = Math.min(opStep * 1.02, 1);
         overlay.style('opacity', opStep);
@@ -44,7 +53,7 @@ function initIntro() {
     };
 
     document.addEventListener('scroll', () => {
-        setRandomImage();
+        throttledSetRandomImage();
     });
 
     setRandomImage();
