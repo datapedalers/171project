@@ -28,6 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Populate nationality dropdown after data is loaded
         populateNationalityDropdown();
         
+        initIntroCam();
         initIntro();
         initVisualization1();
         initVisualization2();
