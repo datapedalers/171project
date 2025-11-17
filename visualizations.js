@@ -35,6 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         initIntroCam();
         initIntro();
+        initDatabaseExplorer();
         initVisualization1();
         initVisualization2();
         initMainVisualization();
@@ -47,6 +48,89 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+
+// ===== DATABASE EXPLORER =====
+function initDatabaseExplorer() {
+    const selector = document.getElementById('object-selector');
+    const button = document.getElementById('random-photo-btn');
+    const displayContainer = document.getElementById('random-photo-display');
+    
+    if (!selector || !button || !displayContainer) return;
+    
+    // Populate dropdown with all objects
+    allObjects.forEach(obj => {
+        const option = document.createElement('option');
+        option.value = obj;
+        option.textContent = obj.charAt(0).toUpperCase() + obj.slice(1);
+        selector.appendChild(option);
+    });
+    
+    // Show placeholder initially
+    displayContainer.innerHTML = '<div class="explorer-placeholder">Select an object and click the button to see a random photograph</div>';
+    
+    // Button click handler
+    button.addEventListener('click', function() {
+        const selectedObject = selector.value;
+        
+        if (!selectedObject) {
+            alert('Please select an object first');
+            return;
+        }
+        
+        // Find all photos with this object
+        const hasField = `has_${selectedObject}`;
+        const photosWithObject = photographData.filter(p => p[hasField] === '1.0');
+        
+        if (photosWithObject.length === 0) {
+            displayContainer.innerHTML = '<div class="explorer-placeholder">No photographs found with this object</div>';
+            return;
+        }
+        
+        // Select a random photo
+        const randomPhoto = photosWithObject[Math.floor(Math.random() * photosWithObject.length)];
+        
+        // Display the photo
+        displayContainer.innerHTML = '';
+        const card = document.createElement('div');
+        card.className = 'random-photo-card';
+        
+        const img = document.createElement('img');
+        img.src = `images_met_resized/${randomPhoto.object_id}.jpg`;
+        img.alt = 'Photograph';
+        img.onerror = function() {
+            this.src = 'placeholder.jpg'; // Fallback if image doesn't exist
+            this.alt = 'Image not available';
+        };
+        
+        const info = document.createElement('div');
+        info.className = 'random-photo-info';
+        
+        const title = document.createElement('h4');
+        title.textContent = `Photograph #${randomPhoto.object_id}`;
+        
+        const artist = document.createElement('p');
+        artist.innerHTML = `<strong>Artist:</strong> ${randomPhoto.artist_name || 'Unknown'}`;
+        
+        const date = document.createElement('p');
+        date.innerHTML = `<strong>Year:</strong> ${randomPhoto.creation_year || 'Unknown'}`;
+        
+        const origin = document.createElement('p');
+        origin.innerHTML = `<strong>Origin:</strong> ${randomPhoto.origin || 'Unknown'}`;
+        
+        const objectLabel = document.createElement('p');
+        objectLabel.innerHTML = `<strong>Detected Object:</strong> ${selectedObject.charAt(0).toUpperCase() + selectedObject.slice(1)}`;
+        
+        info.appendChild(title);
+        info.appendChild(artist);
+        info.appendChild(date);
+        info.appendChild(origin);
+        info.appendChild(objectLabel);
+        
+        card.appendChild(img);
+        card.appendChild(info);
+        displayContainer.appendChild(card);
+    });
+}
 
 // ===== VISUALIZATION 1: SUBJECT DISTRIBUTION TIMELINE =====
 
@@ -650,6 +734,30 @@ function showCategoryModal(categoryName, imageIds, year, clickX, clickY) {
         .style('font-size', '24px')
         .style('font-weight', '600')
         .text(`${categoryName} — ${year} (${imageIds.length} photos)`);
+    
+    // Add close button (X)
+    header.append('button')
+        .attr('class', 'modal-close-btn')
+        .style('background', 'none')
+        .style('border', 'none')
+        .style('color', 'white')
+        .style('font-size', '32px')
+        .style('cursor', 'pointer')
+        .style('padding', '0 10px')
+        .style('line-height', '1')
+        .style('transition', 'transform 0.2s, opacity 0.2s')
+        .style('opacity', '0.7')
+        .text('×')
+        .on('click', function(event) {
+            event.stopPropagation();
+            closeCategoryModal();
+        })
+        .on('mouseover', function() {
+            d3.select(this).style('opacity', '1').style('transform', 'scale(1.2)');
+        })
+        .on('mouseout', function() {
+            d3.select(this).style('opacity', '0.7').style('transform', 'scale(1)');
+        });
     
     // Create scrollable content area with safe centering that doesn't cut off top content
     const content = modal.append('div')

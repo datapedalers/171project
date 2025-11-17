@@ -321,20 +321,38 @@ p {
     opacity: 1;
     transform: translateY(0) scale(1);
 }
-
 .section-intro {
     text-align: center;
     font-size: 1.3rem;
     max-width: 800px;
-    margin: 0 auto 80px;
+    margin: 0 auto 15px;
     color: var(--text-secondary);
+    line-height: 1.8;
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(30px);
     transition: all 0.8s ease;
 }
 
 .section-intro.visible {
     opacity: 1;
+    transform: translateY(0);
+}
+
+.section-intro + p.small {
+    text-align: center;
+    font-size: 0.9rem;
+    max-width: 800px;
+    margin: 0 auto 40px;
+    color: var(--text-secondary);
+    font-style: italic;
+    line-height: 1.6;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+}
+
+.section-intro + p.small.visible {
+    opacity: 0.8;
     transform: translateY(0);
 }
 
@@ -1002,6 +1020,128 @@ svg text {
     box-shadow: 0 6px 18px rgba(0,0,0,0.25);
     z-index: 2000;
     pointer-events: none;
+}
+
+/* ===== DATABASE EXPLORER STYLES ===== */
+#database-explorer {
+    background: #1C1A19;
+    position: relative;
+}
+
+.explorer-container {
+    max-width: 900px;
+    margin: 0 auto;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1s ease;
+}
+
+.explorer-container.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.explorer-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
+    padding: 25px;
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    flex-wrap: wrap;
+}
+
+.explorer-controls label {
+    font-size: 1rem;
+    color: var(--accent-sepia);
+    font-weight: 600;
+    min-width: 150px;
+}
+
+#object-selector {
+    flex: 1;
+    min-width: 200px;
+}
+
+.explorer-btn {
+    padding: 12px 24px;
+    background: var(--accent-sepia);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+.explorer-btn:hover {
+    background: var(--accent-warm);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 123, 82, 0.3);
+}
+
+.explorer-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.random-photo-container {
+    min-height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    padding: 20px;
+}
+
+.random-photo-card {
+    max-width: 600px;
+    width: 100%;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.random-photo-card:hover {
+    transform: scale(1.02);
+}
+
+.random-photo-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.random-photo-info {
+    padding: 20px;
+    color: var(--accent-sepia);
+}
+
+.random-photo-info h4 {
+    margin: 0 0 10px 0;
+    color: var(--accent-sepia);
+    font-size: 1.2rem;
+}
+
+.random-photo-info p {
+    margin: 5px 0;
+    font-size: 0.95rem;
+    color: var(--accent-sepia);
+}
+
+.explorer-placeholder {
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 1.1rem;
 }
 
 /* ===== CO-OCCURRENCE NETWORK STYLES ===== */
