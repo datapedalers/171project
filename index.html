@@ -15,7 +15,11 @@
             <div class="begin-screen">
                 <div class="camera" style="border-radius:12px;">
                     <div id="lens-outer" class="lens" style="width:50%; border: 1.5px solid rgb(30, 19, 13);">
-                        <div id="lens-inner" class="lens" style="width:80%; background:url(cameralens.jpeg); background-size: cover; border: 0.5px solid rgb(30, 19, 13);"></div>
+                        <div id="lens-inner" class="lens" style="width:80%; background:url(cameralens.jpeg); background-size: cover; border: 0.5px solid rgb(30, 19, 13);">
+                            <!-- <div class="intro-visual" style="width:100%; position: relative;"></div> -->
+                            <div id="intro-image" style="width:30%; aspect-ratio:1; background-size:cover; background-position:center;"></div>
+                            <!-- <div id="overlay" style="width:100%; height:100vh; background: rgba(30, 30, 30, 100); opacity: 0; position: absolute; top: 0; left: 0;"></div>  -->
+                        </div>
                     </div>
                 </div>
                 <div> 
@@ -25,17 +29,16 @@
         </section>
         <section>
             <div style="height:600vh"></div>
-        </section>
-
-        <!-- Section 2: Rising Insights -->
-        <section id="insights" class="section">
-            <div class="section-content">
-                <h2 class="section-title scroll-fade-up">Evolving Perspectives</h2>
-                <p class="section-intro scroll-fade-up">As we journey through time, the subjects of photography tell a story of changing values and national identity.</p>
-                
-                <!-- Visualization 1 -->
+        </section>>
                 <div class="insight-block">
-                    <h3 class="scroll-fade-up">What objects are most commonly depicted in photographs?</h3>
+                    <h3 class="scroll-fade-up">[interesting question]</h3>
+                    <div id="viz1" class="visualization-container scroll-reveal">
+                        <svg id="subject-timeline"></svg>
+
+                        <!-- Controls for visualization 1: timeline slider + year label -->
+                        <div id="viz1-controls" class="viz1-controls">
+                            <div class="timeline-row">
+                                 <h3 class="scroll-fade-up">What objects are most commonly depicted in photographs?</h3>
                     <div id="viz1" class="visualization-container scroll-reveal">
                         <svg id="subject-timeline"></svg>
 
@@ -85,14 +88,7 @@
                 <!-- Optional Third Visualization Space -->
                 <div class="insight-block">
                     <h3 class="scroll-fade-up">[What objects are most common in photographs?</h3>
-                    <div id="viz3" class="visualization-container scroll-reveal">
-                        <svg id="focus-shift"></svg>
-                        <div class="viz-placeholder">
-                            <p>📊 [visualization title]</p>
-                            <span class="viz-description">[visualization description]</span>
-                        </div>
-                    </div>
-                    <div class="insight-text scroll-reveal">
+roll-reveal">
                         <p>[interesting insight]</p>
                     </div>
                 </div>
@@ -106,7 +102,13 @@
                 <p class="section-intro scroll-fade-up">Explore how photographic subjects evolved decade by decade, revealing the changing face of national personhood.</p>
                 
                 <div id="main-viz" class="visualization-container main-viz scroll-reveal">
-                    <!-- Interactive Controls (Shared) -->
+                    <!-- Interactive Controls -->
+                    <div class="viz-controls scroll-fade-up">
+                        <div class="control-group">
+                            <label>View Type:</label>
+                            <div class="toggle-buttons">
+                                <button class="toggle-btn active" data-view="streamgraph">Streamgraph (Count)</button>
+                                <button class="toggle                    <!-- Interactive Controls (Shared) -->
                     <div class="viz-controls scroll-fade-up">
                         <div class="control-group">
                             <label>View Type:</label>
@@ -147,29 +149,7 @@
                         </div>
                         <svg id="timeline-viz-2"></svg>
                     </div>
-                </div>
-                
-                <div class="main-insight scroll-reveal">
-                    <p class="highlight-text">[statement of main insight]</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section 4: Conclusion -->
-        <section id="conclusion" class="section">
-            <div class="section-content">
-                <h2 class="section-title scroll-fade-up">Looking Forward</h2>
-                
-                <div class="conclusion-text scroll-reveal">
-                    <p>[conclusion]</p>
-                                        
-                    <div class="reflection-prompt">
-                        <h3>A Question for Today</h3>
-                        <p>[reflection question]</p>
-                    </div>
-                    
-                    <p>[conclusion]</p>
-                </div>
+v>
 
                 <!-- Attribution Section -->
                 <div class="attribution scroll-reveal">

@@ -26,8 +26,6 @@ function initIntro() {
                      .style('background-position', 'center');
         }
         img.src = randomImage;
-        delay = Math.max(delay * 0.9, 75);
-        setTimeout(setRandomImage, delay);
     };
 
     const setGradient = () => {
@@ -45,8 +43,12 @@ function initIntro() {
         }
     };
 
+    document.addEventListener('scroll', () => {
+        setRandomImage();
+    });
+
     setRandomImage();
-    setTimeout(setGradient, 500);
+    setTimeout(setGradient, 500000);
 }
 
 
