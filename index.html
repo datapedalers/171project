@@ -41,13 +41,13 @@
             <div class="begin-screen">
                 <div style="height:15vh"></div>
                 <div style="display: flex; flex-direction: column; align-items: center;">
-                    <div id="intro-text" style="position: absolute; width: 80%; color: white; font-size: 1rem; opacity: 0; text-align: center;">The Metropolitan Museum of Art contains thousands of photographs.</div>
+                    <div id="intro-text" style="position: fixed; width: 80%; max-width: 900px; color: white; font-size: 2rem; opacity: 0; text-align: center; line-height: 1.6; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 10; pointer-events: none;">The Metropolitan Museum of Art contains thousands of photographs.</div>
                 </div>
             </div>
             
         </section>
         <section>
-            <div style="height:8000px"></div>
+            <div style="height:10000px"></div>
         </section>
         
         <!-- Interactive Database Explorer -->
@@ -70,14 +70,22 @@
             </div>
         </section>
         
+        <!-- Transition 1: Database to Insights -->
+        <section id="transition-1" class="transition-section">
+            <div class="transition-text-container">
+                <div id="transition-text-1" class="transition-text"></div>
+            </div>
+            <div class="transition-spacer"></div>
+        </section>
+        
         <section id="insights" class="section">
             <div class="section-content">
-                <h2 class="section-title scroll-fade-up">Evolving Perspectives</h2>
-                <p class="section-intro scroll-fade-up">As we journey through time, the subjects of photography tell a story of changing values, culture, and identity. Explore how the visual language of photography transformed across the decades.</p>
+                <h2 class="section-title scroll-fade-up">Evolving Depictions</h2>
+                <p class="section-intro scroll-fade-up">Certain types of objects appear more than others, and this may change over time. What do you notice?</p>
                 
                 <!-- Visualization 1 -->
                 <div class="insight-block">
-                    <h3 class="scroll-fade-up">What objects are most commonly depicted in photographs?</h3>
+                    <h3 class="scroll-fade-up">What objects are most common?</h3>
                     <p class="scroll-fade-up" style="font-size: 1.05em; color: white; margin-top: -10px;">Click a box to see the photos depicting the corresponding objects! Manually drag the slider or use arrow keys to view changes in object frequencies by year!</p>
                     <div id="viz1" class="visualization-container scroll-reveal">
                         <svg id="subject-timeline"></svg>
@@ -103,11 +111,19 @@
                         </div>
                     </div>
                 </div>
+        
+        <!-- Transition 2: Viz1 to Deeper Insights -->
+        <section id="transition-2" class="transition-section">
+            <div class="transition-text-container">
+                <div id="transition-text-2" class="transition-text"></div>
+            </div>
+            <div class="transition-spacer"></div>
+        </section>
 
                 <!-- Visualization 2: Co-occurrence Network -->
                 <div class="insight-block">
                     <h2 class="section-title scroll-fade-up">Deeper Insights: The Visual Grammar of Composition</h2>
-                    <p class="section-intro scroll-fade-up">Subjects don't just exist in isolation—they form relationships within the frame. Discover which objects often coincided in photographs, revealing decisions about composition and patterns of life.</p>
+                    <p class="section-intro scroll-fade-up">Subjects don't just exist in isolation—they form relationships within the frame. Do any of these connections surprise you?</p>
                     <h3 class="scroll-fade-up">What Objects Appear Together?</h3>
                     <p class="scroll-fade-up" style="font-size: 1.05em; color: white; margin-top: -10px;">Drag a circle to better see what it is connected to!</p>
                     <div id="viz2" class="visualization-container scroll-reveal">
@@ -128,11 +144,19 @@
             </div>
         </section>
 
+        <!-- Transition 3: Insights to Timeline -->
+        <section id="transition-3" class="transition-section">
+            <div class="transition-text-container">
+                <div id="transition-text-3" class="transition-text"></div>
+            </div>
+            <div class="transition-spacer"></div>
+        </section>
+
         <!-- Section 3: Main Message / Innovative Visualization -->
         <section id="main" class="section">
             <div class="section-content">
-                <h2 class="section-title scroll-fade-up">A Visual Timeline of Identity</h2>
-                <p class="section-intro scroll-fade-up">Now that we understand what photographers captured and how they composed their images, we can explore a deeper question: how did different nations tell their visual stories? Compare photographic traditions across nationalities to uncover what these choices reveal about cultural identity and national character over time.</p>
+                <h2 class="section-title scroll-fade-up">A Visual Timeline by Nationality</h2>
+                <p class="section-intro scroll-fade-up">How do objects differ by artist nationality and over time?</p>
                 
                 <div id="main-viz" class="visualization-container main-viz scroll-reveal">
                     <!-- Interactive Controls -->
@@ -178,9 +202,51 @@
                         </div>
                         <svg id="timeline-viz-2"></svg>
                     </div>
-v>
 
-                <!-- Attribution Section -->
+            </div>
+        </section>
+
+        <!-- Conclusion Section -->
+        <section id="conclusion" class="conclusion-section">
+            <!-- Screen 1: Main message with image randomizer -->
+            <div class="conclusion-screen" id="conclusion-screen-1">
+                <div class="conclusion-content-split">
+                    <div class="conclusion-image-container">
+                        <div id="conclusion-randomizer" class="conclusion-image"></div>
+                    </div>
+                    <div class="conclusion-text-container">
+                        <div class="conclusion-text">
+                            <div>Across time, style, and nationality, one theme persists:</div>
+                            <div style="font-style: italic; color: var(--accent-sepia); margin-top: 1rem;">Photographers return again and again to the environments around them.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Screen 2: Full text message -->
+            <div class="conclusion-screen" id="conclusion-screen-2">
+                <div class="conclusion-text-container">
+                    <div class="conclusion-text">
+                        In the Met's photographs, place is not background -- it is the subject. We are shaped by the buildings we build, the trees that line our paths, the mountains and water that stretch beyond our view.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Screen 3: Final reflection -->
+            <div class="conclusion-screen" id="conclusion-screen-3">
+                <div class="conclusion-text-container">
+                    <div class="conclusion-text" style="color: var(--accent-sepia); font-style: italic;">
+                        How do your photographs capture the spaces in your life?
+                    </div>
+                </div>
+            </div>
+
+            <div class="conclusion-spacer"></div>
+        </section>
+
+        <!-- Attribution Section -->
+        <section id="attribution" class="section">
+            <div class="section-content">
                 <div class="attribution scroll-reveal">
                     <div class="attribution-block">
                         <h4>Dataset</h4>
@@ -214,5 +280,7 @@ v>
     <script src="visualizations.js"></script>
     <script src="intro.js"></script>
     <script src="intro-cam.js"></script>
+    <script src="transitions.js"></script>
+    <script src="conclusion.js"></script>
 </body>
 </html>

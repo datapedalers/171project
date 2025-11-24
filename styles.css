@@ -1276,6 +1276,118 @@ svg text {
     .filter-buttons {
         flex-wrap: wrap;
     }
+    
+    .conclusion-content-split {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .conclusion-image-container {
+        min-width: 100%;
+    }
+    
+    .conclusion-text {
+        font-size: 1.5rem;
+    }
+}
+
+/* ===== TRANSITION SECTIONS ===== */
+.transition-section {
+    background: var(--bg-primary);
+    position: relative;
+    width: 100%;
+}
+
+.transition-text-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.transition-text {
+    width: 80%;
+    max-width: 900px;
+    color: white;
+    font-size: 2rem;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    line-height: 1.6;
+}
+
+.transition-spacer {
+    height: 400vh;
+    width: 100%;
+}
+
+/* ===== CONCLUSION SECTION ===== */
+.conclusion-section {
+    background: var(--bg-primary);
+    position: relative;
+    width: 100%;
+}
+
+.conclusion-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.conclusion-content-split {
+    display: flex;
+    width: 90%;
+    max-width: 1200px;
+    gap: 60px;
+    align-items: center;
+}
+
+.conclusion-image-container {
+    flex: 1;
+    min-width: 400px;
+}
+
+.conclusion-image {
+    width: 100%;
+    aspect-ratio: 4/3;
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.conclusion-text-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.conclusion-text {
+    color: white;
+    font-size: 2rem;
+    text-align: center;
+    line-height: 1.6;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.conclusion-spacer {
+    height: 500vh;
+    width: 100%;
 }
 
 /* ===== SMOOTH SCROLLING ===== */
