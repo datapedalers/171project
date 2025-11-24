@@ -14,7 +14,11 @@ function initIntro() {
     const introImage = d3.select('#intro-image');
     const overlay = d3.select('#overlay');
     const introText = d3.select('#intro-text');
+    const introSection = document.getElementById('intro');
     if (!introImage.node()) return;
+
+    // Set smooth opacity transition but remove any other transitions
+    introText.style('transition', 'opacity 0.5s ease');
 
     // progress fill element (white bar that grows with scroll)
     const progressFill = document.getElementById('intro-progress-fill');
@@ -27,8 +31,8 @@ function initIntro() {
     const texts = [
         'The Metropolitan Museum of Art contains thousands of photographs.',
         'These photographs span from 1839 to the 2020s.',
-        'Each photograph tells a story about our evolving identity.',
-        'What do these images reveal about how we see ourselves?'
+        'Together, they offer a vast record of what photographers chose to capture.',
+        'What kinds of things appear again and again?',
     ];
 
     const setRandomImage = () => {
@@ -58,15 +62,6 @@ function initIntro() {
         }
     };
 
-    const setGradient = () => {
-
-        setTimeout(function () {
-            rotating = false;
-            introText.style('transition', 'opacity 2s').style('opacity', '1');
-        }, 2000);
-    };
-
-    
     document.addEventListener('scroll', () => {
 
         throttledSetRandomImage();
@@ -74,20 +69,36 @@ function initIntro() {
         const scrollPosition = window.scrollY;
         if (scrollPosition > ANIMSTART) {
             scrollThreshold = true;
-            setTimeout(setGradient, 1000);
+            rotating = false;
         } else {
             scrollThreshold = false;
+            rotating = true;
         }
 
+        // Hide entire intro section when past it (after 10000px)
+        if (scrollPosition > 10000) {
+            introSection.style.display = 'none';
+            return;
+        } else {
+            introSection.style.display = 'block';
+        }
 
-        overlay.style('opacity', Math.max(Math.max((scrollPosition - ANIMSTART - 500), 0) / 1000, 0));
-        introText.style('opacity', Math.max(Math.max((scrollPosition - ANIMSTART - 1500), 0) / 1000, 0));
+        overlay.style('opacity', Math.min(1, Math.max((scrollPosition - ANIMSTART - 500) / 1000, 0)));
         
-        const scrollAfterThreshold = scrollPosition - ANIMSTART;
-        const newTextIndex = Math.min(Math.floor(scrollAfterThreshold / 1000), texts.length - 1);
+        const textOpacity = Math.min(1, Math.max((scrollPosition - ANIMSTART - 1500) / 1000, 0));
+        introText.style('opacity', textOpacity);
         
-        textIndex = newTextIndex;
-        introText.text(texts[textIndex]);
+        // Update text based on scroll position
+        if (scrollPosition > ANIMSTART + 1500) {
+            const scrollAfterThreshold = scrollPosition - ANIMSTART - 1500;
+            const newTextIndex = Math.max(0, Math.min(Math.floor(scrollAfterThreshold / 1000), texts.length - 1));
+            
+            textIndex = newTextIndex;
+            introText.text(texts[textIndex]);
+        } else {
+            // Clear text when scrolled back up
+            introText.text('');
+        }
             
         
         introcamDesc.style.opacity = Math.max(1 - scrollPosition / 300, 0);
