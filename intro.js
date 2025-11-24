@@ -4,6 +4,8 @@ const lensInner = document.getElementById('lens-inner');
 const introcamDesc = document.getElementById('introcam-desc');
 let scrollThreshold = false;
 
+const ANIMSTART = 4000;
+
 function initIntroCam() {
   camera.style.animation = "fadeIn 2s ease-out";
 }
@@ -57,10 +59,7 @@ function initIntro() {
     };
 
     const setGradient = () => {
-        // Trigger overlay fade-in animation by adding CSS class
-        overlay.classed('fade-out', false);
-        overlay.classed('fade-in', true);
-        
+
         setTimeout(function () {
             rotating = false;
             introText.style('transition', 'opacity 2s').style('opacity', '1');
@@ -73,48 +72,31 @@ function initIntro() {
         throttledSetRandomImage();
 
         const scrollPosition = window.scrollY;
-        if (scrollPosition > 3000) {
+        if (scrollPosition > ANIMSTART) {
             scrollThreshold = true;
             setTimeout(setGradient, 1000);
-            
-            // Calculate text index based on scroll position
-            // Each text shows for about 2000px of scrolling after threshold
-            const scrollAfterThreshold = scrollPosition - 12000;
-            const newTextIndex = Math.min(Math.floor(scrollAfterThreshold / 2000), texts.length - 1);
-            
-            // Calculate position within current text segment (0 to 2000)
-            const positionInSegment = scrollAfterThreshold % 2000;
-            
-            // Fade to black in last 300px of segment, fade back in first 300px of next segment
-            let overlayOpacity;
-            if (positionInSegment > 1700) {
-                // Approaching transition - fade to black
-                overlayOpacity = Math.min((positionInSegment - 1700) / 300, 1);
-            } else if (positionInSegment < 300) {
-                // Just after transition - fade from black
-                overlayOpacity = Math.max(1 - (positionInSegment / 300), 0);
-            } else {
-                // Middle of segment - no overlay
-                overlayOpacity = 0;
-            }
-            
-            overlay.style('opacity', overlayOpacity);
-            
-            if (newTextIndex !== textIndex && !rotating) {
-                textIndex = newTextIndex;
-                introText.text(texts[textIndex]);
-            }
         } else {
-            overlay.classed('fade-in', false);
-        
-            overlay.classed('fade-out', true);
+            scrollThreshold = false;
         }
 
+
+        overlay.style('opacity', Math.max(Math.max((scrollPosition - ANIMSTART - 500), 0) / 1000, 0));
+        introText.style('opacity', Math.max(Math.max((scrollPosition - ANIMSTART - 1500), 0) / 1000, 0));
+        
+        const scrollAfterThreshold = scrollPosition - ANIMSTART;
+        const newTextIndex = Math.min(Math.floor(scrollAfterThreshold / 1000), texts.length - 1);
+        
+        textIndex = newTextIndex;
+        introText.text(texts[textIndex]);
+            
+        
         introcamDesc.style.opacity = Math.max(1 - scrollPosition / 300, 0);
         introcamDesc.style.transform = `translateY(${scrollPosition / 15}px)`;
+        
+        // overlay.style('opacity', 1);
 
         if (progressFill) {
-            const p = Math.max(0, Math.min(1, scrollPosition / 3000));
+            const p = Math.max(0, Math.min(1, scrollPosition / (ANIMSTART*2)));
             progressFill.style.height = (p * 100) + '%';
         }
 

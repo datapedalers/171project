@@ -12,22 +12,13 @@
         
         <!-- Section 1: Introduction / Hook -->
         <section id="intro" class="section">
-            <div style="position: fixed; display: flex; justify-content: center; align-items: center; height: 100vh; width: 100%">
-                <div style="width: 80%"></div>
-                <div style="height: 100vh; display: flex; justify-content: center; align-items: center; ">
-                    <div id="intro-progress" aria-hidden="true">
-                        <div id="intro-progress-fill"></div>
-                    </div>
-                </div>
-            </div>
+            
             <div class="begin-screen">
                 <div class="camera" style="border-radius:12px;">
                     <div id="lens-outer" class="lens" style="width:50%; border: 1.5px solid rgb(30, 30, 30);">
                         <div id="lens-inner" class="lens" style="width:80%; background:url(cameralens.jpeg); background-size: cover; border: 0.5px solid rgb(30, 30, 30);">
                             <!-- <div class="intro-visual" style="width:100%; position: relative;"></div> -->
                             <div id="intro-image" style="width:30%; aspect-ratio:1; background-size:cover; background-position:center;"></div>
-                            <div id="overlay" style="width:100%; height:100vh; background: var(--bg-primary); opacity: 0; position: absolute; top: 0; left: 0;"></div> 
-                            <div id="intro-text" style="width: 80%; color: white; font-size: 0.02rem; opacity: 0; text-align: center; z-index: 5; position: absolute;">The Metropolitan Museum of Art contains thousands of photographs.</div>
                         </div>
                     </div>
                 </div>
@@ -38,10 +29,25 @@
                     <div id="introcam-desc">scroll to begin</div>
                 </div>
             </div>
+            <div id="overlay" style="width:100%; height:100vh; background: var(--bg-primary); opacity: 0; position: fixed; top: 0; left: 0;"></div> 
+            <div style="position: fixed; display: flex; justify-content: center; align-items: center; height: 100vh; width: 100%">
+                <div style="width: 80%"></div>
+                <div style="height: 100vh; display: flex; justify-content: center; align-items: center; ">
+                    <div id="intro-progress" aria-hidden="true">
+                        <div id="intro-progress-fill"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="begin-screen">
+                <div style="height:15vh"></div>
+                <div style="display: flex; flex-direction: column; align-items: center;">
+                    <div id="intro-text" style="position: absolute; width: 80%; color: white; font-size: 1rem; opacity: 0; text-align: center;">The Metropolitan Museum of Art contains thousands of photographs.</div>
+                </div>
+            </div>
             
         </section>
         <section>
-            <div style="height:21000px"></div>
+            <div style="height:8000px"></div>
         </section>
         
         <!-- Interactive Database Explorer -->

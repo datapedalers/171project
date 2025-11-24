@@ -34,14 +34,6 @@
     align-items:center
 }
 
-/* Overlay starts invisible, fades in when class is added */
-#overlay {
-    opacity: 0;
-}
-
-.fade-in-overlay {
-    animation: fadeIn 2s ease-out forwards;
-}
 
 /* Intro progress bar below the camera description */
 #intro-progress {
@@ -233,11 +225,6 @@ p {
     margin: 0;
     padding: 0;
     display: block;
-}
-
-.intro-text {
-    text-align: center;
-    margin-bottom: 60px;
 }
 
 .subtitle {
