@@ -74,15 +74,44 @@ function initIntro() {
             scrollThreshold = true;
             setTimeout(setGradient, 1000);
             
-            // Calculate text index based on scroll position
-            // Each text shows for about 2000px of scrolling after threshold
+            // Calculate text index based on scroll position with adjusted transitions
+            // Text 1->2: 800px, Text 2->3: 200px, Text 3->4: 300px
             const scrollAfterThreshold = scrollPosition - 12000;
-            const newTextIndex = Math.min(Math.floor(scrollAfterThreshold / 2000), texts.length - 1);
+            let newTextIndex;
+            
+            if (scrollAfterThreshold < 800) {
+                newTextIndex = 0;
+            } else if (scrollAfterThreshold < 1000) {  // 800 + 200
+                newTextIndex = 1;
+            } else if (scrollAfterThreshold < 1300) {  // 800 + 200 + 300
+                newTextIndex = 2;
+            } else {
+                newTextIndex = 3;
+            }
             
             if (newTextIndex !== textIndex && !rotating) {
                 textIndex = newTextIndex;
-                introText.text(texts[textIndex]);
+                introText.text(texts[textIndex])
+                         .style('transition', 'font-size 0.3s ease-out');
             }
+            
+            // Smooth font size animation based on scroll position within each text segment
+            let fontSize;
+            if (newTextIndex === 0) {
+                const progress = Math.min(scrollAfterThreshold / 800, 1);
+                fontSize = 0.02 + (progress * 1.48); // grows from 0.02rem to 1.5rem
+            } else if (newTextIndex === 1) {
+                const progress = Math.min((scrollAfterThreshold - 800) / 200, 1);
+                fontSize = 0.02 + (progress * 1.48);
+            } else if (newTextIndex === 2) {
+                const progress = Math.min((scrollAfterThreshold - 1000) / 300, 1);
+                fontSize = 0.02 + (progress * 1.48);
+            } else {
+                const progress = Math.min((scrollAfterThreshold - 1300) / 300, 1);
+                fontSize = 0.02 + (progress * 1.48);
+            }
+            
+            introText.style('font-size', `${fontSize}rem`);
         } else {
             overlay.classed('fade-in', false);
         
