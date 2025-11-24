@@ -132,7 +132,99 @@ function initDatabaseExplorer() {
     });
 }
 
+// ===== IMAGE PRELOADING FOR VIZ 1 =====
+let imageCache = new Map(); // Store actual Image objects
+let preloadingComplete = false;
+
+function preloadViz1Images() {
+    console.log('Starting background image preloading for visualization 1...');
+    
+    // Collect all unique image IDs that could be displayed
+    const allImageIds = new Set();
+    
+    // Get the category map
+    const categoryMap = {
+        'Person': ['has_person'],
+        'Animal': ['has_animal'],
+        'Greenery': ['has_tree', 'has_grass', 'has_plant', 'has_field'],
+        'Water': ['has_water', 'has_river', 'has_sea'],
+        'Mountain': ['has_mountain', 'has_rock'],
+        'Road': ['has_road', 'has_sidewalk', 'has_fence', 'has_bridge'],
+        'Building': ['has_building', 'has_house', 'has_hovel'],
+        'Vehicle': ['has_boat'],
+        'Household Objects': ['has_chair', 'has_table', 'has_windowpane', 'has_curtain']
+    };
+    
+    // Iterate through all years and categories to collect image IDs
+    for (let year = 1840; year <= 1917; year++) {
+        Object.keys(categoryMap).forEach(categoryName => {
+            const fields = categoryMap[categoryName];
+            
+            const yearPhotos = photographData.filter(d => {
+                const y = +d.creation_year;
+                return y && !isNaN(y) && Math.floor(y) === Math.floor(year);
+            });
+            
+            yearPhotos.forEach(p => {
+                for (const f of fields) {
+                    if (p[f] === '1.0') {
+                        allImageIds.add(p.object_id);
+                        break;
+                    }
+                }
+            });
+        });
+    }
+    
+    const imageArray = Array.from(allImageIds);
+    console.log(`Preloading ${imageArray.length} unique images in background...`);
+    
+    // Preload all images in parallel without blocking - fire and forget
+    imageArray.forEach(imageId => {
+        const img = new Image();
+        img.onload = () => {
+            imageCache.set(imageId, img);
+        };
+        img.onerror = () => {
+            console.warn(`Failed to preload image: ${imageId}`);
+        };
+        img.src = `images_met_resized/${imageId}.jpg`;
+    });
+    
+    // Check completion after a delay
+    setTimeout(() => {
+        preloadingComplete = true;
+        console.log(`Background preloading complete! Cached ${imageCache.size} images.`);
+    }, 30000); // Assume complete after 30 seconds
+}
+
 // ===== VISUALIZATION 1: SUBJECT DISTRIBUTION TIMELINE =====
+
+// Debounce function - only calls after user stops for a moment
+function debounce(func, wait) {
+    let timeout;
+    return function(...args) {
+        const context = this;
+        clearTimeout(timeout);
+        timeout = setTimeout(() => func.apply(context, args), wait);
+    };
+}
+
+// RequestAnimationFrame-based throttle for smoother updates
+function rafThrottle(func) {
+    let rafId = null;
+    let lastArgs = null;
+    
+    return function(...args) {
+        lastArgs = args;
+        if (rafId === null) {
+            rafId = requestAnimationFrame(() => {
+                func.apply(this, lastArgs);
+                rafId = null;
+            });
+        }
+    };
+}
 
 // New: Initialize visualization 1 with slider and treemap/mosaic that reflects a selected decade
 function initVisualization1() {
@@ -146,6 +238,9 @@ function initVisualization1() {
     if (!svg.select('g.viz1-root').node()) {
         svg.append('g').attr('class', 'viz1-root');
     }
+
+    // Start preloading images in background (non-blocking)
+    preloadViz1Images();
 
     // Default year
     const slider = document.getElementById('year-slider');
@@ -166,16 +261,38 @@ function initVisualization1() {
             const year = +slider.value;
             const asPercent = percentToggle && percentToggle.checked;
             const cumulative = cumulativeToggle && cumulativeToggle.checked;
-            yearLabel.textContent = year;
             drawSubjectTreemap(svg, width, vizHeight, year, asPercent, cumulative);
         };
+
+        // Update year label immediately for responsive feel
+        const updateYearLabel = rafThrottle(() => {
+            yearLabel.textContent = slider.value;
+        });
+
+        // Debounced draw - only updates after slider stops moving for 100ms
+        const debouncedDraw = debounce(draw, 100);
 
         // initial draw
         draw();
 
-        slider.addEventListener('input', draw);
+        // Update label immediately but delay the expensive redraw
+        slider.addEventListener('input', (e) => {
+            updateYearLabel();
+            debouncedDraw();
+        });
+        
         if (percentToggle) percentToggle.addEventListener('change', draw);
         if (cumulativeToggle) cumulativeToggle.addEventListener('change', draw);
+        
+        // Add keyboard support for arrow keys
+        slider.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+                setTimeout(() => {
+                    updateYearLabel();
+                    debouncedDraw();
+                }, 0);
+            }
+        });
     } else {
         drawSubjectTreemap(svg, width, vizHeight, 1870, false, false);
     }
@@ -308,8 +425,8 @@ function drawSubjectTreemap(svg, width, vizHeight, year, asPercent = false, cumu
 
     // If no photos in year, show placeholder and clear existing tiles
     if (photosInYear === 0 || sumCounts === 0) {
-        // remove any existing tiles smoothly
-        g.selectAll('.tile').transition().duration(150).style('opacity', 0).remove();
+        // remove any existing tiles instantly
+        g.selectAll('.tile').remove();
         // update caption - centered and larger
         const cap = rootG.selectAll('g.viz1-caption').data([1]);
         const capEnter = cap.enter().append('g').attr('class', 'viz1-caption');
@@ -366,8 +483,8 @@ function drawSubjectTreemap(svg, width, vizHeight, year, asPercent = false, cumu
     const leaves = root.leaves();
     const tiles = g.selectAll('g.tile').data(leaves, d => d.data.name);
 
-    // EXIT
-    tiles.exit().transition().duration(200).style('opacity', 0).remove();
+    // EXIT - instant removal for better performance
+    tiles.exit().remove();
 
     // ENTER
     const tilesEnter = tiles.enter()
@@ -426,20 +543,21 @@ function drawSubjectTreemap(svg, width, vizHeight, year, asPercent = false, cumu
     // MERGE
     const tilesMerge = tilesEnter.merge(tiles);
 
-    // Transition tiles to new positions/sizes
-    cumulative ? tilesMerge.transition().duration(50).style('opacity', 1).attr('transform', d => `translate(${d.x0},${d.y0})`) :
-                 tilesMerge.transition().duration(250).style('opacity', 1).attr('transform', d => `translate(${d.x0},${d.y0})`); 
+    // Transition tiles to new positions/sizes - faster transitions for better responsiveness
+    const transitionDuration = 0; // No transition for instant updates
+    
+    tilesMerge.transition().duration(transitionDuration).style('opacity', 1).attr('transform', d => `translate(${d.x0},${d.y0})`); 
 
     // Update clip paths
-    tilesMerge.select('.tile-clip').transition().duration(250)
+    tilesMerge.select('.tile-clip').transition().duration(transitionDuration)
         .attr('width', d => Math.max(0, d.x1 - d.x0))
         .attr('height', d => Math.max(0, d.y1 - d.y0));
 
-    tilesMerge.select('rect.tile-border').transition().duration(250)
+    tilesMerge.select('rect.tile-border').transition().duration(transitionDuration)
         .attr('width', d => Math.max(0, d.x1 - d.x0))
         .attr('height', d => Math.max(0, d.y1 - d.y0));
 
-    tilesMerge.select('rect.tile-overlay').transition().duration(250)
+    tilesMerge.select('rect.tile-overlay').transition().duration(transitionDuration)
         .attr('width', d => Math.max(0, d.x1 - d.x0))
         .attr('height', d => Math.max(0, d.y1 - d.y0));
 
@@ -536,15 +654,24 @@ function drawSubjectTreemap(svg, width, vizHeight, year, asPercent = false, cumu
         const images = collageGroup.selectAll('image')
             .data(displayData, d => d.id);
 
-        // Remove old images
+        // Remove old images instantly
         images.exit().remove();
 
-        // Add new images
-        images.enter()
+        // Add new images with optimizations - use cached images if available
+        const newImages = images.enter()
             .append('image')
-            .attr('href', d => `images_met_resized/${d.id}.jpg`)
             .attr('preserveAspectRatio', 'xMidYMid slice')
-            .merge(images)
+            .style('image-rendering', 'auto') // Optimize rendering
+            .attr('href', d => {
+                // Use cached image if available, otherwise use direct path
+                if (imageCache.has(d.id)) {
+                    return imageCache.get(d.id).src;
+                }
+                return `images_met_resized/${d.id}.jpg`;
+            });
+        
+        // Merge and update all images at once
+        newImages.merge(images)
             .attr('x', d => d.x)
             .attr('y', d => d.y)
             .attr('width', d => d.width)
@@ -862,7 +989,6 @@ function showCategoryModal(categoryName, imageIds, year, clickX, clickY) {
         // Full image with original aspect ratio - large sizing to fill most of screen
         imageCard.append('img')
             .attr('src', `images_met_resized/${imageId}.jpg`)
-            .attr('loading', 'lazy') // Lazy load for better performance
             .style('width', '100%')
             .style('height', 'auto')
             .style('object-fit', 'contain')
