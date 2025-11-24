@@ -11,8 +11,15 @@
     <main id="main-content">
         
         <!-- Section 1: Introduction / Hook -->
-        <section id="intro" class="section" style="display: flex; flex-direction: column; ">
-        
+        <section id="intro" class="section">
+            <div style="position: fixed; display: flex; justify-content: center; align-items: center; height: 100vh; width: 100%">
+                <div style="width: 80%"></div>
+                <div style="height: 100vh; display: flex; justify-content: center; align-items: center; ">
+                    <div id="intro-progress" aria-hidden="true">
+                        <div id="intro-progress-fill"></div>
+                    </div>
+                </div>
+            </div>
             <div class="begin-screen">
                 <div class="camera" style="border-radius:12px;">
                     <div id="lens-outer" class="lens" style="width:50%; border: 1.5px solid rgb(30, 30, 30);">
@@ -24,10 +31,14 @@
                         </div>
                     </div>
                 </div>
-                <div> 
-                    <text id="introcam-desc">scroll to begin</text>
+            </div>
+            <div class="begin-screen">
+                <div style="height:15vh"></div>
+                <div style="display: flex; flex-direction: column; align-items: center;">
+                    <div id="introcam-desc">scroll to begin</div>
                 </div>
             </div>
+            
         </section>
         <section>
             <div style="height:3000vh"></div>

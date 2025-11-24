@@ -43,6 +43,24 @@
     animation: fadeIn 2s ease-out forwards;
 }
 
+/* Intro progress bar below the camera description */
+#intro-progress {
+    width: 8px;
+    height: 50%;
+    background: rgba(255,255,255,0.12);
+    border-radius: 4px;
+    margin: 10px auto 0 auto;
+    overflow: hidden;
+}
+
+#intro-progress-fill {
+    width: 100%;
+    height: 0%;
+    background: #fff;
+    border-radius: 6px 0 0 6px;
+    transition: height 40ms linear;
+}
+
 .camera {
     width:5%; 
     aspect-ratio:1;

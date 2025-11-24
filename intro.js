@@ -14,6 +14,9 @@ function initIntro() {
     const introText = d3.select('#intro-text');
     if (!introImage.node()) return;
 
+    // progress fill element (white bar that grows with scroll)
+    const progressFill = document.getElementById('intro-progress-fill');
+
     let delay = 600;
     let opStep = 0.1;
     let textIndex = 0;
@@ -70,7 +73,7 @@ function initIntro() {
         throttledSetRandomImage();
 
         const scrollPosition = window.scrollY;
-        if (scrollPosition > 12000) {
+        if (scrollPosition > 3000) {
             scrollThreshold = true;
             setTimeout(setGradient, 1000);
             
@@ -90,6 +93,12 @@ function initIntro() {
         }
 
         introcamDesc.style.opacity = Math.max(1 - scrollPosition / 300, 0);
+        introcamDesc.style.transform = `translateY(${scrollPosition / 15}px)`;
+
+        if (progressFill) {
+            const p = Math.max(0, Math.min(1, scrollPosition / 3000));
+            progressFill.style.height = (p * 100) + '%';
+        }
 
         let scale = 1 + (scrollPosition / 400); 
 
