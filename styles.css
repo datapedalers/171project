@@ -315,7 +315,7 @@ p {
 }
 
 .section-title {
-    text-align: center;
+    text-align: left;
     margin-bottom: 20px;
     opacity: 0;
     transform: translateY(40px) scale(0.95);
@@ -327,7 +327,7 @@ p {
     transform: translateY(0) scale(1);
 }
 .section-intro {
-    text-align: center;
+    text-align: left;
     font-size: 1.3rem;
     max-width: 800px;
     margin: 0 auto 15px;
@@ -344,7 +344,7 @@ p {
 }
 
 .section-intro + p.small {
-    text-align: center;
+    text-align: left;
     font-size: 0.9rem;
     max-width: 800px;
     margin: 0 auto 40px;
@@ -1031,7 +1031,7 @@ svg text {
 
 .explorer-container {
     max-width: 900px;
-    margin: 0 auto;
+    /* margin: 0 auto; */
     opacity: 0;
     transform: translateY(30px);
     transition: all 1s ease;
@@ -1046,11 +1046,11 @@ svg text {
     display: flex;
     align-items: center;
     gap: 15px;
-    margin-bottom: 30px;
-    padding: 25px;
-    background: var(--bg-secondary);
+    /* margin-bottom: 30px; */
+    /* padding: 25px; */
+    /* background: var(--bg-secondary); */
     border-radius: 12px;
-    border: 1px solid var(--border-color);
+    /* border: 1px solid var(--border-color); */
     flex-wrap: wrap;
 }
 
@@ -1080,9 +1080,9 @@ svg text {
 }
 
 .explorer-btn:hover {
-    background: var(--accent-warm);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(102, 123, 82, 0.3);
+    opacity: 0.8;
+    /* transform: translateY(-2px); */
+    /* box-shadow: 0 4px 12px rgba(102, 123, 82, 0.3); */
 }
 
 .explorer-btn:disabled {
@@ -1092,19 +1092,18 @@ svg text {
 }
 
 .random-photo-container {
-    min-height: 400px;
+    /* min-height: 400px; */
+    width: 40%;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: var(--bg-secondary);
+    /* background: var(--bg-secondary); */
     border-radius: 12px;
-    border: 1px solid var(--border-color);
+    /* border: 1px solid var(--border-color); */
     padding: 20px;
 }
 
 .random-photo-card {
-    max-width: 600px;
-    width: 100%;
     background: white;
     border-radius: 8px;
     overflow: hidden;
@@ -1118,7 +1117,7 @@ svg text {
 
 .random-photo-card img {
     width: 100%;
-    height: auto;
+    height: 100%;
     display: block;
 }
 

@@ -55,7 +55,7 @@ function initIntro() {
     let lastRun = 0;
     const throttledSetRandomImage = () => {
         const now = Date.now();
-        if (now - lastRun >= 120) {
+        if (now - lastRun >= 100) {
             lastRun = now;
             setRandomImage();
         }
