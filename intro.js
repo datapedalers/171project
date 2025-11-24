@@ -32,7 +32,6 @@ function initIntro() {
     ];
 
     const setRandomImage = () => {
-        if (!rotating) return;
         const randomImage = ALL_MET_IMAGES[Math.floor(Math.random() * ALL_MET_IMAGES.length)];
         const img = new Image();
         img.onload = () => {
@@ -93,8 +92,6 @@ function initIntro() {
         introcamDesc.style.opacity = Math.max(1 - scrollPosition / 300, 0);
         introcamDesc.style.transform = `translateY(${scrollPosition / 15}px)`;
         
-        // overlay.style('opacity', 1);
-
         if (progressFill) {
             const p = Math.max(0, Math.min(1, scrollPosition / (ANIMSTART*2)));
             progressFill.style.height = (p * 100) + '%';
