@@ -57,7 +57,7 @@
 .lens {
     width:40%;
     aspect-ratio:1;
-    background: url('brasstexture.jpg');
+    background: url('brasstexture.jpeg');
     background-size: cover;
     border-radius:50%;
     display:flex; 
