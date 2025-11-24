@@ -82,6 +82,24 @@ function initIntro() {
             const scrollAfterThreshold = scrollPosition - 12000;
             const newTextIndex = Math.min(Math.floor(scrollAfterThreshold / 2000), texts.length - 1);
             
+            // Calculate position within current text segment (0 to 2000)
+            const positionInSegment = scrollAfterThreshold % 2000;
+            
+            // Fade to black in last 300px of segment, fade back in first 300px of next segment
+            let overlayOpacity;
+            if (positionInSegment > 1700) {
+                // Approaching transition - fade to black
+                overlayOpacity = Math.min((positionInSegment - 1700) / 300, 1);
+            } else if (positionInSegment < 300) {
+                // Just after transition - fade from black
+                overlayOpacity = Math.max(1 - (positionInSegment / 300), 0);
+            } else {
+                // Middle of segment - no overlay
+                overlayOpacity = 0;
+            }
+            
+            overlay.style('opacity', overlayOpacity);
+            
             if (newTextIndex !== textIndex && !rotating) {
                 textIndex = newTextIndex;
                 introText.text(texts[textIndex]);
