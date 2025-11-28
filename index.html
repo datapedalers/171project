@@ -93,19 +93,19 @@
                     <div id="viz1" class="visualization-container scroll-reveal">
                         <svg id="subject-timeline"></svg>
 
-                        <!-- Controls for visualization 1: timeline slider + year label -->
+                        <!-- Controls for visualization 1: timeline slider + decade label -->
                         <div id="viz1-controls" class="viz1-controls">
                             <div class="timeline-row">
-                                <label for="year-slider">Select year</label>
-                                <input id="year-slider" type="range" min="1840" max="1917" step="1" value="1870">
-                                <div id="year-label" class="year-label">1870</div>
+                                <label for="year-slider">Select decade</label>
+                                <input id="year-slider" type="range" min="1840" max="1910" step="10" value="1870">
+                                <div id="year-label" class="year-label">1870s</div>
                                 <label class="checkbox-label" style="margin-left:12px;">
                                     <input id="percent-toggle" type="checkbox">
                                     <span style="margin-left:6px; font-weight:600;">Show percentages</span>
                                 </label>
                                 <label class="checkbox-label" style="margin-left:8px;">
                                     <input id="cumulative-toggle" type="checkbox">
-                                    <span style="margin-left:6px; font-weight:600;">Cumulative (≤ year)</span>
+                                    <span style="margin-left:6px; font-weight:600;">Cumulative (≤ decade)</span>
                                 </label>
                             </div>
                             <div id="viz1-legend" class="viz1-legend">

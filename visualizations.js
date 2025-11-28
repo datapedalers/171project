@@ -252,10 +252,10 @@ function initVisualization1() {
 
     if (slider && yearLabel) {
         slider.min = 1840;
-        slider.max = 1917; // Last year with photos
-        slider.step = 1;
+        slider.max = 1910; // Show decades up to 1910s
+        slider.step = 10; // Step by decades
         slider.value = 1870;
-        yearLabel.textContent = slider.value;
+        yearLabel.textContent = slider.value + 's';
 
         const draw = () => {
             const year = +slider.value;
@@ -266,7 +266,7 @@ function initVisualization1() {
 
         // Update year label immediately for responsive feel
         const updateYearLabel = rafThrottle(() => {
-            yearLabel.textContent = slider.value;
+            yearLabel.textContent = slider.value + 's';
         });
 
         // Debounced draw - only updates after slider stops moving for 100ms
@@ -317,15 +317,17 @@ function getCategoryCountsForYear(year, cumulative = false) {
     const counts = {};
     Object.keys(categoryMap).forEach(k => counts[k] = 0);
 
-    // Filter photos for the exact year or all years up to the selected year if cumulative
+    // Filter photos for the decade or all years up to the selected decade if cumulative
     const yearPhotos = photographData.filter(d => {
         const y = +d.creation_year;
         if (!y || isNaN(y)) return false;
         if (cumulative) {
-            return Math.floor(y) <= Math.floor(year);
+            return Math.floor(y) <= Math.floor(year) + 9; // Include entire ending decade
         }
-        // compare integer year
-        return Math.floor(y) === Math.floor(year);
+        // Check if year falls within the decade (e.g., 1870-1879 for 1870s)
+        const decadeStart = Math.floor(year / 10) * 10;
+        const photoYear = Math.floor(y);
+        return photoYear >= decadeStart && photoYear < decadeStart + 10;
     });
 
     // Sum occurrences
@@ -362,14 +364,17 @@ function getImagesForCategory(categoryName, year, cumulative = false) {
 
     const fields = categoryMap[categoryName] || [];
     
-    // Filter photos for the year
+    // Filter photos for the decade
     const yearPhotos = photographData.filter(d => {
         const y = +d.creation_year;
         if (!y || isNaN(y)) return false;
         if (cumulative) {
-            return Math.floor(y) <= Math.floor(year);
+            return Math.floor(y) <= Math.floor(year) + 9; // Include entire ending decade
         }
-        return Math.floor(y) === Math.floor(year);
+        // Check if year falls within the decade (e.g., 1870-1879 for 1870s)
+        const decadeStart = Math.floor(year / 10) * 10;
+        const photoYear = Math.floor(y);
+        return photoYear >= decadeStart && photoYear < decadeStart + 10;
     });
 
     // Get photos that match the category
@@ -383,6 +388,17 @@ function getImagesForCategory(categoryName, year, cumulative = false) {
         }
     });
 
+    // Limit to 15 random photos for better performance
+    if (matchingPhotos.length > 15) {
+        // Shuffle array using Fisher-Yates algorithm
+        const shuffled = [...matchingPhotos];
+        for (let i = shuffled.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+        }
+        return shuffled.slice(0, 15);
+    }
+    
     return matchingPhotos;
 }
 
@@ -430,7 +446,7 @@ function drawSubjectTreemap(svg, width, vizHeight, year, asPercent = false, cumu
         // update caption - centered and larger
         const cap = rootG.selectAll('g.viz1-caption').data([1]);
         const capEnter = cap.enter().append('g').attr('class', 'viz1-caption');
-        capEnter.merge(cap).selectAll('text').data([`No photographs in ${year}`]).join('text')
+        capEnter.merge(cap).selectAll('text').data([`No photographs in the ${year}s`]).join('text')
             .attr('x', width / 2)
             .attr('y', vizHeight / 2)
             .attr('text-anchor', 'middle')
@@ -758,12 +774,12 @@ function drawSubjectTreemap(svg, width, vizHeight, year, asPercent = false, cumu
     // Update caption above mosaic (reuse group) - centered and larger
     const cap = rootG.selectAll('g.viz1-caption').data([1]);
     const capEnter = cap.enter().append('g').attr('class', 'viz1-caption');
-    capEnter.merge(cap).selectAll('text').data([`Year: ${year} ${asPercent ? '(percentages)' : ''}`]).join('text')
+    capEnter.merge(cap).selectAll('text').data([`Decade: ${year}s ${asPercent ? '(percentages)' : ''}`]).join('text')
         .attr('x', width / 2)
         .attr('y', 30)
         .attr('text-anchor', 'middle')
         .style('font-size', '24px')
-        .style('fill', '#333')
+        .style('fill', 'white')
         .style('font-weight', '600')
         .text(d => d);
 
@@ -860,7 +876,7 @@ function showCategoryModal(categoryName, imageIds, year, clickX, clickY) {
         .style('margin', '0')
         .style('font-size', '24px')
         .style('font-weight', '600')
-        .text(`${categoryName} — ${year} (${imageIds.length} photos)`);
+        .text(`${categoryName} — ${typeof year === 'number' ? year + 's' : year} (${imageIds.length} photos)`);
     
     // Add close button (X)
     header.append('button')
@@ -1324,7 +1340,7 @@ function initVisualization2() {
         .attr('width', width)
         .attr('height', height)
         .attr('viewBox', `0 0 ${width} ${height}`)
-        .style('background', 'white');
+        .style('background', 'transparent');
     
     // Populate checkboxes
     populateCooccurrenceCheckboxes();
@@ -1660,7 +1676,7 @@ function createCooccurrenceNetwork(svg, width, height) {
         .attr('y', 0)
         .style('font-size', '13px')
         .style('font-weight', '600')
-        .style('fill', '#666')
+        .style('fill', 'white')
         .text('Circle size = Frequency');
     
     legend.append('text')
@@ -1668,7 +1684,7 @@ function createCooccurrenceNetwork(svg, width, height) {
         .attr('y', 20)
         .style('font-size', '13px')
         .style('font-weight', '600')
-        .style('fill', '#666')
+        .style('fill', 'white')
         .text('Line thickness = Co-occurrence');
 }
 
@@ -1975,7 +1991,7 @@ function createGraph(graphNumber) {
         .attr('width', width)
         .attr('height', height)
         .attr('viewBox', `0 0 ${width} ${height}`)
-        .style('background', 'white');
+        .style('background', 'transparent');
     
     // If we have data, create the visualization
     if (photographData.length > 0) {
