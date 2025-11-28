@@ -41,7 +41,7 @@
             <div class="begin-screen">
                 <div style="height:15vh"></div>
                 <div style="display: flex; flex-direction: column; align-items: center;">
-                    <div id="intro-text" style="position: fixed; width: 80%; max-width: 900px; color: white; font-size: 2rem; opacity: 0; text-align: center; line-height: 1.6; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 10; pointer-events: none;">The Metropolitan Museum of Art contains thousands of photographs.</div>
+                    <div id="intro-text" style="position: fixed; width: 80%; max-width: 900px; color: white; font-size: 2rem; opacity: 0; text-align: center; line-height: 1.6; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 10; pointer-events: none;">In 1839, two revolutions began. One transformed how we lived. The other—photography—gave us a mirror to see what we were doing to our planet.</div>
                 </div>
             </div>
             
@@ -55,9 +55,10 @@
             <div class="section-content" style="display: flex; flex-direction:row; gap: 50px">
                 <div style="display: flex; flex-direction: column">
                     <div>
-                        <h2 class="section-title scroll-fade-up">What's in the database?</h2>
-                        <p class="section-intro scroll-fade-up">Familiarize yourself with the Met's database of photographs by randomizing a few. Try selecting different objects!</p>
-                        <p class="small scroll-fade-up">Note: objects were detected using Segformer vision model and may not be 100% accurate.</p> 
+                        <h2 class="section-title scroll-fade-up">The Accidental Archive</h2>
+                        <p class="section-intro scroll-fade-up">Between 1839 and 1920, photographers documented Earth's transformation during the Industrial Revolution. This collection captures the moment human activity began reshaping the planet at geological scale—what scientists now call the Anthropocene.</p>
+                        <p class="section-intro scroll-fade-up">Explore what these photographers chose to capture. Select different objects and notice patterns.</p>
+                        <p class="small scroll-fade-up">Note: objects detected using computer vision—the same technology now used to track deforestation from satellites.</p> 
                     </div>
                     <div class="explorer-container scroll-reveal" style="display: flex; flex-direction: column;gap: 20px; width: 50%">
                         <div class="explorer-controls">
@@ -73,6 +74,14 @@
                 <div id="random-photo-display" class="random-photo-container"></div>
         </section>
         
+        <!-- Insight 1: After Database Explorer -->
+        <section id="insight-1" class="transition-section">
+            <div class="transition-text-container">
+                <div id="insight-text-1" class="transition-text"></div>
+            </div>
+            <div class="transition-spacer"></div>
+        </section>
+        
         <!-- Transition 1: Database to Insights -->
         <section id="transition-1" class="transition-section">
             <div class="transition-text-container">
@@ -83,13 +92,13 @@
         
         <section id="insights" class="section">
             <div class="section-content">
-                <h2 class="section-title scroll-fade-up">Evolving Depictions</h2>
-                <p class="section-intro scroll-fade-up">Certain types of objects appear more than others, and this may change over time. What do you notice?</p>
+                <h2 class="section-title scroll-fade-up">What They Couldn't Stop Photographing</h2>
+                <p class="section-intro scroll-fade-up">As humanity gained unprecedented power to remake the planet, what did photographers turn their cameras toward?</p>
                 
                 <!-- Visualization 1 -->
                 <div class="insight-block">
-                    <h3 class="scroll-fade-up">What objects are most common?</h3>
-                    <p class="scroll-fade-up" style="font-size: 1.05em; color: white; margin-top: -10px;">Click a box to see the photos depicting the corresponding objects! Manually drag the slider or use arrow keys to view changes in object frequencies by year!</p>
+                    <h3 class="scroll-fade-up">Patterns Across Decades</h3>
+                    <p class="scroll-fade-up" style="font-size: 1.05em; color: white; margin-top: -10px;">Click any category to see the photographs. Move through decades to watch patterns emerge. Toggle 'Cumulative' to see the full archive building over time.</p>
                     <div id="viz1" class="visualization-container scroll-reveal">
                         <svg id="subject-timeline"></svg>
 
@@ -115,6 +124,14 @@
                     </div>
                 </div>
         
+        <!-- Insight 2: After Evolving Depictions -->
+        <section id="insight-2" class="transition-section">
+            <div class="transition-text-container">
+                <div id="insight-text-2" class="transition-text"></div>
+            </div>
+            <div class="transition-spacer"></div>
+        </section>
+        
         <!-- Transition 2: Viz1 to Deeper Insights -->
         <section id="transition-2" class="transition-section">
             <div class="transition-text-container">
@@ -125,10 +142,10 @@
 
                 <!-- Visualization 2: Co-occurrence Network -->
                 <div class="insight-block">
-                    <h2 class="section-title scroll-fade-up">Deeper Insights: The Visual Grammar of Composition</h2>
-                    <p class="section-intro scroll-fade-up">Subjects don't just exist in isolation—they form relationships within the frame. Do any of these connections surprise you?</p>
-                    <h3 class="scroll-fade-up">What Objects Appear Together?</h3>
-                    <p class="scroll-fade-up" style="font-size: 1.05em; color: white; margin-top: -10px;">Drag a circle to better see what it is connected to!</p>
+                    <h2 class="section-title scroll-fade-up">The Grammar of Connection</h2>
+                    <p class="section-intro scroll-fade-up">Ecology—the science of interconnected systems—wasn't formalized until the 1860s. Yet photographers were already thinking ecologically, capturing not isolated objects but relationships.</p>
+                    <h3 class="scroll-fade-up">What Appears Together?</h3>
+                    <p class="scroll-fade-up" style="font-size: 1.05em; color: white; margin-top: -10px;">This network shows which elements consistently appear in the same photograph. Select objects to explore. Drag circles to see connections. Click any line to view the photographs.</p>
                     <div id="viz2" class="visualization-container scroll-reveal">
                         <!-- Controls for visualization 2 -->
                         <div class="cooccurrence-controls">
@@ -147,6 +164,14 @@
             </div>
         </section>
 
+        <!-- Insight 3: After Co-occurrence -->
+        <section id="insight-3" class="transition-section">
+            <div class="transition-text-container">
+                <div id="insight-text-3" class="transition-text"></div>
+            </div>
+            <div class="transition-spacer"></div>
+        </section>
+
         <!-- Transition 3: Insights to Timeline -->
         <section id="transition-3" class="transition-section">
             <div class="transition-text-container">
@@ -158,8 +183,9 @@
         <!-- Section 3: Main Message / Innovative Visualization -->
         <section id="main" class="section">
             <div class="section-content">
-                <h2 class="section-title scroll-fade-up">A Visual Timeline by Nationality</h2>
-                <p class="section-intro scroll-fade-up">How do objects differ by artist nationality and over time?</p>
+                <h2 class="section-title scroll-fade-up">A Planetary Consciousness in Different Dialects</h2>
+                <p class="section-intro scroll-fade-up">Photography spread globally in these decades. Each culture adopted the technology—but they didn't all photograph the same things. These differences reveal different environmental relationships and values.</p>
+                <p class="section-intro scroll-fade-up">Compare two nationalities side by side. Notice what each culture emphasized—and what that reveals about their relationship to place.</p>
                 
                 <div id="main-viz" class="visualization-container main-viz scroll-reveal">
                     <!-- Interactive Controls -->
@@ -209,6 +235,14 @@
             </div>
         </section>
 
+        <!-- Insight 4: After Timeline -->
+        <section id="insight-4" class="transition-section">
+            <div class="transition-text-container">
+                <div id="insight-text-4" class="transition-text"></div>
+            </div>
+            <div class="transition-spacer"></div>
+        </section>
+
         <!-- Conclusion Section -->
         <section id="conclusion" class="conclusion-section">
             <!-- Screen 1: Main message with image randomizer -->
@@ -219,8 +253,8 @@
                     </div>
                     <div class="conclusion-text-container">
                         <div class="conclusion-text">
-                            <div>Across time, style, and nationality, one theme persists:</div>
-                            <div style="font-style: italic; color: var(--accent-sepia); margin-top: 1rem;">Photographers return again and again to the environments around them.</div>
+                            <div>Across 80 years, dozens of nationalities, and thousands of images:</div>
+                            <div style="font-style: italic; color: var(--accent-sepia); margin-top: 1rem;">Photographers documented Earth at the turning point—the moment human activity became a planetary force.</div>
                         </div>
                     </div>
                 </div>
@@ -230,16 +264,25 @@
             <div class="conclusion-screen" id="conclusion-screen-2">
                 <div class="conclusion-text-container">
                     <div class="conclusion-text">
-                        In the Met's photographs, place is not background -- it is the subject. We are shaped by the buildings we build, the trees that line our paths, the mountains and water that stretch beyond our view.
+                        They couldn't have known what we know now: that CO₂ would rise from 280 to 420 ppm, that forests would vanish, that their photographs would become evidence in a planetary crisis. But they photographed nature anyway—obsessively, reverently. They were creating an archive of what mattered.
                     </div>
                 </div>
             </div>
 
-            <!-- Screen 3: Final reflection -->
+            <!-- Screen 3: Today's context -->
             <div class="conclusion-screen" id="conclusion-screen-3">
                 <div class="conclusion-text-container">
+                    <div class="conclusion-text">
+                        Today, your camera roll continues this archive. Every photograph you take is testimony. What are you documenting? Will your photographs be evidence that we saw what was happening and looked away—or proof that we saw and we acted?
+                    </div>
+                </div>
+            </div>
+
+            <!-- Screen 4: Call to action -->
+            <div class="conclusion-screen" id="conclusion-screen-4">
+                <div class="conclusion-text-container">
                     <div class="conclusion-text" style="color: var(--accent-sepia); font-style: italic;">
-                        How do your photographs capture the spaces in your life?
+                        Before you go: Take one photograph today. Not of a vacation or landmark. A living thing in your immediate environment. A tree you pass daily. Water you depend on. Sky you breathe under. Add it to the archive. Bear witness. Then protect what you've photographed.
                     </div>
                 </div>
             </div>
@@ -254,7 +297,7 @@
                     <div class="attribution-block">
                         <h4>Dataset</h4>
                         <p>Metropolitan Museum of Art OpenAccess Collection</p>
-                        <p class="small">1,395 photographs from 1839-2020s, enriched with semantic segmentation data identifying 27 object categories</p>
+                        <p class="small">1,395 photographs from 1839-1920s documenting Earth's transformation during the Anthropocene's beginning. Enriched with semantic segmentation identifying 27 object categories—using computer vision to reveal patterns invisible to individual viewers.</p>
                     </div>
                     
                     <div class="attribution-block">

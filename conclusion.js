@@ -18,6 +18,11 @@ function initConclusion() {
             id: 'conclusion-screen-3',
             element: document.getElementById('conclusion-screen-3'),
             textElement: document.querySelector('#conclusion-screen-3 .conclusion-text')
+        },
+        {
+            id: 'conclusion-screen-4',
+            element: document.getElementById('conclusion-screen-4'),
+            textElement: document.querySelector('#conclusion-screen-4 .conclusion-text')
         }
     ];
 

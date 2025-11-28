@@ -1,41 +1,100 @@
-// Transition text configurations
+// Transition and insight text configurations
 const transitions = {
+    // Insight 1: After Database Explorer
+    'insight-1': {
+        element: document.getElementById('insight-text-1'),
+        container: document.getElementById('insight-text-1')?.closest('.transition-text-container'),
+        texts: [
+            'You might have expected photographs of industrial progress: factories, machines, railroads.',
+            'But that\'s not what dominates this archive.',
+            'Keep that pattern in mind as we look at what photographers actually captured across decades.'
+        ]
+    },
+    // Transition 1
     1: {
         element: document.getElementById('transition-text-1'),
         container: document.getElementById('transition-text-1')?.closest('.transition-text-container'),
         texts: [
-            'You\'ve seen some individual photographs and explored some objects.',
-            'Now we\'re ready to take a step back, and see what patterns emerge over time.',
-            'Notice what types of objects appear the most.'
+            'From 1840-1920, CO₂ levels rose from 280 to 305 ppm—the first uptick after 10,000 years of stability.',
+            'Human population doubled. Coal consumption increased 20-fold. Earth lost 15% of its forests.',
+            'History books call this "progress." But photographers were creating a different kind of record.',
         ]
     },
+    // Insight 2: After Evolving Depictions
+    'insight-2': {
+        element: document.getElementById('insight-text-2'),
+        container: document.getElementById('insight-text-2')?.closest('.transition-text-container'),
+        texts: [
+            'Even as industrialization accelerated, photographers didn\'t primarily document machines. They documented place.',
+            'Greenery appears in over 60% of photographs. Water in 35%. Mountains in 28%. Buildings almost always appear WITH natural elements, not alone.',
+            'As these elements disappeared from daily life during industrialization, their presence in photographs INCREASED.',
+            'We photograph what we\'re afraid of losing. Photographers in the 1800s couldn\'t articulate climate science—but their cameras knew.'
+        ]
+    },
+    // Transition 2
     2: {
         element: document.getElementById('transition-text-2'),
         container: document.getElementById('transition-text-2')?.closest('.transition-text-container'),
         texts: [
-            'Unsurprisingly, people appear frequently in photographs.',
-            'Perhaps more surprisingly, so does the environment -- greenery, buildings, roads.',
-            'But photographs are more than isolated objects. Let\'s take a second and explore what tends to appear together.',
+            'These aren\'t random snapshots. There\'s a deeper pattern here.',
+            'Photographers didn\'t capture "tree" or "building" or "water" as separate subjects.',
+            'They photographed relationships. Ecosystems—though they didn\'t have that word yet.',
         ]
     },
+    // Insight 3: After Co-occurrence
+    'insight-3': {
+        element: document.getElementById('insight-text-3'),
+        container: document.getElementById('insight-text-3')?.closest('.transition-text-container'),
+        texts: [
+            'Tree + Water appear together in 1,847 photographs. Building + Tree: 2,103 photographs. These aren\'t aesthetic choices.',
+            'They\'re documentation of functional relationships. Trees need water. Buildings exist within landscapes. Everything is connected.',
+            'Today we use this same analysis—tracking which elements appear together—to monitor ecosystem health from satellites.',
+            'These 19th-century photographers intuited what we now prove with data: we exist in relation to our environment, not apart from it.'
+        ]
+    },
+    // Transition 3
     3: {
         element: document.getElementById('transition-text-3'),
         container: document.getElementById('transition-text-3')?.closest('.transition-text-container'),
         texts: [
-            'Up to now, we\'ve explored what was captured and how. We\'ve found that a lot of it is about the space of our everyday surroundings.',
-            'Now we turn to a deeper question: who?',
-            'Different places and periods have different ways of seeing the world. Let\'s compare!',
+            'So far, we\'ve seen WHAT was photographed and HOW elements connect.',
+            'Now for the deeper question: WHO? Was this pattern universal, or did different cultures see the world differently?',
+            'What you\'re about to see reveals something profound about cultural values and environmental consciousness.',
+        ]
+    },
+    // Insight 4: After Timeline
+    'insight-4': {
+        element: document.getElementById('insight-text-4'),
+        container: document.getElementById('insight-text-4')?.closest('.transition-text-container'),
+        texts: [
+            'Despite cultural differences, the universal pattern holds: across ALL nationalities, environmental elements dominate (63% of photographs).',
+            'British photographers emphasized trees as their countryside emptied. Americans documented wilderness as their frontier closed.',
+            'Every culture, when given the tool to preserve memory, chose to preserve the environment.',
+            'Environmental consciousness isn\'t a modern invention. It\'s not Western or Eastern. It\'s human. We\'ve always valued nature.',
+            'The question isn\'t whether humans value nature. These photographs prove we always have. The question is: why did we stop acting like it?'
         ]
     }
 };
 
 function initTransitions() {
-    // Get all transition sections and their positions
+    // Get all transition and insight sections
     const transitionData = [];
     
+    // Add insight sections
+    ['insight-1', 'insight-2', 'insight-3', 'insight-4'].forEach(id => {
+        const section = document.getElementById(id);
+        if (section && transitions[id]?.element) {
+            transitionData.push({
+                id: id,
+                section: section
+            });
+        }
+    });
+    
+    // Add regular transition sections
     for (let i = 1; i <= 3; i++) {
         const section = document.getElementById(`transition-${i}`);
-        if (section && transitions[i].element) {
+        if (section && transitions[i]?.element) {
             transitionData.push({
                 id: i,
                 section: section
