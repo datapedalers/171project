@@ -20,7 +20,7 @@
     
     /* Spacing */
     --section-padding: 100px;
-    --content-max-width: 1360px;
+    --content-max-width: 1800px;
 }
 
 .begin-screen {
@@ -206,7 +206,7 @@ p {
     max-width: var(--content-max-width);
     width: 100%;
     margin: 0 auto;
-    padding: 0 40px;
+    padding: 0 30px;
 }
 
 #intro {
@@ -329,7 +329,7 @@ p {
 .section-intro {
     text-align: left;
     font-size: 1.3rem;
-    max-width: 800px;
+    max-width: 1200px;
     margin: 0 auto 15px;
     color: var(--text-secondary);
     line-height: 1.8;
@@ -346,7 +346,7 @@ p {
 .section-intro + p.small {
     text-align: left;
     font-size: 0.9rem;
-    max-width: 800px;
+    max-width: 1200px;
     margin: 0 auto 40px;
     color: var(--text-secondary);
     font-style: italic;
@@ -379,10 +379,10 @@ p {
 }
 
 .visualization-container {
-    background: white;
+    background: transparent;
     border-radius: 8px;
     padding: 40px;
-    box-shadow: 0 4px 20px var(--shadow-color);
+    box-shadow: none;
     margin-bottom: 30px;
     position: relative;
     min-height: 400px;
@@ -445,7 +445,7 @@ p {
     gap: 15px;
     margin-bottom: 15px;
     padding: 15px 20px;
-    background: rgba(255, 255, 255, 0.5);
+    background: transparent;
     border-radius: 8px;
     border: 1px solid var(--border-color);
 }
@@ -929,19 +929,19 @@ svg {
 
 /* D3 Axis Styling */
 svg .tick line {
-    stroke: var(--accent-sepia);
+    stroke: white;
 }
 
 svg .tick text {
-    fill: var(--accent-sepia);
+    fill: white;
 }
 
 svg .domain {
-    stroke: var(--accent-sepia);
+    stroke: white;
 }
 
 svg text {
-    fill: var(--accent-sepia);
+    fill: white;
 }
 
 /* ===== VISUALIZATION 1 CONTROLS & LEGEND ===== */
@@ -976,7 +976,7 @@ svg text {
 }
 
 .timeline-row label {
-    color: var(--accent-sepia);
+    color: white;
 }
 
 #year-slider {
@@ -1002,7 +1002,7 @@ svg text {
     gap: 8px;
     align-items: center;
     font-size: 13px;
-    color: var(--text-secondary);
+    color: white;
 }
 
 .viz1-legend .legend-swatch {
@@ -1029,8 +1029,16 @@ svg text {
     position: relative;
 }
 
+#database-explorer .section-intro {
+    font-size: 1rem;
+}
+
+#database-explorer .small {
+    font-size: 0.85rem;
+}
+
 .explorer-container {
-    max-width: 900px;
+    max-width: 1600px;
     /* margin: 0 auto; */
     opacity: 0;
     transform: translateY(30px);
@@ -1055,7 +1063,7 @@ svg text {
 }
 
 .explorer-controls label {
-    font-size: 1rem;
+    font-size: 0.9rem;
     color: var(--accent-sepia);
     font-weight: 600;
     min-width: 150px;
@@ -1184,9 +1192,9 @@ svg text {
 }
 
 #cooccurrence-network {
-    background: white;
+    background: transparent;
     border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    box-shadow: none;
 }
 
 #cooccurrence-network circle {
