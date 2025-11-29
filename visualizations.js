@@ -70,11 +70,11 @@ function initDatabaseExplorer() {
     
     // Button click handler
     button.addEventListener('click', function() {
-        const selectedObject = selector.value;
+        let selectedObject = selector.value;
         
         if (!selectedObject) {
-            alert('Please select an object first');
-            return;
+            selectedObject = 'person';
+            selector.value = 'person';
         }
         
         // Find all photos with this object
