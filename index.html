@@ -51,60 +51,48 @@
         </section>
         
         <!-- Interactive Database Explorer -->
-        <section id="database-explorer" class="section">
-            <div class="section-content" style="display: flex; flex-direction:row; gap: 50px">
-                <div style="display: flex; flex-direction: column">
-                    <div>
-                        <h2 class="section-title scroll-fade-up">What's in the database?</h2>
-                        <p class="section-intro scroll-fade-up">Familiarize yourself with the Met's database of photographs by randomizing a few. Try selecting different objects!</p>
-                        <p class="small scroll-fade-up">Note: objects were detected using Segformer vision model and may not be 100% accurate.</p> 
-                    </div>
-                    <div class="explorer-container scroll-reveal" style="display: flex; flex-direction: column;gap: 20px; width: 50%">
-                        <div class="explorer-controls">
-                            <label for="object-selector">Select an object:</label>
-                            <select id="object-selector" class="dropdown-control">
-                                <option value="">Choose an object...</option>
-                            </select>
-                            
-                        </div>
-                        <button id="random-photo-btn" class="explorer-btn">Show Random Photograph</button>
-                    </div>
-                </div>
-                <div id="random-photo-display" class="random-photo-container"></div>
-        </section>
         
         <!-- Transition 1: Database to Insights -->
-        <section id="transition-1" class="transition-section">
-            <div class="transition-text-container">
-                <div id="transition-text-1" class="transition-text"></div>
-            </div>
-            <div class="transition-spacer"></div>
-        </section>
         
-        <section id="insights" class="section">
+        <section id="insights" class="section" style="background: var(--bg-secondary)">
             <div class="section-content">
-                <h2 class="section-title scroll-fade-up">Evolving Depictions</h2>
-                <p class="section-intro scroll-fade-up">Certain types of objects appear more than others, and this may change over time. What do you notice?</p>
+                <!-- <h2 class="section-title scroll-fade-up">Evolving Depictions</h2>
+                <p class="section-intro scroll-fade-up">    es of objects appear more than others, and this may change over time. What do you notice?</p> -->
+                <div style="display: flex; flex-direction: column; gap: 100px;">
+                    <h1>In the 1840s,</h>
+                    <div style="display: flex; justify-content: flex-end; align-items: center; gap: 20px">
+                        <h4 style="letter-spacing: 0px">29.9% of photos in the museum contained people;</h4>
+                        <div id="insights-photo-1" class="random-photo-container" data-object="person"></div>
+                    </div>
+                    <div style="display: flex; justify-content: flex-start; align-items: center; gap: 20px">
+                       <div id="insights-photo-2" class="random-photo-container" data-object="building"></div>
+                        <h4 style="letter-spacing: 0px">28.0% of photos contained buildings;</h4>
+                    </div>
+                    <div style="display: flex; justify-content: flex-end; align-items: center; gap: 20px">
+                        <h4 style="letter-spacing: 0px">And 15.9% of photos were detected to have greenery.</h4>
+                        <div id="insights-photo-3" class="random-photo-container" data-object="tree"></div>
+                    </div>
+                </div>
+                <div style="display: flex; align-items: center; justify-content: center; padding: 100px 0px">
+                    <h4>Use the controls below to explore the content of the Met's photographs throughout the decades.</h4>
+                </div>
                 
                 <!-- Visualization 1 -->
                 <div class="insight-block">
-                    <h3 class="scroll-fade-up">What objects are most common?</h3>
-                    <p class="scroll-fade-up" style="font-size: 1.05em; color: white; margin-top: -10px;">Click a box to see the photos depicting the corresponding objects! Manually drag the slider or use arrow keys to view changes in object frequencies by year!</p>
+                    <!-- <h3 class="scroll-fade-up">What objects are most common?</h3> -->
+                    <!-- <p class="scroll-fade-up" style="font-size: 1.05em; color: white; margin-top: -10px;">Click a box to see the photos depicting the corresponding objects! Manually drag the slider or use arrow keys to view changes in object frequencies by year!</p> -->
                     <div id="viz1" class="visualization-container scroll-reveal">
-                        <svg id="subject-timeline"></svg>
-
-                        <!-- Controls for visualization 1: timeline slider + decade label -->
                         <div id="viz1-controls" class="viz1-controls">
                             <div class="timeline-row">
                                 <label for="year-slider">Select decade</label>
-                                <input id="year-slider" type="range" min="1840" max="1910" step="10" value="1870">
-                                <div id="year-label" class="year-label">1870s</div>
+                                <input id="year-slider" type="range" min="1840" max="1910" step="10" value="1840">
+                                <div id="year-label" class="year-label">1840s</div>
                                 <label class="checkbox-label" style="margin-left:12px;">
-                                    <input id="percent-toggle" type="checkbox">
+                                    <input id="percent-toggle" type="checkbox" checked>
                                     <span style="margin-left:6px; font-weight:600;">Show percentages</span>
                                 </label>
                                 <label class="checkbox-label" style="margin-left:8px;">
-                                    <input id="cumulative-toggle" type="checkbox">
+                                    <input id="cumulative-toggle" type="checkbox" checked>
                                     <span style="margin-left:6px; font-weight:600;">Cumulative (≤ decade)</span>
                                 </label>
                             </div>
@@ -112,9 +100,13 @@
                                 <!-- Legend will be populated by JS -->
                             </div>
                         </div>
+                        <svg id="subject-timeline"></svg>
+
+                        <!-- Controls for visualization 1: timeline slider + decade label -->
+                        
                     </div>
                 </div>
-        
+        </section>
         <!-- Transition 2: Viz1 to Deeper Insights -->
         <section id="transition-2" class="transition-section">
             <div class="transition-text-container">
@@ -122,7 +114,9 @@
             </div>
             <div class="transition-spacer"></div>
         </section>
-
+        
+        <section id="deeper-insights" class="section" style="background: var(--bg-secondary)" >
+            <div class="section-content">
                 <!-- Visualization 2: Co-occurrence Network -->
                 <div class="insight-block">
                     <h2 class="section-title scroll-fade-up">Deeper Insights: The Visual Grammar of Composition</h2>
@@ -147,6 +141,34 @@
             </div>
         </section>
 
+        <section id="transition-1" class="transition-section">
+            <div class="transition-text-container">
+                <div id="transition-text-1" class="transition-text"></div>
+            </div>
+            <div class="transition-spacer"></div>
+        </section>
+
+        <section id="database-explorer" class="section">
+            <div class="section-content" style="display: flex; flex-direction:row; gap: 50px">
+                <div style="display: flex; flex-direction: column">
+                    <div>
+                        <h2 class="section-title scroll-fade-up">What's in the database?</h2>
+                        <p class="section-intro scroll-fade-up">Familiarize yourself with the Met's database of photographs by randomizing a few. Try selecting different objects!</p>
+                        <p class="small scroll-fade-up">Note: objects were detected using Segformer vision model and may not be 100% accurate.</p> 
+                    </div>
+                    <div class="explorer-container scroll-reveal" style="display: flex; flex-direction: column;gap: 20px; width: 50%">
+                        <div class="explorer-controls">
+                            <label for="object-selector">Select an object:</label>
+                            <select id="object-selector" class="dropdown-control">
+                                <option value="">Choose an object...</option>
+                            </select>
+                            
+                        </div>
+                        <button id="random-photo-btn" class="explorer-btn">Show Random Photograph</button>
+                    </div>
+                </div>
+                <div id="random-photo-display" class="random-photo-container"></div>
+        </section>
         <!-- Transition 3: Insights to Timeline -->
         <section id="transition-3" class="transition-section">
             <div class="transition-text-container">
