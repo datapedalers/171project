@@ -570,9 +570,11 @@ function drawSubjectTreemap(svg, width, vizHeight, year, asPercent = false, cumu
     }
 
     // Build children with both raw count and value (value is used for treemap sizing)
+    // Note: percentages are calculated relative to total photos, not sum of categories
+    // So categories won't add up to 100% since photos can have multiple categories
     const children = Object.keys(counts).map(k => {
         const cnt = counts[k] || 0;
-        const val = asPercent ? (sumCounts > 0 ? (cnt / sumCounts) * 100 : 0) : cnt;
+        const val = asPercent ? (photosInYear > 0 ? (cnt / photosInYear) * 100 : 0) : cnt;
         const imageIds = getImagesForCategory(k, year, cumulative);
         return { name: k, count: cnt, value: val, imageIds: imageIds };
     });
@@ -868,8 +870,8 @@ function drawSubjectTreemap(svg, width, vizHeight, year, asPercent = false, cumu
         .style('cursor', 'pointer')
         .on('mousemove', (event, d) => {
             const raw = d.data.count;
-            const normalized = sumCounts > 0 ? (d.data.count / sumCounts) * 100 : 0;
-            const html = `<strong>${d.data.name}</strong><br>${raw} photos<br>${normalized.toFixed(1)}% of category appearances<br><em style="font-size:11px; opacity:0.8;">Click to view all photos</em>`;
+            const normalized = photosInYear > 0 ? (d.data.count / photosInYear) * 100 : 0;
+            const html = `<strong>${d.data.name}</strong><br>${raw} photos<br>${normalized.toFixed(1)}% of total photographs<br><em style="font-size:11px; opacity:0.8;">Click to view all photos</em>`;
             tooltip.html(html).style('left', (event.pageX + 12) + 'px').style('top', (event.pageY + 12) + 'px').style('display', 'block');
         })
         .on('mouseout', () => tooltip.style('display', 'none'))
