@@ -459,7 +459,7 @@ function getCategoryCountsForYear(year, cumulative = false) {
 }
 
 // Helper: Get image IDs for a category and year
-function getImagesForCategory(categoryName, year, cumulative = false) {
+function getImagesForCategory(categoryName, year, cumulative = false, forModal = false) {
     // Map of display categories to underlying dataset fields
     const categoryMap = {
         'Person': ['has_person'],
@@ -479,7 +479,8 @@ function getImagesForCategory(categoryName, year, cumulative = false) {
     const yearPhotos = photographData.filter(d => {
         const y = +d.creation_year;
         if (!y || isNaN(y)) return false;
-        if (cumulative) {
+        // When opening modal, always show cumulative data (all photos up to and including the decade)
+        if (forModal || cumulative) {
             return Math.floor(y) <= Math.floor(year) + 9; // Include entire ending decade
         }
         // Check if year falls within the decade (e.g., 1870-1879 for 1870s)
@@ -499,8 +500,8 @@ function getImagesForCategory(categoryName, year, cumulative = false) {
         }
     });
 
-    // Limit to 15 random photos for better performance
-    if (matchingPhotos.length > 15) {
+    // Only limit to 15 random photos for treemap display (not for modal)
+    if (!forModal && matchingPhotos.length > 15) {
         // Shuffle array using Fisher-Yates algorithm
         const shuffled = [...matchingPhotos];
         for (let i = shuffled.length - 1; i > 0; i--) {
@@ -879,7 +880,9 @@ function drawSubjectTreemap(svg, width, vizHeight, year, asPercent = false, cumu
             const rect = this.getBoundingClientRect();
             const clickX = rect.left + rect.width / 2;
             const clickY = rect.top + rect.height / 2;
-            showCategoryModal(d.data.name, d.data.imageIds, year, clickX, clickY);
+            // Get all cumulative images for the modal
+            const cumulativeImages = getImagesForCategory(d.data.name, year, true, true);
+            showCategoryModal(d.data.name, cumulativeImages, year, clickX, clickY);
         });
 
     // Update caption above mosaic (reuse group) - centered and larger

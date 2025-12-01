@@ -50,28 +50,6 @@
             <div style="height:10000px"></div>
         </section>
         
-        <!-- Interactive Database Explorer -->
-        <section id="database-explorer" class="section">
-            <div class="section-content" style="display: flex; flex-direction:row; gap: 50px">
-                <div style="display: flex; flex-direction: column">
-                    <div>
-                        <h2 class="section-title scroll-fade-up">What's in the database?</h2>
-                        <p class="section-intro scroll-fade-up">Familiarize yourself with the Met's database of photographs by randomizing a few. Try selecting different objects!</p>
-                        <p class="small scroll-fade-up">Note: objects were detected using Segformer vision model and may not be 100% accurate.</p> 
-                    </div>
-                    <div class="explorer-container scroll-reveal" style="display: flex; flex-direction: column;gap: 20px; width: 50%">
-                        <div class="explorer-controls">
-                            <label for="object-selector">Select an object:</label>
-                            <select id="object-selector" class="dropdown-control">
-                                <option value="">Choose an object...</option>
-                            </select>
-                            
-                        </div>
-                        <button id="random-photo-btn" class="explorer-btn">Show Random Photograph</button>
-                    </div>
-                </div>
-                <div id="random-photo-display" class="random-photo-container"></div>
-        </section>
         
         <!-- Transition 1: Database to Insights -->
         
@@ -94,9 +72,9 @@
                         <div id="insights-photo-3" class="random-photo-container" data-object="tree"></div>
                     </div>
                 </div>
-                <div style="display: flex; align-items: center; justify-content: center; padding: 100px 0px">
+                <!-- <div style="display: flex; align-items: center; justify-content: center; padding: 100px 0px">
                     <h4>Use the controls below to explore the content of the Met's photographs throughout the decades.</h4>
-                </div>
+                </div> -->
                 
                 <!-- Visualization 1 -->
                 <div class="insight-block">
