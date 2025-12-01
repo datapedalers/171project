@@ -66,6 +66,7 @@ function initIntro() {
         throttledSetRandomImage();
 
         const scrollPosition = window.scrollY;
+        
         if (scrollPosition > ANIMSTART) {
             scrollThreshold = true;
             rotating = false;

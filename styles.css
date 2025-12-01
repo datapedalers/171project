@@ -1389,8 +1389,8 @@ svg text {
 /* ===== TRANSITION SECTIONS ===== */
 .transition-section {
     background: var(--bg-primary);
+    width: 100vw;
     position: relative;
-    width: 100%;
 }
 
 .transition-text-container {
@@ -1403,7 +1403,7 @@ svg text {
     align-items: center;
     justify-content: center;
     pointer-events: none;
-    z-index: 10;
+    background: var(--bg-primary);
 }
 
 .transition-text {
@@ -1420,6 +1420,7 @@ svg text {
 .transition-spacer {
     height: 400vh;
     width: 100%;
+    background: var(--bg-primary);
 }
 
 /* ===== CONCLUSION SECTION ===== */
