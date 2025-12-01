@@ -74,14 +74,6 @@ function initIntro() {
             rotating = true;
         }
 
-        // Hide entire intro section when past it (after 10000px)
-        if (scrollPosition > 10000) {
-            introSection.style.display = 'none';
-            return;
-        } else {
-            introSection.style.display = 'block';
-        }
-
         overlay.style('opacity', Math.min(1, Math.max((scrollPosition - ANIMSTART - 500) / 1000, 0)));
         
         const textOpacity = Math.min(1, Math.max((scrollPosition - ANIMSTART - 1500) / 1000, 0));

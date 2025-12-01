@@ -36,6 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
         initIntroCam();
         initIntro();
         initDatabaseExplorer();
+        initInsightsPhotos();
         initVisualization1();
         initVisualization2();
         initMainVisualization();
@@ -50,10 +51,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 // ===== DATABASE EXPLORER =====
+let selector, displayContainer; // Make these accessible to displayRandomPhoto
+
 function initDatabaseExplorer() {
-    const selector = document.getElementById('object-selector');
+    selector = document.getElementById('object-selector');
     const button = document.getElementById('random-photo-btn');
-    const displayContainer = document.getElementById('random-photo-display');
+    displayContainer = document.getElementById('random-photo-display');
     
     if (!selector || !button || !displayContainer) return;
     
@@ -66,15 +69,23 @@ function initDatabaseExplorer() {
     });
     
     // Show placeholder initially
-    displayContainer.innerHTML = '<div class="explorer-placeholder">Select an object and click the button to see a random photograph</div>';
-    
+    // displayContainer.innerHTML = '<div class="explorer-placeholder">Select an object and click the button to see a random photograph</div>';
+    displayRandomPhoto();
     // Button click handler
     button.addEventListener('click', function() {
-        const selectedObject = selector.value;
+        
+        // Select a random photo
+        displayRandomPhoto();
+    });
+}
+
+function displayRandomPhoto() {
+        
+        let selectedObject = selector.value;
         
         if (!selectedObject) {
-            alert('Please select an object first');
-            return;
+            selectedObject = 'person';
+            selector.value = 'person';
         }
         
         // Find all photos with this object
@@ -86,7 +97,7 @@ function initDatabaseExplorer() {
             return;
         }
         
-        // Select a random photo
+        // Select a random photo from filtered results
         const randomPhoto = photosWithObject[Math.floor(Math.random() * photosWithObject.length)];
         
         // Display the photo
@@ -120,16 +131,116 @@ function initDatabaseExplorer() {
         const objectLabel = document.createElement('p');
         objectLabel.innerHTML = `<strong>Detected Object:</strong> ${selectedObject.charAt(0).toUpperCase() + selectedObject.slice(1)}`;
         
-        info.appendChild(title);
-        info.appendChild(artist);
-        info.appendChild(date);
-        info.appendChild(origin);
-        info.appendChild(objectLabel);
+        // info.appendChild(title);
+        // info.appendChild(artist);
+        // info.appendChild(date);
+        // info.appendChild(origin);
+        // info.appendChild(objectLabel);
         
         card.appendChild(img);
-        card.appendChild(info);
+        // card.appendChild(info);
         displayContainer.appendChild(card);
+}
+
+// ===== INSIGHTS RANDOM PHOTOS =====
+function initInsightsPhotos() {
+    // Find all random photo containers in insights section
+    const containers = document.querySelectorAll('#insights .random-photo-container');
+    
+    containers.forEach(container => {
+        const objectType = container.getAttribute('data-object') || 'person';
+        displayInsightPhoto(container, objectType);
     });
+}
+
+function displayInsightPhoto(container, objectType) {
+    if (!container) return;
+    
+    // Find all photos with this object
+    const hasField = `has_${objectType}`;
+    const photosWithObject = photographData.filter(p => p[hasField] === '1.0');
+    
+    if (photosWithObject.length === 0) {
+        container.innerHTML = '<div class="explorer-placeholder">No photographs found</div>';
+        return;
+    }
+    
+    // Select a random photo from filtered results
+    const randomPhoto = photosWithObject[Math.floor(Math.random() * photosWithObject.length)];
+    
+    // Display the photo
+    container.innerHTML = '';
+    const card = document.createElement('div');
+    card.className = 'random-photo-card';
+    card.style.position = 'relative';
+    
+    const img = document.createElement('img');
+    img.src = `images_met_resized/${randomPhoto.object_id}.jpg`;
+    img.alt = 'Photograph';
+    img.onerror = function() {
+        this.src = 'placeholder.jpg';
+        this.alt = 'Image not available';
+    };
+    
+    const info = document.createElement('div');
+    info.className = 'random-photo-info';
+    info.style.opacity = '0';
+    info.style.pointerEvents = 'none';
+    
+    const title = document.createElement('h4');
+    title.textContent = `Photograph #${randomPhoto.object_id}`;
+    
+    const artist = document.createElement('p');
+    artist.innerHTML = `<strong>Artist:</strong> ${randomPhoto.artist_name || 'Unknown'}`;
+    
+    const date = document.createElement('p');
+    date.innerHTML = `<strong>Year:</strong> ${randomPhoto.creation_year || 'Unknown'}`;
+    
+    const origin = document.createElement('p');
+    origin.innerHTML = `<strong>Origin:</strong> ${randomPhoto.origin || 'Unknown'}`;
+    
+    const objectLabel = document.createElement('p');
+    objectLabel.innerHTML = `<strong>Detected Object:</strong> ${objectType.charAt(0).toUpperCase() + objectType.slice(1)}`;
+    
+    info.appendChild(title);
+    info.appendChild(artist);
+    info.appendChild(date);
+    info.appendChild(origin);
+    info.appendChild(objectLabel);
+    
+    // Add info button that toggles info card
+    const infoBtn = document.createElement('button');
+    infoBtn.className = 'insight-photo-info-btn';
+    infoBtn.innerHTML = 'i';
+    infoBtn.title = 'Show/hide photo information';
+    infoBtn.onclick = (e) => {
+        e.stopPropagation();
+        if (info.style.opacity === '0') {
+            info.style.opacity = '1';
+            info.style.pointerEvents = 'auto';
+            infoBtn.classList.add('active');
+        } else {
+            info.style.opacity = '0';
+            info.style.pointerEvents = 'none';
+            infoBtn.classList.remove('active');
+        }
+    };
+    
+    // Add refresh button in top right
+    const refreshBtn = document.createElement('button');
+    refreshBtn.className = 'insight-photo-refresh-btn';
+    refreshBtn.innerHTML = '↻';
+    refreshBtn.title = 'Load new random photo';
+    refreshBtn.onclick = (e) => {
+        e.stopPropagation();
+        displayInsightPhoto(container, objectType);
+    };
+    
+    card.appendChild(img);
+    card.appendChild(info);
+    card.appendChild(infoBtn);
+    card.appendChild(refreshBtn);
+    container.appendChild(card);
 }
 
 // ===== IMAGE PRELOADING FOR VIZ 1 =====
@@ -254,7 +365,7 @@ function initVisualization1() {
         slider.min = 1840;
         slider.max = 1910; // Show decades up to 1910s
         slider.step = 10; // Step by decades
-        slider.value = 1870;
+        slider.value = 184;
         yearLabel.textContent = slider.value + 's';
 
         const draw = () => {
@@ -416,7 +527,7 @@ function getCooccurrenceImages(object1, object2) {
 }
 
 // Draws a treemap/mosaic for the provided year with image collages
-function drawSubjectTreemap(svg, width, vizHeight, year, asPercent = false, cumulative = false) {
+function drawSubjectTreemap(svg, width, vizHeight, year, asPercent = false, cumulative = true) {
     // leave room on the right for legend by increasing right margin
     const margin = { top: 60, right: 20, bottom: 20, left: 20 };
     const innerWidth = width - margin.left - margin.right;
@@ -559,8 +670,8 @@ function drawSubjectTreemap(svg, width, vizHeight, year, asPercent = false, cumu
     // MERGE
     const tilesMerge = tilesEnter.merge(tiles);
 
-    // Transition tiles to new positions/sizes - faster transitions for better responsiveness
-    const transitionDuration = 0; // No transition for instant updates
+    // Transition tiles to new positions/sizes
+    const transitionDuration = 500; // Smooth transition when decade changes
     
     tilesMerge.transition().duration(transitionDuration).style('opacity', 1).attr('transform', d => `translate(${d.x0},${d.y0})`); 
 
@@ -774,14 +885,14 @@ function drawSubjectTreemap(svg, width, vizHeight, year, asPercent = false, cumu
     // Update caption above mosaic (reuse group) - centered and larger
     const cap = rootG.selectAll('g.viz1-caption').data([1]);
     const capEnter = cap.enter().append('g').attr('class', 'viz1-caption');
-    capEnter.merge(cap).selectAll('text').data([`Decade: ${year}s ${asPercent ? '(percentages)' : ''}`]).join('text')
-        .attr('x', width / 2)
-        .attr('y', 30)
-        .attr('text-anchor', 'middle')
-        .style('font-size', '24px')
-        .style('fill', 'white')
-        .style('font-weight', '600')
-        .text(d => d);
+    // capEnter.merge(cap).selectAll('text').data([`Decade: ${year}s`]).join('text')
+    //     .attr('x', width / 2)
+    //     .attr('y', 30)
+    //     .attr('text-anchor', 'middle')
+    //     .style('font-size', '24px')
+    //     .style('fill', 'white')
+    //     .style('font-weight', '600')
+    //     .text(d => d);
 
     // Legend removed as requested - colors are now just for visual appeal
 }
