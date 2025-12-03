@@ -56,7 +56,7 @@
 .camera {
     width:5%; 
     aspect-ratio:1;
-    background: url('woodtexture.jpeg');
+    background: url('woodtexture.png');
     background-size: cover;
     display:flex; 
     justify-content:center; 
