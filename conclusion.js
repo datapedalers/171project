@@ -8,6 +8,7 @@ function initConclusion() {
             id: 'conclusion-screen-1',
             element: document.getElementById('conclusion-screen-1'),
             textElement: document.querySelector('#conclusion-screen-1 .conclusion-text')
+
         },
         {
             id: 'conclusion-screen-2',
@@ -69,13 +70,15 @@ function initConclusion() {
 
         // Define zones for each screen
         const fadeInZone = windowHeight * 0.5;
-        const screenDuration = windowHeight * 2; // Each screen gets 2vh
+        const screenDuration = windowHeight * 1.2; // Each screen gets 2vh
         const fadeOutZone = windowHeight * 0.5;
-        const finalFadeOutStart = (screens.length * screenDuration) + fadeOutZone;
+        const finalFadeOutStart = (screens.length * (screenDuration -1 ));
         const finalFadeOutDuration = windowHeight * 1;
-
-        // Check if we're in the conclusion section
-        if (scrollIntoSection >= -windowHeight && scrollIntoSection < sectionHeight) {
+``
+        // Check if we're in the conclusion section (use calculated final range
+        // so the animation runs for the full duration even if the DOM-measured
+        // section height is shorter).
+        if (scrollIntoSection >= -windowHeight && scrollIntoSection < finalFadeOutStart + finalFadeOutDuration) {
             screens.forEach((screen, index) => {
                 const screenStart = index * screenDuration;
                 const screenEnd = screenStart + screenDuration + fadeOutZone;
@@ -97,7 +100,7 @@ function initConclusion() {
                         opacity = relativeScroll / fadeInZone;
                     } else if (!isLastScreen && relativeScroll >= screenDuration) {
                         // Fade out (for non-last screens)
-                        opacity = Math.max(0, 1 - (relativeScroll - screenDuration) / fadeOutZone);
+                        opacity = Math.max(0, 1 - (relativeScroll) / fadeOutZone);
                     } else if (isLastScreen) {
                         // Last screen: stay visible, then scroll upward
                         if (scrollIntoSection >= finalFadeOutStart) {
@@ -110,6 +113,10 @@ function initConclusion() {
                     }
 
                     screen.textElement.style.opacity = Math.max(0, Math.min(1, opacity));
+
+                    if (index == 0) {
+                         imageRandomizer.style.opacity = Math.max(0, Math.min(1, opacity));
+                    }
 
                     // Start/stop image randomizer for screen 1
                     if (index === 0) {
@@ -148,7 +155,6 @@ function initConclusion() {
 
     // Attach scroll listener
     window.addEventListener('scroll', handleConclusionScroll);
-    window.addEventListener('resize', handleConclusionScroll);
 
     // Initial call
     handleConclusionScroll();

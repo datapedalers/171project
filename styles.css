@@ -8,7 +8,7 @@
 :root {
     /* Sepia/Gray Color Scheme */
     --bg-primary: #1C1A19;
-    --bg-secondary: #393532;
+    --bg-secondary: #252220;
     --bg-tertiary: #393532;
     --text-primary: #F7F0E4;
     --text-secondary: #F7F0E4;
@@ -371,9 +371,6 @@ p {
     transform: translateY(0);
 }
 
-.insight-block {
-    margin-bottom: 120px;
-}
 
 .insight-block h3 {
     color: var(--accent-sepia);
@@ -862,6 +859,8 @@ p {
     opacity: 0;
     transform: translateY(30px);
     transition: all 1s ease;
+    position: relative;
+    z-index: 1000; /* keep content above the overlay */
 }
 
 .attribution.visible {
@@ -889,6 +888,22 @@ p {
     font-size: 0.9rem;
     line-height: 1.6;
     color: var(--accent-sepia);
+}
+
+/* Full-bleed overlay behind the attribution content to cover anything underneath */
+#attribution {
+    position: relative;
+    z-index: 999; /* place the section above other page elements */
+    background: transparent; /* keep original background from markup if present */
+}
+
+#attribution::before {
+    content: "";
+    position: absolute;
+    inset: 0; /* cover entire section */
+    background: var(--bg-primary); /* near-opaque fill — change alpha as needed */
+    pointer-events: none;
+    z-index: 998; /* sit below the .attribution content but above page */
 }
 
 /* ===== ANIMATIONS ===== */

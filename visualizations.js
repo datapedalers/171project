@@ -952,27 +952,13 @@ function showCategoryModal(categoryName, imageIds, year, clickX, clickY) {
         }
     }, true);
     
-    // Zoom the main content focused on the clicked spot with much more zoom
-    // Use fixed positioning for proper transform origin
-    const scrollY = window.pageYOffset || document.documentElement.scrollTop;
-    const scrollX = window.pageXOffset || document.documentElement.scrollLeft;
-    const absoluteY = viewportY + scrollY;
-    const absoluteX = viewportX + scrollX;
+    // SAFEST FIX: Do not scale/fade the entire #main-content.
+    // This preserves scroll and avoids breaking transition sections.
+    // Keep focus on modal overlay fade-in only.
     
-    mainContent
-        .style('transform-origin', `${absoluteX}px ${absoluteY}px`)
-        .style('position', 'relative')
-        .style('will-change', 'transform')
-        .transition()
-        .duration(1500)
-        .ease(d3.easeExpIn) // Exponential easing: starts slow, accelerates dramatically  
-        .style('transform', 'scale(10)') // Much larger scale for dramatic zoom
-        .style('opacity', '0');
-    
-    // Fade in modal background  
+    // Fade in modal background immediately (no delay)
     modal.transition()
-        .delay(1000)
-        .duration(500)
+        .duration(300)
         .ease(d3.easeQuadOut)
         .style('opacity', '1')
         .style('background', 'rgba(0, 0, 0, 0.95)');
@@ -1113,8 +1099,7 @@ function showCategoryModal(categoryName, imageIds, year, clickX, clickY) {
         // Animate card entrance with stagger - faster loading
         d3.select(imageCard.node())
             .transition()
-            .delay(800 + index * 8) // Reduced delay for faster loading
-            .duration(300)
+            .duration(200)
             .ease(d3.easeCubicOut)
             .style('opacity', '1')
             .style('transform', 'translateY(0)');
@@ -1133,26 +1118,15 @@ function showCategoryModal(categoryName, imageIds, year, clickX, clickY) {
 
 function closeCategoryModal() {
     const modal = d3.select('#category-modal');
-    const mainContent = d3.select('#main-content');
     
-    // Fade out modal
+    // Fade out modal to match fade-in timing/ease
     modal.transition()
-        .duration(500)
-        .ease(d3.easeCubicIn)
+        .duration(300)
+        .ease(d3.easeQuadOut)
         .style('opacity', '0')
         .on('end', function() {
             modal.remove();
         });
-    
-    // Zoom main content back in with deceleration
-    mainContent
-        .style('will-change', 'auto')
-        .transition()
-        .duration(900)
-        .ease(d3.easeExpOut)
-        .style('transform', 'scale(1)')
-        .style('opacity', '1')
-        .style('transform-origin', 'center center');
 }
 
 function showPhotoDetail(imageId) {

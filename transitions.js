@@ -36,6 +36,9 @@ const transitions = {
         element: document.getElementById('transition-text-2'),
         container: document.getElementById('transition-text-2')?.closest('.transition-text-container'),
         texts: [
+            'Even as industrialization accelerated, photographers didn\'t primarily document machines. They documented place.',
+            'Greenery appears in over 37% of all photographs. Water in 13%. Mountains in 20%. Buildings almost always appear WITH natural elements, not alone.',
+            'As these elements disappeared from daily life during industrialization, their presence in photographs INCREASED.',
             'But these photos aren\'t just random snapshots. There\'s a deeper pattern.',
             'Photographers didn\'t capture "tree" or "building" or "water" as separate subjects.',
             'They photographed relationships. Ecosystems—though they didn\'t have that word yet. Let\'s look at the interconnectedness of the elements.',
@@ -105,44 +108,54 @@ function initTransitions() {
             // Get section position dynamically
             const rect = section.getBoundingClientRect();
             const sectionTop = scrollPosition + rect.top;
-            const sectionHeight = rect.height;
+            let sectionHeight = rect.height;
             
             // Calculate scroll position relative to section start
             const scrollIntoSection = scrollPosition - sectionTop;
             
             // Define zones (each text gets 1vh of scroll space)
-            const fadeInZone = windowHeight * 0.5; // Fade in during first 0.5vh
+            const fadeInZone = windowHeight * 0.3; // Fade in during first 0.5vh
             const textChangeZone = windowHeight * 1; // 1vh per text change
             const totalTextZone = textChangeZone * config.texts.length;
-            const fadeOutStart = totalTextZone;
+            // Fade out should begin after fade-in completes and all text zones have passed
+            const fadeOutStart = fadeInZone + totalTextZone;
             const fadeOutZone = windowHeight * 0.5;
+
+            // Ensure the section is tall enough to accommodate all text + fade zones
+            const requiredHeight = fadeOutStart + fadeOutZone + 50; // add small buffer
+            if (sectionHeight < requiredHeight) {
+                section.style.minHeight = requiredHeight + 'px';
+                sectionHeight = requiredHeight;
+            }
             
             // Check if we're in the transition section
             if (scrollIntoSection >= -windowHeight && scrollIntoSection < sectionHeight) {
-                // Show/hide the container
-                if (scrollIntoSection >= 0 && scrollIntoSection < fadeOutStart + fadeOutZone) {
+                // Show/hide the container — keep visible through fade-out
+                if (scrollIntoSection < fadeOutStart + fadeOutZone) {
                     config.container.style.display = 'flex';
-                    
+
                     // Calculate opacity
                     let opacity = 1;
                     if (scrollIntoSection < fadeInZone) {
-                        // Fade in
+                        // Fade in (negative values will be clamped to 0)
                         opacity = scrollIntoSection / fadeInZone;
                     } else if (scrollIntoSection >= fadeOutStart) {
                         // Fade out
                         opacity = Math.max(0, 1 - (scrollIntoSection - fadeOutStart) / fadeOutZone);
                     }
-                    
-                    config.element.style.opacity = Math.max(0, Math.min(1, opacity));
-                    
+
+                    const clamped = Math.max(0, Math.min(1, opacity));
+                    if (config.container) config.container.style.opacity = clamped;
+                    if (config.element) config.element.style.opacity = clamped;
+
                     // Calculate which text to show
                     const textProgress = Math.max(0, scrollIntoSection - fadeInZone);
                     const textIndex = Math.min(
                         config.texts.length - 1,
                         Math.floor(textProgress / textChangeZone)
                     );
-                    
-                    config.element.textContent = config.texts[textIndex];
+
+                    if (config.element) config.element.textContent = config.texts[textIndex];
                 } else {
                     config.container.style.display = 'none';
                 }
@@ -154,7 +167,6 @@ function initTransitions() {
     
     // Attach scroll listener
     window.addEventListener('scroll', handleTransitionScroll);
-    window.addEventListener('resize', handleTransitionScroll);
     
     // Initial call
     handleTransitionScroll();
