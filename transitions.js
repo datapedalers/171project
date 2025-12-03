@@ -49,7 +49,7 @@ const transitions = {
         element: document.getElementById('insight-text-3'),
         container: document.getElementById('insight-text-3')?.closest('.transition-text-container'),
         texts: [
-            'Tree + Water appear together in 1,847 photographs. Building + Tree: 2,103 photographs. These aren\'t just aesthetic choices.',
+            'Tree + Water appear together in 127 photographs. Building + Tree: 461 photographs. These aren\'t just aesthetic choices.',
             'They\'re documentation of functional relationships. Trees need water. Buildings exist within landscapes. Everything is connected.',
             'Today we use this same analysis—tracking which elements appear together—to monitor ecosystem health from satellites.',
             'These 19th-century photographers intuited what we now prove with data: we exist in relation to our environment, not apart from it.',
