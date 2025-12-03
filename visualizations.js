@@ -1,8 +1,3 @@
-/**
- * D3.js Visualizations
- * Contains placeholder structures for the two required visualizations
- * and the main interactive timeline visualization
- */
 
 // ===== GLOBAL VARIABLES =====
 let photographData = [];
@@ -3044,13 +3039,3 @@ window.visualizations = {
     initMainVisualization,
     updateMainVisualization
 };
-// cache bust 
-// cache bust 2 
-// cache bust 3 
-// cache bust 4 
-// cache bust 5 
-// cache bust 6 
-// cache bust 7 
-// cache bust 8 
-// cache bust 9 
-// cache bust 10 
