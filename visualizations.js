@@ -7,13 +7,13 @@
 // ===== GLOBAL VARIABLES =====
 let photographData = [];
 let currentFilter = 'all';
-let currentViewType = 'streamgraph';
+let currentViewType = 'percentage-stream';
 let selectedObjects = ['person', 'building', 'tree', 'water', 'mountain'];
 let selectedCooccurrenceObjects = ['person', 'building', 'tree', 'water', 'mountain']; // For viz2
 const MAX_OBJECTS_MAIN = 5;
 const MAX_OBJECTS_COOC = 7;
-let selectedNationality1 = 'all'; // Nationality filter for graph 1
-let selectedNationality2 = 'all'; // Nationality filter for graph 2
+let selectedNationality1 = 'American'; // Nationality filter for graph 1
+let selectedNationality2 = 'French'; // Nationality filter for graph 2
 let availableNationalities = []; // List of all valid nationalities
 const allObjects = ['person', 'building', 'tree', 'water', 'mountain', 'grass', 'animal', 
     'house', 'road', 'boat', 'rock', 'sidewalk', 'fence', 'sea', 'river', 
@@ -39,6 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
         initInsightsPhotos();
         initVisualization1();
         initVisualization2();
+        initTernaryPlot();
         initMainVisualization();
     });
     
@@ -2085,6 +2086,260 @@ function getFilteredData(graphNumber) {
         const nationalities = parseNationality(photo.origin);
         return nationalities.includes(selectedNationality);
     });
+}
+
+// ===== TERNARY PLOT VISUALIZATION =====
+function initTernaryPlot() {
+    const container = d3.select('#ternary-plot-container');
+    if (container.empty()) return;
+    
+    // Define categories
+    const categories = {
+        people: ['person'],
+        humanBuilt: ['building', 'house', 'road', 'boat', 'sidewalk', 'fence', 'curtain', 
+                     'windowpane', 'chair', 'table', 'hovel', 'tent', 'bridge', 'bench', 'pier', 'column'],
+        nature: ['tree', 'water', 'mountain', 'grass', 'animal', 'rock', 'sea', 'river', 'plant', 'field']
+    };
+    
+    // Calculate percentages for each nationality
+    const nationalityData = [];
+    
+    // Group photos by parsed nationalities
+    const nationalityMap = new Map();
+    photographData.forEach(photo => {
+        const nationalities = parseNationality(photo.origin);
+        nationalities.forEach(nat => {
+            if (!nationalityMap.has(nat)) {
+                nationalityMap.set(nat, []);
+            }
+            nationalityMap.get(nat).push(photo);
+        });
+    });
+    
+    nationalityMap.forEach((photos, nationality) => {
+        if (!nationality || nationality === 'Unknown' || photos.length < 10) return; // Filter out small samples
+        
+        const total = photos.length;
+        
+        // Count photos containing at least one element from each category
+        const peopleCounts = photos.filter(p => 
+            categories.people.some(obj => p[`has_${obj}`] === '1.0')
+        ).length;
+        
+        const humanBuiltCounts = photos.filter(p => 
+            categories.humanBuilt.some(obj => p[`has_${obj}`] === '1.0')
+        ).length;
+        
+        const natureCounts = photos.filter(p => 
+            categories.nature.some(obj => p[`has_${obj}`] === '1.0')
+        ).length;
+        
+        // Calculate percentages (as fractions for d3-ternary)
+        const peoplePercent = peopleCounts / total;
+        const humanBuiltPercent = humanBuiltCounts / total;
+        const naturePercent = natureCounts / total;
+        
+        // Normalize to sum to 1 for ternary plot
+        const sum = peoplePercent + humanBuiltPercent + naturePercent;
+        if (sum === 0) return;
+        
+        nationalityData.push({
+            nationality: nationality,
+            a: peoplePercent / sum,  // People (left vertex)
+            b: humanBuiltPercent / sum,  // Human-Built (right vertex)
+            c: naturePercent / sum,  // Nature (top vertex)
+            totalPhotos: total,
+            rawPeople: (peoplePercent * 100).toFixed(1),
+            rawHumanBuilt: (humanBuiltPercent * 100).toFixed(1),
+            rawNature: (naturePercent * 100).toFixed(1)
+        });
+    });
+    
+    // Draw ternary plot using d3-ternary
+    drawTernaryPlot(container, nationalityData);
+}
+
+function drawTernaryPlot(container, data) {
+    const width = 1000;
+    const height = 800;
+    const radius = 360;
+
+    container.selectAll('*').remove();
+
+    const svg = container.append('svg')
+        .attr('width', width)
+        .attr('height', height)
+        // normal top-left coordinate system
+        .attr('viewBox', `0 0 ${width} ${height}`);
+
+    const chart = svg.append('g').attr('transform', `translate(${width / 2}, ${height * 0.55})`);;
+
+    // Barycentric + plot
+    const bary = d3Ternary.barycentric()
+        .a(d => d.a)
+        .b(d => d.b)
+        .c(d => d.c);
+
+    const plot = d3Ternary.ternaryPlot(bary)
+        .radius(radius)
+        .labels(['People', 'Human-Built', 'Nature'])
+        .labelAngles([0, 0, 0]);
+
+    // --- Outer triangle ---
+    chart.append('path')
+        .attr('d', plot.triangle())
+        .attr('fill', 'none')
+        .attr('stroke', 'rgba(255,255,255,0.5)')
+        .attr('stroke-width', 1.5);
+
+    // --- Grid lines ---
+    const gridLines = plot.gridLines(6);
+    gridLines.forEach(axisLines => {
+        chart.selectAll(null)
+            .data(axisLines)
+            .join('path')
+            .attr('class', 'ternary-grid-line')
+            .attr('d', d3.line())
+            .attr('fill', 'none');
+    });
+
+    // --- Ticks ---
+    const allTicks = plot.ticks();
+    allTicks.forEach(axisTicks => {
+        const gAxis = chart.append('g').attr('class', 'ticks');
+
+        const tickGroups = gAxis.selectAll('g')
+            .data(axisTicks)
+            .join('g')
+            .attr('transform', d => {
+                const [x, y] = d.position;
+                return `translate(${x}, ${y}) rotate(${d.angle})`;
+            });
+
+        tickGroups.append('line')
+            .attr('y2', d => d.size)
+            .attr('stroke', 'rgba(255,255,255,0.5)');
+
+        tickGroups.append('text')
+            .attr('y', d => d.size)
+            .attr('text-anchor', d => d.textAnchor)
+            .style('fill', 'rgba(255,255,255,0.7)')
+            .style('font-size', '12px')
+            .text(d => d.tick);
+    });
+
+    // --- Axis labels ---
+    const labelData = plot.axisLabels();
+    const labelOffsets = {
+        "People": 0,
+        "Human-Built": 50,
+        "Nature": 50
+    };
+    
+    chart.append('g')
+        .attr('class', 'axis-labels')
+        .selectAll('text')
+        .data(labelData)
+        .join('text')
+        .attr('class', 'ternary-axis-label')
+        .attr('x', d => {
+            const [x, y] = d.position;
+            const r = Math.hypot(x, y) || 1;
+
+            const baseRadius = r;
+            const offset = labelOffsets[d.label] ?? 40; // fallback
+            const scale = (baseRadius + offset) / r;
+
+            return x * scale;
+        })
+        .attr('y', d => {
+            const [x, y] = d.position;
+            const r = Math.hypot(x, y) || 1;
+
+            const baseRadius = r;
+            const offset = labelOffsets[d.label] ?? 40;
+            const scale = (baseRadius + offset) / r;
+
+            return y * scale;
+        })
+        .attr('text-anchor', 'middle')
+        .attr('transform', d => {
+            const [x, y] = d.position;
+            const r = Math.hypot(x, y) || 1;
+
+            const baseRadius = r;
+            const offset = labelOffsets[d.label] ?? 40;
+            const scale = (baseRadius + offset) / r;
+
+            const tx = x * scale;
+            const ty = y * scale;
+
+            return `rotate(${d.angle}, ${tx}, ${ty})`;
+        })
+        .text(d => d.label);
+
+    // --- Tooltip ---
+    const tooltip = d3.select('body').selectAll('.ternary-tooltip').data([null]);
+    const tooltipEnter = tooltip.enter().append('div')
+        .attr('class', 'ternary-tooltip viz-tooltip')
+        .style('position', 'absolute')
+        .style('background', 'rgba(0, 0, 0, 0.9)')
+        .style('color', '#fff')
+        .style('padding', '12px 15px')
+        .style('border-radius', '6px')
+        .style('font-size', '13px')
+        .style('pointer-events', 'none')
+        .style('display', 'none')
+        .style('z-index', '10000')
+        .style('box-shadow', '0 4px 12px rgba(0,0,0,0.4)')
+        .style('max-width', '250px');
+    const tooltipDiv = tooltipEnter.merge(tooltip);
+
+    // --- Points ---
+    const points = chart.append('g')
+        .attr('class', 'points')
+        .selectAll('g')
+        .data(data)
+        .join('g')
+        .attr('class', 'point-group');
+
+    points.append('circle')
+        .attr('class', 'ternary-point')
+        .attr('cx', d => plot(d)[0])
+        .attr('cy', d => plot(d)[1])
+        .attr('r', d => Math.min(Math.max(Math.sqrt(d.totalPhotos) * 0.6, 8), 50))
+        .attr('fill', '#D4A574')
+        .attr('opacity', 0.7)
+        .attr('stroke', 'white')
+        .attr('stroke-width', 1.5)
+        .on('mouseover', function(event, d) {
+            d3.select(this)
+                .attr('opacity', 1)
+                .attr('stroke-width', 2.5);
+
+            tooltipDiv
+                .html(`
+                    <strong>${d.nationality}</strong><br/>
+                    <span style="opacity: 0.8;">${d.totalPhotos} photos</span><br/><br/>
+                    <strong>Normalized Balance:</strong><br/>
+                    People: ${(d.a * 100).toFixed(1)}%<br/>
+                    Human-Built: ${(d.b * 100).toFixed(1)}%<br/>
+                    Nature: ${(d.c * 100).toFixed(1)}%<br/><br/>
+                    <strong>% of Photos Containing:</strong><br/>
+                    People: ${d.rawPeople}%<br/>
+                    Human-Built: ${d.rawHumanBuilt}%<br/>
+                    Nature: ${d.rawNature}%
+                `)
+                .style('left', (event.pageX + 15) + 'px')
+                .style('top', (event.pageY + 15) + 'px')
+                .style('display', 'block');
+        })
+        .on('mouseout', function() {
+            d3.select(this)
+                .attr('opacity', 0.7)
+                .attr('stroke-width', 1.5);
+            tooltipDiv.style('display', 'none');
+        });
 }
 
 // ===== MAIN VISUALIZATION: INTERACTIVE TIMELINE =====

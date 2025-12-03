@@ -439,6 +439,48 @@ p {
     position: relative;
 }
 
+/* Ternary Plot */
+#ternary-viz {
+    margin-bottom: 10px;
+}
+
+#ternary-plot-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 600px;
+    position: relative;
+}
+
+#ternary-plot-container svg {
+    max-width: 1000px;
+    height: auto;
+}
+
+.ternary-axis-label {
+    font-size: 24px;
+    font-weight: 600;
+    fill: var(--accent-sepia);
+}
+
+.ternary-grid-line {
+    stroke: rgba(255, 255, 255, 0.15);
+    stroke-width: 1;
+}
+
+.ternary-point {
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.ternary-label {
+    font-size: 16px;
+    fill: white;
+    pointer-events: none;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+}
+
+/* Main Visualization */
 .main-viz {
     min-height: 900px;
     display: flex;

@@ -186,8 +186,16 @@
         <section id="main" class="section">
             <div class="section-content">
                 <h2 class="section-title scroll-fade-up">A Planetary Consciousness in Different Dialects</h2>
-                <p class="section-intro scroll-fade-up">Photography spread globally in these decades. Each culture adopted the technology—but they didn't all photograph the same things. These differences reveal different environmental relationships and values.</p>
-                <p class="section-intro scroll-fade-up">Compare two nationalities side by side. Notice what each culture emphasized—and what that reveals about their relationship to place.</p>
+                <p class="section-intro scroll-fade-up">In the below graph, each point represents a nationality, positioned by the balance of what they photographed: people, human-built structures, or nature. Hover over points to see exact percentages. Notice how different cultures exhibited different balances between the three categories (revealing different relationships and values), but most have a high proportion of nature.</p>
+                
+                <!-- Ternary Plot -->
+                <div id="ternary-viz" class="visualization-container scroll-reveal">
+                    <div id="ternary-plot-container"></div>
+                </div>
+                
+                <p class="section-intro scroll-fade-up" style="margin-top: 60px;">Now, let's compare different nationalities side by side, through time. Notice what each culture emphasized—and what that reveals about their relationship to environment.</p>
+                <p class="section-intro scroll-fade-up" style="margin-top: 60px;">To start you off, notice how for both French and American photographs, the percentage of water photos increased and building photos decreased from 1860 to 1890.</p>
+
                 
                 <div id="main-viz" class="visualization-container main-viz scroll-reveal">
                     <!-- Interactive Controls -->
@@ -195,9 +203,9 @@
                         <div class="control-group">
                             <label>View Type:</label>
                             <div class="toggle-buttons">
-                                <button class="toggle-btn active" data-view="streamgraph">Streamgraph (Count)</button>
+                                <button class="toggle-btn" data-view="streamgraph">Streamgraph (Count)</button>
                                 <button class="toggle-btn" data-view="line">Line Graph (Count)</button>
-                                <button class="toggle-btn" data-view="percentage-stream">Streamgraph (Percentage)</button>
+                                <button class="toggle-btn active" data-view="percentage-stream">Streamgraph (Percentage)</button>
                                 <button class="toggle-btn" data-view="percentage-line">Line Graph (Percentage)</button>
                             </div>
                         </div>
@@ -323,6 +331,15 @@
     </main>
 
     <!-- Scripts -->
+     <script type="module">
+    import {
+        barycentric,
+        ternaryPlot
+    } from "https://cdn.jsdelivr.net/npm/d3-ternary@3/+esm";
+
+    // expose as global so visualizations.js can use it
+    window.d3Ternary = { barycentric, ternaryPlot };
+    </script>
     <script src="images_list.js"></script>
     <script src="scroll-animations.js"></script>
     <script src="visualizations.js"></script>
