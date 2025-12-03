@@ -440,13 +440,25 @@ p {
 }
 
 .main-viz {
-    min-height: 1200px;
+    min-height: 900px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .dual-graph-container {
-    margin-top: 30px;
+    margin-top: 15px;
     position: relative;
     z-index: auto;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.dual-graph-container svg {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
 }
 
 .graph-header {
@@ -1424,6 +1436,12 @@ svg text {
 
 .transition-spacer {
     height: 400vh;
+    width: 100%;
+    background: var(--bg-primary);
+}
+
+.transition-spacer-large {
+    height: 600vh;
     width: 100%;
     background: var(--bg-primary);
 }

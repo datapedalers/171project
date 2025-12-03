@@ -5,12 +5,12 @@ const transitions = {
         element: document.getElementById('insight-text-1'),
         container: document.getElementById('insight-text-1')?.closest('.transition-text-container'),
         texts: [
-            'You might have expected photographs of industrial progress: factories, machines, railroads.',
+            'Given the majority of images are from 1840-1870, you might have expected photographs of industrial progress: factories, machines, railroads.',
             'But that\'s not what dominates this archive.',
-            'Keep that pattern in mind as we look at what photographers actually captured across decades.'
+            'What kinds of things appear again and again?',
         ]
     },
-    // Transition 1
+    // Transition 1 (not sure where this should go)
     1: {
         element: document.getElementById('transition-text-1'),
         container: document.getElementById('transition-text-1')?.closest('.transition-text-container'),
@@ -20,15 +20,15 @@ const transitions = {
             'History books call this "progress." But photographers were creating a different kind of record.',
         ]
     },
-    // Insight 2: After Evolving Depictions
+    // Insight 2
     'insight-2': {
         element: document.getElementById('insight-text-2'),
         container: document.getElementById('insight-text-2')?.closest('.transition-text-container'),
         texts: [
             'Even as industrialization accelerated, photographers didn\'t primarily document machines. They documented place.',
             'Greenery appears in over 37% of photographs. Water in 13%. Mountains in 20%. Buildings almost always appear WITH natural elements, not alone.',
-            'As these elements disappeared from daily life during industrialization, their presence in photographs INCREASED.',
-            'We photograph what we\'re afraid of losing. Photographers in the 1800s couldn\'t articulate climate science—but their cameras knew.'
+            'As these elements disappeared from daily life during industrialization, their presence in photographs INCREASED. We photograph what we\'re afraid of losing.',
+            'Take a look at how the percentage of photos in the Met containing greenery changes over time.'
         ]
     },
     // Transition 2
@@ -36,9 +36,9 @@ const transitions = {
         element: document.getElementById('transition-text-2'),
         container: document.getElementById('transition-text-2')?.closest('.transition-text-container'),
         texts: [
-            'These aren\'t random snapshots. There\'s a deeper pattern here.',
+            'But these photos aren\'t just random snapshots. There\'s a deeper pattern.',
             'Photographers didn\'t capture "tree" or "building" or "water" as separate subjects.',
-            'They photographed relationships. Ecosystems—though they didn\'t have that word yet.',
+            'They photographed relationships. Ecosystems—though they didn\'t have that word yet. Let\'s look at the interconnectedness of the elements.',
         ]
     },
     // Insight 3: After Co-occurrence
@@ -46,20 +46,11 @@ const transitions = {
         element: document.getElementById('insight-text-3'),
         container: document.getElementById('insight-text-3')?.closest('.transition-text-container'),
         texts: [
-            'Tree + Water appear together in 1,847 photographs. Building + Tree: 2,103 photographs. These aren\'t aesthetic choices.',
+            'Tree + Water appear together in 1,847 photographs. Building + Tree: 2,103 photographs. These aren\'t just aesthetic choices.',
             'They\'re documentation of functional relationships. Trees need water. Buildings exist within landscapes. Everything is connected.',
             'Today we use this same analysis—tracking which elements appear together—to monitor ecosystem health from satellites.',
-            'These 19th-century photographers intuited what we now prove with data: we exist in relation to our environment, not apart from it.'
-        ]
-    },
-    // Transition 3
-    3: {
-        element: document.getElementById('transition-text-3'),
-        container: document.getElementById('transition-text-3')?.closest('.transition-text-container'),
-        texts: [
-            'So far, we\'ve seen WHAT was photographed and HOW elements connect.',
-            'Now for the deeper question: WHO? Was this pattern universal, or did different cultures see the world differently?',
-            'What you\'re about to see reveals something profound about cultural values and environmental consciousness.',
+            'These 19th-century photographers intuited what we now prove with data: we exist in relation to our environment, not apart from it.',
+            'So far, we\'ve seen WHAT was photographed and HOW elements connect. Now for the deeper question: WHO? Was this pattern universal, or did different cultures see the world differently?'
         ]
     },
     // Insight 4: After Timeline

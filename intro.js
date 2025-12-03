@@ -32,7 +32,6 @@ function initIntro() {
         'The Metropolitan Museum of Art contains thousands of photographs.',
         'These photographs span from 1839 to the 2020s.',
         'Together, they offer a vast record of what photographers chose to capture.',
-        'What kinds of things appear again and again?',
     ];
 
     const setRandomImage = () => {

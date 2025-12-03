@@ -2089,15 +2089,29 @@ function getFilteredData(graphNumber) {
 
 // ===== MAIN VISUALIZATION: INTERACTIVE TIMELINE =====
 function initMainVisualization() {
-    // Create both graphs
-    createGraph(1);
-    createGraph(2);
+    // Calculate shared x-axis domain across both graphs
+    const data1 = getFilteredData(1);
+    const data2 = getFilteredData(2);
+    const allData = [...data1, ...data2];
+    
+    // Get all decades from both datasets
+    const allDecades = allData
+        .map(d => Math.floor(+d.creation_year / 10) * 10)
+        .filter(d => d >= 1840 && d <= 2020);
+    
+    const sharedDomain = allDecades.length > 0 
+        ? [Math.min(...allDecades), Math.max(...allDecades)]
+        : [1840, 2020];
+    
+    // Create both graphs with shared domain
+    createGraph(1, sharedDomain);
+    createGraph(2, sharedDomain);
 }
 
-function createGraph(graphNumber) {
+function createGraph(graphNumber, sharedXDomain) {
     const container = d3.select(`#timeline-viz-${graphNumber}`);
     const width = 1100;
-    const height = 500;
+    const height = 400;
     
     // Clear any existing content
     container.selectAll('*').remove();
@@ -2112,13 +2126,13 @@ function createGraph(graphNumber) {
     // If we have data, create the visualization
     if (photographData.length > 0) {
         if (currentViewType === 'streamgraph') {
-            createStreamgraph(svg, width, height, graphNumber);
+            createStreamgraph(svg, width, height, graphNumber, sharedXDomain);
         } else if (currentViewType === 'line') {
-            createLineGraph(svg, width, height, graphNumber);
+            createLineGraph(svg, width, height, graphNumber, sharedXDomain);
         } else if (currentViewType === 'percentage-stream') {
-            createStreamgraphPercentage(svg, width, height, graphNumber);
+            createStreamgraphPercentage(svg, width, height, graphNumber, sharedXDomain);
         } else if (currentViewType === 'percentage-line') {
-            createLineGraphPercentage(svg, width, height, graphNumber);
+            createLineGraphPercentage(svg, width, height, graphNumber, sharedXDomain);
         }
     } else {
         // Placeholder
@@ -2126,7 +2140,7 @@ function createGraph(graphNumber) {
     }
 }
 
-function createStreamgraph(svg, width, height, graphNumber) {
+function createStreamgraph(svg, width, height, graphNumber, sharedXDomain) {
     const margin = { top: 40, right: 150, bottom: 60, left: 80 };
     const innerWidth = width - margin.left - margin.right;
     const innerHeight = height - margin.top - margin.bottom;
@@ -2153,9 +2167,9 @@ function createStreamgraph(svg, width, height, graphNumber) {
         return result;
     });
     
-    // Scales
+    // Scales - use shared domain
     const xScale = d3.scaleLinear()
-        .domain(d3.extent(timelineData, d => d.decade))
+        .domain(sharedXDomain)
         .range([0, innerWidth]);
     
     // Stack data for streamgraph
@@ -2267,7 +2281,7 @@ function createStreamgraph(svg, width, height, graphNumber) {
         .text('Year');
 }
 
-function createLineGraph(svg, width, height, graphNumber) {
+function createLineGraph(svg, width, height, graphNumber, sharedXDomain) {
     const margin = { top: 40, right: 150, bottom: 60, left: 80 };
     const innerWidth = width - margin.left - margin.right;
     const innerHeight = height - margin.top - margin.bottom;
@@ -2294,9 +2308,9 @@ function createLineGraph(svg, width, height, graphNumber) {
         return result;
     });
     
-    // Scales
+    // Scales - use shared domain
     const xScale = d3.scaleLinear()
-        .domain(d3.extent(timelineData, d => d.decade))
+        .domain(sharedXDomain)
         .range([0, innerWidth]);
     
     const maxCount = d3.max(timelineData, d => d3.max(selectedObjects.map(obj => d[obj])));
@@ -2426,7 +2440,7 @@ function createLineGraph(svg, width, height, graphNumber) {
         .text('# of Works');
 }
 
-function createStreamgraphPercentage(svg, width, height, graphNumber) {
+function createStreamgraphPercentage(svg, width, height, graphNumber, sharedXDomain) {
     const margin = { top: 40, right: 150, bottom: 60, left: 80 };
     const innerWidth = width - margin.left - margin.right;
     const innerHeight = height - margin.top - margin.bottom;
@@ -2455,9 +2469,9 @@ function createStreamgraphPercentage(svg, width, height, graphNumber) {
         return result;
     });
     
-    // Scales
+    // Scales - use shared domain
     const xScale = d3.scaleLinear()
-        .domain(d3.extent(timelineData, d => d.decade))
+        .domain(sharedXDomain)
         .range([0, innerWidth]);
     
     // Stack data for streamgraph (using wiggle offset for centered flow)
@@ -2569,7 +2583,7 @@ function createStreamgraphPercentage(svg, width, height, graphNumber) {
         .text('Year');
 }
 
-function createLineGraphPercentage(svg, width, height, graphNumber) {
+function createLineGraphPercentage(svg, width, height, graphNumber, sharedXDomain) {
     const margin = { top: 40, right: 150, bottom: 60, left: 80 };
     const innerWidth = width - margin.left - margin.right;
     const innerHeight = height - margin.top - margin.bottom;
@@ -2598,9 +2612,9 @@ function createLineGraphPercentage(svg, width, height, graphNumber) {
         return result;
     });
     
-    // Scales
+    // Scales - use shared domain
     const xScale = d3.scaleLinear()
-        .domain(d3.extent(timelineData, d => d.decade))
+        .domain(sharedXDomain)
         .range([0, innerWidth]);
     
     const yScale = d3.scaleLinear()
