@@ -26,7 +26,7 @@ const transitions = {
         container: document.getElementById('insight-text-2')?.closest('.transition-text-container'),
         texts: [
             'Even as industrialization accelerated, photographers didn\'t primarily document machines. They documented place.',
-            'Greenery appears in over 37% of photographs. Water in 13%. Mountains in 20%. Buildings almost always appear WITH natural elements, not alone.',
+            'Greenery appears in over 37% of all gphotographs. Water in 13%. Mountains in 20%. Buildings almost always appear WITH natural elements, not alone.',
             'As these elements disappeared from daily life during industrialization, their presence in photographs INCREASED.',
             'We photograph what we\'re afraid of losing. Photographers in the 1800s couldn\'t articulate climate science—but their cameras knew.'
         ]
